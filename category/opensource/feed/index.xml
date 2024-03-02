@@ -1,0 +1,289 @@
+<?xml version="1.0" encoding="UTF-8"?><rss version="2.0"
+	xmlns:content="http://purl.org/rss/1.0/modules/content/"
+	xmlns:wfw="http://wellformedweb.org/CommentAPI/"
+	xmlns:dc="http://purl.org/dc/elements/1.1/"
+	xmlns:atom="http://www.w3.org/2005/Atom"
+	xmlns:sy="http://purl.org/rss/1.0/modules/syndication/"
+	xmlns:slash="http://purl.org/rss/1.0/modules/slash/"
+	>
+
+<channel>
+	<title>Open Source &#8211; J O H N R A . M E</title>
+	<atom:link href="/category/opensource/feed/" rel="self" type="application/rss+xml" />
+	<link>/</link>
+	<description>...yet another musings of a techie</description>
+	<lastBuildDate>Sat, 12 Feb 2022 02:43:20 +0000</lastBuildDate>
+	<language>en-US</language>
+	<sy:updatePeriod>
+	hourly	</sy:updatePeriod>
+	<sy:updateFrequency>
+	1	</sy:updateFrequency>
+	<generator>https://wordpress.org/?v=5.9.2</generator>
+	<item>
+		<title>Java-based Tetris Game</title>
+		<link>/2014/04/06/java-based-tetris-game/</link>
+		
+		<dc:creator><![CDATA[John Ra]]></dc:creator>
+		<pubDate>Sun, 06 Apr 2014 20:44:43 +0000</pubDate>
+				<category><![CDATA[Java]]></category>
+		<category><![CDATA[Open Source]]></category>
+		<guid isPermaLink="false">http://blog.jstrgames.com/?p=383</guid>
+
+					<description><![CDATA[I&#8217;ve been planning to write some tutorials on design patterns. I just need to find some time and my day job at the corporate world has kept me busy. I plan to use this code base from a java tetris application I wrote a while back. I&#8217;ve done some clean ups &#8211; who&#8217;s not embarrassed by their old code. Don&#8217;t worry, I haven&#8217;t completely cleaned it up. After all, the plan is to write tutorials on design patterns that would help improve this code. My first topic, when I do get some time, will be Chain of Responsibility.]]></description>
+										<content:encoded><![CDATA[<p>I&#8217;ve been planning to write some tutorials on design patterns. I just need to find some time and my day job at the corporate world has kept me busy. I plan to use <a href="https://github.com/johnra74/tetris">this code base</a> from a java tetris application I wrote a while back. I&#8217;ve done some clean ups &#8211; who&#8217;s not embarrassed by their old code. Don&#8217;t worry, I haven&#8217;t completely cleaned it up. After all, the plan is to write tutorials on design patterns that would help improve this code. My first topic, when I do get some time, will be <a href="/2014/05/06/design-pattern-chain-of-responsibility/">Chain of Responsibility</a>.</p>
+]]></content:encoded>
+					
+		
+		
+			</item>
+		<item>
+		<title>Fluent Interface by Example</title>
+		<link>/2014/03/01/fluent-interface-by-example/</link>
+		
+		<dc:creator><![CDATA[John Ra]]></dc:creator>
+		<pubDate>Sat, 01 Mar 2014 22:30:17 +0000</pubDate>
+				<category><![CDATA[Java]]></category>
+		<category><![CDATA[Open Source]]></category>
+		<category><![CDATA[Patterns]]></category>
+		<category><![CDATA[Tutorial]]></category>
+		<category><![CDATA[Development]]></category>
+		<category><![CDATA[SharePoint]]></category>
+		<guid isPermaLink="false">http://blog.jstrgames.com/?p=364</guid>
+
+					<description><![CDATA[Chances are you have seen Fluent Interface in action. I&#8217;ve seen it without realizing what they were until I stumbled across Martin Fowler&#8217;s blog. The aim is simple &#8211; to provide for a more readable code. SharePoint APISeveral years ago, I wrote a SharePoint API in Java to interact with its List Soap Service. This soap service had a feature to query the target list using Collaborative Application Markup Language (CAML). Here&#8217;s an example of CAML query to filter the task list where the TaskName is &#8220;Foo Bar&#8221; and the Status is &#8220;In Progress&#8221;. As part of this SharePoint API,&#8230;]]></description>
+										<content:encoded><![CDATA[
+<p>Chances are you have seen Fluent Interface in action. I&#8217;ve seen it without realizing what they were until I stumbled across <a href="http://martinfowler.com/bliki/FluentInterface.html">Martin Fowler&#8217;s blog</a>. The aim is simple &#8211; to provide for a more readable code.</p>
+
+
+
+<p><strong>SharePoint API</strong><br>Several years ago, I wrote a SharePoint API in Java to interact with its List Soap Service. This soap service had a feature to query the target list using <a href="http://msdn.microsoft.com/en-us/library/office/ms467521(v=office.15).aspx">Collaborative Application Markup Language (CAML)</a>. Here&#8217;s an example of CAML query to filter the task list where the TaskName is &#8220;Foo Bar&#8221; and the Status is &#8220;In Progress&#8221;.</p>
+
+
+
+<pre class="wp-block-code"><code>&lt;query&gt;
+  &lt;where&gt;
+    &lt;and&gt;
+      &lt;eq&gt;
+        &lt;fieldref name="TaskName"&gt;
+        &lt;value type="Text"&gt;Foo Bar&lt;/value&gt;
+      &lt;/fieldref&gt;&lt;/eq&gt;
+      &lt;eq&gt;
+        &lt;fieldref name="Status"&gt;
+        &lt;value type="Text"&gt;In Progress&lt;/value&gt;
+      &lt;/fieldref&gt;&lt;/eq&gt;
+    &lt;/and&gt;
+   &lt;/where&gt;
+&lt;/query&gt;</code></pre>
+
+
+
+<p>As part of this SharePoint API, I had written a corresponding set of Java classes &#8211; each node represented by a class. For trivial query like above, it would look like the following:</p>
+
+
+
+<pre class="wp-block-code"><code>final Expression leftExpression = new Equals(new Field("TaskName", "Foo Bar"));
+final Expression rightExpression = new Equals(new Field("Status", "In Progress"));
+final Condition condition = new And(leftExpression, rightExpression);
+final Where clause = new Where(condition);
+final Query query = new Query(clause);</code></pre>
+
+
+
+<p>As you can predict, for complicated scenarios, this would quickly become unreadable. By applying the concept of Fluent Interface, we can make it far more readable. For example, the above become the following:</p>
+
+
+
+<pre class="wp-block-code"><code>final Where clause =
+  new Where(
+    and(eq("TaskName", "Foo Bar"),
+        eq("Status", "In Progress")));</code></pre>
+
+
+
+<p><strong>Applying Fluent Interface</strong><br>A good Fluent Interface takes a while to build. It should be built with the goal of readability and flow in mind. Return type should be chosen based on what you need to continue fluent action. Here&#8217;s the SharePoint API implementation. For the complete implementation, please see <a href="https://github.com/johnra74/sharepoint-api/blob/master/sharepoint/sharepoint-lib/src/main/java/com/jstrgames/sharepoint/query/Where.java">GitHub Source</a>.</p>
+
+
+
+<pre class="wp-block-code"><code>.
+.
+.
+public static Condition and(Expression left, Expression right) {
+  return new And(left, right);
+}
+
+public static Condition and(Expression left, Condition right) {
+  return new And(left, right);
+}
+
+public static Condition and(Condition left, Expression right) {
+  return new And(left, right);
+}
+
+public static Condition and(Condition left, Condition right) {
+  return new And(left, right);
+}
+.
+.
+.
+public static Expression eq(Field field) {
+  return new Equals(field);
+}</code></pre>
+
+
+
+<p>For complicated scenarios where you want to get all task assigned to John with status in &#8220;New&#8221; or &#8220;In Progress&#8221; and task created after Jan 1, 2014, the CAML would like the following.</p>
+
+
+
+<pre class="wp-block-code"><code>&lt;query&gt;
+  &lt;where&gt;
+    &lt;and&gt;
+      &lt;eq&gt;
+        &lt;fieldref name="AssignedTo"&gt;
+        &lt;value type="Text"&gt;John&lt;/value&gt;
+      &lt;/fieldref&gt;&lt;/eq&gt;
+      &lt;and&gt;
+        &lt;or&gt;
+          &lt;eq&gt;
+            &lt;fieldref name="Status"&gt;
+            &lt;value type="Text"&gt;New&lt;/value&gt;
+          &lt;/fieldref&gt;&lt;/eq&gt;
+          &lt;eq&gt;
+            &lt;fieldref name="Status"&gt;
+            &lt;value type="Text"&gt;In Progress&lt;/value&gt;
+          &lt;/fieldref&gt;&lt;/eq&gt;
+        &lt;/or&gt;
+        &lt;gt&gt;
+          &lt;fieldref name="CreateDate"&gt;
+          &lt;value type="DateTime"&gt;2014-01-01T00:00:00Z&lt;/value&gt;
+        &lt;/fieldref&gt;&lt;/gt&gt;
+    &lt;/and&gt;
+   &lt;/and&gt;&lt;/where&gt;
+&lt;/query&gt;</code></pre>
+
+
+
+<p>Here&#8217;s the same in Fluent Interface</p>
+
+
+
+<pre class="wp-block-code"><code>final Where clause =
+  new Where(
+    and(eq("AssignedTo", "John"),
+    and(
+      or(eq("Status", "New"),
+         eq("Status", "In Progress")),
+      gt("CreateDate", "2014-01-01T00:00:00Z"))));</code></pre>
+]]></content:encoded>
+					
+		
+		
+			</item>
+		<item>
+		<title>Application Health Monitor</title>
+		<link>/2013/09/06/application-health-monitor/</link>
+		
+		<dc:creator><![CDATA[John Ra]]></dc:creator>
+		<pubDate>Sat, 07 Sep 2013 00:57:13 +0000</pubDate>
+				<category><![CDATA[Java]]></category>
+		<category><![CDATA[Open Source]]></category>
+		<category><![CDATA[HttpComponent]]></category>
+		<category><![CDATA[Infrastructure]]></category>
+		<category><![CDATA[Maintenance]]></category>
+		<category><![CDATA[Productivity]]></category>
+		<guid isPermaLink="false">http://blog.jstrgames.com/?p=341</guid>
+
+					<description><![CDATA[I&#8217;ve been meaning to contribute to open source for some time. I really didn&#8217;t have anything particularly in mind to what I wanted to publish. However, I&#8217;ve been dealing with varying degree of integration complexityÂ to some of my application environments at the office. Inevitably, someone would scratch their head for several minutes trying to figure out why something failed only to realize that it was due to an external dependency. Needless to say, a simple tool that would provide a holistic view of the system could have saved them some pain. This could then be expanded to other environments: shared&#8230;]]></description>
+										<content:encoded><![CDATA[<p>I&#8217;ve been meaning to contribute to open source for some time. I really didn&#8217;t have anything particularly in mind to what I wanted to publish. However, I&#8217;ve been dealing with varying degree of integration complexityÂ to some of my application environments at the office. Inevitably, someone would scratch their head for several minutes trying to figure out why something failed only to realize that it was due to an external dependency. Needless to say, a simple tool that would provide a holistic view of the system could have saved them some pain. This could then be expanded to other environments: shared development, integration, UAT, QA, and Production. A single page that would provide an overview of the health of the specified environment would be very helpful.</p>
+<p><strong>Application Monitoring</strong></p>
+<p>There are several things to consider when monitoring an application. This is not meant as an exhaustive list but here are few items:</p>
+<ul>
+<li>application state</li>
+<li>resource utilization</li>
+<li>proactively report application errors</li>
+<li>module/component status</li>
+<li>external dependency status (databases, services, etc.)</li>
+</ul>
+<p>The monitor should be proactive and not reactive. It should provide early enough warning before something goes wrong. This includes monitoring dependencies and the application itself.Â There are tools that monitor logs and report when it detects various errors in the log file. Although this is better than nothing, it&#8217;s too reactive. If you&#8217;re lucky enough to have nagios in-house, this is better. However, in most cases, they are configured only for Production and, if lucky, QA. However, for other environments, it may be an overkill to use nagios.</p>
+<p><strong>Health Monitoring</strong></p>
+<p>The purpose of my <a href="https://github.com/johnra74/health-monitor">health monitor tool</a> is to provide a simple framework to quickly setup and actively check the overall health of any application.</p>
+<p><a href="/wp-content/uploads/2013/09/healthmonitor.png"><img loading="lazy" class="aligncenter size-full wp-image-345" src="/wp-content/uploads/2013/09/healthmonitor.png" alt="healthmonitor" width="749" height="349" /></a></p>
+<p>Health monitoring tool is built on the following open source frameworks:</p>
+<ul>
+<li><a href="http://quartz-scheduler.org/">quartz-scheduler</a> &#8211; used to schedule recurring checks to verify your site, components/modules, and dependencies</li>
+<li><a href="http://hc.apache.org/">apache httpcomponents</a> &#8211; used to retrieve resources (JSON/HTML) from HTTP/HTTPS servers</li>
+<li><a href="http://grizzly.java.net/">grizzly NIO framework</a> &#8211; used as embedded web container to host status page (see above screenshot)</li>
+<li><a href="https://github.com/FasterXML/jackson">jackson</a> &#8211; used to parse JSON resources and configuration</li>
+<li><a href="http://freemarker.org/">freemarker</a> &#8211; used for web/email template</li>
+<li><a href="http://www.oracle.com/technetwork/java/javamail/index.html">javamail</a> &#8211; used to send failure notification</li>
+</ul>
+<p>It can proactively check your application and its dependencies with predefined service checks:</p>
+<ul>
+<li><a href="https://github.com/johnra74/health-monitor/blob/master/health-monitor/src/main/java/com/jstrgames/monitor/svc/impl/HttpService.java">com.jstrgames.monitor.svc.impl.HttpService</a> &#8211; make non-SSL web call</li>
+<li><a href="https://github.com/johnra74/health-monitor/blob/master/health-monitor/src/main/java/com/jstrgames/monitor/svc/impl/HttpsService.java">com.jstrgames.monitor.svc.impl.HttpsService</a> &#8211; make SSL web call</li>
+<li><a href="https://github.com/johnra74/health-monitor/blob/master/health-monitor/src/main/java/com/jstrgames/monitor/svc/impl/SimpleJmxService.java">com.jstrgames.monitor.svc.impl.SimpleJmxService</a> &#8211; make simple remote JMX calls</li>
+<li><a href="https://github.com/johnra74/health-monitor/blob/master/health-monitor/src/main/java/com/jstrgames/monitor/svc/impl/SocketService.java">com.jstrgames.monitor.svc.impl.SocketService</a> &#8211; make a client socket call</li>
+</ul>
+<p>It can then verify these services with predefined rules:</p>
+<ul>
+<li><a href="https://github.com/johnra74/health-monitor/blob/master/health-monitor/src/main/java/com/jstrgames/monitor/rule/HttpResponseCode.java">com.jstrgames.monitor.rule.HttpResponseCode</a> &#8211; check if expected status code returned</li>
+<li><a href="https://github.com/johnra74/health-monitor/blob/master/health-monitor/src/main/java/com/jstrgames/monitor/rule/HttpResponseBody.java">com.jstrgames.monitor.rule.HttpResponseBody</a> &#8211; check if body contains expected values</li>
+<li><a href="https://github.com/johnra74/health-monitor/blob/master/health-monitor/src/main/java/com/jstrgames/monitor/rule/JsonResponse.java">com.jstrgames.monitor.rule.JsonResponse</a> &#8211; check if specified JSON key has expected value</li>
+<li><a href="https://github.com/johnra74/health-monitor/blob/master/health-monitor/src/main/java/com/jstrgames/monitor/rule/SimpleJmxResult.java">com.jstrgames.monitor.rule.SimpleJmxResult</a> &#8211; check if specified JMX attribute has expected value</li>
+</ul>
+<p>All can be configured on a simple <a href="https://github.com/johnra74/health-monitor/blob/master/health-monitor/src/test/resources/demo.services.json">JSON format configuration file</a>.</p>
+<p><strong>Example: Checking HTTPS site</strong></p>
+<p>The use case is to verify that the text &#8220;Google Search&#8221; and &#8220;I&#8217;m Feeling Lucky&#8221; appears on the google.com page every 5 minutes:</p>
+
+
+<pre class="wp-block-code"><code>&#91;{"servicename": "HTTPS Example (SSL)",
+  "classname": "com.jstrgames.monitor.svc.impl.HttpsService",
+  "schedule": "0 0/5 * * * ?",
+  "hostname": "www.google.com",
+  "port": 443,
+  "uri": "/",
+  "rules": &#91;{
+    "classname": "com.jstrgames.monitor.rule.HttpResponseCode",
+    "condition": "equals",
+    "expected": 200
+  },{
+    "classname": "com.jstrgames.monitor.rule.HttpResponseBody",
+    "condition": "contains",
+    "expected": "Google Search"
+  },{
+    "classname": "com.jstrgames.monitor.rule.HttpResponseBody",
+    "condition": "contains",
+    "expected": "I'm Feeling Lucky"
+  }]
+}]</code></pre>
+
+
+
+<p>Here, class com.jstrgames.monitor.svc.impl.HttpsService is used check www.google.com at port 443. Once the resource has been retrieved, 3 rules are executed:</p>
+
+
+
+<ul><li>verify http response code is 200</li><li>verify http response body contains the phrase &#8220;Google Search&#8221;</li><li>verify http response body contains the phrase &#8220;I&#8217;m Feeling Lucky&#8221;</li></ul>
+
+
+
+<p>If any of the above checks fails, service is considered to be in &#8220;FAIL&#8221; status. If it fails to connect to said service, it is in &#8220;ERROR&#8221; status. It will also send out a notification and user will see a similar content in their inbox, granted, not as pretty.</p>
+
+
+
+<div class="wp-block-image"><figure class="aligncenter"><a href="/wp-content/uploads/2013/09/healthmonitor.email_.png"><img src="/wp-content/uploads/2013/09/healthmonitor.email_.png" alt="healthmonitor.email" class="wp-image-353"/></a></figure></div>
+
+
+
+<p>For more details, please go to my <a href="https://github.com/johnra74/health-monitor/blob/master/health-monitor">github repository</a>. I will be updating its wiki page soon.</p>
+
+
+
+<p></p>
+]]></content:encoded>
+					
+		
+		
+			</item>
+	</channel>
+</rss>

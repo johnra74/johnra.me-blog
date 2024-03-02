@@ -1,0 +1,53 @@
+<?xml version="1.0" encoding="UTF-8"?><rss version="2.0"
+	xmlns:content="http://purl.org/rss/1.0/modules/content/"
+	xmlns:wfw="http://wellformedweb.org/CommentAPI/"
+	xmlns:dc="http://purl.org/dc/elements/1.1/"
+	xmlns:atom="http://www.w3.org/2005/Atom"
+	xmlns:sy="http://purl.org/rss/1.0/modules/syndication/"
+	xmlns:slash="http://purl.org/rss/1.0/modules/slash/"
+	>
+
+<channel>
+	<title>ASP.NET &#8211; J O H N R A . M E</title>
+	<atom:link href="/category/dotnet/aspnet/feed/" rel="self" type="application/rss+xml" />
+	<link>/</link>
+	<description>...yet another musings of a techie</description>
+	<lastBuildDate>Sat, 12 Feb 2022 02:43:20 +0000</lastBuildDate>
+	<language>en-US</language>
+	<sy:updatePeriod>
+	hourly	</sy:updatePeriod>
+	<sy:updateFrequency>
+	1	</sy:updateFrequency>
+	<generator>https://wordpress.org/?v=5.9.2</generator>
+	<item>
+		<title>These are not the settings you&#8217;re looking for</title>
+		<link>/2012/08/31/iiscompression/</link>
+		
+		<dc:creator><![CDATA[John Ra]]></dc:creator>
+		<pubDate>Fri, 31 Aug 2012 22:16:56 +0000</pubDate>
+				<category><![CDATA[ASP.NET]]></category>
+		<category><![CDATA[IIS]]></category>
+		<category><![CDATA[Infrastructure]]></category>
+		<category><![CDATA[Maintenance]]></category>
+		<category><![CDATA[Performance]]></category>
+		<guid isPermaLink="false">http://blog.jstrgames.com/?p=104</guid>
+
+					<description><![CDATA[One of the biggest benefits to building anything in .NET is that, in relatively short time, a fully functioning application can beÂ built using Visual Studio. HadÂ a similar application were to beÂ built using Java, a lot of ramp-up time would be required for what I would call &#8220;core infrastructure&#8221;, something that&#8217;s handled very wellÂ by Visual Studio. As a developer, youÂ canÂ start coding right away.Â And yes, I&#8217;m aware of AppFuse. I&#8217;ve used it in the past and it does address a lot of these ramp-up efforts. But, I&#8217;ll leave that discussion for another time. One of the pitfalls of these ease ofÂ development is&#8230;]]></description>
+										<content:encoded><![CDATA[<p>One of the biggest benefits to building anything in .NET is that, in relatively short time, a fully functioning application can beÂ built using Visual Studio. HadÂ a similar application were to beÂ built using Java, a lot of ramp-up time would be required for what I would call &#8220;core infrastructure&#8221;, something that&#8217;s handled very wellÂ by Visual Studio. As a developer, youÂ canÂ start coding right away.Â And yes, I&#8217;m aware of <a href="http://appfuse.org/display/APF/Home">AppFuse</a>. I&#8217;ve used it in the past and it does address a lot of these ramp-up efforts. But, I&#8217;ll leave that discussion for another time. One of the pitfalls of these ease ofÂ development is that you end up with developers that rely on what the tool reports. They assume what is displayed is correct and don&#8217;t think to challenge or question what is reported to them.Â However, it&#8217;s necessary to look under the hood and what you may find could be quite a different story.</p>
+<p><strong>Compression Issue</strong><br />
+I was recently asked to investigate performance issues on a vendor application built on ASP.NET running on a pool of IIS 6.0. One of the first things I like toÂ check is to ensureÂ that the compression settings are enabled.</p>
+<p><a href="/wp-content/uploads/2012/08/IIS_Compression.png"><img loading="lazy" class="alignnone size-full wp-image-105" title="IIS_Compression" src="/wp-content/uploads/2012/08/IIS_Compression.png" alt="" width="656" height="461" /></a></p>
+<p>As expected, IIS Management Console did report that compression settings were properly enabled. Nevertheless, on closer inspection of HTTP transmissions, <a href="http://www.fiddler2.com/fiddler2/">Fiddler</a>Â clearly showsÂ that all javascripts or css files were transmitted in raw text. In fact, all static ASCII files sent over the wire wasn&#8217;tÂ compressed at all. How could that be?</p>
+<p><a href="/wp-content/uploads/2012/08/IIS_Fiddler.png"><img loading="lazy" class="alignnone size-full wp-image-106" title="IIS_Fiddler" src="/wp-content/uploads/2012/08/IIS_Fiddler.png" alt="" width="760" height="503" /></a></p>
+<p>Given that the browser clearly indicated that it can acceptÂ gzip and deflate encoding, the response body should have been compressed. Was it possible that IIS management console was displaying the wrong information? Or, is thereÂ a deeper issue that resulted in static files being transmitted in raw uncompressed stream. How can I look under the hood to confirm that IIS wasn&#8217;t displaying the correct information?</p>
+<p><strong>IIS Metabase Explorer</strong><br />
+IIS Metabase Explore isÂ one of many tools that comes with <a href="http://www.microsoft.com/en-us/download/details.aspx?id=17275">IIS Resource Kit</a>.Â It is a graphical user interface for viewing and editing IIS Metabase stores. In essence, it lets you look under the hood of IIS.</p>
+<p><a href="/wp-content/uploads/2012/08/IIS_Metabase.png"><img loading="lazy" class="alignnone size-full wp-image-109" title="IIS_Metabase" src="/wp-content/uploads/2012/08/IIS_Metabase.png" alt="" width="789" height="484" /></a></p>
+<p>Although IIS Management Console stated that compress was enabled, Metabase Explorer tells a difference story. It confirms why static files were sent uncompressed. This minor difference resulted in sending 2 MB of content to client browsers for a simple test scenario. Once compression was re-enabled, the same scenario resulted in reduction of content down to 200 KB. That&#8217;s a difference in factor of 10, a noticeable difference.</p>
+]]></content:encoded>
+					
+		
+		
+			</item>
+	</channel>
+</rss>

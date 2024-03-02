@@ -1,0 +1,256 @@
+<?xml version="1.0" encoding="UTF-8"?><rss version="2.0"
+	xmlns:content="http://purl.org/rss/1.0/modules/content/"
+	xmlns:wfw="http://wellformedweb.org/CommentAPI/"
+	xmlns:dc="http://purl.org/dc/elements/1.1/"
+	xmlns:atom="http://www.w3.org/2005/Atom"
+	xmlns:sy="http://purl.org/rss/1.0/modules/syndication/"
+	xmlns:slash="http://purl.org/rss/1.0/modules/slash/"
+	>
+
+<channel>
+	<title>Productivity &#8211; J O H N R A . M E</title>
+	<atom:link href="/tag/productivity/feed/" rel="self" type="application/rss+xml" />
+	<link>/</link>
+	<description>...yet another musings of a techie</description>
+	<lastBuildDate>Sat, 12 Feb 2022 02:43:20 +0000</lastBuildDate>
+	<language>en-US</language>
+	<sy:updatePeriod>
+	hourly	</sy:updatePeriod>
+	<sy:updateFrequency>
+	1	</sy:updateFrequency>
+	<generator>https://wordpress.org/?v=5.9.2</generator>
+	<item>
+		<title>Application Health Monitor</title>
+		<link>/2013/09/06/application-health-monitor/</link>
+		
+		<dc:creator><![CDATA[John Ra]]></dc:creator>
+		<pubDate>Sat, 07 Sep 2013 00:57:13 +0000</pubDate>
+				<category><![CDATA[Java]]></category>
+		<category><![CDATA[Open Source]]></category>
+		<category><![CDATA[HttpComponent]]></category>
+		<category><![CDATA[Infrastructure]]></category>
+		<category><![CDATA[Maintenance]]></category>
+		<category><![CDATA[Productivity]]></category>
+		<guid isPermaLink="false">http://blog.jstrgames.com/?p=341</guid>
+
+					<description><![CDATA[I&#8217;ve been meaning to contribute to open source for some time. I really didn&#8217;t have anything particularly in mind to what I wanted to publish. However, I&#8217;ve been dealing with varying degree of integration complexityÂ to some of my application environments at the office. Inevitably, someone would scratch their head for several minutes trying to figure out why something failed only to realize that it was due to an external dependency. Needless to say, a simple tool that would provide a holistic view of the system could have saved them some pain. This could then be expanded to other environments: shared&#8230;]]></description>
+										<content:encoded><![CDATA[<p>I&#8217;ve been meaning to contribute to open source for some time. I really didn&#8217;t have anything particularly in mind to what I wanted to publish. However, I&#8217;ve been dealing with varying degree of integration complexityÂ to some of my application environments at the office. Inevitably, someone would scratch their head for several minutes trying to figure out why something failed only to realize that it was due to an external dependency. Needless to say, a simple tool that would provide a holistic view of the system could have saved them some pain. This could then be expanded to other environments: shared development, integration, UAT, QA, and Production. A single page that would provide an overview of the health of the specified environment would be very helpful.</p>
+<p><strong>Application Monitoring</strong></p>
+<p>There are several things to consider when monitoring an application. This is not meant as an exhaustive list but here are few items:</p>
+<ul>
+<li>application state</li>
+<li>resource utilization</li>
+<li>proactively report application errors</li>
+<li>module/component status</li>
+<li>external dependency status (databases, services, etc.)</li>
+</ul>
+<p>The monitor should be proactive and not reactive. It should provide early enough warning before something goes wrong. This includes monitoring dependencies and the application itself.Â There are tools that monitor logs and report when it detects various errors in the log file. Although this is better than nothing, it&#8217;s too reactive. If you&#8217;re lucky enough to have nagios in-house, this is better. However, in most cases, they are configured only for Production and, if lucky, QA. However, for other environments, it may be an overkill to use nagios.</p>
+<p><strong>Health Monitoring</strong></p>
+<p>The purpose of my <a href="https://github.com/johnra74/health-monitor">health monitor tool</a> is to provide a simple framework to quickly setup and actively check the overall health of any application.</p>
+<p><a href="/wp-content/uploads/2013/09/healthmonitor.png"><img loading="lazy" class="aligncenter size-full wp-image-345" src="/wp-content/uploads/2013/09/healthmonitor.png" alt="healthmonitor" width="749" height="349" /></a></p>
+<p>Health monitoring tool is built on the following open source frameworks:</p>
+<ul>
+<li><a href="http://quartz-scheduler.org/">quartz-scheduler</a> &#8211; used to schedule recurring checks to verify your site, components/modules, and dependencies</li>
+<li><a href="http://hc.apache.org/">apache httpcomponents</a> &#8211; used to retrieve resources (JSON/HTML) from HTTP/HTTPS servers</li>
+<li><a href="http://grizzly.java.net/">grizzly NIO framework</a> &#8211; used as embedded web container to host status page (see above screenshot)</li>
+<li><a href="https://github.com/FasterXML/jackson">jackson</a> &#8211; used to parse JSON resources and configuration</li>
+<li><a href="http://freemarker.org/">freemarker</a> &#8211; used for web/email template</li>
+<li><a href="http://www.oracle.com/technetwork/java/javamail/index.html">javamail</a> &#8211; used to send failure notification</li>
+</ul>
+<p>It can proactively check your application and its dependencies with predefined service checks:</p>
+<ul>
+<li><a href="https://github.com/johnra74/health-monitor/blob/master/health-monitor/src/main/java/com/jstrgames/monitor/svc/impl/HttpService.java">com.jstrgames.monitor.svc.impl.HttpService</a> &#8211; make non-SSL web call</li>
+<li><a href="https://github.com/johnra74/health-monitor/blob/master/health-monitor/src/main/java/com/jstrgames/monitor/svc/impl/HttpsService.java">com.jstrgames.monitor.svc.impl.HttpsService</a> &#8211; make SSL web call</li>
+<li><a href="https://github.com/johnra74/health-monitor/blob/master/health-monitor/src/main/java/com/jstrgames/monitor/svc/impl/SimpleJmxService.java">com.jstrgames.monitor.svc.impl.SimpleJmxService</a> &#8211; make simple remote JMX calls</li>
+<li><a href="https://github.com/johnra74/health-monitor/blob/master/health-monitor/src/main/java/com/jstrgames/monitor/svc/impl/SocketService.java">com.jstrgames.monitor.svc.impl.SocketService</a> &#8211; make a client socket call</li>
+</ul>
+<p>It can then verify these services with predefined rules:</p>
+<ul>
+<li><a href="https://github.com/johnra74/health-monitor/blob/master/health-monitor/src/main/java/com/jstrgames/monitor/rule/HttpResponseCode.java">com.jstrgames.monitor.rule.HttpResponseCode</a> &#8211; check if expected status code returned</li>
+<li><a href="https://github.com/johnra74/health-monitor/blob/master/health-monitor/src/main/java/com/jstrgames/monitor/rule/HttpResponseBody.java">com.jstrgames.monitor.rule.HttpResponseBody</a> &#8211; check if body contains expected values</li>
+<li><a href="https://github.com/johnra74/health-monitor/blob/master/health-monitor/src/main/java/com/jstrgames/monitor/rule/JsonResponse.java">com.jstrgames.monitor.rule.JsonResponse</a> &#8211; check if specified JSON key has expected value</li>
+<li><a href="https://github.com/johnra74/health-monitor/blob/master/health-monitor/src/main/java/com/jstrgames/monitor/rule/SimpleJmxResult.java">com.jstrgames.monitor.rule.SimpleJmxResult</a> &#8211; check if specified JMX attribute has expected value</li>
+</ul>
+<p>All can be configured on a simple <a href="https://github.com/johnra74/health-monitor/blob/master/health-monitor/src/test/resources/demo.services.json">JSON format configuration file</a>.</p>
+<p><strong>Example: Checking HTTPS site</strong></p>
+<p>The use case is to verify that the text &#8220;Google Search&#8221; and &#8220;I&#8217;m Feeling Lucky&#8221; appears on the google.com page every 5 minutes:</p>
+
+
+<pre class="wp-block-code"><code>&#91;{"servicename": "HTTPS Example (SSL)",
+  "classname": "com.jstrgames.monitor.svc.impl.HttpsService",
+  "schedule": "0 0/5 * * * ?",
+  "hostname": "www.google.com",
+  "port": 443,
+  "uri": "/",
+  "rules": &#91;{
+    "classname": "com.jstrgames.monitor.rule.HttpResponseCode",
+    "condition": "equals",
+    "expected": 200
+  },{
+    "classname": "com.jstrgames.monitor.rule.HttpResponseBody",
+    "condition": "contains",
+    "expected": "Google Search"
+  },{
+    "classname": "com.jstrgames.monitor.rule.HttpResponseBody",
+    "condition": "contains",
+    "expected": "I'm Feeling Lucky"
+  }]
+}]</code></pre>
+
+
+
+<p>Here, class com.jstrgames.monitor.svc.impl.HttpsService is used check www.google.com at port 443. Once the resource has been retrieved, 3 rules are executed:</p>
+
+
+
+<ul><li>verify http response code is 200</li><li>verify http response body contains the phrase &#8220;Google Search&#8221;</li><li>verify http response body contains the phrase &#8220;I&#8217;m Feeling Lucky&#8221;</li></ul>
+
+
+
+<p>If any of the above checks fails, service is considered to be in &#8220;FAIL&#8221; status. If it fails to connect to said service, it is in &#8220;ERROR&#8221; status. It will also send out a notification and user will see a similar content in their inbox, granted, not as pretty.</p>
+
+
+
+<div class="wp-block-image"><figure class="aligncenter"><a href="/wp-content/uploads/2013/09/healthmonitor.email_.png"><img src="/wp-content/uploads/2013/09/healthmonitor.email_.png" alt="healthmonitor.email" class="wp-image-353"/></a></figure></div>
+
+
+
+<p>For more details, please go to my <a href="https://github.com/johnra74/health-monitor/blob/master/health-monitor">github repository</a>. I will be updating its wiki page soon.</p>
+
+
+
+<p></p>
+]]></content:encoded>
+					
+		
+		
+			</item>
+		<item>
+		<title>Time Tracker</title>
+		<link>/2012/08/15/time-tracker/</link>
+		
+		<dc:creator><![CDATA[John Ra]]></dc:creator>
+		<pubDate>Wed, 15 Aug 2012 22:47:48 +0000</pubDate>
+				<category><![CDATA[.NET]]></category>
+		<category><![CDATA[C#]]></category>
+		<category><![CDATA[Productivity]]></category>
+		<guid isPermaLink="false">http://blog.jstrgames.com/?p=48</guid>
+
+					<description><![CDATA[Sometimes, it&#8217;s just about simplifying my work-life. Regardless of where I&#8217;ve worked, filling out time sheets has always been a required part of my working life&#160;chore. There are times when I&#8217;m diligent at it then there are times when, more often than I would like to admit, I end up playing the guessing game at the end of the week or end of the month.&#160;Sure, you could use Outlook Journal to keep track of your hours and I have in the past.&#160;It&#8217;s just&#160;not ideal when you&#8217;re interrupted with support issues throughout the day. I need to simplify how I track&#8230;]]></description>
+										<content:encoded><![CDATA[
+<p>Sometimes, it&#8217;s just about simplifying my work-life. Regardless of where I&#8217;ve worked, filling out time sheets has always been a required part of my working life&nbsp;chore. There are times when I&#8217;m diligent at it then there are times when, more often than I would like to admit, I end up playing the guessing game at the end of the week or end of the month.&nbsp;Sure, you could use Outlook Journal to keep track of your hours and I have in the past.&nbsp;It&#8217;s just&nbsp;not ideal when you&#8217;re interrupted with support issues throughout the day. I need to simplify how I track my time. And so, TimeTracker was born.</p>
+
+
+
+<div class="wp-block-image"><figure class="alignright"><a href="/wp-content/uploads/2012/08/TimeTracker_Menu.png"><img src="/wp-content/uploads/2012/08/TimeTracker_Menu.png" alt="" class="wp-image-54" title="TimeTracker_Menu"/></a></figure></div>
+
+
+
+<p>The key success factor is to ensure the user only performs&nbsp;minimal amount of steps. Too many steps and we end up with another chore for the user. If I could keep it down to 2 clicks, this tool will work.&nbsp;My first use case is simple:&nbsp;user start a new activity. This would be performed by right-clicking on a system tray icon then selecting the activity they&#8217;re working on (see right screenshot).&nbsp;Application will then be responsible for create a new&nbsp;audit entry&nbsp;with activity name and start date. When a different activity is clicked, application will be responsible for closing out prior activity and create a new audit activity. My second use case is to display&nbsp;a report that&nbsp;can be used to fill out the actual time sheet.</p>
+
+
+
+<p><strong>Retrieving theÂ Project List</strong><br>I needed a way to retrieve all projects/activities from time sheet application to be displayed as a menu item.Â At my office,Â time sheetsÂ are filled out online. Since you can&#8217;t access my intranet, I&#8217;ve built a <a href="https://www.jstrgames.com/demo/timesheet.html">mockup</a>Â (see screenshot below). One major difference is the single sign on (SSO) authentication and authorization mechanism. Other than that, for the most part, this mockup is close to theÂ time sheet application I have at the office.</p>
+
+
+
+<figure class="wp-block-image"><a href="/wp-content/uploads/2012/08/TimeTracker_Timesheet.png"><img src="/wp-content/uploads/2012/08/TimeTracker_Timesheet.png" alt="" class="wp-image-52" title="TimeTracker_Timesheet"/></a></figure>
+
+
+
+<p>As you can see, it&#8217;s just a simple HTML page with a&nbsp;TABLE&nbsp;element&nbsp;containing the data I wanted on the second column.&nbsp;Below is how I retrieve the HTML page.</p>
+
+
+
+<pre class="wp-block-code"><code>HttpWebRequest&nbsp;req = (HttpWebRequest) WebRequest.Create(Settings.Default.TIMESHEET_URL);
+HttpWebResponse&nbsp;res = (HttpWebResponse) req.GetResponse();
+using (StreamReader&nbsp;reader = new StreamReader(res.GetResponseStream()))
+{
+  return reader.ReadToEnd();
+}</code></pre>
+
+
+
+<p>Next, I needed a way to parse this HTML page. To achieve this,&nbsp;I&#8217;ve decided to use Html Agility Pack&nbsp;which allows me to target the portion of the TD elements using XPATH.</p>
+
+
+
+<pre class="wp-block-code"><code>HtmlDocument doc = new HtmlDocument();
+doc.LoadHtml(GetTimesheetHtml());
+
+// cache project list
+this._projectList = new LinkedList();
+HtmlNodeCollection items = doc.DocumentNode.SelectNodes(Settings.Default.PROJECT_NAME_XPATH);
+
+bool isFirst = Settings.Default.SKIP_FIRST;
+foreach (HtmlNode node in items)
+{
+  if (isFirst)
+  {
+    isFirst = false;
+    continue;
+  }
+
+  string innerText = WebUtility.HtmlDecode(node.InnerText).Trim();
+  if (string.IsNullOrEmpty(innerText)) continue;
+
+  this._projectList.AddLast(innerText);
+}</code></pre>
+
+
+
+<p><strong>Displaying the&nbsp;Project List</strong><br>A standard&nbsp;.NET Windows application would launch a .NET Form. In our case, we won&#8217;t launch a form at start of this application. Instead, we will create a custom ApplicationContext with a NotifyIcon to be displayed on system tray. This icon will be used to display a menu of projects/activities (see above screenshot). Each menu item will be associated with a&nbsp;mouse click event.&nbsp;When a project/activity menu is clicked, this application will create a new audit record that will be stored in an MS Access database.</p>
+
+
+
+<pre class="wp-block-code"><code>private void InitializeContext()
+{
+  this._container = new Container();
+  this._notifyIcon = new NotifyIcon(this._container)
+  {
+    ContextMenuStrip = new ContextMenuStrip(),
+    Icon = Properties.Resources.clock,
+    Text = "Time Tracker",
+    Visible = true
+  };
+  this._notifyIcon.ContextMenuStrip.Opening += this.ContextMenuStrip_Opening;
+}
+
+protected void ContextMenuStrip_Opening(object Sender, CancelEventArgs e)
+{
+  e.Cancel = false;
+  this._notifyIcon.ContextMenuStrip.Items.Clear();
+  LinkedList list = WebManager.Instance.GetProjects(false);
+  foreach (string item in list)
+  {
+    this._notifyIcon.ContextMenuStrip.Items.Add(
+      item,
+      item.Equals(EntryManager.Instance.ActiveActivity) ? Properties.Resources.checkmark : null,
+      this.ContextMenuStrip_Clicked);
+  }
+  this._notifyIcon.ContextMenuStrip.Items.Add(
+  EntryManager.INACTIVE_PROJECT,
+  EntryManager.INACTIVE_PROJECT.Equals(EntryManager.Instance.ActiveActivity) ? 
+    Properties.Resources.checkmark : null, this.ContextMenuStrip_Clicked);
+
+  this._notifyIcon.ContextMenuStrip.Items.Add(new ToolStripSeparator());
+  this._notifyIcon.ContextMenuStrip.Items.Add("Refresh Project List", null, this.ContextMenuStrip_Clicked);
+  this._notifyIcon.ContextMenuStrip.Items.Add("View Report", null, this.ContextMenuStrip_Clicked);
+
+  this._notifyIcon.ContextMenuStrip.Items.Add(new ToolStripSeparator());
+  this._notifyIcon.ContextMenuStrip.Items.Add("Exit", null, this.ContextMenuStrip_Clicked);
+}</code></pre>
+
+
+<p><strong>DisplayÂ the Report</strong><br />In addition to displaying projects/activities, we want to add &#8220;View Report&#8221; to the context menu. This will display the activity report for the week and eliminate the guessing game at the end of the week.<br /><a href="/wp-content/uploads/2012/08/TimeTracker_Report.png"><img loading="lazy" class="alignnone size-full wp-image-67" title="TimeTracker_Report" src="/wp-content/uploads/2012/08/TimeTracker_Report.png" alt="" width="810" height="428" /></a></p>
+<p>Copy of the VS2010 Project can be found <a href="https://www.jstrgames.com/demo/TimeTracker.zip">here</a>.</p>
+
+
+<p></p>
+]]></content:encoded>
+					
+		
+		
+			</item>
+	</channel>
+</rss>

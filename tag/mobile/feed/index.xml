@@ -1,0 +1,1123 @@
+<?xml version="1.0" encoding="UTF-8"?><rss version="2.0"
+	xmlns:content="http://purl.org/rss/1.0/modules/content/"
+	xmlns:wfw="http://wellformedweb.org/CommentAPI/"
+	xmlns:dc="http://purl.org/dc/elements/1.1/"
+	xmlns:atom="http://www.w3.org/2005/Atom"
+	xmlns:sy="http://purl.org/rss/1.0/modules/syndication/"
+	xmlns:slash="http://purl.org/rss/1.0/modules/slash/"
+	>
+
+<channel>
+	<title>Mobile &#8211; J O H N R A . M E</title>
+	<atom:link href="/tag/mobile/feed/" rel="self" type="application/rss+xml" />
+	<link>/</link>
+	<description>...yet another musings of a techie</description>
+	<lastBuildDate>Sat, 12 Feb 2022 02:43:20 +0000</lastBuildDate>
+	<language>en-US</language>
+	<sy:updatePeriod>
+	hourly	</sy:updatePeriod>
+	<sy:updateFrequency>
+	1	</sy:updateFrequency>
+	<generator>https://wordpress.org/?v=5.9.2</generator>
+	<item>
+		<title>iOS App Development Tutorial Part VII: In-App Web Browsing</title>
+		<link>/2013/05/25/ios-appdev-part7/</link>
+		
+		<dc:creator><![CDATA[John Ra]]></dc:creator>
+		<pubDate>Sat, 25 May 2013 23:46:20 +0000</pubDate>
+				<category><![CDATA[iOS]]></category>
+		<category><![CDATA[Tutorial]]></category>
+		<category><![CDATA[Development]]></category>
+		<category><![CDATA[Mobile]]></category>
+		<guid isPermaLink="false">http://blog.jstrgames.com/?p=302</guid>
+
+					<description><![CDATA[Having a list of article isn&#8217;t enough, we need to allow users to click through to the actual article. It&#8217;s also not a good user experience to have each article open in safari. We want to provide the ability to view the article within our app. Apple UIKit makes this extremely easy by providing a Web View component to view the target website. 1. Add New View Controller We want to first add a new View Controller that will hold the Web View. This can be done by dragging View Controller from object browser over to the storyboard. Once added,&#8230;]]></description>
+										<content:encoded><![CDATA[<p>Having a list of article isn&#8217;t enough, we need to allow users to click through to the actual article. It&#8217;s also not a good user experience to have each article open in safari. We want to provide the ability to view the article within our app. Apple UIKit makes this extremely easy by providing a Web View component to view the target website.</p>
+<p><strong>1. Add New View Controller</strong></p>
+<p>We want to first add a new View Controller that will hold the Web View. This can be done by dragging View Controller from object browser over to the storyboard. Once added, we want to push this new view controller when each Collection View Cell is clicked. First, drill down to the Collection View Cell, view connection inspector, and drag the selection under triggered segues over to the new view controller. Repeat this last step for the other Collection View Controller&#8217;s Collection View Cell.</p>
+<p><a href="/wp-content/uploads/2013/05/storyboard14.png"><img loading="lazy" class="alignnone size-medium wp-image-304" src="/wp-content/uploads/2013/05/storyboard14-300x158.png" alt="storyboard14" width="300" height="158" /></a></p>
+<p>Now, whenever a cell is clicked, it will push this new view controller to the Navigation Controller stack.</p>
+<p><strong>2. Add Web View to the View Controller</strong></p>
+<p>Go back to the object browser and drag it under the main view of our newly added View Controller.</p>
+<p><a href="/wp-content/uploads/2013/05/storyboard15.png"><img loading="lazy" class="alignnone size-medium wp-image-305" src="/wp-content/uploads/2013/05/storyboard15-300x72.png" alt="storyboard15" width="300" height="72" /></a></p>
+<p>We now need to create a custom view controller class that will enable us to control what to display in this web view. Following prior tutorial, add a new class named &#8220;JSTRBrowserViewController&#8221; that&#8217;s a subclass of &#8220;UIViewController&#8221;. Then, expose 2 properties, one for the web view component and the other to hold the target URL.</p>
+
+
+<pre class="wp-block-code"><code>#import &lt;UIKit/UIKit.h>
+
+@interface JSTRBrowserViewController : UIViewController
+
+@property (retain, nonatomic) IBOutlet UIWebView *webView;
+@property (retain, nonatomic) NSString *targetURL;
+
+@end</code></pre>
+
+
+
+<p>Since the target url is not a visual component, it does not need the keyword &#8220;IBOutlet&#8221;. It will be only used to set the target url from the collection view controller when user clicks on the cell. This will require us to synthesize targetURL on the implementation class. Let&#8217;s also implement the loading of our target url for the web view component</p>
+
+
+
+<pre class="wp-block-code"><code>#import "JSTRBrowserViewController.h"
+
+@implementation JSTRBrowserViewController
+
+@synthesize targetURL;
+
+- (id)initWithNibName:(NSString *)nibNameOrNil bundle:(NSBundle *)nibBundleOrNil
+{
+  self = &#91;super initWithNibName:nibNameOrNil bundle:nibBundleOrNil];
+  if (self) {
+    // Custom initialization
+  }
+  return self;
+}
+
+- (void)viewDidLoad
+{
+  &#91;super viewDidLoad];
+  // Do any additional setup after loading the view.
+  NSURL *url = &#91;&#91;NSURL alloc] initWithString:targetURL];
+  NSURLRequest *request = &#91;&#91;NSURLRequest alloc] initWithURL:url];
+
+  &#91;self.webView setScalesPageToFit:YES];
+  &#91;self.webView loadRequest:request];
+}
+
+- (void)didReceiveMemoryWarning
+{
+  &#91;super didReceiveMemoryWarning];
+  // Dispose of any resources that can be recreated.
+}
+
+@end</code></pre>
+
+
+
+<p>In our viewDidLoad method, we use the targetURL to construct an instance of NSURL.&nbsp;Then, we construct the NSURLRequest from&nbsp;and&nbsp;message webView to load this request on load.</p>
+
+
+
+<p>Now that we have our custom class, click the recently added view controller from above, go to identity inspector, and update the class from UIViewController to JSTRBrowserViewController. Then, go to connection inspector, and drag the webView outlet over to Web View component within the latest view controller.</p>
+
+
+
+<figure class="wp-block-image"><a href="/wp-content/uploads/2013/05/storyboard16.png"><img src="/wp-content/uploads/2013/05/storyboard16-300x130.png" alt="storyboard16" class="wp-image-308"/></a></figure>
+
+
+
+<p><strong>3. Setting&nbsp;Target URL</strong></p>
+
+
+
+<p>To set the target URL, we need to&nbsp;implement the prepareForSegue:sender method. This is similar to .NET winform event handler. This method will be called prior to performing the connection segue.</p>
+
+
+
+<pre class="wp-block-code"><code>- (void)prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender
+{
+  JSTRCollectionViewCell *selectedCell = (JSTRCollectionViewCell *)sender;
+  JSTRBrowserViewController *targetVC = (JSTRBrowserViewController *) &#91;segue destinationViewController];
+  targetVC.targetURL = selectedCell.targetURL;
+}</code></pre>
+
+
+
+<p>Since we know the destination of our segue will be JSTRBrowserViewController, we cast the destinationViewController and set the targetURL. Additionally, since we now have a new reference, import this new header: JSTRBrowserViewController.h.</p>
+
+
+
+<p>But wait, I don&#8217;t have a property called targetURL on my JSTRCollectionViewCell! We need to add this property to the bottom of our JSTRCollectionViewCell header file and synthesize it on the implementation class.</p>
+
+
+
+<pre class="wp-block-code"><code>#import &lt;UIKit/UIKit.h >
+
+@interface JSTRCollectionViewCell : UICollectionViewCell
+
+@property (retain, nonatomic) IBOutlet UILabel *title;
+@property (retain, nonatomic) IBOutlet UILabel *category;
+@property (retain, nonatomic) IBOutlet UILabel *summary;
+@property (retain, nonatomic) IBOutlet UIImageView *avatar;
+@property (retain, nonatomic) IBOutlet UIImageView *thumbnail;
+@property (retain, nonatomic) NSString *targetURL;
+
+@end</code></pre>
+
+
+
+<p>Then, we need to set this for each and every cell that we display in our app by updating collectionView:cellForItemAtIndexPath method.</p>
+
+
+
+<pre class="wp-block-code"><code>- (UICollectionViewCell *) collectionView:(UICollectionView *)collectionView cellForItemAtIndexPath:(NSIndexPath *)indexPath
+{
+  JSTRCollectionViewCell *cell = &#91;collectionView dequeueReusableCellWithReuseIdentifier:@"articleCell"
+forIndexPath:indexPath];
+  NSDictionary *item = &#91;_articleList objectAtIndex:indexPath.item];
+
+  NSURL *userImgURL = &#91;NSURL URLWithString:&#91;item objectForKey:@"userimage"]];
+  NSData *userImgData = &#91;NSData dataWithContentsOfURL:userImgURL];
+  UIImage *userImage = &#91;UIImage imageWithData:userImgData];
+  &#91;cell.avatar setImage:userImage];
+
+  cell.title.text = &#91;NSString stringWithFormat:@"%@\n\n\n\n", &#91;item objectForKey:@"title"]];
+
+  NSArray *catList = &#91;item objectForKey:@"category"];
+  NSString *catString = &#91;catList componentsJoinedByString:@", "];
+  cell.category.text = &#91;NSString stringWithFormat:@"%@", catString];
+  cell.summary.text = &#91;NSString stringWithFormat:@"%@\n\n\n\n\n\n\n\n\n", &#91;item objectForKey:@"description"]];
+
+  NSURL *thumbImgURL = &#91;NSURL URLWithString:&#91;item objectForKey:@"thumbnail"]];
+  NSData *thumbImgData = &#91;NSData dataWithContentsOfURL:thumbImgURL];
+  UIImage *thumbImage = &#91;UIImage imageWithData:thumbImgData];
+  &#91;cell.thumbnail setImage:thumbImage];
+
+  cell.targetURL = &#91;item objectForKey:@"link"];
+
+ return cell;
+}</code></pre>
+
+
+
+<p>As you can see, prior to our return call in this method, we retrieve the link from our dictionary representing the article from the RSS. Now that the cell has been set, our segue can extract it from the source cell that&#8217;s been click and pass it to the target view controller that holds the web view.</p>
+
+
+
+<p><strong>4. Run it</strong></p>
+
+
+
+<div class="wp-block-image"><figure class="alignright"><a href="/wp-content/uploads/2013/05/simulator4.png"><img src="/wp-content/uploads/2013/05/simulator4.png" alt="simulator4" class="wp-image-310"/></a></figure></div>
+
+
+
+<p>Now, when you run your app, clicking on the cell on the simulator will push a new view controller. Since we&#8217;re using navigation controller, adding a new view controller will automatically add the back button for us on the navigation bar.</p>
+
+
+
+<p>By default, if the prior navigation bar has no title, then the button will be rendered with &#8220;Back&#8221;. However, had we named the title bar of our prior navigation bar as &#8220;Featured Links&#8221;, then our back button would have had the label of &#8220;Featured Links&#8221;.</p>
+
+
+
+<p>This concludes this tutorial series. I have intentionally did not implement Recent Link Collection View. Using the Featured Link Collection View, this should be fairly easy to figure out. You will need to refactor JSTRRSSReader class to handle both Featured and Recent Links. Currently, it&#8217;s hard coded to only retrieve Featured. The app that&#8217;s actually published has it fully implemented with ability for users to vote. As of May 25, it is currently under review by Apple. I&#8217;ll update this post when it does go live. Xcode project with source code for these tutorial can be downloaded from <a href="http://demo.jstrgames.com/DZoneRSS.zip">here</a>.</p>
+]]></content:encoded>
+					
+		
+		
+			</item>
+		<item>
+		<title>iOS App Development Tutorial Part VI: Storyboarding</title>
+		<link>/2013/05/23/ios-appdev-part6/</link>
+		
+		<dc:creator><![CDATA[John Ra]]></dc:creator>
+		<pubDate>Thu, 23 May 2013 19:31:37 +0000</pubDate>
+				<category><![CDATA[iOS]]></category>
+		<category><![CDATA[Tutorial]]></category>
+		<category><![CDATA[Development]]></category>
+		<category><![CDATA[Mobile]]></category>
+		<guid isPermaLink="false">http://blog.jstrgames.com/?p=261</guid>
+
+					<description><![CDATA[This tutorial, up until now, focused on the non-visual aspect of development, or as I would call it, the plumbing. Itâ€™s now time to put the visuals aspects using some of these plumbing weâ€™ve built onto our storyboard. Storyboard is a feature built into Xcode thatÂ represents the screens in an app and the transitions between them. It is similar to Interface Builder with the added advantage of defining transitions. If you have done any WinForm development, both storyboard and interface builder concepts will be easy to understand. If you&#8217;re coming from Java AWT and/or swing, concepts may be very foreign&#8230;]]></description>
+										<content:encoded><![CDATA[<p>This tutorial, up until now, focused on the non-visual aspect of development, or as I would call it, the plumbing. Itâ€<img src="https://s.w.org/images/core/emoji/13.1.0/72x72/2122.png" alt="™" class="wp-smiley" style="height: 1em; max-height: 1em;" />s now time to put the visuals aspects using some of these plumbing weâ€<img src="https://s.w.org/images/core/emoji/13.1.0/72x72/2122.png" alt="™" class="wp-smiley" style="height: 1em; max-height: 1em;" />ve built onto our storyboard.</p>
+<p>Storyboard is a feature built into Xcode thatÂ represents the screens in an app and the transitions between them. It is similar to Interface Builder with the added advantage of defining transitions. If you have done any WinForm development, both storyboard and interface builder concepts will be easy to understand. If you&#8217;re coming from Java AWT and/or swing, concepts may be very foreign to you. Luckily, Google did manage to improve UI development on the android platform. Too bad, itÂ wouldn&#8217;t replace swing anytime soon.Â Once you get used to it, you&#8217;re really going to hate developing UIs in Java AWT and/or swing. I certainly did.</p>
+<p>Now that I got my dig on Java swing and AWT, let&#8217;s leverage the mockups we&#8217;ve created from our earlier tutorial: <a href="/2013/05/13/ios-appdev-part2/">Putting Pen to Paper</a>.</p>
+<p><strong>1. Create Storyboard</strong><br /><a href="/wp-content/uploads/2013/05/newfile4.png"><img loading="lazy" class="alignright size-thumbnail wp-image-262" src="/wp-content/uploads/2013/05/newfile4-150x150.png" alt="newfile4" width="150" height="150" /></a>Right-click &#8220;DZone RSS&#8221; group under project DZone RSS and select &#8220;New File&#8230;&#8221;. In the &#8220;choose a template for your new file&#8221;, select &#8220;User Interface&#8221; on left panel, &#8220;Storyboard&#8221; on right panel, andÂ click next. Leave Device Family option as &#8220;iPhone&#8221; and click Next.Â Name the storyboard as &#8220;MainStoryboard&#8221; underÂ &#8220;Save As&#8221; field and click &#8220;create&#8221;. MainStoryboard should now appear under &#8220;DZone RSS&#8221; group.</p>
+<p><a href="/wp-content/uploads/2013/05/storyboard.png"><img loading="lazy" class="alignnone size-medium wp-image-263" src="/wp-content/uploads/2013/05/storyboard-300x179.png" alt="storyboard" width="300" height="179" /></a></p>
+<p><strong>2. Add Navigation Controller</strong></p>
+<p>The starting controller for our application will be the UINavigationController. With UINavigationController, we can stack many types of ViewControllers on top of it. In our case, as described in earlier post,Â UITabbarController will beÂ stacked on top next.</p>
+<p><a href="/wp-content/uploads/2013/05/objectbroswer.png"><img loading="lazy" class="alignright size-thumbnail wp-image-267" src="/wp-content/uploads/2013/05/objectbroswer-150x150.png" alt="objectbroswer" width="150" height="150" /></a>To add UINavigationController, simply drag Navigation Controller from the object browser on your right bottom corner to the storyboard. By default, the root view controller will be UITableViewController. Since we will be using UITabbarController, you can select &#8220;Table View Controller &#8211; Root&#8221; and delete it.</p>
+<p>On the Attribute Inspector, you&#8217;ll notice &#8220;Is Initial View Controller&#8221; checked. Only one ViewController within the storyboard can have this checked. This will inform our application which view controller should be loaded first on startup.</p>
+<p><a href="/wp-content/uploads/2013/05/storyboard2.png"><img loading="lazy" class="alignnone size-full wp-image-268" src="/wp-content/uploads/2013/05/storyboard2.png" alt="storyboard2" width="515" height="410" /></a></p>
+<p><strong>2. Add Tab Bar Controller</strong></p>
+<p>From the object browser, drag Tab Bar Controller to Storyboard. By default Tab Bar Controller comes withÂ two UIViewControllers. However, we don&#8217;t want UIViewControllers. We want UICollectionViewController instead so select and delete each of the view controller attached to Tab Bar Controller.</p>
+<p><a href="/wp-content/uploads/2013/05/storyboard3.png"><img loading="lazy" class="size-medium wp-image-269 alignnone" src="/wp-content/uploads/2013/05/storyboard3-263x300.png" alt="storyboard3" width="263" height="300" /></a></p>
+<p>Now dragÂ two Collection View Controllers to the storyboard. Select Tab Bar Controller from storyboard and go to Connections inspector. Select the outlet next to view controllers under Triggered Segues and drag it over to the top Collection View Controller.</p>
+<p><a href="/wp-content/uploads/2013/05/storyboard4.png"><img loading="lazy" class="alignnone size-medium wp-image-270" src="/wp-content/uploads/2013/05/storyboard4-300x220.png" alt="storyboard4" width="300" height="220" /></a></p>
+<p>Repeat this for the second collection view. Now, click on Navigation Controller, select &#8220;root view controller&#8221; outlet and drag it over to Tab Bar Controller. It should now look like below.</p>
+<p><a href="/wp-content/uploads/2013/05/storyboard5.png"><img loading="lazy" class="alignnone size-medium wp-image-271" src="/wp-content/uploads/2013/05/storyboard5-300x191.png" alt="storyboard5" width="300" height="191" /></a></p>
+<p><a href="/wp-content/uploads/2013/05/storyboard6.png"><img loading="lazy" class="alignright size-thumbnail wp-image-272" src="/wp-content/uploads/2013/05/storyboard6-150x150.png" alt="storyboard6" width="150" height="150" /></a>Since our Tab Bar is black, we need to change the navigation bar to black as well. While Navigation Controller is selected, go to Attribute inspector and change the Top Bar from &#8220;Inferred&#8221; to &#8220;Back Navigation Bar&#8221;.</p>
+<p>Now that we have our segues defined for the tabs, let&#8217;s change the icon on the tab bar. If you have your document outline closed, open them by clicking on the left corner. Expand the first Collection View Controller Scene and select Tab Bar Item. Then, go to Attribute inspector. If the selected Tab Bar Item from document outline is pointing to the bottom collection view on the storyboard, change the identifier from &#8220;Custom&#8221; to &#8220;Most Recent&#8221;. Otherwise, change it to Featured.</p>
+<p><a href="/wp-content/uploads/2013/05/storyboard7.png"><img loading="lazy" class="alignnone size-medium wp-image-273" src="/wp-content/uploads/2013/05/storyboard7-300x133.png" alt="storyboard7" width="300" height="133" /></a></p>
+<p>Repeat this for the other Collection View Controller.</p>
+<p>Let&#8217;s take a moment and run what we have. But first, we need to delete some code from JSTRAppDelegate.m and update our project setting. First, click on DZone RSS project. Under targets, select DZone RSS and go to Summary tab. Under iPhone / iPod Deployment Info, select &#8220;MainStoryboard&#8221; next to the &#8220;Main Storyboard&#8221; field.</p>
+<p><a href="/wp-content/uploads/2013/05/project.png"><img loading="lazy" class="alignnone size-medium wp-image-276" src="/wp-content/uploads/2013/05/project-300x86.png" alt="project" width="300" height="86" /></a></p>
+<p>Next, open JSTRAppDelegate and delete everything in the method application:didFinishLaunchingWithOptions except for the following lines.</p>
+
+
+<pre class="wp-block-code"><code>- (BOOL)application:(UIApplication *)application didFinishLaunchingWithOptions:(NSDictionary *)launchOptions
+{
+  JSTRRSSReader *reader = &#91;&#91;JSTRRSSReader alloc] init];
+  &#91;reader startRequest];
+
+  return YES;
+}</code></pre>
+
+
+
+<div class="wp-block-image"><figure class="alignright"><a href="/wp-content/uploads/2013/05/simulator2.png"><img src="/wp-content/uploads/2013/05/simulator2-191x300.png" alt="simulator2" class="wp-image-277"/></a></figure></div>
+
+
+
+<p>Since our storyboard will handle launching of the Main View Controller, we don&#8217;t need to instantiate the UIWindow in our code and make it visible. On run, we now have our app with navigation bar and tab bar with two items.</p>
+
+
+
+<p>You may be asking why I choose to use Collection View over Table View. The main reason is that I want to reuse many of my UI components for the iPad version of this app. With Collection view, I can define and reuse my Collection Cell so that they appear in multiple columns and rows as oppose to single column cells in a table view. In&nbsp;iPad view, a single column view is a waste of space.&nbsp;It&#8217;s a design decision that you too have to make when you start implementing your own app.</p>
+
+
+
+<p><strong>3. Define&nbsp;Collection Cell Layout</strong></p>
+
+
+
+<p>From&nbsp;Collection View Controller we will use as &#8220;Feature&#8221; tab, select the&nbsp;child component&nbsp;named &#8220;Collection View&#8221;. On the right panel, go to Size inspector and update the Collection View Size details. We want our cell to be 314 by 314.</p>
+
+
+
+<figure class="wp-block-image"><a href="/wp-content/uploads/2013/05/storyboard8.png"><img src="/wp-content/uploads/2013/05/storyboard8-300x132.png" alt="storyboard8" class="wp-image-283"/></a></figure>
+
+
+
+<p>Select the child component&nbsp;under Collection View named &#8220;Collection View Cell&#8221; and add the following components:</p>
+
+
+
+<ul><li>drag a View from Object browser to be used as background tile (size: 275 x 290; bound to&nbsp;x=30 &amp;&nbsp;y=10). Set the background color to RBG value of 172, 204, and 252.</li><li>drag 2 ImageViews from Object browser to be used as avatar (size: 24x 24; bound to&nbsp;x=0 &amp;&nbsp;y=0)&nbsp;and thumbnail (size: 120 x 90; bound to&nbsp;x=194 &amp;&nbsp;y=0)</li><li>drag 3 Labels from Object browser to be used as title (size: 115 x 60; bound to&nbsp;x=34 &amp;&nbsp;y=10), category (size: 155 x 20; bound to&nbsp;x=34 &amp;&nbsp;y=70), and summary (size: 267 x 177; bound to&nbsp;x=34 &amp;&nbsp;y=90)</li></ul>
+
+
+
+<p>Once you&#8217;ve updated the size attributes, we need to make small changes to our UILabel components: title, category, and summary.&nbsp;Under attribute inspector, we want title to have font sized to 12,&nbsp;lines set to 3, and line breaks to &#8220;Word Wrap&#8221;.&nbsp;For category,&nbsp;font sized to 10. For summary, font sized to 14, lines to 9, and Line Breaks set to &#8220;Word Wrap&#8221;.&nbsp;This will enable our app to properly layout our text on screen.</p>
+
+
+
+<p>The final layout should the below screenshot.</p>
+
+
+
+<figure class="wp-block-image"><a href="/wp-content/uploads/2013/05/storyboard9.png"><img src="/wp-content/uploads/2013/05/storyboard9-300x177.png" alt="storyboard9" class="wp-image-285"/></a></figure>
+
+
+
+<p><strong>4. Create a Custom Collection Cell Class</strong></p>
+
+
+
+<p>In order to assign values to these components, we need to create a custom class. Following earlier tutorial, create a group called &#8220;UI&#8221; and associate it to a specific file system folder â€œUIâ€. Then, add a new file called â€œJSTRCollectionViewCellâ€, a subclass of UICollectionViewCell, to this group. This will be a simple class with 5 outlets. We will only modify the header file and leave the implementation class as is.</p>
+
+
+
+<pre class="wp-block-code"><code>#import &lt;UIKit/UIKit.h>
+
+@interface JSTRCollectionViewCell : UICollectionViewCell
+
+@property (retain, nonatomic) IBOutlet UILabel *title;
+@property (retain, nonatomic) IBOutlet UILabel *category;
+@property (retain, nonatomic) IBOutlet UILabel *summary;
+@property (retain, nonatomic) IBOutlet UIImageView *avatar;
+@property (retain, nonatomic) IBOutlet UIImageView *thumbnail;
+
+@end</code></pre>
+
+
+
+<p>From the storyboard, select the Collection View Cell, show identity inspector, and update Class name from UICollectionViewCell to JSTRCollectionViewCell.</p>
+
+
+
+<figure class="wp-block-image"><a href="/wp-content/uploads/2013/05/storyboard10.png"><img src="/wp-content/uploads/2013/05/storyboard10-300x127.png" alt="storyboard10" class="wp-image-287"/></a></figure>
+
+
+
+<p>When you click on connection inspector, you&#8217;ll see the 5 outlets defined in your custom class. For each outlet, select and drag it over to their relevant component. Below, I am dragging the avatar outlet to top left corner where I want my image to reside.</p>
+
+
+
+<figure class="wp-block-image"><a href="/wp-content/uploads/2013/05/storyboard11.png"><img src="/wp-content/uploads/2013/05/storyboard11-300x265.png" alt="storyboard11" class="wp-image-288"/></a></figure>
+
+
+
+<div class="wp-block-image"><figure class="alignright"><a href="/wp-content/uploads/2013/05/storyboard12.png"><img src="/wp-content/uploads/2013/05/storyboard12.png" alt="storyboard12" class="wp-image-289"/></a></figure></div>
+
+
+
+<p>Finally, I need to specify the reusable view identifier. This identifier will be used by the Collection View Controller to retrieve and instance of this cell so that we can assign data to them. To do this, go to the attribute inspector and set the identifier to &#8220;articleCell&#8221;.</p>
+
+
+
+<p><strong>5. Create a Custom Collection View Class</strong></p>
+
+
+
+<p>Like custom collection cell, we now need a custom collection view controller class. This class will be used to retrieve the parsed RSS file from the file system and populate each cell that&#8217;s rendered within collection view controller.</p>
+
+
+
+<p>Once again, add a new file called â€œJSTRCollectionViewControllerâ€, a subclass of UICollectionViewController, to the &#8220;UI&#8221; group. There&#8217;s one delegate we must define in our header for our custom class: UICollectionViewDataSource. Additionally, we want to create an instance variable to hold the content of our parsed RSS file.</p>
+
+
+
+<pre class="wp-block-code"><code>#import &lt;UIKit/UIKit.h>
+
+@interface JSTRCollectionViewController : UICollectionViewController &lt;UICollectionViewDataSource>
+{
+  NSMutableArray *_articleList;
+}
+
+@end</code></pre>
+
+
+
+<p>First, let&#8217;s retrieve the content of the parsed RSS file when our UI component becomes visible by updating viewDidLoad method. Additionally, since we are referencing JSTRRSSUtil class, don&#8217;t forget to import this class.</p>
+
+
+
+<pre class="wp-block-code"><code>- (void)viewDidLoad
+{
+  &#91;super viewDidLoad];
+
+  // Do any additional setup after loading the view.
+  NSString *fileName = &#91;NSString stringWithFormat:@"%@/popular.rss", &#91;JSTRRSSUtil getDocumentRoot]];
+  _articleList = &#91;NSArray arrayWithContentsOfFile:fileName];
+}</code></pre>
+
+
+
+<p>Next, we need to implement the required UICollectionViewDataSource protocols.</p>
+
+
+
+<pre class="wp-block-code"><code>#pragma mark - UICollectionViewDataSourceDelegate
+- (NSInteger) numberOfSectionsInCollectionView:(UICollectionView *)collectionView
+{
+  return 1;
+}</code></pre>
+
+
+
+<p>The above method numberOfSectionsInCollectionView tells our collection view controller, how many sections we will have. In our case, it will be one. Note, had we decided not to use Tab Bar Controller and displayed both Featured and Latest Links on a single collection view controller, we could have done so by having 2 sections.</p>
+
+
+
+<p>In our next method, we inform our collection view controller how many items will be in the selected section. Since we only have one section, I don&#8217;t need to know the value of the parameter section. I just return the size of our array of articles.</p>
+
+
+
+<pre class="wp-block-code"><code>- (NSInteger) collectionView:(UICollectionView *)collectionView numberOfItemsInSection:(NSInteger)section
+{
+  return &#91;_articleList count];
+}</code></pre>
+
+
+
+<p>Finally, we retrieve each cell within our section and populated it. In the first line, you&#8217;ll notice the same value &#8220;articleCell&#8221; I provided as our reusable identifier in prior step. Using dequeueReusableCellWithReuseIdentifier, an instance of the cell defined by our indexPath is returned. I then assign the necessary values of the cell&#8217;s components via the already defined outlets. Additionally, since we have a reference to JSTRCollectionViewCell, don&#8217;t forget to import this header.</p>
+
+
+
+<pre class="wp-block-code"><code>- (UICollectionViewCell *) collectionView:(UICollectionView *)collectionView cellForItemAtIndexPath:(NSIndexPath *)indexPath
+{
+  JSTRCollectionViewCell *cell = &#91;collectionView dequeueReusableCellWithReuseIdentifier:@"articleCell"
+forIndexPath:indexPath];
+  NSDictionary *item = &#91;_articleList objectAtIndex:indexPath.item];
+
+  // retrieve the URL of user's avatar and assign it to the UIImageView
+  NSURL *userImgURL = &#91;NSURL URLWithString:&#91;item objectForKey:@"userimage"]];
+  NSData *userImgData = &#91;NSData dataWithContentsOfURL:userImgURL];
+  UIImage *userImage = &#91;UIImage imageWithData:userImgData];
+  &#91;cell.avatar setImage:userImage];
+
+  // set the text of title UILabel
+  cell.title.text = &#91;NSString stringWithFormat:@"%@\n\n\n\n", &#91;item objectForKey:@"title"]];
+
+  // since category is an array, join it into a string separated by comma
+  NSArray *catList = &#91;item objectForKey:@"category"];
+  NSString *catString = &#91;catList componentsJoinedByString:@","];
+  cell.category.text = &#91;NSString stringWithFormat:@"%@", catString];
+
+  // set the text of summary UILabel
+  cell.summary.text = &#91;NSString stringWithFormat:@"%@\n\n\n\n\n\n\n\n\n", &#91;item objectForKey:@"description"]];
+
+  // retrieve the URL of thumbnail and assign it to the UIImageView
+  NSURL *thumbImgURL = &#91;NSURL URLWithString:&#91;item objectForKey:@"thumbnail"]];
+  NSData *thumbImgData = &#91;NSData dataWithContentsOfURL:thumbImgURL];
+  UIImage *thumbImage = &#91;UIImage imageWithData:thumbImgData];
+  &#91;cell.thumbnail setImage:thumbImage];
+
+  return cell;
+}
+@end</code></pre>
+
+
+
+<p>Last but not least, we need to assign this custom class to the Collection View Controller. Similar to Collection View Cell, select the Collection View Controller and update the custom class in the identify inspector to JSTRCollectionViewController from UICollectionViewController</p>
+
+
+
+<figure class="wp-block-image"><a href="/wp-content/uploads/2013/05/storyboard13.png"><img src="/wp-content/uploads/2013/05/storyboard13-300x116.png" alt="storyboard13" class="wp-image-290"/></a></figure>
+
+
+
+<p><strong>6. Let&#8217;s Run</strong></p>
+
+
+
+<p>When you run now, the RSS content will appear in our app. Granted, we haven&#8217;t implemented the latest links tab but you should have the following appear.</p>
+
+
+
+<figure class="wp-block-image"><a href="/wp-content/uploads/2013/05/simulator3.png"><img src="/wp-content/uploads/2013/05/simulator3-191x300.png" alt="simulator3" class="wp-image-291"/></a></figure>
+
+
+
+<p>Currently, this app uses system font. You can change the front by selecting each UILabel control from storyboard and change the size and type from attribute inspector. Go ahead, I&#8217;ll take no offense to your customizations.</p>
+]]></content:encoded>
+					
+		
+		
+			</item>
+		<item>
+		<title>iOS App Development Tutorial Part V: Persisting RSS content</title>
+		<link>/2013/05/19/ios-appdev-part5/</link>
+		
+		<dc:creator><![CDATA[John Ra]]></dc:creator>
+		<pubDate>Sun, 19 May 2013 15:13:33 +0000</pubDate>
+				<category><![CDATA[iOS]]></category>
+		<category><![CDATA[Tutorial]]></category>
+		<category><![CDATA[Development]]></category>
+		<category><![CDATA[Mobile]]></category>
+		<guid isPermaLink="false">http://blog.jstrgames.com/?p=248</guid>
+
+					<description><![CDATA[Up to previous entry, we&#8217;ve successfully connected to DZone RSS Feed and parsed its XML. Given we&#8217;re working with mobile devices that could be disconnected from the internet, we want to persist the parsed RSS XML. This is helpful as it allows our app to display the most recently downloaded content when there&#8217;s no internet connectivity. Persisting RSS Content Following prior tutorial, let&#8217;s create a group call &#8220;Util&#8221; and associate it to a specific file system folder &#8220;Util&#8221;. Then, add a new file called â€œJSTRRSSUtilâ€, a subclass of NSObject, to this group. Let&#8217;s expose a convenience method in our header&#8230;]]></description>
+										<content:encoded><![CDATA[<p>Up to <a href="/2013/05/17/ios-appdev-part4">previous entry</a>, we&#8217;ve successfully connected to DZone RSS Feed and parsed its XML. Given we&#8217;re working with mobile devices that could be disconnected from the internet, we want to persist the parsed RSS XML. This is helpful as it allows our app to display the most recently downloaded content when there&#8217;s no internet connectivity.</p>
+<p><strong>Persisting RSS Content</strong></p>
+<p>Following prior tutorial, let&#8217;s create a group call &#8220;Util&#8221; and associate it to a specific file system folder &#8220;Util&#8221;. Then, add a new file called â€œJSTRRSSUtilâ€, a subclass of NSObject, to this group. Let&#8217;s expose a convenience method in our header that will retrieve the root document folder where we can save our parsed RSS content.</p>
+
+
+<pre class="wp-block-code"><code>#import &lt;Foundation/Foundation.h>
+
+@interface JSTRRSSUtil : NSObject
+
++ (NSString *) getDocumentRoot;
+
+@end</code></pre>
+
+
+
+<p>In Objective-C, character &#8220;+&#8221; at the start of method declaration indicates this method is a class method. Now let&#8217;s implement our class method</p>
+
+
+
+<pre class="wp-block-code"><code>#import "JSTRRSSUtil.h"
+
+@implementation JSTRRSSUtil
+
++ (NSString *) getDocumentRoot
+{
+  // search for available path and return first
+  NSArray *paths = NSSearchPathForDirectoriesInDomains(NSDocumentDirectory, NSUserDomainMask, YES);
+  return &#91;paths objectAtIndex:0];
+}
+
+@end</code></pre>
+
+
+
+<p>Now that we can retrieve our document path, let&#8217;s go back to JSTRRSSReader.m and save our content to file. Append the last 2 lines from theÂ connectionDidFinishLoading method.</p>
+
+
+
+<pre class="wp-block-code"><code>- (void)connectionDidFinishLoading:(NSURLConnection *)connection
+{
+  NSXMLParser *parser = &#91;&#91;NSXMLParser alloc] initWithData:_receivedData];
+  JSTRRSSParser *rssParser = &#91;&#91;JSTRRSSParser alloc] init];
+  parser.delegate = rssParser;
+  &#91;parser parse];
+
+  NSMutableArray *articleList = &#91;rssParser getParsedList];
+
+  NSLog(@"%@", articleList);
+  NSString *fileName = &#91;NSString stringWithFormat:@"%@/popular.rss", &#91;JSTRRSSUtil getDocumentRoot]];
+  &#91;articleList writeToFile:fileName atomically:YES];
+}</code></pre>
+
+
+
+<p>In the last two lines of our method, we first construct the fully qualifying file name with the help of JSTRRSSUtil convenience method (Note, you need to import &#8220;JSTRRSSUtil.h&#8221; for this call to work) and call the writeToFile:atomically method. This will write the content of our array containing a dictionary, each representing a single article.</p>
+
+
+
+<p><strong>Run and Verify</strong><br>Once you run your latest changes, if all works out, your simulator should have written the content of RSS to disk. As the simulator uses your local disk, you can easily verify this by navigating to ~/Library/Application Support/iPhone Simulator/&lt;&lt;simulator version&gt;&gt;/Applications/&lt;&lt;auto generated GUID&gt;&gt;/Documents. In documents Folder, you&#8217;ll see our popular.rss file. The content of this file too will be in JSON format and will be safe to open.</p>
+
+
+
+<figure class="wp-block-image"><a href="/wp-content/uploads/2013/05/console3.png"><img src="/wp-content/uploads/2013/05/console3-300x195.png" alt="console3" class="wp-image-250"/></a></figure>
+
+
+
+<p></p>
+]]></content:encoded>
+					
+		
+		
+			</item>
+		<item>
+		<title>iOS App Development Tutorial Part IV: Parsing RSS XML</title>
+		<link>/2013/05/17/ios-appdev-part4/</link>
+		
+		<dc:creator><![CDATA[John Ra]]></dc:creator>
+		<pubDate>Fri, 17 May 2013 17:18:31 +0000</pubDate>
+				<category><![CDATA[iOS]]></category>
+		<category><![CDATA[Tutorial]]></category>
+		<category><![CDATA[Development]]></category>
+		<category><![CDATA[Mobile]]></category>
+		<guid isPermaLink="false">http://blog.jstrgames.com/?p=220</guid>
+
+					<description><![CDATA[In previous tutorial, we learn to make a call to a website and download its content. Since we are dealing with RSS, we need to be able to parse the resulting XML data. Here&#8217;s an example article from DZone article at the time of writing this blog. With objective-c foundationÂ library, we can easily parse the above XML by simply implementing the optional methods of NSXMLParserDelegate. We will pick out only the relevant data from each item and store them in dictionary. Each item will then be added to an array to be used in our storyboarding tutorial. NSXMLParserDelegate Like in&#8230;]]></description>
+										<content:encoded><![CDATA[<p>In previous <a href="/2013/05/15/ios-appdev-part3">tutorial</a>, we learn to make a call to a website and download its content. Since we are dealing with RSS, we need to be able to parse the resulting XML data. Here&#8217;s an example article from DZone article at the time of writing this blog.</p>
+
+
+<pre class="wp-block-code"><code>&lt;item>
+&lt;title>In case of emergency, System.exit&lt;/title>
+&lt;link>http://feeds.dzone.com/~r/dzone/frontpage/~3/iD_9xik5E6E/in_case_of_emergency_systemexit.html&lt;/link>
+&lt;description>Article covering the System.exit method and why it is advisable to avoid using it unless absolutely necessary.&lt;/description>
+&lt;category>java&lt;/category>
+&lt;category>methodology&lt;/category>
+&lt;category>opinion&lt;/category>
+&lt;category>usability&lt;/category>
+&lt;pubDate>Fri, 17 May 2013 10:37:20 GMT&lt;/pubDate>
+&lt;guid isPermaLink="false">http://www.dzone.com/links/970253.html&lt;/guid>
+&lt;dc:creator>KieranF&lt;/dc:creator>
+&lt;dc:date>2013-05-17T10:37:20Z&lt;/dc:date>
+&lt;content:encoded>&lt;!&#91;CDATA&#91;&lt;a href='http://www.dzone.com/links/r/in_case_of_emergency_systemexit.html'>&lt;img src='http://cdn.dzone.com/images/thumbs/120x90/970253.jpg' style='width:120;height:90;float:left;vertical-align:top;border:1px solid #ccc;' />&lt;/a>&lt;p style='margin-left: 130px;'>Article covering the System.exit method and why it is advisable to avoid using it unless absolutely necessary.&lt;br/>&lt;br/>&lt;a href='http://www.dzone.com/links/rss/in_case_of_emergency_systemexit.html'>&lt;img src='http://www.dzone.com/links/voteCountImage?linkId=970253' border='0'/>&lt;/a>&lt;/p>&lt;img src="http://feeds.feedburner.com/~r/dzone/frontpage/~4/iD_9xik5E6E" height="1" width="1"/>]]&gt;&lt;/content:encoded>
+&lt;dz:linkId>970253&lt;/dz:linkId>
+&lt;dz:submitDate>2013-05-17T10:09:02Z&lt;/dz:submitDate>
+&lt;dz:promoteDate>2013-05-17T10:37:20Z&lt;/dz:promoteDate>
+&lt;dz:voteUpCount>7&lt;/dz:voteUpCount>
+&lt;dz:voteDownCount>0&lt;/dz:voteDownCount>
+&lt;dz:clickCount>386&lt;/dz:clickCount>
+&lt;dz:commentCount>1&lt;/dz:commentCount>
+&lt;dz:thumbnail>http://www.dzone.com/links/images/thumbs/120x90/970253.jpg&lt;/dz:thumbnail>
+&lt;dz:submitter>
+&lt;dz:username>KieranF&lt;/dz:username>
+&lt;dz:userimage>http://www.dzone.com/links/images/avatars/1087079.gif&lt;/dz:userimage>
+&lt;/dz:submitter>
+&lt;feedburner:origLink>http://www.dzone.com/links/r/in_case_of_emergency_systemexit.html&lt;/feedburner:origLink>&lt;/item>&lt;item>
+&lt;title>In case of emergency, System.exit&lt;/title>
+&lt;link>http://feeds.dzone.com/~r/dzone/frontpage/~3/iD_9xik5E6E/in_case_of_emergency_systemexit.html&lt;/link>
+&lt;description>Article covering the System.exit method and why it is advisable to avoid using it unless absolutely necessary.&lt;/description>
+&lt;category>java&lt;/category>
+&lt;category>methodology&lt;/category>
+&lt;category>opinion&lt;/category>
+&lt;category>usability&lt;/category>
+&lt;pubDate>Fri, 17 May 2013 10:37:20 GMT&lt;/pubDate>
+&lt;guid isPermaLink="false">http://www.dzone.com/links/970253.html&lt;/guid>
+&lt;dc:creator>KieranF&lt;/dc:creator>
+&lt;dc:date>2013-05-17T10:37:20Z&lt;/dc:date>
+&lt;content:encoded>&lt;!&#91;CDATA&#91;&lt;a href='http://www.dzone.com/links/r/in_case_of_emergency_systemexit.html'>&lt;img src='http://cdn.dzone.com/images/thumbs/120x90/970253.jpg' style='width:120;height:90;float:left;vertical-align:top;border:1px solid #ccc;' />&lt;/a>&lt;p style='margin-left: 130px;'>Article covering the System.exit method and why it is advisable to avoid using it unless absolutely necessary.&lt;br/>&lt;br/>&lt;a href='http://www.dzone.com/links/rss/in_case_of_emergency_systemexit.html'>&lt;img src='http://www.dzone.com/links/voteCountImage?linkId=970253' border='0'/>&lt;/a>&lt;/p>&lt;img src="http://feeds.feedburner.com/~r/dzone/frontpage/~4/iD_9xik5E6E" height="1" width="1"/>]]&gt;&lt;/content:encoded>
+&lt;dz:linkId>970253&lt;/dz:linkId>
+&lt;dz:submitDate>2013-05-17T10:09:02Z&lt;/dz:submitDate>
+&lt;dz:promoteDate>2013-05-17T10:37:20Z&lt;/dz:promoteDate>
+&lt;dz:voteUpCount>7&lt;/dz:voteUpCount>
+&lt;dz:voteDownCount>0&lt;/dz:voteDownCount>
+&lt;dz:clickCount>386&lt;/dz:clickCount>
+&lt;dz:commentCount>1&lt;/dz:commentCount>
+&lt;dz:thumbnail>http://www.dzone.com/links/images/thumbs/120x90/970253.jpg&lt;/dz:thumbnail>
+&lt;dz:submitter>
+&lt;dz:username>KieranF&lt;/dz:username>
+&lt;dz:userimage>http://www.dzone.com/links/images/avatars/1087079.gif&lt;/dz:userimage>
+&lt;/dz:submitter>
+&lt;feedburner:origLink>http://www.dzone.com/links/r/in_case_of_emergency_systemexit.html&lt;/feedburner:origLink>
+&lt;/item></code></pre>
+
+
+
+<p>With objective-c foundationÂ library, we can easily parse the above XML by simply implementing the optional methods of NSXMLParserDelegate. We will pick out only the relevant data from each item and store them in dictionary. Each item will then be added to an array to be used in our storyboarding tutorial.</p>
+
+
+
+<div class="wp-block-image"><figure class="alignright"><a href="/wp-content/uploads/2013/05/xmlgroup.png"><img src="/wp-content/uploads/2013/05/xmlgroup-150x150.png" alt="xmlgroup" class="wp-image-221"/></a></figure></div>
+
+
+
+<p><strong>NSXMLParserDelegate</strong></p>
+
+
+
+<p>Like in prior example,&nbsp;let&#8217;s create a&nbsp;group call &#8220;XML&#8221; and associate it to a specific file system folder &#8220;XML&#8221;. Then, add a new file called &#8220;JSTRRSSParser&#8221;, a subclass of NSObject, to this group. We need to update our header file to include the NSXMLParserDelegate protocol with necessary instance variables to store&nbsp;&nbsp;xml content.</p>
+
+
+
+<pre class="wp-block-code"><code>#import &lt;Foundation/Foundation.h>
+
+@interface JSTRRSSParser : NSObject
+{
+  NSMutableArray *_list;
+  NSMutableDictionary *_item;
+
+  NSMutableString *_tempStore;
+  BOOL _foundItem;
+}
+
+- (NSMutableArray *) getParsedList;
+
+@end</code></pre>
+
+
+
+<p>The array is used to store a dictionary (a.k.a hashmap) of article details. The dictionary will represent a single article. A mutable string is used to&nbsp;capture&nbsp;xml&nbsp;data within element.&nbsp;Finally, Boolean will be used to track when new article (i.e. &lt;item&gt; tag has appeared).</p>
+
+
+
+<p><strong>JSTRRSSParser Implementation</strong></p>
+
+
+
+<p>1. Define init method with allocating and initializing our array. As discussed in prior tutorial, we use NSMutableArray since it will be modified. We should also implement our getter method for the parsed list.</p>
+
+
+
+<pre class="wp-block-code"><code>#import "JSTRRSSParser.h"
+
+@implementation JSTRRSSParser
+
+- (id) init
+{
+  self = &#91;super init];
+  if (self) {
+    // custom initializer
+    _list = &#91;&#91;NSMutableArray alloc] init];
+  }
+  return self;
+}
+
+- (NSMutableArray *)getParsedList
+{
+  return _list;
+}
+
+@end</code></pre>
+
+
+
+<p>Tip:Â Add pragma to logically group methods together. It&#8217;s a good practice to organize your methods. I personally </p>
+
+
+
+<div class="wp-block-image"><figure class="alignright"><a href="/wp-content/uploads/2013/05/xmlparser.png"><img src="/wp-content/uploads/2013/05/xmlparser-150x150.png" alt="xmlparser" class="wp-image-223"/></a></figure></div>
+
+
+
+<p>prefer to use &#8220;#pragma mark -&#8221; to add a horizontal bar and comment for Xcode breadcrumb navigation.</p>
+
+
+
+<p>2. Implement parser:didStartElement:namespaceURI:qualifiedName:attributes delegate method. Add this method below the pragma mark line.</p>
+
+
+
+<p></p>
+
+
+
+<pre class="wp-block-code"><code>#pragma mark - implement NSXMLParserDelegate
+
+- (void) parser:(NSXMLParser *)parser didStartElement:(NSString *)elementName 
+   namespaceURI:(NSString *)namespaceURI 
+  qualifiedName:(NSString *)qualifiedName 
+     attributes:(NSDictionary *)attributeDict
+{
+  if (&#91;elementName isEqualToString:@"item"]) {
+    _item = &#91;&#91;NSMutableDictionary alloc]init];
+    &#91;_item setValue:&#91;&#91;NSMutableArray alloc] init] forKey:@"category"];
+    &#91;_list addObject:_item];
+    _foundItem = YES;
+  }
+
+  if(&#91;elementName isEqualToString:@"dz:username"] ||
+    &#91;elementName isEqualToString:@"dz:userimage"] ||
+    &#91;elementName isEqualToString:@"title"] ||
+    &#91;elementName isEqualToString:@"link"] ||
+    &#91;elementName isEqualToString:@"description"] ||
+    &#91;elementName isEqualToString:@"category"] ||
+    &#91;elementName isEqualToString:@"guid"] ||
+    &#91;elementName isEqualToString:@"linkId"]||
+    &#91;elementName isEqualToString:@"pubDate"]||
+    &#91;elementName isEqualToString:@"dz:thumbnail"]||
+    &#91;elementName isEqualToString:@"dz:voteUpCount"]||
+    &#91;elementName isEqualToString:@"dz:voteDownCount"]) {
+    _tempStore = &#91;&#91;NSMutableString alloc] init];
+  }
+}</code></pre>
+
+
+
+<p>This method is called by the XMLDataParser when a new tag has been discovered. When the open/start xml element &lt;item&gt; is discovered, we want to initialize a new dictionary to store the content of the article in a new dictionary. We also preset the dictionary value for key &#8220;category&#8221; as we can have multiple occurrence of xml element &lt;category&gt; (i.e. see example xml at top). Additionally, when the start xml element is any of the elements we want to store in our dictionary, we allocate a new mutable string.</p>
+
+
+
+<p>Tip: Use auto complete when available, particularly with delegate methods. You&#8217;ll run lower risk of fat-fingering the wrong character and wonder why your method is not being called. Given how simple it is, why not use it and save yourself the headache of banging your head on the wall. Simply, type &#8220;-&#8221; and first couple of letters of the method you wanted to implement. In our case, it was &#8220;- p&#8221;. Once you select it and try it again, you&#8217;ll notice that implemented method will not re-appear.</p>
+
+
+
+<p>Store all content between start xml element and end xml element for item&#8217;s child elements we care about by implementing parse:foundCharacters delegate method. In majority of the use cases, this method is called once. However, if content between the start and end element is too large, it will be chunked and this method will be called multiple time. For this reason, we want to append to it until end element is reached.</p>
+
+
+
+<pre class="wp-block-code"><code>- (void) parser:(NSXMLParser *)parser foundCharacters:(NSString *)string {
+  if (_foundItem) {
+    &#91;_tempStore appendString:string];
+  }
+}</code></pre>
+
+
+
+<p>Detect end xml element and store the final relevant data within xml element to dictionary. If end element is , reset our Boolean flag to detect the next article.</p>
+
+
+
+<pre class="wp-block-code"><code>- (void) parser:(NSXMLParser *)parser didEndElement:(NSString *)elementName 
+   namespaceURI:(NSString *)namespaceURI 
+   qualifiedName:(NSString *) qName {
+  if (_foundItem) {
+    if(&#91;elementName isEqualToString:@"item"]) {
+      _foundItem = NO;
+       return; // don't preceed
+    }
+
+    // trim whitespace from left and right and replace commonly encoded html string
+    NSString *content = &#91;_tempStore stringByTrimmingCharactersInSet: &#91;NSCharacterSet whitespaceCharacterSet]];
+    content = &#91;content stringByReplacingOccurrencesOfString:@"Â " withString:@""];
+    content = &#91;content stringByReplacingOccurrencesOfString:@"&amp;" withString:@"&amp;"];
+    content = &#91;content stringByReplacingOccurrencesOfString:@""" withString:@"\""];
+    content = &#91;content stringByReplacingOccurrencesOfString:@"Â­" withString:@"-"];
+    content = &#91;content stringByReplacingOccurrencesOfString:@"Â»" withString:@">>"];
+    content = &#91;content stringByReplacingOccurrencesOfString:@"Â·" withString:@"-"];
+    content = &#91;content stringByReplacingOccurrencesOfString:@"&lt;" withString:@"&lt;"]; 
+    content = &#91;content stringByReplacingOccurrencesOfString:@">" withString:@">"];
+
+    if( &#91;elementName isEqualToString:@"dz:username"] ) {
+      &#91;_item setObject:content forKey:@"username"];
+    } else if( &#91;elementName isEqualToString:@"dz:userimage"] ) {
+      &#91;_item setObject:content forKey:@"userimage"];
+    } else if( &#91;elementName isEqualToString:@"title"] ) {
+      &#91;_item setObject:content forKey:@"title"];
+    } else if ( &#91;elementName isEqualToString:@"link"]) {
+      &#91;_item setObject:content forKey:@"link"];
+    } else if ( &#91;elementName isEqualToString:@"description"]) {
+      &#91;_item setObject:content forKey:@"description"];
+    } else if ( &#91;elementName isEqualToString:@"category"]) {
+      NSMutableArray *temp = (NSMutableArray *)&#91;_item objectForKey:@"category"];
+      &#91;temp addObject:content];
+    } else if ( &#91;elementName isEqualToString:@"guid"]) {
+      &#91;_item setObject:content forKey:@"guid"];
+    } else if ( &#91;elementName isEqualToString:@"linkId"]) {
+      &#91;_item setObject:content forKey:@"linkId"];
+    } else if ( &#91;elementName isEqualToString:@"pubDate"]) {
+      &#91;_item setObject:content forKey:@"pubDate"];
+    } else if ( &#91;elementName isEqualToString:@"dz:voteUpCount"]) {
+      &#91;_item setObject:content forKey:@"voteUpCountr"];
+    } else if ( &#91;elementName isEqualToString:@"dz:voteDownCount"]) {
+      &#91;_item setObject:content forKey:@"voteDownCount"];
+    } else if ( &#91;elementName isEqualToString:@"dz:thumbnail"]) {
+      &#91;_item setObject:content forKey:@"thumbnail"];
+    }
+  }
+}</code></pre>
+
+
+
+<p><strong>JSTRRSSReader</strong></p>
+
+
+
+<p>Go back to our code from prior tutorial and&nbsp;import our new class &#8220;JSTRRSSParser.h&#8221; to &#8220;JSTRRSSReader.m&#8221;. Then,&nbsp;update the connectionDidFinishLoading method.</p>
+
+
+
+<pre class="wp-block-code"><code>- (void)connectionDidFinishLoading:(NSURLConnection *)connection
+{
+  NSXMLParser *parser = &#91;&#91;NSXMLParser alloc] initWithData:_receivedData];
+  JSTRRSSParser *rssParser = &#91;&#91;JSTRRSSParser alloc] init];
+  parser.delegate = rssParser;
+  &#91;parser parse];
+
+  NSMutableArray *articleList = &#91;rssParser getParsedList];
+  NSLog(@"%@", articleList);
+}</code></pre>
+
+
+
+<p>The revision will instantiate a new instance of NSXMLParser with the completed data from the RSS URL response. The delegate for this parser is the class we just wrote (JSTRRSSParser). When our XMLParser parses this response body, it will call our custom class. Once completed, we now have an array list of all the article with their relevant pieces from the article item.</p>
+
+
+
+<p><strong>Run Latest Change</strong></p>
+
+
+
+<p>If all works out, when you run your program again, you&#8217;ll now see only the relevant parsed data in your console.</p>
+
+
+
+<figure class="wp-block-image"><a href="/wp-content/uploads/2013/05/console2.png"><img src="/wp-content/uploads/2013/05/console2-300x167.png" alt="console2" class="wp-image-238"/></a></figure>
+
+
+
+<p>If the format looks familiar, that&#8217;s because it&#8217;s JSON format. Congrats! You have successfully parsed an xml content.</p>
+]]></content:encoded>
+					
+		
+		
+			</item>
+		<item>
+		<title>iOS App Development Tutorial Part III: Interacting with Web Sites</title>
+		<link>/2013/05/15/ios-appdev-part3/</link>
+		
+		<dc:creator><![CDATA[John Ra]]></dc:creator>
+		<pubDate>Wed, 15 May 2013 21:16:15 +0000</pubDate>
+				<category><![CDATA[iOS]]></category>
+		<category><![CDATA[Tutorial]]></category>
+		<category><![CDATA[Development]]></category>
+		<category><![CDATA[Mobile]]></category>
+		<guid isPermaLink="false">http://blog.jstrgames.com/?p=181</guid>
+
+					<description><![CDATA[Now that we have our idea and our visual mock ups,Â letâ€™s start coding. I will be using Xcode 4.6.2, it is the latest at the time of this writing If you have never developed in Objective-C but did some other coding in C++ or CÂ for example it should be pretty simple to catch up. I personally haven&#8217;t touchedÂ C or C++ since college, someÂ 15 years ago.Â Even with knowledge ofÂ Java and C#, I was ableÂ to pick upÂ Objective-C. IÂ highly recommend readingÂ iOS Programming: The Big Nerd Ranch GuideÂ as well. Create a blank project Open Xcode from your dock. If it&#8217;s not on your dock,&#8230;]]></description>
+										<content:encoded><![CDATA[<p>Now that we have our idea and our visual mock ups,Â letâ€<img src="https://s.w.org/images/core/emoji/13.1.0/72x72/2122.png" alt="™" class="wp-smiley" style="height: 1em; max-height: 1em;" />s start coding. I will be using Xcode 4.6.2, it is the latest at the time of this writing</p>
+<p>If you have never developed in Objective-C but did some other coding in C++ or CÂ for example it should be pretty simple to catch up. I personally haven&#8217;t touchedÂ C or C++ since college, someÂ 15 years ago.Â Even with knowledge ofÂ Java and C#, I was ableÂ to pick upÂ Objective-C. IÂ highly recommend readingÂ <a href="http://www.amazon.com/iOS-Programming-Ranch-Guide-Guides/dp/0321821521/ref=sr_1_4?s=books&amp;ie=UTF8&amp;qid=1368629049&amp;sr=1-4&amp;keywords=objective-c">iOS Programming: The Big Nerd Ranch Guide</a>Â as well.</p>
+<p><strong>Create a blank project</strong></p>
+<p><a href="/wp-content/uploads/2013/05/newproject1.png"><img loading="lazy" class="alignright size-thumbnail wp-image-190" src="/wp-content/uploads/2013/05/newproject1-150x150.png" alt="newproject1" width="150" height="150" /></a>Open Xcode from your dock. If it&#8217;s not on your dock, you can open it from Applications.Â Select &#8220;Create a new Xcode project&#8221; from the Welcome to Xcode screen. Choose &#8220;Empty Application&#8221; from &#8220;Choose a template for your new project&#8221; dialog. Fill out the options for your project.</p>
+<ul>
+<li>Product Name: DZone RSS</li>
+<li>Organization Name: &lt;&lt;enter your organization&gt;&gt;</li>
+<li>Company Identifier: &lt;&lt;enter your company identifier&gt;&gt;</li>
+<li>Class Prefix: &lt;&lt;enter the default prefix for your classes&gt;&gt;</li>
+<li>Devices: iPhone</li>
+<li>Only tick &#8220;Use Automatic Reference Counting&#8221;</li>
+</ul>
+<p>When specifying a Class Prefix, I recommend coming up with your own 3-4 character prefix, especially if you plan to publish any frameworks to opensource. This is necessary as Objective-C does not have a concept C# namespace or Java package. Without a prefix, you run the risk of class name collision when 3rd party libraries. On a related note, &#8220;NS&#8221; and &#8220;UI&#8221; prefix is reserved for Apple. &#8220;NS&#8221; stands for NeXTSTEP where Objective-C was developed. It&#8217;s a holdover from when <strong style="color: red;">N</strong>eXT<strong style="color: red;">S</strong>TEP took over Apple. Yes, I said that correctly. All resemblance of Apple as we see today is the product of Steve Jobs&#8217; vision of NeXTSTEP that was acquired by Apple.</p>
+<p>For this initial project, we will only target iPhone. I plan to refactor this project on a separate tutorial to run on iPad. For this reason, I plan to use UICollectionViewControlller to layout the RSS article instead of the UITableViewController. This will be further discussed in Part VI: Storyboarding.</p>
+<p><strong>iOS Project Basics</strong></p>
+<p>Each project has a main.m file. Below is the application entry point.</p>
+
+
+<pre class="wp-block-code"><code>int main(int argc, char *argv&#91;])
+{
+  @autoreleasepool {
+    return UIApplicationMain(argc, argv, nil, NSStringFromClass(&#91;JSTRAppDelegate class]));
+  }
+}</code></pre>
+
+
+
+<p>The default pricipalClassName (3rd parameter) is UIApplication. When nil is passed, the default pricipalClassName will be used. UIApplication can be subclassed if custom UIApplication is used. The 4th parameter is the app delegate class. In our case, it&#8217;s JSTRAppDelegate. If you look at the JSTRAppDelegate.h, you&#8217;ll notice that itÂ implements the UIApplicationDelegate protocol. All methods in UIApplicationDelegate are optional. UIApplication sends messages to delegate concerning App Launch/Termination, memory warnings, changes in orientation, and becoming the active application. As I don&#8217;t like having empty methods, I tend to remove all but the <strong>application:didFinishLaunchingWithOptions</strong> method until I&#8217;m ready to implement them.</p>
+
+
+
+<pre class="wp-block-code"><code>#import "JSTRAppDelegate.h"
+@implementation JSTRAppDelegate
+
+- (BOOL) application:(UIApplication *)application didFinishLaunchingWithOptions:(NSDictionary *)launchOptions
+{
+self.window = &#91;&#91;UIWindow alloc] initWithFrame:&#91;&#91;UIScreen mainScreen] bounds]];
+self.window.backgroundColor = &#91;UIColor yellowColor];
+&#91;self.window makeKeyAndVisible];
+return YES;
+}</code></pre>
+
+
+
+<p>Click run on top left and the iPhone Simulator will launch will bring you to a yellow screen. Congrats! If you&#8217;ve never</p>
+
+
+
+<div class="wp-block-image"><figure class="alignright"><a href="/wp-content/uploads/2013/05/simulator1.png"><img src="/wp-content/uploads/2013/05/simulator1-150x150.png" alt="simulator1" class="wp-image-201"/></a></figure></div>
+
+
+
+<p> created an iPhone app before, you&#8217;ve successfully written and launched your first app, a yellow flashlight. If you have any plans to launch this application, don&#8217;t bother. The very first flashlight application and mirror was exactly this with white and black background respectively. Since then, Apple has banned these types of applications.</p>
+
+
+
+<p><strong>Setting up Groups</strong></p>
+
+
+
+<p>Although Objective-C has no concept of C# namespace or Java package, Xcode does have a concept of groups. This is particularly helpful in organizing your code base. However, creating a group does not create an associated folder for that group. If you do not bind you group to a particular folder, all your code will reside at the root of your project in the file system. If you want to keep you file system consistent with your Xcode groups, You may want to bind your group to a specific folder. This way, when a file is added, it will add the new file to the linked folder.</p>
+
+
+
+<div class="wp-block-image"><figure class="alignleft"><a href="/wp-content/uploads/2013/05/newgroup1.png"><img src="/wp-content/uploads/2013/05/newgroup1-150x150.png" alt="newgroup1" class="wp-image-187"/></a></figure></div>
+
+
+
+<div class="wp-block-image"><figure class="alignright"><a href="/wp-content/uploads/2013/05/newgroup2.png"><img src="/wp-content/uploads/2013/05/newgroup2-150x150.png" alt="newgroup2" class="wp-image-188"/></a></figure></div>
+
+
+
+<p>To create a new&nbsp;group under DZone RSS, hold the control key and click on &#8220;DZone RSS&#8221; group. On the context menu, select &#8220;New Group&#8221; and specify the name &#8220;Net&#8221;. Select this new group &#8220;Net&#8221;. On the right side of Xcode, under Identity section, click the white square next to grayed out word &#8220;None&#8221;&nbsp;(see screenshot). This will open up a dialog where you can create a corresponding folder for your group. Create a new folder called &#8220;Net&#8221; to match your group name then click &#8220;Choose&#8221;. Now, any new file added to&nbsp;this group will reside in the &#8220;Net&#8221; folder in the file system. We&#8217;re now ready to create a new class to interact with DZone RSS URL.</p>
+
+
+
+<p><strong>JSTRRSSReader class</strong></p>
+
+
+
+<p>Once again, hold the control key and click &#8220;Net&#8221; folder. On the context menu, select &#8220;New File&#8230;&#8221;.&nbsp;On &#8220;Choose a template&nbsp;for your new file&#8221;, select Cocoa Touch from left panel and Objective-C class on right panel. After clicking &#8220;Next&#8221;, specify the class name &#8220;JSTRRSSReader&#8221;. This class should be a subclass of &#8220;NSObject&#8221;. Click &#8220;Next&#8221; will open the file dialog to &#8220;Net&#8221;. Since we want this class to reside in &#8220;Net&#8221; folder, just click &#8220;Create&#8221;.</p>
+
+
+
+<p>Our class needs to implement NSURLConnectionDataDelegate. This protocol describes methods that should be implemented to handle download data to memory. To hold this data into memory, we declare an instance&nbsp;variable _receivedData of type NSMutableData. It is also a good practice to prefix your instance variable with an underscore. We also need to expose the method in our interface so the caller can start the RSS request.</p>
+
+
+
+<pre class="wp-block-code"><code>@interface JSTRRSSReader : NSObject &lt;NSURLConnectionDataDelegate>
+{
+NSMutableData *_receivedData;
+}
+
+- (void) startRequest;
+
+@end</code></pre>
+
+
+
+<p>By default, all foundation classes (i.e. NSData, NSString, NSArray, etc) are immutable. However, a handful of them do have mutable subclasses (i.e. NSMutableData, NSMutableString, NSMutableArray). Mutable subclasses inherit all capabilities of immutable base class with added mutable methods. Since we can be getting data in chunks/blocks, we will need to use the mutable counterpart to NSData, NSMutableData.</p>
+
+
+
+<p>We now&nbsp;implement our class: our custom method startRequest and&nbsp;required NSURLConnectionDataDelegate methods.</p>
+
+
+
+<pre class="wp-block-code"><code>#import "JSTRRSSReader.h"
+@implementation JSTRRSSReader
+
+- (void) startRequest
+{
+  NSURL *url = &#91;&#91;NSURL alloc] initWithString:@"http://feeds.dzone.com/dzone/frontpage?format=xml"];
+  NSURLRequest *request = &#91;&#91;NSURLRequest alloc] initWithURL:url cachePolicy:NSURLCacheStorageNotAllowed timeoutInterval:60.0f];
+  NSURLConnection *conn = &#91;&#91;NSURLConnection alloc]initWithRequest:request delegate:self startImmediately:YES];
+  if(conn)
+  {
+    _receivedData = &#91;&#91;NSMutableData alloc]init];
+  }
+}
+
+#pragma mark - NSURLConnectionDataDelegate
+- (void) connection:(NSURLConnection *)connection didFailWithError:(NSError *)error
+{
+  NSLog(@"%@",error.description);
+}
+
+- (void) connection:(NSURLConnection *)connection didReceiveData:(NSData *)data
+{
+  NSLog(@"received %d bytes",data.length);
+  &#91;_receivedData appendData:data];
+}
+
+- (void)connectionDidFinishLoading:(NSURLConnection *)connection
+{
+  NSLog(@"%@", &#91;NSString stringWithCString:&#91;_receivedData bytes] encoding:NSUTF8StringEncoding]);
+}
+
+@end</code></pre>
+
+
+
+<p>In startRequest, we&nbsp;allocate an instance of NSURL&nbsp;to DZone RSS. The connection will initialize immediately.&nbsp;If an error occurs, connection:didFailWithError will log to console the error message. Otherwise, when data is received, connection:didReceiveData will be called where we append the data chunk/block to our instance variable _receivedData. When the request has completed, connectionDidFinishloading will be called. We will then log to console the complete response body.</p>
+
+
+
+<p><strong>Call JSTRRSSReader</strong></p>
+
+
+
+<p>Let&#8217;s now update our app delegate (JSTRAppDelegate) to make a call to DZone RSS.</p>
+
+
+
+<pre class="wp-block-code"><code>#import "JSTRAppDelegate.h"
+#import "JSTRRSSReader.h"
+
+@implementation JSTRAppDelegate
+
+- (BOOL) application:(UIApplication *)application didFinishLaunchingWithOptions:(NSDictionary *)launchOptions
+{
+  self.window = &#91;&#91;UIWindow alloc] initWithFrame:&#91;&#91;UIScreen mainScreen] bounds]];
+  self.window.backgroundColor = &#91;UIColor yellowColor];
+  &#91;self.window makeKeyAndVisible];
+
+  // make RSS call
+  JSTRRSSReader *reader = &#91;&#91;JSTRRSSReader alloc] init];
+  &#91;reader startRequest];
+
+  return YES;
+}</code></pre>
+
+
+
+<p>On run, the body of&nbsp;the response will now appear on your Xcode console. Congrats! you have successfully made request to a website.</p>
+
+
+
+<figure class="wp-block-image"><a href="/wp-content/uploads/2013/05/console.png"><img src="/wp-content/uploads/2013/05/console-300x180.png" alt="console" class="wp-image-211"/></a></figure>
+]]></content:encoded>
+					
+		
+		
+			</item>
+		<item>
+		<title>iOS App Development Tutorial Part II: Putting Pen to Paper</title>
+		<link>/2013/05/13/ios-appdev-part2/</link>
+		
+		<dc:creator><![CDATA[John Ra]]></dc:creator>
+		<pubDate>Mon, 13 May 2013 23:48:40 +0000</pubDate>
+				<category><![CDATA[iOS]]></category>
+		<category><![CDATA[Tutorial]]></category>
+		<category><![CDATA[Development]]></category>
+		<category><![CDATA[Mobile]]></category>
+		<guid isPermaLink="false">http://blog.jstrgames.com/?p=169</guid>
+
+					<description><![CDATA[Now thatÂ IÂ have my iPhone AppÂ idea, I like to draft out on a piece ofÂ paper what my app will look visually. If you&#8217;re not a fan of drawing or can&#8217;t draw, here&#8217;s a simple online tool to help visualize your iPhone app. Looking at the content of the RSS feed from DZone, I want my application to look as follows. Don&#8217;t worry about getting every details right the first time. Trust me, it&#8217;ll evolve over time. Given the above, I know that I will need a tab bar to switch screens from Feature Links and Latest Links. I also want to&#8230;]]></description>
+										<content:encoded><![CDATA[<p>Now thatÂ IÂ have my iPhone AppÂ idea, I like to draft out on a piece ofÂ paper what my app will look visually. If you&#8217;re not a fan of drawing or can&#8217;t draw, here&#8217;s a <a href="http://iphonemockup.lkmc.ch/">simple online tool</a> to help visualize your iPhone app. Looking at the content of the <a href="http://feeds.dzone.com/dzone/frontpage?format=xml">RSS feed</a> from DZone, I want my application to look as follows. Don&#8217;t worry about getting every details right the first time. Trust me, it&#8217;ll evolve over time.</p>
+<p><a href="/wp-content/uploads/2013/05/basicmockup.png"><img loading="lazy" class="alignnone size-full wp-image-171" alt="basicmockup" src="/wp-content/uploads/2013/05/basicmockup.png" width="165" height="260" /></a></p>
+<p>Given the above, I know that I will need a tab bar to switch screens from Feature Links and Latest Links. I also want to use theÂ navigation bar to push down another view controller to display site within my app. This will mean my root view controller should be the navigation bar with the tab bar pushed into it. Then, view controller will be pushedÂ to display the list of articles (see below image).</p>
+<p><a href="/wp-content/uploads/2013/05/mockup.png"><img loading="lazy" class="alignnone size-full wp-image-170" alt="mockup" src="/wp-content/uploads/2013/05/mockup.png" width="160" height="215" /></a></p>
+<p>Once user clicks on the article, it would then push downÂ yet anotherÂ view controller for in-app browsing. Since we&#8217;re using the navigation controller, it will automaticallyÂ provide us with a back button on the in-app browsing to pop back to the article listing. For more information regarding UINavigationController, please check out <a href="http://developer.apple.com/library/IOS/#documentation/UIKit/Reference/UINavigationController_Class/Reference/Reference.html">iOS Developer library</a>. In my next tutorial, I&#8217;ll walk you through creating your first app that will interact with the DZone RSS service.</p>
+]]></content:encoded>
+					
+		
+		
+			</item>
+		<item>
+		<title>iOS App Development Tutorial Part I: The Idea</title>
+		<link>/2013/05/11/ios-appdev-part1/</link>
+		
+		<dc:creator><![CDATA[John Ra]]></dc:creator>
+		<pubDate>Sat, 11 May 2013 21:16:40 +0000</pubDate>
+				<category><![CDATA[iOS]]></category>
+		<category><![CDATA[Tutorial]]></category>
+		<category><![CDATA[Development]]></category>
+		<category><![CDATA[Mobile]]></category>
+		<guid isPermaLink="false">http://blog.jstrgames.com/?p=164</guid>
+
+					<description><![CDATA[The hardest part is coming up with the idea. Given the success to failure ratio, don&#8217;t expect to make a quick buck building an app. Majority of developers barely break even. I&#8217;m in that failures bucket. Luckily, my primary objective is self-education. If the result of it interest/entertains others, great! Regardless, I&#8217;ve learned from the experience. For this tutorial, I&#8217;ve decided to make a DZone RSS app.Â This tutorial is a 7-part series: The Idea Putting Pen to Paper Interacting with web sites Parsing RSS XML Persisting RSS content Storyboarding In-App web browsing If you never visitedÂ DZone, I highly recommend it.&#8230;]]></description>
+										<content:encoded><![CDATA[<p>The hardest part is coming up with the idea. Given the <a href="http://arstechnica.com/apple/2012/05/ios-app-success-is-a-lottery-and-60-of-developers-dont-break-even/">success to failure ratio</a>, don&#8217;t expect to make a quick buck building an app. Majority of developers barely break even. I&#8217;m in that failures bucket. Luckily, my primary objective is self-education. If the result of it interest/entertains others, great! Regardless, I&#8217;ve learned from the experience.</p>
+<p>For this tutorial, I&#8217;ve decided to make a DZone RSS app.Â This tutorial is a 7-part series:</p>
+<ol>
+<li><span style="line-height: 13px;">The Idea</span></li>
+<li><a href="/2013/05/13/ios-appdev-part2">Putting Pen to Paper</a></li>
+<li><a href="/2013/05/15/ios-appdev-part3">Interacting with web sites</a></li>
+<li><a href="/2013/05/17/ios-appdev-part4">Parsing RSS XML</a></li>
+<li><a href="/2013/05/19/ios-appdev-part5">Persisting RSS content</a></li>
+<li><a href="/2013/05/23/ios-appdev-part6">Storyboarding</a></li>
+<li><a href="/2013/05/25/ios-appdev-part7">In-App web browsing</a></li>
+</ol>
+<p>If you never visitedÂ <a href="http://www.dzone.com/">DZone</a>, I highly recommend it. It&#8217;s full of great content for software developers and architects. I visit it on a daily basis.</p>
+]]></content:encoded>
+					
+		
+		
+			</item>
+	</channel>
+</rss>

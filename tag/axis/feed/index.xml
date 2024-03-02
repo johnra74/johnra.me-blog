@@ -1,0 +1,191 @@
+<?xml version="1.0" encoding="UTF-8"?><rss version="2.0"
+	xmlns:content="http://purl.org/rss/1.0/modules/content/"
+	xmlns:wfw="http://wellformedweb.org/CommentAPI/"
+	xmlns:dc="http://purl.org/dc/elements/1.1/"
+	xmlns:atom="http://www.w3.org/2005/Atom"
+	xmlns:sy="http://purl.org/rss/1.0/modules/syndication/"
+	xmlns:slash="http://purl.org/rss/1.0/modules/slash/"
+	>
+
+<channel>
+	<title>Axis2 &#8211; J O H N R A . M E</title>
+	<atom:link href="/tag/axis/feed/" rel="self" type="application/rss+xml" />
+	<link>/</link>
+	<description>...yet another musings of a techie</description>
+	<lastBuildDate>Sat, 12 Feb 2022 02:43:20 +0000</lastBuildDate>
+	<language>en-US</language>
+	<sy:updatePeriod>
+	hourly	</sy:updatePeriod>
+	<sy:updateFrequency>
+	1	</sy:updateFrequency>
+	<generator>https://wordpress.org/?v=5.9.2</generator>
+	<item>
+		<title>Axis2 and NTLMv2</title>
+		<link>/2012/08/23/axis2-ntlmv2/</link>
+		
+		<dc:creator><![CDATA[John Ra]]></dc:creator>
+		<pubDate>Fri, 24 Aug 2012 02:30:56 +0000</pubDate>
+				<category><![CDATA[.NET]]></category>
+		<category><![CDATA[C#]]></category>
+		<category><![CDATA[Java]]></category>
+		<category><![CDATA[Tutorial]]></category>
+		<category><![CDATA[.NET WebServices]]></category>
+		<category><![CDATA[Axis2]]></category>
+		<category><![CDATA[HttpComponent]]></category>
+		<category><![CDATA[NTLMv2]]></category>
+		<category><![CDATA[SharePoint]]></category>
+		<guid isPermaLink="false">http://blog.jstrgames.com/?p=77</guid>
+
+					<description><![CDATA[Every once in a while, an email thread is started by an individual wanting to know how to connect to&#160;SharePoint web services from java. The first time I came across this challenge was back in 2007 when I was building a Proof-of-Concept (PoC) workflow system for the business group I was supporting. One of the key requirements of this system was to retain an audit trail of all emails and documents associated with a given workflow. To put it bluntly, SharePoint wasn&#8217;t my first choice. I was very much aware of other&#160;document management systems which would have been a better&#8230;]]></description>
+										<content:encoded><![CDATA[
+<p>Every once in a while, an email thread is started by an individual wanting to know how to connect to&nbsp;SharePoint web services from java. The first time I came across this challenge was back in 2007 when I was building a Proof-of-Concept (PoC) workflow system for the business group I was supporting. One of the key requirements of this system was to retain an audit trail of all emails and documents associated with a given workflow. To put it bluntly, SharePoint wasn&#8217;t my first choice. I was very much aware of other&nbsp;document management systems which would have been a better fit. Let&#8217;s just say that business politics plays a nasty role in hindering technology decisions. Since I needed to work with SharePoint, the technical problem was the same today as it was back then: Microsoft security protocol, specifically <a href="http://en.wikipedia.org/wiki/NTLM#NTLMv2">NTLMv2</a>. Given that my initial architecture was based on Java platform, I needed <a href="https://github.com/johnra74/sharepoint-api">Java to talk to SharePoint web services</a> that was protected behind NTLMv2.</p>
+
+
+
+<p>It didn&#8217;t take long before&nbsp;I managed to stumble across a pure Java API from <a href="http://www.oaklandsoftware.com/product_http/overview.html">Oakland Software</a>. Oakland Software team&nbsp;managed to reverse engineer the NTLMv2 security protocol. With this API, I could plug-in an Oakland&#8217;s&nbsp;HttpClient agent&nbsp;into Apache Axis1 to seamlessly communicate with SharePoint.&nbsp;It worked perfectly. However, it was too risky to build a system that relied on a small unknown company that licensed this technology.&nbsp;Instead, I mitigate this risk by re-architecting&nbsp;the whole system&nbsp;on .NET platform. As anyone that has dealt with Microsoft knows, MS products always work better with other MS products.&nbsp;Since then, a lot has changed.&nbsp;Oakland has <a href="http://code.google.com/p/oakland-software-java-http-client/">open sourced</a> their API and Microsoft has made a <a href="http://www.microsoft.com/openspecifications/en/us/programs/wspp/wspp-patents/default.aspx">patent pledge</a> not to purse open-source developers. If you wanted to, you can still use Oakland API and Axis1 to communicate over NTLMv2. That&#8217;s one alternative. The other alternative, which I think is more forward thinking,&nbsp;is to use <a href="http://axis.apache.org/axis2/java/core/">Axis2</a> with <a href="http://hc.apache.org/httpcomponents-client-ga/">HttpComponents</a>, HttpClient v3 replacement.</p>
+
+
+
+<p><strong>The Good, The Bad, and the Ugly</strong><br>You&#8217;re probably thinking, &#8220;thanks for the history lesson but I really just want to know how to get java to talk to services behind NTLMv2 security.&#8221; First, the good news is that Axis2 will be integrated to HttpClient v4, which happens to support NTLMv2.&nbsp;The bad news is that it won&#8217;t be available until Axis2 version 1.7 is released. Then comes the ugly news, as of Aug 22, their latest snapshot implementation doesn&#8217;t work. From looking at the source code, there&#8217;s a bug that causes Axis2 to still load HttpClient v3. This is due to <a href="http://svn.apache.org/viewvc/axis/axis2/java/core/trunk/modules/transport/http/src/org/apache/axis2/transport/http/CommonsHTTPTransportSender.java?revision=1354438&amp;view=markup">line&nbsp;376</a>:&nbsp;&#8220;sender = new HTTPSenderImpl();&#8221;. The base class is hardcoded to use httpclient v3. Below is a simple patch that I&#8217;ve written.</p>
+
+
+
+<pre class="wp-block-code"><code>// Commenting out original code as it loads httpclient v3. This should really
+// be refactored in an abstract method. For now, patching with simpler if condition
+// sender = new HTTPSenderImpl();
+if(this instanceof org.apache.axis2.transport.http.impl.httpclient4.HTTPClient4TransportSender) {
+  sender = new org.apache.axis2.transport.http.impl.httpclient4.HTTPSenderImpl();
+} else {
+Â Â sender = new org.apache.axis2.transport.http.impl.httpclient3.HTTPSenderImpl();
+}</code></pre>
+
+
+
+<p>Ideally, this class should have an abstract&nbsp;method that will be over written by extended classes in httpclient3 package or httpclient4 package. For now, I&#8217;ve patched it to perform a simple instance check to identify the extended class and call the correct corresponding HTTPSenderImpl class. The following will provide step by step instructions on how to run Axis2 v1.7 + HttpComponent v4.1 to communicate to a .NET SOAP service sitting behind NTLMv2</p>
+
+
+
+<p><strong>1. Setting up IIS with NTLMv4</strong><br>First, We&nbsp;need to setup&nbsp;test environment with NTLMv2 enabled. If you already have access to IIS with NTLMv2 enabled, you can skip to the next section. Otherwise, here are instructions on how to setup IIS 7 on Windows 7 Professional, Enterprise, or Ultimate: Go to your Control Panel and click Programs -&gt; &#8220;Turn Windows features on or off&#8221;.</p>
+
+
+
+<figure class="wp-block-image"><a href="/wp-content/uploads/2012/08/NTLM_IIS7Install.png"><img src="/wp-content/uploads/2012/08/NTLM_IIS7Install-300x125.png" alt="" class="wp-image-81" title="NTLM_IIS7Install"/></a></figure>
+
+
+
+<p>Expand &#8220;Internet Information Services&#8221; and&nbsp;check the following features:</p>
+
+
+
+<ul><li>IIS Management Console</li><li>IIS Management Service</li><li>.NET Extensibility</li><li>ASP.NET</li><li>ISAPI Extensions</li><li>ISAPI Filters</li><li>Request Filtering</li><li>Windows Authentication</li></ul>
+
+
+
+<p>Once installed, go to &#8220;Control Panel&#8221; -&gt; &#8220;System and Security&#8221; -&gt; &#8220;Administrative Tools&#8221; and&nbsp;open &#8220;Internet Information Service (IIS) Manager&#8221;.&nbsp;You can either perform the following steps at the server level or at individual site level. In either place, if you click on your server name or &#8220;Default Web Site&#8221;, you&#8217;ll have several options appear on right. Double-click on &#8220;Authentication&#8221; and disable all but Windows Authentication option.</p>
+
+
+
+<figure class="wp-block-image"><a href="/wp-content/uploads/2012/08/NTLM_IIS7Setup.png"><img src="/wp-content/uploads/2012/08/NTLM_IIS7Setup.png" alt="" class="wp-image-83" title="NTLM_IIS7Setup"/></a></figure>
+
+
+
+<p>This will enable NTLMv2 and protect you site. All requests to this site will challenge user for valid Windows credentials.</p>
+
+
+
+<p><strong>2. Deploy Test Application</strong><br>Download my simple <a href="http://www.jstrgames.com/demo/NTLMWeb.zip">.NET TimeService</a> web application.&nbsp;Unzip and place the content anywhere on your computer. From IIS Manager, create a virtual application under Default Web Site and give the alias &#8220;TimeService&#8221;. The &#8220;Physical Path&#8221; should point to the location of the recently downloaded and&nbsp;unzipped .NET web application. If you open up App_Code\TimeService.cs file, you&#8217;ll see the following.</p>
+
+
+
+<pre class="wp-block-code"><code>&#91;WebMethod]
+public string Now(string name)
+{
+  return name + ", current time is " + DateTime.Now.ToShortTimeString();
+}</code></pre>
+
+
+
+<p>This is a simple .NET web service application that returns the current time for the specified parameter. If all works out,&nbsp;when you visit <a href="http://localhost/TimeService/TimeService.asmx?WSDL">http://localhost/TimeService/TimeService.asmx?WSDL</a>, assuming your site is running under port 80, you&#8217;ll be prompted to login with your windows credential. Once logged in, you&#8217;ll see the <a href="http://en.wikipedia.org/wiki/Web_Services_Description_Language">WSDL</a> for this web service.</p>
+
+
+
+<p><strong>3. Generating Axis2 Client</strong><br>If you&#8217;re familiar with Axis, you should know that it comes with a tool to generate Java client based on specified WSDL. If you&#8217;re not, now you know. Since the target WSDL is protected behind NTLMv2, the simplest way is to visit the site&nbsp;using your credentials and then save the WSDL to your file system. To generate the java client stubs, please visit <a href="http://axis.apache.org/axis2/java/core/docs/userguide-creatingclients.html">Axis2 website</a> for their instructions. It&#8217;s pretty thorough.&nbsp;You can also download my <a href="http://www.jstrgames.com/demo/Axis2NTLM.zip">Eclipse Projects</a> which has both the above Axis2 v1.7 patch and generated java stubs based on the TimeService WSDL.</p>
+
+
+
+<div class="wp-block-image"><figure class="alignleft"><a href="/wp-content/uploads/2012/08/NTLM_EclipseSetup.png"><img src="/wp-content/uploads/2012/08/NTLM_EclipseSetup-150x150.png" alt="" class="wp-image-87" title="NTLM_EclipseSetup"/></a></figure></div>
+
+
+
+<div class="wp-block-image"><figure class="alignright"><a href="/wp-content/uploads/2012/08/NTLM_EclipseRun.png"><img src="/wp-content/uploads/2012/08/NTLM_EclipseRun.png" alt="" class="wp-image-88" title="NTLM_EclipseRun"/></a></figure></div>
+
+
+
+<p><strong>4. Running Java Client</strong><br>In Axis2NTLMClient project downloaded from prior step, locate the Client.java class which contains the main method. Prior to running this class, you must add a VM argument (&#8220;-Daxis2.xml=conf/axis2.xml&#8221;) under Run Configuration in Eclipse (see image left). This VM argument informs Axis2 to use the axis2.xml located in conf folder instead of the <a href="http://svn.apache.org/viewvc/axis/axis2/java/core/trunk/modules/kernel/conf/">default</a> that comes with axis2-kernel.jar. The version in config/axis.xml has&nbsp;been modified to inform Axis2 to use HTTPClient v4 Transporter (line 232). When you run this class, you will be prompted with a login screen. This is a custom login dialog that I&#8217;ve written as I&#8217;m not a fan of saving username and password in properties file or in code. This simple login dialog will capture your username, password, and domain.&nbsp;If all goes well, you should see the following message on your console screen: &#8220;John, current time is &lt;&lt;your current time&gt;&gt;&#8221;.</p>
+
+
+
+<p><strong>Analysis</strong><br>When Client class is&nbsp;constructed, it will call the setupAuthentication() method. This method will construct the authenticator and will set the username, password, and domain entered by user.</p>
+
+
+
+<pre class="wp-block-code"><code>private void setupAuthentication() {
+  this.auth = new HttpTransportPropertiesImpl.Authenticator();
+  try {
+    showLoginDialog();
+  } catch (java.awt.HeadlessException e) {
+    log.fine("User does not have a desktop session! using console");
+    showLoginConsole();
+  }
+
+  auth.setRealm(AuthScope.ANY_REALM);
+  auth.setHost(this.host);// must MATCH target Host
+  auth.setPort(this.port);// must MATCH target Port
+}</code></pre>
+
+
+
+<p>The HeadlessException catch logic is put in place in the event user does not have a windows/xsession available. It will use the default console to capture username, password, and domain. By default, I set the Realm to ANY_REALM. I haven&#8217;t played around enough withÂ Realm to give you additional insight.Â As for host and port, itÂ MUST match the target URL. For example, if you decided to connect toÂ site via IP address (e.g. 127.0.0.1) instead ofÂ &#8220;localhost&#8221;, you must setHost() with IP address. For this reason, my Client class is constructed with host and port to ensure consistency.</p>
+
+
+
+<pre class="wp-block-code"><code>public String getResponse(String param) {
+  try {
+    TimeServiceStub service = new TimeServiceStub(getServiceEndPoint());
+
+    Options options = service._getServiceClient().getOptions();
+    options.setProperty(HTTPConstants.AUTHENTICATE, this.auth);
+    options.setProperty(HTTPConstants.CHUNKED, Boolean.FALSE);
+
+    Now req = new Now();
+    req.setName(param);
+    NowResponse resp = service.now(req);
+
+    return resp.getNowResult();
+
+  } catch (AxisFault e) {
+    log.severe(e.getMessage());
+  } catch (RemoteException e) {
+    log.severe(e.getMessage());
+  }
+  return new String();
+}</code></pre>
+
+
+
+<p>Once the authenticator has been&nbsp;constructed,&nbsp;Axis2 generated java class TimeServiceStub is used to connect to the .NET SOAP service. The helper method &#8220;getServiceEndPoint()&#8221; will generate and return the location of the webservice end point. It then set the options for AUTHENTICATE to use the constructed authenticator and disables CHUNKED on the transport encoding. If you do not disable the CHUNKED transport encoding on .NET services, <a href="http://stackoverflow.com/questions/11694315/axis2-http-400-error-with-vs2010-development-server">it will break</a>. Request class Now is used to set the parameter and the result of the SOAP service is returned through NowResponse class.</p>
+
+
+
+<p>As HttpComponent v4 has a pure Java implementation of NTLMv2, you can run this client from any OS. Here&#8217;s a screenshot from my Ubuntu Server.</p>
+
+
+
+<figure class="wp-block-image"><a href="/wp-content/uploads/2012/08/NTLM_EclipseRunUbuntu.png"><img src="/wp-content/uploads/2012/08/NTLM_EclipseRunUbuntu.png" alt="" class="wp-image-90" title="NTLM_EclipseRunUbuntu"/></a></figure>
+]]></content:encoded>
+					
+		
+		
+			</item>
+	</channel>
+</rss>

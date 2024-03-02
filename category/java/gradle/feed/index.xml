@@ -1,0 +1,121 @@
+<?xml version="1.0" encoding="UTF-8"?><rss version="2.0"
+	xmlns:content="http://purl.org/rss/1.0/modules/content/"
+	xmlns:wfw="http://wellformedweb.org/CommentAPI/"
+	xmlns:dc="http://purl.org/dc/elements/1.1/"
+	xmlns:atom="http://www.w3.org/2005/Atom"
+	xmlns:sy="http://purl.org/rss/1.0/modules/syndication/"
+	xmlns:slash="http://purl.org/rss/1.0/modules/slash/"
+	>
+
+<channel>
+	<title>Gradle &#8211; J O H N R A . M E</title>
+	<atom:link href="/category/java/gradle/feed/" rel="self" type="application/rss+xml" />
+	<link>/</link>
+	<description>...yet another musings of a techie</description>
+	<lastBuildDate>Sat, 12 Feb 2022 02:43:20 +0000</lastBuildDate>
+	<language>en-US</language>
+	<sy:updatePeriod>
+	hourly	</sy:updatePeriod>
+	<sy:updateFrequency>
+	1	</sy:updateFrequency>
+	<generator>https://wordpress.org/?v=5.9.2</generator>
+	<item>
+		<title>Gradle Plug-in: WSDL to Java Code Generation</title>
+		<link>/2014/03/08/gradle-plug-in-wsdl-to-java-code-generation/</link>
+		
+		<dc:creator><![CDATA[John Ra]]></dc:creator>
+		<pubDate>Sat, 08 Mar 2014 14:39:38 +0000</pubDate>
+				<category><![CDATA[Gradle]]></category>
+		<category><![CDATA[Groovy]]></category>
+		<category><![CDATA[Java]]></category>
+		<category><![CDATA[Tutorial]]></category>
+		<category><![CDATA[Development]]></category>
+		<guid isPermaLink="false">http://blog.jstrgames.com/?p=373</guid>
+
+					<description><![CDATA[It didn&#8217;t take long for me to fall in love with Gradle. Once I was introduced to it, I never looked back. It was the same with Ant as I transitioned from Make. But, Gradle is different. I always felt building was necessary evil. It was often done way after first code was ever written. This isn&#8217;t true with Gradle. Before any code is written, I start every project by setting up my Gradle build. I actually look forward to adding more features to my build. How crazy is that?! WSDL to JavaRecently, I published one of my old SharePoint&#8230;]]></description>
+										<content:encoded><![CDATA[<p>It didn&#8217;t take long for me to fall in love with <a href="http://www.gradle.org/">Gradle</a>. Once I was introduced to it, I never looked back. It was the same with <a href="http://ant.apache.org/">Ant</a> as I transitioned from <a href="https://www.gnu.org/software/make/">Make</a>. But, Gradle is different. I always felt building was necessary evil. It was often done way after first code was ever written. This isn&#8217;t true with Gradle. Before any code is written, I start every project by setting up my Gradle build. I actually look forward to adding more features to my build. How crazy is that?!</p>
+<p><strong>WSDL to Java</strong><br />Recently, I published one of my old <a href="https://github.com/johnra74/sharepoint-api">SharePoint API</a> to GitHub. Originally, I had written the build script using Ant for this project. One of the task I had was to take the SharePoint List WSDL and generate the corresponding java soap client classes. This is fairly trivial task in Ant &#8211; in fact, axis already provides <a href="http://axis.apache.org/axis/java/ant/ant.html">an ant task</a>. Sure, I could google for Gradle plug-in for WSDL to Java but I wanted to use this opportunity to learn to write my own plug-in. I&#8217;ve also been looking to <a href="/2013/07/25/thats-groovy/">write more Groovy code</a>.</p>
+<p><strong>Creating a Custom Gradle Task</strong><br /><a href="/wp-content/uploads/2014/03/gradle1.png"><img loading="lazy" class="alignright size-thumbnail wp-image-375" src="/wp-content/uploads/2014/03/gradle1-150x150.png" alt="gradle buildSrc" width="150" height="150" /></a>All custom Gradle tasks resides under buildSrc at the root of your project. If you are familiar with Gradle multiproject then you will notice that buildSrc is structured like a subproject. In fact, it is a subproject. Since I will be writing my custom task using Groovy, my source file will reside under src/main/groovy. If you wanted to write your custom task in Java, you would create it under src/main/java.</p>
+<p>Since my custom task is merely a wrapper for Axis2 class org.apache.axis2.wsdl.WSDL2Java, the build.gradle file will contain the Axis2 dependencies. Note, if your custom task does not require any dependencies besides core java, then you do not need to define the build.gradle file. Here&#8217;s my build.gradle file:</p>
+
+
+<pre class="wp-block-code"><code>repositories {
+  mavenCentral()
+}
+
+dependencies {
+  compile 'org.apache.axis2:axis2:1.6.2'
+  compile 'org.apache.axis2:axis2-xmlbeans:1.6.2'
+  compile 'org.apache.xmlbeans:xmlbeans:2.6.0'
+}</code></pre>
+
+
+
+<p>Once the build.gradle has been defined, I create my custom task in Groovy &#8211; WSDL2Java.groovy. The below Groovy class is a simple implementation. As you can see, there are no validation checks. It assumes all properties will be set.</p>
+
+
+
+<pre class="wp-block-code"><code>import org.gradle.api.DefaultTask
+import org.gradle.api.tasks.TaskAction
+// since this groovy class has the same name as the axis2 class, alias axis2 class to CodeGen
+import org.apache.axis2.wsdl.WSDL2Java as CodeGen
+
+class WSDL2Java extends DefaultTask {
+  // source location of the WSDL file
+  String wsdlfilename
+  // specify the binding type - xmlbeans, adb, or jibx
+  String databindingName
+  // target location where java classes should be created under
+  String targetSourceFolderLocation
+  // base package name
+  String packageName
+
+  @TaskAction
+  def generateJava() {
+    String&#91;] args =
+      &#91;
+        "-o", targetSourceFolderLocation,
+        "-p", packageName,
+        "-d", databindingName,
+        "-or",
+        "-uri", wsdlfilename
+      ]
+    CodeGen.main(args)
+  }
+}</code></pre>
+
+
+
+<p>Here&#8217;s how this custom task is called within the project. First, I define a task called &#8220;genJavaFromWSDL&#8221; with type WSDL2Java &#8211; the Groovy class name. Within this custom task, I set all properties. Then, I update the dependency of java compile task to this custom task. This will ensure the java soap client is created before build is trigger.</p>
+
+
+
+<pre class="wp-block-code"><code>// define the WSDL2Java task
+task genJavaFromWSDL(type: WSDL2Java) {
+  wsdlfilename= "$buildDir/../src/main/wsdl/Lists.SP2013.wsdl"
+  databindingName='xmlbeans'
+  targetSourceFolderLocation= "$buildDir/generated/wsdl/main"
+  packageName='com.microsoft.sharepoint'
+}
+
+// add prior hook before compile
+compileJava.dependsOn genJavaFromWSDL
+
+// add generated wsdl java classes to source dir
+sourceSets.main.java.srcDir "$buildDir/generated/wsdl/main/src"
+sourceSets.main.java.srcDir "$buildDir/generated/wsdl/main/resources"</code></pre>
+
+
+
+<div class="wp-block-image"><figure class="alignleft"><a href="/wp-content/uploads/2014/03/gradle2.png"><img src="/wp-content/uploads/2014/03/gradle2.png" alt="Gradle Project" class="wp-image-378"/></a></figure></div>
+
+
+
+<p>Finally, I add the generated source and resources to the Groovy sourceSet so that the generated sources are properly compiled. It also allows them to appear under Eclipse.</p>
+]]></content:encoded>
+					
+		
+		
+			</item>
+	</channel>
+</rss>

@@ -1,0 +1,565 @@
+<!DOCTYPE html>
+<html lang="en-US">
+<head>
+	<script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-0170985620077101" crossorigin="anonymous"></script>
+	<title>iOS App Development Tutorial Part IV: Parsing RSS XML &#8211; J O H N R A . M E</title>
+<meta name="robots" content="max-image-preview:large">
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<meta name="template" content="Ignite 1.80">
+<link rel="dns-prefetch" href="//fonts.googleapis.com">
+<link rel="dns-prefetch" href="//s.w.org">
+<link rel="alternate" type="application/rss+xml" title="J O H N R A . M E &raquo; Feed" href="/feed/">
+<link rel="alternate" type="application/rss+xml" title="J O H N R A . M E &raquo; Comments Feed" href="/comments/feed/">
+<link rel="alternate" type="application/rss+xml" title="J O H N R A . M E &raquo; iOS App Development Tutorial Part IV: Parsing RSS XML Comments Feed" href="/2013/05/17/ios-appdev-part4/feed/">
+<script type="text/javascript">
+window._wpemojiSettings = {"baseUrl":"https:\/\/s.w.org\/images\/core\/emoji\/13.1.0\/72x72\/","ext":".png","svgUrl":"https:\/\/s.w.org\/images\/core\/emoji\/13.1.0\/svg\/","svgExt":".svg","source":{"concatemoji":"\/wp-includes\/js\/wp-emoji-release.min.js?ver=5.9.2"}};
+/*! This file is auto-generated */
+!function(e,a,t){var n,r,o,i=a.createElement("canvas"),p=i.getContext&&i.getContext("2d");function s(e,t){var a=String.fromCharCode;p.clearRect(0,0,i.width,i.height),p.fillText(a.apply(this,e),0,0);e=i.toDataURL();return p.clearRect(0,0,i.width,i.height),p.fillText(a.apply(this,t),0,0),e===i.toDataURL()}function c(e){var t=a.createElement("script");t.src=e,t.defer=t.type="text/javascript",a.getElementsByTagName("head")[0].appendChild(t)}for(o=Array("flag","emoji"),t.supports={everything:!0,everythingExceptFlag:!0},r=0;r<o.length;r++)t.supports[o[r]]=function(e){if(!p||!p.fillText)return!1;switch(p.textBaseline="top",p.font="600 32px Arial",e){case"flag":return s([127987,65039,8205,9895,65039],[127987,65039,8203,9895,65039])?!1:!s([55356,56826,55356,56819],[55356,56826,8203,55356,56819])&&!s([55356,57332,56128,56423,56128,56418,56128,56421,56128,56430,56128,56423,56128,56447],[55356,57332,8203,56128,56423,8203,56128,56418,8203,56128,56421,8203,56128,56430,8203,56128,56423,8203,56128,56447]);case"emoji":return!s([10084,65039,8205,55357,56613],[10084,65039,8203,55357,56613])}return!1}(o[r]),t.supports.everything=t.supports.everything&&t.supports[o[r]],"flag"!==o[r]&&(t.supports.everythingExceptFlag=t.supports.everythingExceptFlag&&t.supports[o[r]]);t.supports.everythingExceptFlag=t.supports.everythingExceptFlag&&!t.supports.flag,t.DOMReady=!1,t.readyCallback=function(){t.DOMReady=!0},t.supports.everything||(n=function(){t.readyCallback()},a.addEventListener?(a.addEventListener("DOMContentLoaded",n,!1),e.addEventListener("load",n,!1)):(e.attachEvent("onload",n),a.attachEvent("onreadystatechange",function(){"complete"===a.readyState&&t.readyCallback()})),(n=t.source||{}).concatemoji?c(n.concatemoji):n.wpemoji&&n.twemoji&&(c(n.twemoji),c(n.wpemoji)))}(window,document,window._wpemojiSettings);
+</script>
+<style type="text/css">img.wp-smiley,
+img.emoji {
+	display: inline !important;
+	border: none !important;
+	box-shadow: none !important;
+	height: 1em !important;
+	width: 1em !important;
+	margin: 0 0.07em !important;
+	vertical-align: -0.1em !important;
+	background: none !important;
+	padding: 0 !important;
+}</style>
+	<link rel="stylesheet" id="wp-block-library-css" href="/wp-includes/css/dist/block-library/style.min.css?ver=5.9.2" type="text/css" media="all">
+<style id="global-styles-inline-css" type="text/css">body{--wp--preset--color--black: #000000;--wp--preset--color--cyan-bluish-gray: #abb8c3;--wp--preset--color--white: #ffffff;--wp--preset--color--pale-pink: #f78da7;--wp--preset--color--vivid-red: #cf2e2e;--wp--preset--color--luminous-vivid-orange: #ff6900;--wp--preset--color--luminous-vivid-amber: #fcb900;--wp--preset--color--light-green-cyan: #7bdcb5;--wp--preset--color--vivid-green-cyan: #00d084;--wp--preset--color--pale-cyan-blue: #8ed1fc;--wp--preset--color--vivid-cyan-blue: #0693e3;--wp--preset--color--vivid-purple: #9b51e0;--wp--preset--gradient--vivid-cyan-blue-to-vivid-purple: linear-gradient(135deg,rgba(6,147,227,1) 0%,rgb(155,81,224) 100%);--wp--preset--gradient--light-green-cyan-to-vivid-green-cyan: linear-gradient(135deg,rgb(122,220,180) 0%,rgb(0,208,130) 100%);--wp--preset--gradient--luminous-vivid-amber-to-luminous-vivid-orange: linear-gradient(135deg,rgba(252,185,0,1) 0%,rgba(255,105,0,1) 100%);--wp--preset--gradient--luminous-vivid-orange-to-vivid-red: linear-gradient(135deg,rgba(255,105,0,1) 0%,rgb(207,46,46) 100%);--wp--preset--gradient--very-light-gray-to-cyan-bluish-gray: linear-gradient(135deg,rgb(238,238,238) 0%,rgb(169,184,195) 100%);--wp--preset--gradient--cool-to-warm-spectrum: linear-gradient(135deg,rgb(74,234,220) 0%,rgb(151,120,209) 20%,rgb(207,42,186) 40%,rgb(238,44,130) 60%,rgb(251,105,98) 80%,rgb(254,248,76) 100%);--wp--preset--gradient--blush-light-purple: linear-gradient(135deg,rgb(255,206,236) 0%,rgb(152,150,240) 100%);--wp--preset--gradient--blush-bordeaux: linear-gradient(135deg,rgb(254,205,165) 0%,rgb(254,45,45) 50%,rgb(107,0,62) 100%);--wp--preset--gradient--luminous-dusk: linear-gradient(135deg,rgb(255,203,112) 0%,rgb(199,81,192) 50%,rgb(65,88,208) 100%);--wp--preset--gradient--pale-ocean: linear-gradient(135deg,rgb(255,245,203) 0%,rgb(182,227,212) 50%,rgb(51,167,181) 100%);--wp--preset--gradient--electric-grass: linear-gradient(135deg,rgb(202,248,128) 0%,rgb(113,206,126) 100%);--wp--preset--gradient--midnight: linear-gradient(135deg,rgb(2,3,129) 0%,rgb(40,116,252) 100%);--wp--preset--duotone--dark-grayscale: url('#wp-duotone-dark-grayscale');--wp--preset--duotone--grayscale: url('#wp-duotone-grayscale');--wp--preset--duotone--purple-yellow: url('#wp-duotone-purple-yellow');--wp--preset--duotone--blue-red: url('#wp-duotone-blue-red');--wp--preset--duotone--midnight: url('#wp-duotone-midnight');--wp--preset--duotone--magenta-yellow: url('#wp-duotone-magenta-yellow');--wp--preset--duotone--purple-green: url('#wp-duotone-purple-green');--wp--preset--duotone--blue-orange: url('#wp-duotone-blue-orange');--wp--preset--font-size--small: 13px;--wp--preset--font-size--medium: 20px;--wp--preset--font-size--large: 21px;--wp--preset--font-size--x-large: 42px;--wp--preset--font-size--regular: 16px;--wp--preset--font-size--larger: 36px;}.has-black-color{color: var(--wp--preset--color--black) !important;}.has-cyan-bluish-gray-color{color: var(--wp--preset--color--cyan-bluish-gray) !important;}.has-white-color{color: var(--wp--preset--color--white) !important;}.has-pale-pink-color{color: var(--wp--preset--color--pale-pink) !important;}.has-vivid-red-color{color: var(--wp--preset--color--vivid-red) !important;}.has-luminous-vivid-orange-color{color: var(--wp--preset--color--luminous-vivid-orange) !important;}.has-luminous-vivid-amber-color{color: var(--wp--preset--color--luminous-vivid-amber) !important;}.has-light-green-cyan-color{color: var(--wp--preset--color--light-green-cyan) !important;}.has-vivid-green-cyan-color{color: var(--wp--preset--color--vivid-green-cyan) !important;}.has-pale-cyan-blue-color{color: var(--wp--preset--color--pale-cyan-blue) !important;}.has-vivid-cyan-blue-color{color: var(--wp--preset--color--vivid-cyan-blue) !important;}.has-vivid-purple-color{color: var(--wp--preset--color--vivid-purple) !important;}.has-black-background-color{background-color: var(--wp--preset--color--black) !important;}.has-cyan-bluish-gray-background-color{background-color: var(--wp--preset--color--cyan-bluish-gray) !important;}.has-white-background-color{background-color: var(--wp--preset--color--white) !important;}.has-pale-pink-background-color{background-color: var(--wp--preset--color--pale-pink) !important;}.has-vivid-red-background-color{background-color: var(--wp--preset--color--vivid-red) !important;}.has-luminous-vivid-orange-background-color{background-color: var(--wp--preset--color--luminous-vivid-orange) !important;}.has-luminous-vivid-amber-background-color{background-color: var(--wp--preset--color--luminous-vivid-amber) !important;}.has-light-green-cyan-background-color{background-color: var(--wp--preset--color--light-green-cyan) !important;}.has-vivid-green-cyan-background-color{background-color: var(--wp--preset--color--vivid-green-cyan) !important;}.has-pale-cyan-blue-background-color{background-color: var(--wp--preset--color--pale-cyan-blue) !important;}.has-vivid-cyan-blue-background-color{background-color: var(--wp--preset--color--vivid-cyan-blue) !important;}.has-vivid-purple-background-color{background-color: var(--wp--preset--color--vivid-purple) !important;}.has-black-border-color{border-color: var(--wp--preset--color--black) !important;}.has-cyan-bluish-gray-border-color{border-color: var(--wp--preset--color--cyan-bluish-gray) !important;}.has-white-border-color{border-color: var(--wp--preset--color--white) !important;}.has-pale-pink-border-color{border-color: var(--wp--preset--color--pale-pink) !important;}.has-vivid-red-border-color{border-color: var(--wp--preset--color--vivid-red) !important;}.has-luminous-vivid-orange-border-color{border-color: var(--wp--preset--color--luminous-vivid-orange) !important;}.has-luminous-vivid-amber-border-color{border-color: var(--wp--preset--color--luminous-vivid-amber) !important;}.has-light-green-cyan-border-color{border-color: var(--wp--preset--color--light-green-cyan) !important;}.has-vivid-green-cyan-border-color{border-color: var(--wp--preset--color--vivid-green-cyan) !important;}.has-pale-cyan-blue-border-color{border-color: var(--wp--preset--color--pale-cyan-blue) !important;}.has-vivid-cyan-blue-border-color{border-color: var(--wp--preset--color--vivid-cyan-blue) !important;}.has-vivid-purple-border-color{border-color: var(--wp--preset--color--vivid-purple) !important;}.has-vivid-cyan-blue-to-vivid-purple-gradient-background{background: var(--wp--preset--gradient--vivid-cyan-blue-to-vivid-purple) !important;}.has-light-green-cyan-to-vivid-green-cyan-gradient-background{background: var(--wp--preset--gradient--light-green-cyan-to-vivid-green-cyan) !important;}.has-luminous-vivid-amber-to-luminous-vivid-orange-gradient-background{background: var(--wp--preset--gradient--luminous-vivid-amber-to-luminous-vivid-orange) !important;}.has-luminous-vivid-orange-to-vivid-red-gradient-background{background: var(--wp--preset--gradient--luminous-vivid-orange-to-vivid-red) !important;}.has-very-light-gray-to-cyan-bluish-gray-gradient-background{background: var(--wp--preset--gradient--very-light-gray-to-cyan-bluish-gray) !important;}.has-cool-to-warm-spectrum-gradient-background{background: var(--wp--preset--gradient--cool-to-warm-spectrum) !important;}.has-blush-light-purple-gradient-background{background: var(--wp--preset--gradient--blush-light-purple) !important;}.has-blush-bordeaux-gradient-background{background: var(--wp--preset--gradient--blush-bordeaux) !important;}.has-luminous-dusk-gradient-background{background: var(--wp--preset--gradient--luminous-dusk) !important;}.has-pale-ocean-gradient-background{background: var(--wp--preset--gradient--pale-ocean) !important;}.has-electric-grass-gradient-background{background: var(--wp--preset--gradient--electric-grass) !important;}.has-midnight-gradient-background{background: var(--wp--preset--gradient--midnight) !important;}.has-small-font-size{font-size: var(--wp--preset--font-size--small) !important;}.has-medium-font-size{font-size: var(--wp--preset--font-size--medium) !important;}.has-large-font-size{font-size: var(--wp--preset--font-size--large) !important;}.has-x-large-font-size{font-size: var(--wp--preset--font-size--x-large) !important;}</style>
+<link rel="stylesheet" id="ct-ignite-google-fonts-css" href="//fonts.googleapis.com/css?family=Roboto+Slab%3AThin%2CLight%2CRegular%2CBold&#038;subset=latin%2Clatin-ext&#038;ver=5.9.2" type="text/css" media="all">
+<link rel="stylesheet" id="ct-ignite-font-awesome-css" href="/wp-content/themes/ignite/assets/font-awesome/css/all.min.css?ver=5.9.2" type="text/css" media="all">
+<link rel="stylesheet" id="ct-ignite-style-css" href="/wp-content/themes/ignite/style.css?ver=5.9.2" type="text/css" media="all">
+<style id="ct-ignite-style-inline-css" type="text/css">body, h1, h2, h3, h4, h5, h6, input:not([type='checkbox']):not([type='radio']):not([type='submit']):not([type='file']), input[type='submit'], textarea {
+                font-family: Roboto Slab;
+                font-style: normal;
+                font-weight: ;
+            }
+        
+
+            .overflow-container {
+                background: ;
+            }
+            .main, .sidebar-primary-container, .breadcrumb-trail {
+                background: none;
+            }</style>
+<script type="text/javascript" src="/wp-includes/js/jquery/jquery.min.js?ver=3.6.0" id="jquery-core-js"></script>
+<script type="text/javascript" src="/wp-includes/js/jquery/jquery-migrate.min.js?ver=3.3.2" id="jquery-migrate-js"></script>
+<link rel="https://api.w.org/" href="/wp-json/">
+<link rel="alternate" type="application/json" href="/wp-json/wp/v2/posts/220">
+<link rel="EditURI" type="application/rsd+xml" title="RSD" href="/xmlrpc.php?rsd">
+<link rel="wlwmanifest" type="application/wlwmanifest+xml" href="/wp-includes/wlwmanifest.xml"> 
+<meta name="generator" content="WordPress 5.9.2">
+<link rel="canonical" href="/2013/05/17/ios-appdev-part4/">
+<link rel="shortlink" href="/?p=220">
+<link rel="alternate" type="application/json+oembed" href="/wp-json/oembed/1.0/embed?url=http%3A%2F%2F%2F2013%2F05%2F17%2Fios-appdev-part4%2F">
+<link rel="alternate" type="text/xml+oembed" href="/wp-json/oembed/1.0/embed?url=http%3A%2F%2F%2F2013%2F05%2F17%2Fios-appdev-part4%2F&#038;format=xml">
+</head>
+<body id="ignite" class="post-template-default single single-post postid-220 single-format-standard singular singular-post singular-post-220">
+	<svg xmlns="http://www.w3.org/2000/svg" viewbox="0 0 0 0" width="0" height="0" focusable="false" role="none" style="visibility: hidden; position: absolute; left: -9999px; overflow: hidden;"><defs><filter id="wp-duotone-dark-grayscale"><fecolormatrix color-interpolation-filters="sRGB" type="matrix" values=" .299 .587 .114 0 0 .299 .587 .114 0 0 .299 .587 .114 0 0 .299 .587 .114 0 0 "></fecolormatrix><fecomponenttransfer color-interpolation-filters="sRGB"><fefuncr type="table" tablevalues="0 0.49803921568627"></fefuncr><fefuncg type="table" tablevalues="0 0.49803921568627"></fefuncg><fefuncb type="table" tablevalues="0 0.49803921568627"></fefuncb><fefunca type="table" tablevalues="1 1"></fefunca></fecomponenttransfer><fecomposite in2="SourceGraphic" operator="in"></fecomposite></filter></defs></svg><svg xmlns="http://www.w3.org/2000/svg" viewbox="0 0 0 0" width="0" height="0" focusable="false" role="none" style="visibility: hidden; position: absolute; left: -9999px; overflow: hidden;"><defs><filter id="wp-duotone-grayscale"><fecolormatrix color-interpolation-filters="sRGB" type="matrix" values=" .299 .587 .114 0 0 .299 .587 .114 0 0 .299 .587 .114 0 0 .299 .587 .114 0 0 "></fecolormatrix><fecomponenttransfer color-interpolation-filters="sRGB"><fefuncr type="table" tablevalues="0 1"></fefuncr><fefuncg type="table" tablevalues="0 1"></fefuncg><fefuncb type="table" tablevalues="0 1"></fefuncb><fefunca type="table" tablevalues="1 1"></fefunca></fecomponenttransfer><fecomposite in2="SourceGraphic" operator="in"></fecomposite></filter></defs></svg><svg xmlns="http://www.w3.org/2000/svg" viewbox="0 0 0 0" width="0" height="0" focusable="false" role="none" style="visibility: hidden; position: absolute; left: -9999px; overflow: hidden;"><defs><filter id="wp-duotone-purple-yellow"><fecolormatrix color-interpolation-filters="sRGB" type="matrix" values=" .299 .587 .114 0 0 .299 .587 .114 0 0 .299 .587 .114 0 0 .299 .587 .114 0 0 "></fecolormatrix><fecomponenttransfer color-interpolation-filters="sRGB"><fefuncr type="table" tablevalues="0.54901960784314 0.98823529411765"></fefuncr><fefuncg type="table" tablevalues="0 1"></fefuncg><fefuncb type="table" tablevalues="0.71764705882353 0.25490196078431"></fefuncb><fefunca type="table" tablevalues="1 1"></fefunca></fecomponenttransfer><fecomposite in2="SourceGraphic" operator="in"></fecomposite></filter></defs></svg><svg xmlns="http://www.w3.org/2000/svg" viewbox="0 0 0 0" width="0" height="0" focusable="false" role="none" style="visibility: hidden; position: absolute; left: -9999px; overflow: hidden;"><defs><filter id="wp-duotone-blue-red"><fecolormatrix color-interpolation-filters="sRGB" type="matrix" values=" .299 .587 .114 0 0 .299 .587 .114 0 0 .299 .587 .114 0 0 .299 .587 .114 0 0 "></fecolormatrix><fecomponenttransfer color-interpolation-filters="sRGB"><fefuncr type="table" tablevalues="0 1"></fefuncr><fefuncg type="table" tablevalues="0 0.27843137254902"></fefuncg><fefuncb type="table" tablevalues="0.5921568627451 0.27843137254902"></fefuncb><fefunca type="table" tablevalues="1 1"></fefunca></fecomponenttransfer><fecomposite in2="SourceGraphic" operator="in"></fecomposite></filter></defs></svg><svg xmlns="http://www.w3.org/2000/svg" viewbox="0 0 0 0" width="0" height="0" focusable="false" role="none" style="visibility: hidden; position: absolute; left: -9999px; overflow: hidden;"><defs><filter id="wp-duotone-midnight"><fecolormatrix color-interpolation-filters="sRGB" type="matrix" values=" .299 .587 .114 0 0 .299 .587 .114 0 0 .299 .587 .114 0 0 .299 .587 .114 0 0 "></fecolormatrix><fecomponenttransfer color-interpolation-filters="sRGB"><fefuncr type="table" tablevalues="0 0"></fefuncr><fefuncg type="table" tablevalues="0 0.64705882352941"></fefuncg><fefuncb type="table" tablevalues="0 1"></fefuncb><fefunca type="table" tablevalues="1 1"></fefunca></fecomponenttransfer><fecomposite in2="SourceGraphic" operator="in"></fecomposite></filter></defs></svg><svg xmlns="http://www.w3.org/2000/svg" viewbox="0 0 0 0" width="0" height="0" focusable="false" role="none" style="visibility: hidden; position: absolute; left: -9999px; overflow: hidden;"><defs><filter id="wp-duotone-magenta-yellow"><fecolormatrix color-interpolation-filters="sRGB" type="matrix" values=" .299 .587 .114 0 0 .299 .587 .114 0 0 .299 .587 .114 0 0 .299 .587 .114 0 0 "></fecolormatrix><fecomponenttransfer color-interpolation-filters="sRGB"><fefuncr type="table" tablevalues="0.78039215686275 1"></fefuncr><fefuncg type="table" tablevalues="0 0.94901960784314"></fefuncg><fefuncb type="table" tablevalues="0.35294117647059 0.47058823529412"></fefuncb><fefunca type="table" tablevalues="1 1"></fefunca></fecomponenttransfer><fecomposite in2="SourceGraphic" operator="in"></fecomposite></filter></defs></svg><svg xmlns="http://www.w3.org/2000/svg" viewbox="0 0 0 0" width="0" height="0" focusable="false" role="none" style="visibility: hidden; position: absolute; left: -9999px; overflow: hidden;"><defs><filter id="wp-duotone-purple-green"><fecolormatrix color-interpolation-filters="sRGB" type="matrix" values=" .299 .587 .114 0 0 .299 .587 .114 0 0 .299 .587 .114 0 0 .299 .587 .114 0 0 "></fecolormatrix><fecomponenttransfer color-interpolation-filters="sRGB"><fefuncr type="table" tablevalues="0.65098039215686 0.40392156862745"></fefuncr><fefuncg type="table" tablevalues="0 1"></fefuncg><fefuncb type="table" tablevalues="0.44705882352941 0.4"></fefuncb><fefunca type="table" tablevalues="1 1"></fefunca></fecomponenttransfer><fecomposite in2="SourceGraphic" operator="in"></fecomposite></filter></defs></svg><svg xmlns="http://www.w3.org/2000/svg" viewbox="0 0 0 0" width="0" height="0" focusable="false" role="none" style="visibility: hidden; position: absolute; left: -9999px; overflow: hidden;"><defs><filter id="wp-duotone-blue-orange"><fecolormatrix color-interpolation-filters="sRGB" type="matrix" values=" .299 .587 .114 0 0 .299 .587 .114 0 0 .299 .587 .114 0 0 .299 .587 .114 0 0 "></fecolormatrix><fecomponenttransfer color-interpolation-filters="sRGB"><fefuncr type="table" tablevalues="0.098039215686275 1"></fefuncr><fefuncg type="table" tablevalues="0 0.66274509803922"></fefuncg><fefuncb type="table" tablevalues="0.84705882352941 0.41960784313725"></fefuncb><fefunca type="table" tablevalues="1 1"></fefunca></fecomponenttransfer><fecomposite in2="SourceGraphic" operator="in"></fecomposite></filter></defs></svg>	<a class="skip-content" href="#main">Skip to content</a>
+		<header class="site-header" id="site-header" role="banner">
+		<div id="title-info" class="title-info">
+			<div class="site-title"><a href="/">J O H N R A . M E</a></div>		</div>
+		<button id="toggle-navigation" class="toggle-navigation"><i class="fas fa-bars"></i></button>
+<div class="menu-container menu-primary" id="menu-primary" role="navigation">
+	<p id="site-description" class="tagline">...yet another musings of a techie</p>
+<ul id="menu-primary-items" class="menu-primary-items">
+<li id="menu-item-489" class="menu-item menu-item-type-custom menu-item-object-custom menu-item-home menu-item-489"><a href="/">Blog</a></li>
+<li id="menu-item-490" class="menu-item menu-item-type-post_type menu-item-object-page menu-item-490"><a href="/about-me/">About</a></li>
+<li id="menu-item-522" class="menu-item menu-item-type-post_type menu-item-object-page menu-item-522"><a href="/resume/">Résumé</a></li>
+</ul>
+<ul class="social-media-icons">				<li>
+					<a class="facebook" target="_blank" href="https://www.facebook.com/jra75">
+						<i class="fab fa-facebook-square" title="facebook"></i>
+						<span class="screen-reader-text">facebook</span>
+					</a>
+				</li>
+								<li>
+					<a class="linkedin" target="_blank" href="https://www.linkedin.com/in/johnathan-ra-49b2713">
+						<i class="fab fa-linkedin" title="linkedin"></i>
+						<span class="screen-reader-text">linkedin</span>
+					</a>
+				</li>
+								<li>
+					<a class="youtube" target="_blank" href="https://www.youtube.com/channel/UCYAOIaObT9lzSpnDAy0g0Ng">
+						<i class="fab fa-youtube-square" title="youtube"></i>
+						<span class="screen-reader-text">youtube</span>
+					</a>
+				</li>
+								<li>
+					<a class="github" target="_blank" href="https://github.com/johnra74">
+						<i class="fab fa-github-square" title="github"></i>
+						<span class="screen-reader-text">github</span>
+					</a>
+				</li>
+				</ul>
+</div>	</header>
+		<div id="overflow-container" class="overflow-container">
+		<div id="breadcrumbs" class="breadcrumb-trail breadcrumbs">
+<span class="item-home"><a class="bread-link bread-home" href="/" title="Home">Home</a></span><span class="separator"> &gt; </span><span class="item-cat"><a href="/category/tutorial/">Tutorial</a></span><span class="separator"> &gt; </span><span class="item-current item-220"><span class="bread-current bread-220" title="iOS App Development Tutorial Part IV: Parsing RSS XML">iOS App Development Tutorial Part IV: Parsing RSS XML</span></span>
+</div>		<div id="main" class="main" role="main">	<div id="loop-container" class="loop-container">
+			<div class="post-220 post type-post status-publish format-standard hentry category-ios category-tutorial tag-development tag-mobile entry">
+					<div class="entry-meta-top">
+		Published May 17, 2013 by <a href="/author/johnra/" title="Posts by John Ra" rel="author">John Ra</a>	</div>
+		<div class="entry-header">
+			<h1 class="entry-title">iOS App Development Tutorial Part IV: Parsing RSS XML</h1>
+		</div>
+		<div class="entry-content">
+			<article>
+				<p class="last-updated">Last updated on February 12, 2022 </p>				<p>In previous <a href="/2013/05/15/ios-appdev-part3">tutorial</a>, we learn to make a call to a website and download its content. Since we are dealing with RSS, we need to be able to parse the resulting XML data. Here&#8217;s an example article from DZone article at the time of writing this blog.</p>
+
+
+<pre class="wp-block-code"><code>&lt;item>
+&lt;title>In case of emergency, System.exit&lt;/title>
+&lt;link>http://feeds.dzone.com/~r/dzone/frontpage/~3/iD_9xik5E6E/in_case_of_emergency_systemexit.html&lt;/link>
+&lt;description>Article covering the System.exit method and why it is advisable to avoid using it unless absolutely necessary.&lt;/description>
+&lt;category>java&lt;/category>
+&lt;category>methodology&lt;/category>
+&lt;category>opinion&lt;/category>
+&lt;category>usability&lt;/category>
+&lt;pubDate>Fri, 17 May 2013 10:37:20 GMT&lt;/pubDate>
+&lt;guid isPermaLink="false">http://www.dzone.com/links/970253.html&lt;/guid>
+&lt;dc:creator>KieranF&lt;/dc:creator>
+&lt;dc:date>2013-05-17T10:37:20Z&lt;/dc:date>
+&lt;content:encoded>&lt;!&#91;CDATA&#91;&lt;a href='http://www.dzone.com/links/r/in_case_of_emergency_systemexit.html'>&lt;img src='http://cdn.dzone.com/images/thumbs/120x90/970253.jpg' style='width:120;height:90;float:left;vertical-align:top;border:1px solid #ccc;' />&lt;/a>&lt;p style='margin-left: 130px;'>Article covering the System.exit method and why it is advisable to avoid using it unless absolutely necessary.&lt;br/>&lt;br/>&lt;a href='http://www.dzone.com/links/rss/in_case_of_emergency_systemexit.html'>&lt;img src='http://www.dzone.com/links/voteCountImage?linkId=970253' border='0'/>&lt;/a>&lt;/p>&lt;img src="http://feeds.feedburner.com/~r/dzone/frontpage/~4/iD_9xik5E6E" height="1" width="1"/>]]&gt;&lt;/content:encoded>
+&lt;dz:linkId>970253&lt;/dz:linkId>
+&lt;dz:submitDate>2013-05-17T10:09:02Z&lt;/dz:submitDate>
+&lt;dz:promoteDate>2013-05-17T10:37:20Z&lt;/dz:promoteDate>
+&lt;dz:voteUpCount>7&lt;/dz:voteUpCount>
+&lt;dz:voteDownCount>0&lt;/dz:voteDownCount>
+&lt;dz:clickCount>386&lt;/dz:clickCount>
+&lt;dz:commentCount>1&lt;/dz:commentCount>
+&lt;dz:thumbnail>http://www.dzone.com/links/images/thumbs/120x90/970253.jpg&lt;/dz:thumbnail>
+&lt;dz:submitter>
+&lt;dz:username>KieranF&lt;/dz:username>
+&lt;dz:userimage>http://www.dzone.com/links/images/avatars/1087079.gif&lt;/dz:userimage>
+&lt;/dz:submitter>
+&lt;feedburner:origLink>http://www.dzone.com/links/r/in_case_of_emergency_systemexit.html&lt;/feedburner:origLink>&lt;/item>&lt;item>
+&lt;title>In case of emergency, System.exit&lt;/title>
+&lt;link>http://feeds.dzone.com/~r/dzone/frontpage/~3/iD_9xik5E6E/in_case_of_emergency_systemexit.html&lt;/link>
+&lt;description>Article covering the System.exit method and why it is advisable to avoid using it unless absolutely necessary.&lt;/description>
+&lt;category>java&lt;/category>
+&lt;category>methodology&lt;/category>
+&lt;category>opinion&lt;/category>
+&lt;category>usability&lt;/category>
+&lt;pubDate>Fri, 17 May 2013 10:37:20 GMT&lt;/pubDate>
+&lt;guid isPermaLink="false">http://www.dzone.com/links/970253.html&lt;/guid>
+&lt;dc:creator>KieranF&lt;/dc:creator>
+&lt;dc:date>2013-05-17T10:37:20Z&lt;/dc:date>
+&lt;content:encoded>&lt;!&#91;CDATA&#91;&lt;a href='http://www.dzone.com/links/r/in_case_of_emergency_systemexit.html'>&lt;img src='http://cdn.dzone.com/images/thumbs/120x90/970253.jpg' style='width:120;height:90;float:left;vertical-align:top;border:1px solid #ccc;' />&lt;/a>&lt;p style='margin-left: 130px;'>Article covering the System.exit method and why it is advisable to avoid using it unless absolutely necessary.&lt;br/>&lt;br/>&lt;a href='http://www.dzone.com/links/rss/in_case_of_emergency_systemexit.html'>&lt;img src='http://www.dzone.com/links/voteCountImage?linkId=970253' border='0'/>&lt;/a>&lt;/p>&lt;img src="http://feeds.feedburner.com/~r/dzone/frontpage/~4/iD_9xik5E6E" height="1" width="1"/>]]&gt;&lt;/content:encoded>
+&lt;dz:linkId>970253&lt;/dz:linkId>
+&lt;dz:submitDate>2013-05-17T10:09:02Z&lt;/dz:submitDate>
+&lt;dz:promoteDate>2013-05-17T10:37:20Z&lt;/dz:promoteDate>
+&lt;dz:voteUpCount>7&lt;/dz:voteUpCount>
+&lt;dz:voteDownCount>0&lt;/dz:voteDownCount>
+&lt;dz:clickCount>386&lt;/dz:clickCount>
+&lt;dz:commentCount>1&lt;/dz:commentCount>
+&lt;dz:thumbnail>http://www.dzone.com/links/images/thumbs/120x90/970253.jpg&lt;/dz:thumbnail>
+&lt;dz:submitter>
+&lt;dz:username>KieranF&lt;/dz:username>
+&lt;dz:userimage>http://www.dzone.com/links/images/avatars/1087079.gif&lt;/dz:userimage>
+&lt;/dz:submitter>
+&lt;feedburner:origLink>http://www.dzone.com/links/r/in_case_of_emergency_systemexit.html&lt;/feedburner:origLink>
+&lt;/item></code></pre>
+
+
+
+<p>With objective-c foundationÂ library, we can easily parse the above XML by simply implementing the optional methods of NSXMLParserDelegate. We will pick out only the relevant data from each item and store them in dictionary. Each item will then be added to an array to be used in our storyboarding tutorial.</p>
+
+
+
+<div class="wp-block-image"><figure class="alignright"><a href="/wp-content/uploads/2013/05/xmlgroup.png"><img src="/wp-content/uploads/2013/05/xmlgroup-150x150.png" alt="xmlgroup" class="wp-image-221"></a></figure></div>
+
+
+
+<p><strong>NSXMLParserDelegate</strong></p>
+
+
+
+<p>Like in prior example,&nbsp;let&#8217;s create a&nbsp;group call &#8220;XML&#8221; and associate it to a specific file system folder &#8220;XML&#8221;. Then, add a new file called &#8220;JSTRRSSParser&#8221;, a subclass of NSObject, to this group. We need to update our header file to include the NSXMLParserDelegate protocol with necessary instance variables to store&nbsp;&nbsp;xml content.</p>
+
+
+
+<pre class="wp-block-code"><code>#import &lt;Foundation/Foundation.h>
+
+@interface JSTRRSSParser : NSObject
+{
+  NSMutableArray *_list;
+  NSMutableDictionary *_item;
+
+  NSMutableString *_tempStore;
+  BOOL _foundItem;
+}
+
+- (NSMutableArray *) getParsedList;
+
+@end</code></pre>
+
+
+
+<p>The array is used to store a dictionary (a.k.a hashmap) of article details. The dictionary will represent a single article. A mutable string is used to&nbsp;capture&nbsp;xml&nbsp;data within element.&nbsp;Finally, Boolean will be used to track when new article (i.e. &lt;item&gt; tag has appeared).</p>
+
+
+
+<p><strong>JSTRRSSParser Implementation</strong></p>
+
+
+
+<p>1. Define init method with allocating and initializing our array. As discussed in prior tutorial, we use NSMutableArray since it will be modified. We should also implement our getter method for the parsed list.</p>
+
+
+
+<pre class="wp-block-code"><code>#import "JSTRRSSParser.h"
+
+@implementation JSTRRSSParser
+
+- (id) init
+{
+  self = &#91;super init];
+  if (self) {
+    // custom initializer
+    _list = &#91;&#91;NSMutableArray alloc] init];
+  }
+  return self;
+}
+
+- (NSMutableArray *)getParsedList
+{
+  return _list;
+}
+
+@end</code></pre>
+
+
+
+<p>Tip:Â Add pragma to logically group methods together. It&#8217;s a good practice to organize your methods. I personally </p>
+
+
+
+<div class="wp-block-image"><figure class="alignright"><a href="/wp-content/uploads/2013/05/xmlparser.png"><img src="/wp-content/uploads/2013/05/xmlparser-150x150.png" alt="xmlparser" class="wp-image-223"></a></figure></div>
+
+
+
+<p>prefer to use &#8220;#pragma mark -&#8221; to add a horizontal bar and comment for Xcode breadcrumb navigation.</p>
+
+
+
+<p>2. Implement parser:didStartElement:namespaceURI:qualifiedName:attributes delegate method. Add this method below the pragma mark line.</p>
+
+
+
+<p></p>
+
+
+
+<pre class="wp-block-code"><code>#pragma mark - implement NSXMLParserDelegate
+
+- (void) parser:(NSXMLParser *)parser didStartElement:(NSString *)elementName 
+   namespaceURI:(NSString *)namespaceURI 
+  qualifiedName:(NSString *)qualifiedName 
+     attributes:(NSDictionary *)attributeDict
+{
+  if (&#91;elementName isEqualToString:@"item"]) {
+    _item = &#91;&#91;NSMutableDictionary alloc]init];
+    &#91;_item setValue:&#91;&#91;NSMutableArray alloc] init] forKey:@"category"];
+    &#91;_list addObject:_item];
+    _foundItem = YES;
+  }
+
+  if(&#91;elementName isEqualToString:@"dz:username"] ||
+    &#91;elementName isEqualToString:@"dz:userimage"] ||
+    &#91;elementName isEqualToString:@"title"] ||
+    &#91;elementName isEqualToString:@"link"] ||
+    &#91;elementName isEqualToString:@"description"] ||
+    &#91;elementName isEqualToString:@"category"] ||
+    &#91;elementName isEqualToString:@"guid"] ||
+    &#91;elementName isEqualToString:@"linkId"]||
+    &#91;elementName isEqualToString:@"pubDate"]||
+    &#91;elementName isEqualToString:@"dz:thumbnail"]||
+    &#91;elementName isEqualToString:@"dz:voteUpCount"]||
+    &#91;elementName isEqualToString:@"dz:voteDownCount"]) {
+    _tempStore = &#91;&#91;NSMutableString alloc] init];
+  }
+}</code></pre>
+
+
+
+<p>This method is called by the XMLDataParser when a new tag has been discovered. When the open/start xml element &lt;item&gt; is discovered, we want to initialize a new dictionary to store the content of the article in a new dictionary. We also preset the dictionary value for key &#8220;category&#8221; as we can have multiple occurrence of xml element &lt;category&gt; (i.e. see example xml at top). Additionally, when the start xml element is any of the elements we want to store in our dictionary, we allocate a new mutable string.</p>
+
+
+
+<p>Tip: Use auto complete when available, particularly with delegate methods. You&#8217;ll run lower risk of fat-fingering the wrong character and wonder why your method is not being called. Given how simple it is, why not use it and save yourself the headache of banging your head on the wall. Simply, type &#8220;-&#8221; and first couple of letters of the method you wanted to implement. In our case, it was &#8220;- p&#8221;. Once you select it and try it again, you&#8217;ll notice that implemented method will not re-appear.</p>
+
+
+
+<p>Store all content between start xml element and end xml element for item&#8217;s child elements we care about by implementing parse:foundCharacters delegate method. In majority of the use cases, this method is called once. However, if content between the start and end element is too large, it will be chunked and this method will be called multiple time. For this reason, we want to append to it until end element is reached.</p>
+
+
+
+<pre class="wp-block-code"><code>- (void) parser:(NSXMLParser *)parser foundCharacters:(NSString *)string {
+  if (_foundItem) {
+    &#91;_tempStore appendString:string];
+  }
+}</code></pre>
+
+
+
+<p>Detect end xml element and store the final relevant data within xml element to dictionary. If end element is , reset our Boolean flag to detect the next article.</p>
+
+
+
+<pre class="wp-block-code"><code>- (void) parser:(NSXMLParser *)parser didEndElement:(NSString *)elementName 
+   namespaceURI:(NSString *)namespaceURI 
+   qualifiedName:(NSString *) qName {
+  if (_foundItem) {
+    if(&#91;elementName isEqualToString:@"item"]) {
+      _foundItem = NO;
+       return; // don't preceed
+    }
+
+    // trim whitespace from left and right and replace commonly encoded html string
+    NSString *content = &#91;_tempStore stringByTrimmingCharactersInSet: &#91;NSCharacterSet whitespaceCharacterSet]];
+    content = &#91;content stringByReplacingOccurrencesOfString:@"Â " withString:@""];
+    content = &#91;content stringByReplacingOccurrencesOfString:@"&amp;" withString:@"&amp;"];
+    content = &#91;content stringByReplacingOccurrencesOfString:@""" withString:@"\""];
+    content = &#91;content stringByReplacingOccurrencesOfString:@"Â­" withString:@"-"];
+    content = &#91;content stringByReplacingOccurrencesOfString:@"»" withString:@">>"];
+    content = &#91;content stringByReplacingOccurrencesOfString:@"·" withString:@"-"];
+    content = &#91;content stringByReplacingOccurrencesOfString:@"&lt;" withString:@"&lt;"]; 
+    content = &#91;content stringByReplacingOccurrencesOfString:@">" withString:@">"];
+
+    if( &#91;elementName isEqualToString:@"dz:username"] ) {
+      &#91;_item setObject:content forKey:@"username"];
+    } else if( &#91;elementName isEqualToString:@"dz:userimage"] ) {
+      &#91;_item setObject:content forKey:@"userimage"];
+    } else if( &#91;elementName isEqualToString:@"title"] ) {
+      &#91;_item setObject:content forKey:@"title"];
+    } else if ( &#91;elementName isEqualToString:@"link"]) {
+      &#91;_item setObject:content forKey:@"link"];
+    } else if ( &#91;elementName isEqualToString:@"description"]) {
+      &#91;_item setObject:content forKey:@"description"];
+    } else if ( &#91;elementName isEqualToString:@"category"]) {
+      NSMutableArray *temp = (NSMutableArray *)&#91;_item objectForKey:@"category"];
+      &#91;temp addObject:content];
+    } else if ( &#91;elementName isEqualToString:@"guid"]) {
+      &#91;_item setObject:content forKey:@"guid"];
+    } else if ( &#91;elementName isEqualToString:@"linkId"]) {
+      &#91;_item setObject:content forKey:@"linkId"];
+    } else if ( &#91;elementName isEqualToString:@"pubDate"]) {
+      &#91;_item setObject:content forKey:@"pubDate"];
+    } else if ( &#91;elementName isEqualToString:@"dz:voteUpCount"]) {
+      &#91;_item setObject:content forKey:@"voteUpCountr"];
+    } else if ( &#91;elementName isEqualToString:@"dz:voteDownCount"]) {
+      &#91;_item setObject:content forKey:@"voteDownCount"];
+    } else if ( &#91;elementName isEqualToString:@"dz:thumbnail"]) {
+      &#91;_item setObject:content forKey:@"thumbnail"];
+    }
+  }
+}</code></pre>
+
+
+
+<p><strong>JSTRRSSReader</strong></p>
+
+
+
+<p>Go back to our code from prior tutorial and&nbsp;import our new class &#8220;JSTRRSSParser.h&#8221; to &#8220;JSTRRSSReader.m&#8221;. Then,&nbsp;update the connectionDidFinishLoading method.</p>
+
+
+
+<pre class="wp-block-code"><code>- (void)connectionDidFinishLoading:(NSURLConnection *)connection
+{
+  NSXMLParser *parser = &#91;&#91;NSXMLParser alloc] initWithData:_receivedData];
+  JSTRRSSParser *rssParser = &#91;&#91;JSTRRSSParser alloc] init];
+  parser.delegate = rssParser;
+  &#91;parser parse];
+
+  NSMutableArray *articleList = &#91;rssParser getParsedList];
+  NSLog(@"%@", articleList);
+}</code></pre>
+
+
+
+<p>The revision will instantiate a new instance of NSXMLParser with the completed data from the RSS URL response. The delegate for this parser is the class we just wrote (JSTRRSSParser). When our XMLParser parses this response body, it will call our custom class. Once completed, we now have an array list of all the article with their relevant pieces from the article item.</p>
+
+
+
+<p><strong>Run Latest Change</strong></p>
+
+
+
+<p>If all works out, when you run your program again, you&#8217;ll now see only the relevant parsed data in your console.</p>
+
+
+
+<figure class="wp-block-image"><a href="/wp-content/uploads/2013/05/console2.png"><img src="/wp-content/uploads/2013/05/console2-300x167.png" alt="console2" class="wp-image-238"></a></figure>
+
+
+
+<p>If the format looks familiar, that&#8217;s because it&#8217;s JSON format. Congrats! You have successfully parsed an xml content.</p>
+							</article>
+		</div>
+		<div class="entry-meta-bottom">
+			<nav class="further-reading">
+	<p class="prev">
+		<span>Previous Post</span>
+		<a href="/2013/05/15/ios-appdev-part3/">iOS App Development Tutorial Part III: Interacting with Web Sites</a>
+	</p>
+	<p class="next">
+		<span>Next Post</span>
+		<a href="/2013/05/19/ios-appdev-part5/">iOS App Development Tutorial Part V: Persisting RSS content</a>
+	</p>
+</nav>			<div class="author-meta">
+	<img alt="John Ra" src="//0.gravatar.com/avatar/f096e160d0d79dba8e9a7953f101d4c2?s=72&amp;d=mm&amp;r=g" class="avatar avatar-72 photo" height="72" width="72" loading="lazy">
+	<div class="name-container">
+		<h4>
+			John Ra		</h4>
+	</div>
+	<p>
+			</p>
+</div>			<div class="entry-categories"><p><i class="fas fa-folder-open"></i><a href="/category/ios/" title="View all posts in iOS">iOS</a> <a href="/category/tutorial/" title="View all posts in Tutorial">Tutorial</a></p></div>			<div class="entry-tags"><p><i class="fas fa-tag"></i><a href="/tag/development/" title="View all posts tagged Development">Development</a> <a href="/tag/mobile/" title="View all posts tagged Mobile">Mobile</a></p></div>		</div>
+	</div>
+			<section id="comments" class="comments">
+			<p class="comments-closed">
+				Comments are closed.			</p>
+		</section>
+		</div>
+</div>
+<!-- .main -->
+	<aside id="sidebar-primary-container" class="sidebar-primary-container">
+		<h1 class="screen-reader-text">Primary Sidebar</h1>
+		<div class="sidebar sidebar-primary" id="sidebar-primary" role="complementary">
+			<section id="block-3" class="widget widget_block">
+<div class="wp-container-624a3f6f62314 wp-block-group"><div class="wp-block-group__inner-container">
+<h2>Recent Posts</h2>
+
+
+<ul class="wp-block-latest-posts__list wp-block-latest-posts">
+<li><a href="/2022/03/29/its-a-trap/">It&#8217;s a trap!</a></li>
+<li><a href="/2022/02/02/7-minute-abs/">7-Minute Abs</a></li>
+<li><a href="/2022/01/23/restart/">I&#8217;m Back?</a></li>
+<li><a href="/2014/05/06/design-pattern-chain-of-responsibility/">Design Pattern: Chain of Responsibility</a></li>
+<li><a href="/2014/04/06/java-based-tetris-game/">Java-based Tetris Game</a></li>
+</ul>
+</div></div>
+</section><section id="block-19" class="widget widget_block">
+<div class="wp-container-624a3f6f62528 wp-block-group"><div class="wp-block-group__inner-container">
+<p></p>
+<li id="linkcat-8" class="linkcat">
+<h2>Favorite Blogs</h2>
+	<ul class="xoxo blogroll">
+<li><a href="http://blog.activelylazy.co.uk/">Actively Lazy</a></li>
+<li><a href="http://www.codeofhonor.com/blog/">Code Of Honor</a></li>
+<li><a href="http://www.codinghorror.com/blog/">Coding Horror</a></li>
+<li><a href="http://blog.sanaulla.info/">Experiences Unlimited</a></li>
+<li><a href="http://javadepend.wordpress.com/">JArchitect</a></li>
+<li><a href="http://www.markhneedham.com/blog/">Mark Needham</a></li>
+<li><a href="https://msun.io/" rel="friend colleague">Mike Sun</a></li>
+<li><a href="http://blogs.msdn.com/b/oldnewthing/">Old New Thing</a></li>
+<li><a href="http://www.opsbs.com/">Operation Bootstrap</a></li>
+<li><a href="http://blog.schauderhaft.de/">Schauderhaft</a></li>
+<li><a href="http://www.hanselman.com/blog/">Scott Hanselman</a></li>
+<li><a href="http://simpleprogrammer.com/">Simple Programmer</a></li>
+
+	</ul>
+</li>
+<li id="linkcat-11" class="linkcat">
+<h2>Favorite Sites</h2>
+	<ul class="xoxo blogroll">
+<li><a href="http://www.dotnetcodegeeks.com/">.NET Code Geeks</a></li>
+<li><a href="http://www.dzone.com/">DZone</a></li>
+<li><a href="http://www.gizmodo.com/">Gizmodo</a></li>
+<li><a href="http://www.javacodegeeks.com/">Java Code Geeks</a></li>
+<li><a href="http://www.slashdot.com/">Slashdot</a></li>
+<li><a href="http://www.theregister.co.uk/">The Register</a></li>
+<li><a href="http://www.theserverside.com/">The Serverside</a></li>
+
+	</ul>
+</li>
+
+</div></div>
+</section><section id="block-4" class="widget widget_block">
+<div class="wp-container-624a3f6f633dd wp-block-group"><div class="wp-block-group__inner-container">
+<h2>Categories</h2>
+
+
+<ul class="wp-block-categories-list wp-block-categories">	<li class="cat-item cat-item-9">
+<a href="/category/dotnet/">.NET</a>
+</li>
+	<li class="cat-item cat-item-18">
+<a href="/category/dotnet/aspnet/">ASP.NET</a>
+</li>
+	<li class="cat-item cat-item-4">
+<a href="/category/dotnet/csharp/">C#</a>
+</li>
+	<li class="cat-item cat-item-34">
+<a href="/category/java/gradle/">Gradle</a>
+</li>
+	<li class="cat-item cat-item-29">
+<a href="/category/java/groovy/">Groovy</a>
+</li>
+	<li class="cat-item cat-item-25">
+<a href="/category/humor/">Humor</a>
+</li>
+	<li class="cat-item cat-item-17">
+<a href="/category/iis/">IIS</a>
+</li>
+	<li class="cat-item cat-item-26">
+<a href="/category/ios/">iOS</a>
+</li>
+	<li class="cat-item cat-item-3">
+<a href="/category/java/">Java</a>
+</li>
+	<li class="cat-item cat-item-22">
+<a href="/category/jscript/">JavaScript</a>
+</li>
+	<li class="cat-item cat-item-23">
+<a href="/category/jscript/jquery/">jQuery</a>
+</li>
+	<li class="cat-item cat-item-32">
+<a href="/category/opensource/">Open Source</a>
+</li>
+	<li class="cat-item cat-item-33">
+<a href="/category/patterns/">Patterns</a>
+</li>
+	<li class="cat-item cat-item-6">
+<a href="/category/rant/">Rants</a>
+</li>
+	<li class="cat-item cat-item-5">
+<a href="/category/tutorial/">Tutorial</a>
+</li>
+	<li class="cat-item cat-item-1">
+<a href="/category/uncategorized/">Uncategorized</a>
+</li>
+</ul>
+</div></div>
+</section>		</div>		
+	</aside>
+</div>
+<!-- .overflow-container -->
+<footer id="site-footer" class="site-footer" role="contentinfo">
+	<h1>
+		<a href="/">
+			J O H N R A . M E		</a>
+	</h1>
+	<span class="tagline">...yet another musings of a techie</span>	<div class="design-credit">
+        <span>
+             &nbsp;        </span>
+	</div>
+	<script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-0170985620077101" crossorigin="anonymous"></script>
+	<!-- BlogFooter -->
+	<ins class="adsbygoogle" style="display:block" data-ad-client="ca-pub-0170985620077101" data-ad-slot="8538453118" data-ad-format="auto" data-full-width-responsive="true"></ins>
+	<script>
+    	 (adsbygoogle = window.adsbygoogle || []).push({});
+	</script>
+</footer>
+<style>.wp-container-624a3f6f62314 .alignleft { float: left; margin-right: 2em; }.wp-container-624a3f6f62314 .alignright { float: right; margin-left: 2em; }</style>
+<style>.wp-container-624a3f6f62528 .alignleft { float: left; margin-right: 2em; }.wp-container-624a3f6f62528 .alignright { float: right; margin-left: 2em; }</style>
+<style>.wp-container-624a3f6f633dd .alignleft { float: left; margin-right: 2em; }.wp-container-624a3f6f633dd .alignright { float: right; margin-left: 2em; }</style>
+<script type="text/javascript" src="/wp-content/themes/ignite/js/build/production.min.js?ver=5.9.2" async="async" id="ct-ignite-production-js"></script>
+</body>
+</html>

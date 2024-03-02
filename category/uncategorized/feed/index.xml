@@ -1,0 +1,60 @@
+<?xml version="1.0" encoding="UTF-8"?><rss version="2.0"
+	xmlns:content="http://purl.org/rss/1.0/modules/content/"
+	xmlns:wfw="http://wellformedweb.org/CommentAPI/"
+	xmlns:dc="http://purl.org/dc/elements/1.1/"
+	xmlns:atom="http://www.w3.org/2005/Atom"
+	xmlns:sy="http://purl.org/rss/1.0/modules/syndication/"
+	xmlns:slash="http://purl.org/rss/1.0/modules/slash/"
+	>
+
+<channel>
+	<title>Uncategorized &#8211; J O H N R A . M E</title>
+	<atom:link href="/category/uncategorized/feed/" rel="self" type="application/rss+xml" />
+	<link>/</link>
+	<description>...yet another musings of a techie</description>
+	<lastBuildDate>Sat, 12 Feb 2022 02:43:19 +0000</lastBuildDate>
+	<language>en-US</language>
+	<sy:updatePeriod>
+	hourly	</sy:updatePeriod>
+	<sy:updateFrequency>
+	1	</sy:updateFrequency>
+	<generator>https://wordpress.org/?v=5.9.2</generator>
+	<item>
+		<title>I&#8217;m Back?</title>
+		<link>/2022/01/23/restart/</link>
+		
+		<dc:creator><![CDATA[John Ra]]></dc:creator>
+		<pubDate>Sun, 23 Jan 2022 22:59:21 +0000</pubDate>
+				<category><![CDATA[Uncategorized]]></category>
+		<guid isPermaLink="false">/?p=527</guid>
+
+					<description><![CDATA[It&#8217;s been a while since I posted an entry &#8211; just go ahead and look at the date on my prior post. I don&#8217;t even know if blogging is a thing anymore in the world of TikTok. Granted, given how vastness and complex technology space is, I don&#8217;t think anyone can do justice on a short video. Look, it&#8217;s not like this is my New Year&#8217;s resolution or anything like that. Let&#8217;s see if I can try to post at least once a month. And yes, I get credit for this post towards January.]]></description>
+										<content:encoded><![CDATA[
+<p>It&#8217;s been a while since I posted an entry &#8211; just go ahead and look at the date on my prior post.  I don&#8217;t even know if blogging is a thing anymore in the world of TikTok. Granted, given how vastness and complex technology space is, I don&#8217;t think anyone can do justice on a short video. </p>
+
+
+
+<p>Look, it&#8217;s not like this is my New Year&#8217;s resolution or anything like that. Let&#8217;s see if I can try to post at least once a month. And yes, I get credit for this post towards January.</p>
+]]></content:encoded>
+					
+		
+		
+			</item>
+		<item>
+		<title>Hello World!</title>
+		<link>/2012/08/13/hello-world-2/</link>
+		
+		<dc:creator><![CDATA[John Ra]]></dc:creator>
+		<pubDate>Mon, 13 Aug 2012 02:10:42 +0000</pubDate>
+				<category><![CDATA[Uncategorized]]></category>
+		<guid isPermaLink="false">http://blog.jstrgames.com/?p=37</guid>
+
+					<description><![CDATA[There is a prevailing view that you&#8217;re not a real tech geek unless you have your own blog. I disagree. But then, it looks very much like I&#8217;ve succumbed to peer pressure. I prefer to think I was a rebel by going against the grain all along. That said, like every new programming language I&#8217;ve written, here&#8217;s to my first blog, &#8220;Hello World!&#8221;]]></description>
+										<content:encoded><![CDATA[<p>There is a prevailing view that you&#8217;re not a real tech geek unless you have your own blog. I disagree. But then, it looks very much like I&#8217;ve succumbed to peer pressure. I prefer to think I was a rebel by going against the grain all along. That said, like every new programming language I&#8217;ve written, here&#8217;s to my first blog, &#8220;Hello World!&#8221;</p>
+]]></content:encoded>
+					
+		
+		
+			</item>
+	</channel>
+</rss>

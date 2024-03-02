@@ -1,0 +1,158 @@
+<?xml version="1.0" encoding="UTF-8"?><rss version="2.0"
+	xmlns:content="http://purl.org/rss/1.0/modules/content/"
+	xmlns:wfw="http://wellformedweb.org/CommentAPI/"
+	xmlns:dc="http://purl.org/dc/elements/1.1/"
+	xmlns:atom="http://www.w3.org/2005/Atom"
+	xmlns:sy="http://purl.org/rss/1.0/modules/syndication/"
+	xmlns:slash="http://purl.org/rss/1.0/modules/slash/"
+	>
+
+<channel>
+	<title>Scripting &#8211; J O H N R A . M E</title>
+	<atom:link href="/tag/scripting/feed/" rel="self" type="application/rss+xml" />
+	<link>/</link>
+	<description>...yet another musings of a techie</description>
+	<lastBuildDate>Sat, 12 Feb 2022 02:43:20 +0000</lastBuildDate>
+	<language>en-US</language>
+	<sy:updatePeriod>
+	hourly	</sy:updatePeriod>
+	<sy:updateFrequency>
+	1	</sy:updateFrequency>
+	<generator>https://wordpress.org/?v=5.9.2</generator>
+	<item>
+		<title>That&#8217;s Groovy!</title>
+		<link>/2013/07/25/thats-groovy/</link>
+		
+		<dc:creator><![CDATA[John Ra]]></dc:creator>
+		<pubDate>Thu, 25 Jul 2013 21:51:45 +0000</pubDate>
+				<category><![CDATA[Groovy]]></category>
+		<category><![CDATA[Java]]></category>
+		<category><![CDATA[Tutorial]]></category>
+		<category><![CDATA[Development]]></category>
+		<category><![CDATA[Scripting]]></category>
+		<guid isPermaLink="false">http://blog.jstrgames.com/?p=323</guid>
+
+					<description><![CDATA[Ask me a month ago regarding my choice of scripting language, my answer would have been Perl or, if it&#8217;s a trivial use case, Bash. That&#8217;s no longer the case. Now, I am eager to flex my Groovy knowledge. Why Groovy? Consider the use case of executing a system command and redirecting the output to be processed by your program. With Perl, this is a trivial task: just use a backquote to perform your system command. Perl will assign the result of your standard out to the left-hand variable. In Groovy, it&#8217;s just as easy. Now, imagine having to perform&#8230;]]></description>
+										<content:encoded><![CDATA[<p>Ask me a month ago regarding my choice of scripting language, my answer would have been Perl or, if it&#8217;s a trivial use case, Bash. That&#8217;s no longer the case. Now, I am eager to flex my Groovy knowledge.</p>
+<p><strong>Why Groovy?</strong></p>
+<p>Consider the use case of executing a system command and redirecting the output to be processed by your program. With Perl, this is a trivial task: just use a backquote to perform your system command. Perl will assign the result of your standard out to the left-hand variable.</p>
+
+
+<pre class="wp-block-code"><code>$output = `ls -l`;
+print $output, "\n";</code></pre>
+
+
+
+<p>In Groovy, it&#8217;s just as easy.</p>
+
+
+
+<pre class="wp-block-code"><code>def process = "ls -l".execute()
+println "${process.text}"</code></pre>
+
+
+
+<p>Now, imagine having to perform this in Java:</p>
+
+
+
+<pre class="wp-block-code"><code>try {
+  StringBuffer stdout = new StringBuffer();
+  Process p = Runtime.getRuntime().exec( "ls -l" );
+
+  BufferedReader in = new BufferedReader(new InputStreamReader(p.getInputStream()) );
+  while ((line = in.readLine()) != null) {
+    stdout.append(line);
+  }
+  in.close();
+}
+catch (Exception e) {
+  // ...
+}</code></pre>
+
+
+
+<p>Did I get your attention? I hope so. Let&#8217;s consider list. I think Groovy is better at list than Perl. Take the use case of sorting a list of numbers. In Perl, it would look akin to this.</p>
+
+
+
+<pre class="wp-block-code"><code>@list = (1, 23, 4, 6, 12, 5, 36);
+@sortedlist = sort {$a &lt;=> $b} @list;
+print "@sortedlist ";</code></pre>
+
+
+
+<p>In Groovy, it&#8217;s even shorter</p>
+
+
+
+<pre class="wp-block-code"><code>def list = &#91;1, 23, 4, 6, 12, 5, 26]
+println list.sort()</code></pre>
+
+
+
+<p>Lists are easier to work with in Groovy. If you want to print a sub-range, it&#8217;s &#8220;println list[1..3]&#8221;. If you want the last 3 items in the array in reverse order, it&#8217;s &#8220;println list[-3..-1]&#8221;. Negative index tell Groovy to retrieve the item from tail and work its way back.</p>
+
+
+
+<p>If you&#8217;re a Java developer, how can you not love Groovy.</p>
+
+
+
+<p><strong>Like Java, Love Groovy</strong></p>
+
+
+
+<p>Groovy is built on Java. It brings dynamic typing and the benefits of dynamic language to the world of Java but still provides static typing when needed. Because it&#8217;s built on Java, Groovy has access to all the Java API available in your classpath. By default, the following classes are exposed to Groovy:</p>
+
+
+
+<ul><li>java.io.*</li><li>java.lang.*</li><li>java.math.BigDecimal</li><li>java.math.BigInteger</li><li>java.net.*</li><li>java.util.*</li></ul>
+
+
+
+<p>If you need a class not imported by default, if it&#8217;s in the classpath, Groovy can use them. You can import them in or use the fully qualifying classname:</p>
+
+
+
+<pre class="wp-block-code"><code>println java.sql.Date.valueOf("2013-12-31").getTime()</code></pre>
+
+
+
+<p>As stated earlier, all of Java libraries are at your disposal. Short of sounding like an infomercial, that&#8217;s not all! You can compile Groovy program and it will become accessible from Java. Consider having to write a simple POJO. Sure, you can use most IDEs to generate your getters and setters, but with Groovy, this can be simplified.</p>
+
+
+
+<pre class="wp-block-code"><code>package com.jstrgames.groovy.example
+
+class Book {
+  String title
+  String author
+
+  String toString() { "${title} ${author}" }
+}</code></pre>
+
+
+
+<p>Once compiled by Groovy compiler, com.jstrgames.groovy.example.Book can be accessed from any Java program. It will also automatically create all your getters and setters for each property: getTitle(), setTitle(), getAuthor(), and setAuthor(). If you want to use this class in Groovy, you can directly access the properties:</p>
+
+
+
+<pre class="wp-block-code"><code>def book = new Book( title: "Groovy by Action", author: "Dierk Koenig" )
+println book
+
+def myBook = new Book()
+myBook.title = "Tech Genre"
+myBook.author = "John Ra"
+print myBook</code></pre>
+
+
+
+<p>You can clearly see an increased productivity building modules/application/APIs with Groovy. If you want to learn more, I highly recommend reading <em>Groovy by Action</em> by Dierk Koenig.</p>
+]]></content:encoded>
+					
+		
+		
+			</item>
+	</channel>
+</rss>

@@ -1,0 +1,62 @@
+<?xml version="1.0" encoding="UTF-8"?><rss version="2.0"
+	xmlns:content="http://purl.org/rss/1.0/modules/content/"
+	xmlns:wfw="http://wellformedweb.org/CommentAPI/"
+	xmlns:dc="http://purl.org/dc/elements/1.1/"
+	xmlns:atom="http://www.w3.org/2005/Atom"
+	xmlns:sy="http://purl.org/rss/1.0/modules/syndication/"
+	xmlns:slash="http://purl.org/rss/1.0/modules/slash/"
+	>
+
+<channel>
+	<title>Rants &#8211; J O H N R A . M E</title>
+	<atom:link href="/category/rant/feed/" rel="self" type="application/rss+xml" />
+	<link>/</link>
+	<description>...yet another musings of a techie</description>
+	<lastBuildDate>Mon, 04 Apr 2022 00:43:52 +0000</lastBuildDate>
+	<language>en-US</language>
+	<sy:updatePeriod>
+	hourly	</sy:updatePeriod>
+	<sy:updateFrequency>
+	1	</sy:updateFrequency>
+	<generator>https://wordpress.org/?v=5.9.2</generator>
+	<item>
+		<title>It&#8217;s a trap!</title>
+		<link>/2022/03/29/its-a-trap/</link>
+		
+		<dc:creator><![CDATA[John Ra]]></dc:creator>
+		<pubDate>Tue, 29 Mar 2022 15:29:54 +0000</pubDate>
+				<category><![CDATA[Rants]]></category>
+		<guid isPermaLink="false">/?p=560</guid>
+
+					<description><![CDATA[Confirmation bias &#8211; the tendency to discredit non-confirmative evidence, or to seek out (actively or subconsciously) primarily confirming evidence &#8211; is part of all of us. We all suffer from it, every day. As technologist, we could do better. We should always re-evaluate all the facts and not fall into the traps of our dogma/orthodoxy &#8211; what we see or want to see. Rather than reviewing all the facts, we too often hold onto our beliefs. Ask a front-end developer which library/framework should be used for a given project, it&#8217;s rarely followed by a question on what the requirements are.&#8230;]]></description>
+										<content:encoded><![CDATA[<p>Confirmation bias &#8211; the tendency to discredit non-confirmative evidence, or to seek out (actively or subconsciously) primarily confirming evidence &#8211; is part of all of us. We all suffer from it, every day. As technologist, we could do better. We should always re-evaluate all the facts and not fall into the traps of our dogma/orthodoxy &#8211; what we see or want to see.</p>
+
+
+<div class="wp-block-image"><figure class="aligncenter size-full"><img width="525" height="354" src="/wp-content/uploads/2022/03/bias.png" alt="" class="wp-image-565"/></figure></div>
+
+
+
+<p>Rather than reviewing all the facts, we too often hold onto our beliefs. Ask a front-end developer which library/framework should be used for a given project, it&#8217;s rarely followed by a question on what the requirements are. Rather, if they are a ReactJS developer, they will automatically respond with ReactJS. An Angular developer is no different. We end up choosing a solution first then justify its fit. Just ask why ReactJS is better solution, they will point to facts like, &#8220;it&#8217;s the most downloaded library&#8221;</p>
+
+
+
+<div class="wp-block-image"><figure class="aligncenter size-full"><img loading="lazy" width="809" height="429" src="/wp-content/uploads/2022/03/reactstat.png" alt="" class="wp-image-566"/></figure></div>
+
+
+
+<p>By that logic, I should just go buy <a href="https://www.edmunds.com/most-popular-cars/">a Ford F-Series truck</a>. If I&#8217;m an eco-friendly individual that never needs the truck to carry loads, maybe I don&#8217;t need a truck. Maybe an electric vehicle is a better fit. Yet, because it is the most sold vehicle in America, do you think it&#8217;s the right fit. Failure to take into considerations of the facts of the requirements and/or the make-up of the engineering team, we do a disservice to our clients/customers. </p>
+
+
+
+<h2>How to Avoid Confirmation Bias?</h2>
+
+
+
+<p>Discuss your thoughts with others. Don&#8217;t jump to conclusions. Gather as much facts. Surround yourself with a diverse group of people, and don&#8217;t be afraid to listen. The simplest way to avoid confirmation bias is to look at your own beliefs. Search out ways in which your default solution may be wrong, rather than the ways in which it is right. Always be learning. Seek out competitive solutions and learn from it.</p>
+]]></content:encoded>
+					
+		
+		
+			</item>
+	</channel>
+</rss>

@@ -1,0 +1,159 @@
+<?xml version="1.0" encoding="UTF-8"?><rss version="2.0"
+	xmlns:content="http://purl.org/rss/1.0/modules/content/"
+	xmlns:wfw="http://wellformedweb.org/CommentAPI/"
+	xmlns:dc="http://purl.org/dc/elements/1.1/"
+	xmlns:atom="http://www.w3.org/2005/Atom"
+	xmlns:sy="http://purl.org/rss/1.0/modules/syndication/"
+	xmlns:slash="http://purl.org/rss/1.0/modules/slash/"
+	>
+
+<channel>
+	<title>Maintenance &#8211; J O H N R A . M E</title>
+	<atom:link href="/tag/maintenance/feed/" rel="self" type="application/rss+xml" />
+	<link>/</link>
+	<description>...yet another musings of a techie</description>
+	<lastBuildDate>Sat, 12 Feb 2022 02:43:20 +0000</lastBuildDate>
+	<language>en-US</language>
+	<sy:updatePeriod>
+	hourly	</sy:updatePeriod>
+	<sy:updateFrequency>
+	1	</sy:updateFrequency>
+	<generator>https://wordpress.org/?v=5.9.2</generator>
+	<item>
+		<title>Application Health Monitor</title>
+		<link>/2013/09/06/application-health-monitor/</link>
+		
+		<dc:creator><![CDATA[John Ra]]></dc:creator>
+		<pubDate>Sat, 07 Sep 2013 00:57:13 +0000</pubDate>
+				<category><![CDATA[Java]]></category>
+		<category><![CDATA[Open Source]]></category>
+		<category><![CDATA[HttpComponent]]></category>
+		<category><![CDATA[Infrastructure]]></category>
+		<category><![CDATA[Maintenance]]></category>
+		<category><![CDATA[Productivity]]></category>
+		<guid isPermaLink="false">http://blog.jstrgames.com/?p=341</guid>
+
+					<description><![CDATA[I&#8217;ve been meaning to contribute to open source for some time. I really didn&#8217;t have anything particularly in mind to what I wanted to publish. However, I&#8217;ve been dealing with varying degree of integration complexityÂ to some of my application environments at the office. Inevitably, someone would scratch their head for several minutes trying to figure out why something failed only to realize that it was due to an external dependency. Needless to say, a simple tool that would provide a holistic view of the system could have saved them some pain. This could then be expanded to other environments: shared&#8230;]]></description>
+										<content:encoded><![CDATA[<p>I&#8217;ve been meaning to contribute to open source for some time. I really didn&#8217;t have anything particularly in mind to what I wanted to publish. However, I&#8217;ve been dealing with varying degree of integration complexityÂ to some of my application environments at the office. Inevitably, someone would scratch their head for several minutes trying to figure out why something failed only to realize that it was due to an external dependency. Needless to say, a simple tool that would provide a holistic view of the system could have saved them some pain. This could then be expanded to other environments: shared development, integration, UAT, QA, and Production. A single page that would provide an overview of the health of the specified environment would be very helpful.</p>
+<p><strong>Application Monitoring</strong></p>
+<p>There are several things to consider when monitoring an application. This is not meant as an exhaustive list but here are few items:</p>
+<ul>
+<li>application state</li>
+<li>resource utilization</li>
+<li>proactively report application errors</li>
+<li>module/component status</li>
+<li>external dependency status (databases, services, etc.)</li>
+</ul>
+<p>The monitor should be proactive and not reactive. It should provide early enough warning before something goes wrong. This includes monitoring dependencies and the application itself.Â There are tools that monitor logs and report when it detects various errors in the log file. Although this is better than nothing, it&#8217;s too reactive. If you&#8217;re lucky enough to have nagios in-house, this is better. However, in most cases, they are configured only for Production and, if lucky, QA. However, for other environments, it may be an overkill to use nagios.</p>
+<p><strong>Health Monitoring</strong></p>
+<p>The purpose of my <a href="https://github.com/johnra74/health-monitor">health monitor tool</a> is to provide a simple framework to quickly setup and actively check the overall health of any application.</p>
+<p><a href="/wp-content/uploads/2013/09/healthmonitor.png"><img loading="lazy" class="aligncenter size-full wp-image-345" src="/wp-content/uploads/2013/09/healthmonitor.png" alt="healthmonitor" width="749" height="349" /></a></p>
+<p>Health monitoring tool is built on the following open source frameworks:</p>
+<ul>
+<li><a href="http://quartz-scheduler.org/">quartz-scheduler</a> &#8211; used to schedule recurring checks to verify your site, components/modules, and dependencies</li>
+<li><a href="http://hc.apache.org/">apache httpcomponents</a> &#8211; used to retrieve resources (JSON/HTML) from HTTP/HTTPS servers</li>
+<li><a href="http://grizzly.java.net/">grizzly NIO framework</a> &#8211; used as embedded web container to host status page (see above screenshot)</li>
+<li><a href="https://github.com/FasterXML/jackson">jackson</a> &#8211; used to parse JSON resources and configuration</li>
+<li><a href="http://freemarker.org/">freemarker</a> &#8211; used for web/email template</li>
+<li><a href="http://www.oracle.com/technetwork/java/javamail/index.html">javamail</a> &#8211; used to send failure notification</li>
+</ul>
+<p>It can proactively check your application and its dependencies with predefined service checks:</p>
+<ul>
+<li><a href="https://github.com/johnra74/health-monitor/blob/master/health-monitor/src/main/java/com/jstrgames/monitor/svc/impl/HttpService.java">com.jstrgames.monitor.svc.impl.HttpService</a> &#8211; make non-SSL web call</li>
+<li><a href="https://github.com/johnra74/health-monitor/blob/master/health-monitor/src/main/java/com/jstrgames/monitor/svc/impl/HttpsService.java">com.jstrgames.monitor.svc.impl.HttpsService</a> &#8211; make SSL web call</li>
+<li><a href="https://github.com/johnra74/health-monitor/blob/master/health-monitor/src/main/java/com/jstrgames/monitor/svc/impl/SimpleJmxService.java">com.jstrgames.monitor.svc.impl.SimpleJmxService</a> &#8211; make simple remote JMX calls</li>
+<li><a href="https://github.com/johnra74/health-monitor/blob/master/health-monitor/src/main/java/com/jstrgames/monitor/svc/impl/SocketService.java">com.jstrgames.monitor.svc.impl.SocketService</a> &#8211; make a client socket call</li>
+</ul>
+<p>It can then verify these services with predefined rules:</p>
+<ul>
+<li><a href="https://github.com/johnra74/health-monitor/blob/master/health-monitor/src/main/java/com/jstrgames/monitor/rule/HttpResponseCode.java">com.jstrgames.monitor.rule.HttpResponseCode</a> &#8211; check if expected status code returned</li>
+<li><a href="https://github.com/johnra74/health-monitor/blob/master/health-monitor/src/main/java/com/jstrgames/monitor/rule/HttpResponseBody.java">com.jstrgames.monitor.rule.HttpResponseBody</a> &#8211; check if body contains expected values</li>
+<li><a href="https://github.com/johnra74/health-monitor/blob/master/health-monitor/src/main/java/com/jstrgames/monitor/rule/JsonResponse.java">com.jstrgames.monitor.rule.JsonResponse</a> &#8211; check if specified JSON key has expected value</li>
+<li><a href="https://github.com/johnra74/health-monitor/blob/master/health-monitor/src/main/java/com/jstrgames/monitor/rule/SimpleJmxResult.java">com.jstrgames.monitor.rule.SimpleJmxResult</a> &#8211; check if specified JMX attribute has expected value</li>
+</ul>
+<p>All can be configured on a simple <a href="https://github.com/johnra74/health-monitor/blob/master/health-monitor/src/test/resources/demo.services.json">JSON format configuration file</a>.</p>
+<p><strong>Example: Checking HTTPS site</strong></p>
+<p>The use case is to verify that the text &#8220;Google Search&#8221; and &#8220;I&#8217;m Feeling Lucky&#8221; appears on the google.com page every 5 minutes:</p>
+
+
+<pre class="wp-block-code"><code>&#91;{"servicename": "HTTPS Example (SSL)",
+  "classname": "com.jstrgames.monitor.svc.impl.HttpsService",
+  "schedule": "0 0/5 * * * ?",
+  "hostname": "www.google.com",
+  "port": 443,
+  "uri": "/",
+  "rules": &#91;{
+    "classname": "com.jstrgames.monitor.rule.HttpResponseCode",
+    "condition": "equals",
+    "expected": 200
+  },{
+    "classname": "com.jstrgames.monitor.rule.HttpResponseBody",
+    "condition": "contains",
+    "expected": "Google Search"
+  },{
+    "classname": "com.jstrgames.monitor.rule.HttpResponseBody",
+    "condition": "contains",
+    "expected": "I'm Feeling Lucky"
+  }]
+}]</code></pre>
+
+
+
+<p>Here, class com.jstrgames.monitor.svc.impl.HttpsService is used check www.google.com at port 443. Once the resource has been retrieved, 3 rules are executed:</p>
+
+
+
+<ul><li>verify http response code is 200</li><li>verify http response body contains the phrase &#8220;Google Search&#8221;</li><li>verify http response body contains the phrase &#8220;I&#8217;m Feeling Lucky&#8221;</li></ul>
+
+
+
+<p>If any of the above checks fails, service is considered to be in &#8220;FAIL&#8221; status. If it fails to connect to said service, it is in &#8220;ERROR&#8221; status. It will also send out a notification and user will see a similar content in their inbox, granted, not as pretty.</p>
+
+
+
+<div class="wp-block-image"><figure class="aligncenter"><a href="/wp-content/uploads/2013/09/healthmonitor.email_.png"><img src="/wp-content/uploads/2013/09/healthmonitor.email_.png" alt="healthmonitor.email" class="wp-image-353"/></a></figure></div>
+
+
+
+<p>For more details, please go to my <a href="https://github.com/johnra74/health-monitor/blob/master/health-monitor">github repository</a>. I will be updating its wiki page soon.</p>
+
+
+
+<p></p>
+]]></content:encoded>
+					
+		
+		
+			</item>
+		<item>
+		<title>These are not the settings you&#8217;re looking for</title>
+		<link>/2012/08/31/iiscompression/</link>
+		
+		<dc:creator><![CDATA[John Ra]]></dc:creator>
+		<pubDate>Fri, 31 Aug 2012 22:16:56 +0000</pubDate>
+				<category><![CDATA[ASP.NET]]></category>
+		<category><![CDATA[IIS]]></category>
+		<category><![CDATA[Infrastructure]]></category>
+		<category><![CDATA[Maintenance]]></category>
+		<category><![CDATA[Performance]]></category>
+		<guid isPermaLink="false">http://blog.jstrgames.com/?p=104</guid>
+
+					<description><![CDATA[One of the biggest benefits to building anything in .NET is that, in relatively short time, a fully functioning application can beÂ built using Visual Studio. HadÂ a similar application were to beÂ built using Java, a lot of ramp-up time would be required for what I would call &#8220;core infrastructure&#8221;, something that&#8217;s handled very wellÂ by Visual Studio. As a developer, youÂ canÂ start coding right away.Â And yes, I&#8217;m aware of AppFuse. I&#8217;ve used it in the past and it does address a lot of these ramp-up efforts. But, I&#8217;ll leave that discussion for another time. One of the pitfalls of these ease ofÂ development is&#8230;]]></description>
+										<content:encoded><![CDATA[<p>One of the biggest benefits to building anything in .NET is that, in relatively short time, a fully functioning application can beÂ built using Visual Studio. HadÂ a similar application were to beÂ built using Java, a lot of ramp-up time would be required for what I would call &#8220;core infrastructure&#8221;, something that&#8217;s handled very wellÂ by Visual Studio. As a developer, youÂ canÂ start coding right away.Â And yes, I&#8217;m aware of <a href="http://appfuse.org/display/APF/Home">AppFuse</a>. I&#8217;ve used it in the past and it does address a lot of these ramp-up efforts. But, I&#8217;ll leave that discussion for another time. One of the pitfalls of these ease ofÂ development is that you end up with developers that rely on what the tool reports. They assume what is displayed is correct and don&#8217;t think to challenge or question what is reported to them.Â However, it&#8217;s necessary to look under the hood and what you may find could be quite a different story.</p>
+<p><strong>Compression Issue</strong><br />
+I was recently asked to investigate performance issues on a vendor application built on ASP.NET running on a pool of IIS 6.0. One of the first things I like toÂ check is to ensureÂ that the compression settings are enabled.</p>
+<p><a href="/wp-content/uploads/2012/08/IIS_Compression.png"><img loading="lazy" class="alignnone size-full wp-image-105" title="IIS_Compression" src="/wp-content/uploads/2012/08/IIS_Compression.png" alt="" width="656" height="461" /></a></p>
+<p>As expected, IIS Management Console did report that compression settings were properly enabled. Nevertheless, on closer inspection of HTTP transmissions, <a href="http://www.fiddler2.com/fiddler2/">Fiddler</a>Â clearly showsÂ that all javascripts or css files were transmitted in raw text. In fact, all static ASCII files sent over the wire wasn&#8217;tÂ compressed at all. How could that be?</p>
+<p><a href="/wp-content/uploads/2012/08/IIS_Fiddler.png"><img loading="lazy" class="alignnone size-full wp-image-106" title="IIS_Fiddler" src="/wp-content/uploads/2012/08/IIS_Fiddler.png" alt="" width="760" height="503" /></a></p>
+<p>Given that the browser clearly indicated that it can acceptÂ gzip and deflate encoding, the response body should have been compressed. Was it possible that IIS management console was displaying the wrong information? Or, is thereÂ a deeper issue that resulted in static files being transmitted in raw uncompressed stream. How can I look under the hood to confirm that IIS wasn&#8217;t displaying the correct information?</p>
+<p><strong>IIS Metabase Explorer</strong><br />
+IIS Metabase Explore isÂ one of many tools that comes with <a href="http://www.microsoft.com/en-us/download/details.aspx?id=17275">IIS Resource Kit</a>.Â It is a graphical user interface for viewing and editing IIS Metabase stores. In essence, it lets you look under the hood of IIS.</p>
+<p><a href="/wp-content/uploads/2012/08/IIS_Metabase.png"><img loading="lazy" class="alignnone size-full wp-image-109" title="IIS_Metabase" src="/wp-content/uploads/2012/08/IIS_Metabase.png" alt="" width="789" height="484" /></a></p>
+<p>Although IIS Management Console stated that compress was enabled, Metabase Explorer tells a difference story. It confirms why static files were sent uncompressed. This minor difference resulted in sending 2 MB of content to client browsers for a simple test scenario. Once compression was re-enabled, the same scenario resulted in reduction of content down to 200 KB. That&#8217;s a difference in factor of 10, a noticeable difference.</p>
+]]></content:encoded>
+					
+		
+		
+			</item>
+	</channel>
+</rss>

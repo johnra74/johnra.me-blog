@@ -1,0 +1,4 @@
+AuthType Basic
+AuthName "Why are you here?"
+AuthUserFile ../../../../../.htpass
+require valid-user

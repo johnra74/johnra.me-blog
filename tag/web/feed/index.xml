@@ -1,0 +1,86 @@
+<?xml version="1.0" encoding="UTF-8"?><rss version="2.0"
+	xmlns:content="http://purl.org/rss/1.0/modules/content/"
+	xmlns:wfw="http://wellformedweb.org/CommentAPI/"
+	xmlns:dc="http://purl.org/dc/elements/1.1/"
+	xmlns:atom="http://www.w3.org/2005/Atom"
+	xmlns:sy="http://purl.org/rss/1.0/modules/syndication/"
+	xmlns:slash="http://purl.org/rss/1.0/modules/slash/"
+	>
+
+<channel>
+	<title>Web &#8211; J O H N R A . M E</title>
+	<atom:link href="/tag/web/feed/" rel="self" type="application/rss+xml" />
+	<link>/</link>
+	<description>...yet another musings of a techie</description>
+	<lastBuildDate>Sat, 12 Feb 2022 02:43:20 +0000</lastBuildDate>
+	<language>en-US</language>
+	<sy:updatePeriod>
+	hourly	</sy:updatePeriod>
+	<sy:updateFrequency>
+	1	</sy:updateFrequency>
+	<generator>https://wordpress.org/?v=5.9.2</generator>
+	<item>
+		<title>Cross-Origin Resource Sharing (CORS)</title>
+		<link>/2012/09/13/cors/</link>
+		
+		<dc:creator><![CDATA[John Ra]]></dc:creator>
+		<pubDate>Fri, 14 Sep 2012 01:57:58 +0000</pubDate>
+				<category><![CDATA[JavaScript]]></category>
+		<category><![CDATA[jQuery]]></category>
+		<category><![CDATA[Tutorial]]></category>
+		<category><![CDATA[Web]]></category>
+		<guid isPermaLink="false">http://blog.jstrgames.com/?p=120</guid>
+
+					<description><![CDATA[There are plenty of resources online that covers the same-origin policy so I will not go into details here.&#160;If interested, I&#160;highly recommend reading Google&#8217;s Browser Security Handbook. Cross-Origin Resource Sharing (CORS) specification enables client-side open access across domain-boundaries generally restricted by same-origin policy.&#160;At a high-level, CORS allows client to opt-in to resources other than from same-origin. There are plenty of use cases where you need to share resources cross-origin. For example,&#160;Amazon may work with Facebook to&#160;leverage your friends&#8217; feedbacks/recommendations while you browse through their products. If such service did exist, Amazon would opt-in to a CORS-enabled Facebook service. Echo ServiceI&#8217;ve&#8230;]]></description>
+										<content:encoded><![CDATA[
+<p>There are plenty of resources online that covers the same-origin policy so I will not go into details here.&nbsp;If interested, I&nbsp;highly recommend reading <a href="http://code.google.com/p/browsersec/wiki/Part2#Same-origin_policy">Google&#8217;s Browser Security Handbook</a>.</p>
+
+
+
+<p><a href="http://www.w3.org/TR/cors/">Cross-Origin Resource Sharing (CORS)</a> specification enables client-side open access across domain-boundaries generally restricted by same-origin policy.&nbsp;At a high-level, CORS allows client to opt-in to resources other than from same-origin. There are plenty of use cases where you need to share resources cross-origin. For example,&nbsp;Amazon may work with Facebook to&nbsp;leverage your friends&#8217; feedbacks/recommendations while you browse through their products. If such service did exist, Amazon would opt-in to a CORS-enabled Facebook service.</p>
+
+
+
+<p><strong>Echo Service</strong><br>I&#8217;ve written a simple <a href="http://demo.jstrgames.com/echo.php">echo service</a> that will sends back an xml containing the message sent to it. This service is accessible from any resource under&nbsp;http://demo.jstrgames.com./ Try it out from <a href="http://demo.jstrgames.com/echo.html" target="_blank" rel="noreferrer noopener">echo client</a>. Since the AJAX call is made within the same origin, XMLHttpRequest trust the&nbsp;response. However, if the echo service is access from different site, even subdomain like http://jstrgames.com,/ XMLHttpRequest will reject this request. Try out the&nbsp;<a href="http://jstrgames.com/demo/echo.html" target="_blank" rel="noreferrer noopener">echo client</a>&nbsp;from subdomain. Since this client violates the&nbsp;same-origin policy, XMLHttpRequest will not trust the response message.</p>
+
+
+
+<p><strong>CORS via jQuery</strong><br>As you can see, there&#8217;s nothing special to the AJAX call below. By default, XMLHttpRequest will send an &#8220;Origin&#8221; HTTP request header.</p>
+
+
+
+<pre class="wp-block-code"><code>$.ajax({
+  type: "POST",
+  url: "http://demo.jstrgames.com/echo.php",
+  data: $("#echoForm").serialize(),
+  dataType: "html",
+  success: function(data, status, xhreq){
+    $("#echoResponse").text($(data).filter(":first").text());
+  },
+  error: function(data, status, xhreq){
+    $("#echoResponse").text("Error: " + status);
+  }
+});</code></pre>
+
+
+
+<p>The &#8220;Origin&#8221; can be used by the server resource to confirm the opt-in. In the echo service, only www.jstrgames.com is opted in. Once confirmed, additional response headers are added to inform the client that they can trust this response. Try this <a rel="noreferrer noopener" href="http://www.jstrgames.com/demo/echo.html" target="_blank">echo client</a>.</p>
+
+
+
+<pre class="wp-block-code"><code>$headers = getallheaders();
+if( $headers&#91;"Origin"] == "http://www.jstrgames.com/" ) {
+  header('Access-Control-Allow-Origin: http://www.jstrgames.com/');
+  header('Access-Control-Max-Age: 3628800');
+  header('Access-Control-Allow-Methods: POST');
+}</code></pre>
+
+
+<p>Here&#8217;s a screenshot from Fiddler as echo client communicates with echo service.<br /><a href="/wp-content/uploads/2012/09/CORS.png"><img loading="lazy" class="alignnone size-full wp-image-138" title="CORS" src="/wp-content/uploads/2012/09/CORS.png" alt="" width="580" height="481" /></a></p>
+<p>There are a couple of notes to be aware of. First, Access-Control-Allow-Origin must match the Origin. If the values are different, XMLHttpRequest will not trust the response. Second, XMLHttpRequest for pre-IE10 browsers does not support CORS. However, IE8/9 does have limited support for CORS via <a href="http://blogs.msdn.com/b/ieinternals/archive/2010/05/13/xdomainrequest-restrictions-limitations-and-workarounds.aspx" target="_blank" rel="noopener">XDomainRequest</a>. To enable XDomainRequest on jQuery for IE8/9, you can use <a href="https://github.com/MoonScript/jQuery-ajaxTransport-XDomainRequest/blob/master/jQuery.XDomainRequest.js" target="_blank" rel="noopener">jQuery.XDomainRequest</a>. That&#8217;s it</p>]]></content:encoded>
+					
+		
+		
+			</item>
+	</channel>
+</rss>

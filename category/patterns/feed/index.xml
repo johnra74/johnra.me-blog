@@ -1,0 +1,213 @@
+<?xml version="1.0" encoding="UTF-8"?><rss version="2.0"
+	xmlns:content="http://purl.org/rss/1.0/modules/content/"
+	xmlns:wfw="http://wellformedweb.org/CommentAPI/"
+	xmlns:dc="http://purl.org/dc/elements/1.1/"
+	xmlns:atom="http://www.w3.org/2005/Atom"
+	xmlns:sy="http://purl.org/rss/1.0/modules/syndication/"
+	xmlns:slash="http://purl.org/rss/1.0/modules/slash/"
+	>
+
+<channel>
+	<title>Patterns &#8211; J O H N R A . M E</title>
+	<atom:link href="/category/patterns/feed/" rel="self" type="application/rss+xml" />
+	<link>/</link>
+	<description>...yet another musings of a techie</description>
+	<lastBuildDate>Sat, 12 Feb 2022 02:43:20 +0000</lastBuildDate>
+	<language>en-US</language>
+	<sy:updatePeriod>
+	hourly	</sy:updatePeriod>
+	<sy:updateFrequency>
+	1	</sy:updateFrequency>
+	<generator>https://wordpress.org/?v=5.9.2</generator>
+	<item>
+		<title>Design Pattern: Chain of Responsibility</title>
+		<link>/2014/05/06/design-pattern-chain-of-responsibility/</link>
+		
+		<dc:creator><![CDATA[John Ra]]></dc:creator>
+		<pubDate>Tue, 06 May 2014 21:33:01 +0000</pubDate>
+				<category><![CDATA[Java]]></category>
+		<category><![CDATA[Patterns]]></category>
+		<category><![CDATA[Tutorial]]></category>
+		<category><![CDATA[Development]]></category>
+		<guid isPermaLink="false">http://blog.jstrgames.com/?p=387</guid>
+
+					<description><![CDATA[In my original Tetris code base, I started out with a simple RotationController class. As I recall, this was a trivial class with a single shape. However, as more shapes were added, it quickly became unwieldy.&#160;Looking back at this code, I want to cringe at my lack of discipline in following proper design principles. On the bright side, I have something to blog about. Chain of Responsibility The chain of responsibility design pattern&#160;is known as a behavioral pattern consisting of client objects and a series of handler&#160;objects. It provides more than one object the opportunity to handle a request by&#8230;]]></description>
+										<content:encoded><![CDATA[<p>In my original <a href="https://github.com/johnra74/tetris">Tetris code base</a>, I started out with a simple <a href="https://github.com/johnra74/tetris/blob/82b3f058fbf62c036623a3b3eb16ca3bf2550f2d/tetris/tetris-core/src/main/java/com/jstrgames/tetris/core/controller/RotateController.java">RotationController class</a>. As I recall, this was a trivial class with a single shape. However, as more shapes were added, it quickly became unwieldy.&nbsp;Looking back at this code, I want to cringe at my lack of discipline in following proper design principles. On the bright side, I have something to blog about.</p>
+<p><strong>Chain of Responsibility</strong></p>
+<p><a href="/wp-content/uploads/2014/05/chain_of_resp_pattern.png"><img loading="lazy" class="alignleft size-medium wp-image-399" src="/wp-content/uploads/2014/05/chain_of_resp_pattern-300x124.png" alt="chain_of_resp_pattern" width="300" height="124"></a>The chain of responsibility design pattern&nbsp;is known as a behavioral pattern consisting of client objects and a series of handler&nbsp;objects. It provides more than one object the opportunity to handle a request by linking receivers together (see left UML diagram). Instead of having one monolithic class, as I have or coupling your code to&nbsp;each and every concrete class,&nbsp;with the chain of responsibility pattern, you can avoid both.</p>
+<p><strong>Refactoring&nbsp;Rotation Controller</strong></p>
+<p><a href="/wp-content/uploads/2014/05/action_controller_before.png"><img loading="lazy" class="alignright size-medium wp-image-394" src="/wp-content/uploads/2014/05/action_controller_before-300x240.png" alt="action_controller_before" width="300" height="240"></a>On the right is the&nbsp;UML diagram for handling&nbsp;user inputs in my game. The ControlListener implements the Java AWT Event KeyListener. The ControlListener listens for various keyboard actions (UP_ARROW &#8211;&nbsp;rotate clockwise, DOWN_ARROW &#8211; drop, LEFT_ARROW &#8211; move left, RIGHT_ARROW &#8211; move right, Q &#8211; rotate counter-clockwise, and W &#8211; rotate clockwise). When user presses UP_ARROW, Q, or W, it will create an instance of RotateController class to handle the respective rotation&nbsp;action. On the original UML diagram, you can see the long list of private methods I&#8217;ve implemented to handle the rotation action for various tetris shapes.</p>
+<p><a href="/wp-content/uploads/2014/05/action_controller_after.png"><img loading="lazy" class="alignleft size-medium wp-image-404" src="/wp-content/uploads/2014/05/action_controller_after-300x242.png" alt="action_controller_after" width="300" height="242"></a>On the left is the refactored UML diagram with the&nbsp;rotation logic implemented using the chain of responsibility design pattern. Gone are the many private methods created&nbsp;to handle every possible shapes. For each shape, we&nbsp;now have a respective&nbsp;handler class responsible for rotating the shape. The chain of these rotation handler will check if can handle the rotation request by inspecting the shape associated with the request.</p>
+
+
+<pre class="wp-block-code"><code>public Coordinate&#91;] executeRequest(RotateRequest request) {
+  final Coordinate&#91;] coordinate;
+  final IShape shape = request.getShape();
+  final Rotate rotate = request.getRotate();
+
+  if( shape.getShape() == this.getShape()) {
+    coordinate = getTargetCoordinates(shape, rotate);
+  } else {
+    if(this.nextHandler == null) {
+      throw new HandlerNotFoundException("No handler defined for " + shape.getShape());
+    } else {
+      coordinate = this.nextHandler.executeRequest(request);
+    }
+  }
+
+  return coordinate;
+}</code></pre>
+
+
+
+<p>If it cannot handle the request, it will pass the request to the next handler. If it reaches the end of the chain and no handler is found, a runtime exception will be thrown. Feel free to browse the final code base on <a href="https://github.com/johnra74/tetris/tree/master/tetris/tetris-core/src/main/java/com/jstrgames/tetris/core/controller">GitHub</a>.</p>
+]]></content:encoded>
+					
+		
+		
+			</item>
+		<item>
+		<title>Fluent Interface by Example</title>
+		<link>/2014/03/01/fluent-interface-by-example/</link>
+		
+		<dc:creator><![CDATA[John Ra]]></dc:creator>
+		<pubDate>Sat, 01 Mar 2014 22:30:17 +0000</pubDate>
+				<category><![CDATA[Java]]></category>
+		<category><![CDATA[Open Source]]></category>
+		<category><![CDATA[Patterns]]></category>
+		<category><![CDATA[Tutorial]]></category>
+		<category><![CDATA[Development]]></category>
+		<category><![CDATA[SharePoint]]></category>
+		<guid isPermaLink="false">http://blog.jstrgames.com/?p=364</guid>
+
+					<description><![CDATA[Chances are you have seen Fluent Interface in action. I&#8217;ve seen it without realizing what they were until I stumbled across Martin Fowler&#8217;s blog. The aim is simple &#8211; to provide for a more readable code. SharePoint APISeveral years ago, I wrote a SharePoint API in Java to interact with its List Soap Service. This soap service had a feature to query the target list using Collaborative Application Markup Language (CAML). Here&#8217;s an example of CAML query to filter the task list where the TaskName is &#8220;Foo Bar&#8221; and the Status is &#8220;In Progress&#8221;. As part of this SharePoint API,&#8230;]]></description>
+										<content:encoded><![CDATA[
+<p>Chances are you have seen Fluent Interface in action. I&#8217;ve seen it without realizing what they were until I stumbled across <a href="http://martinfowler.com/bliki/FluentInterface.html">Martin Fowler&#8217;s blog</a>. The aim is simple &#8211; to provide for a more readable code.</p>
+
+
+
+<p><strong>SharePoint API</strong><br>Several years ago, I wrote a SharePoint API in Java to interact with its List Soap Service. This soap service had a feature to query the target list using <a href="http://msdn.microsoft.com/en-us/library/office/ms467521(v=office.15).aspx">Collaborative Application Markup Language (CAML)</a>. Here&#8217;s an example of CAML query to filter the task list where the TaskName is &#8220;Foo Bar&#8221; and the Status is &#8220;In Progress&#8221;.</p>
+
+
+
+<pre class="wp-block-code"><code>&lt;query&gt;
+  &lt;where&gt;
+    &lt;and&gt;
+      &lt;eq&gt;
+        &lt;fieldref name="TaskName"&gt;
+        &lt;value type="Text"&gt;Foo Bar&lt;/value&gt;
+      &lt;/fieldref&gt;&lt;/eq&gt;
+      &lt;eq&gt;
+        &lt;fieldref name="Status"&gt;
+        &lt;value type="Text"&gt;In Progress&lt;/value&gt;
+      &lt;/fieldref&gt;&lt;/eq&gt;
+    &lt;/and&gt;
+   &lt;/where&gt;
+&lt;/query&gt;</code></pre>
+
+
+
+<p>As part of this SharePoint API, I had written a corresponding set of Java classes &#8211; each node represented by a class. For trivial query like above, it would look like the following:</p>
+
+
+
+<pre class="wp-block-code"><code>final Expression leftExpression = new Equals(new Field("TaskName", "Foo Bar"));
+final Expression rightExpression = new Equals(new Field("Status", "In Progress"));
+final Condition condition = new And(leftExpression, rightExpression);
+final Where clause = new Where(condition);
+final Query query = new Query(clause);</code></pre>
+
+
+
+<p>As you can predict, for complicated scenarios, this would quickly become unreadable. By applying the concept of Fluent Interface, we can make it far more readable. For example, the above become the following:</p>
+
+
+
+<pre class="wp-block-code"><code>final Where clause =
+  new Where(
+    and(eq("TaskName", "Foo Bar"),
+        eq("Status", "In Progress")));</code></pre>
+
+
+
+<p><strong>Applying Fluent Interface</strong><br>A good Fluent Interface takes a while to build. It should be built with the goal of readability and flow in mind. Return type should be chosen based on what you need to continue fluent action. Here&#8217;s the SharePoint API implementation. For the complete implementation, please see <a href="https://github.com/johnra74/sharepoint-api/blob/master/sharepoint/sharepoint-lib/src/main/java/com/jstrgames/sharepoint/query/Where.java">GitHub Source</a>.</p>
+
+
+
+<pre class="wp-block-code"><code>.
+.
+.
+public static Condition and(Expression left, Expression right) {
+  return new And(left, right);
+}
+
+public static Condition and(Expression left, Condition right) {
+  return new And(left, right);
+}
+
+public static Condition and(Condition left, Expression right) {
+  return new And(left, right);
+}
+
+public static Condition and(Condition left, Condition right) {
+  return new And(left, right);
+}
+.
+.
+.
+public static Expression eq(Field field) {
+  return new Equals(field);
+}</code></pre>
+
+
+
+<p>For complicated scenarios where you want to get all task assigned to John with status in &#8220;New&#8221; or &#8220;In Progress&#8221; and task created after Jan 1, 2014, the CAML would like the following.</p>
+
+
+
+<pre class="wp-block-code"><code>&lt;query&gt;
+  &lt;where&gt;
+    &lt;and&gt;
+      &lt;eq&gt;
+        &lt;fieldref name="AssignedTo"&gt;
+        &lt;value type="Text"&gt;John&lt;/value&gt;
+      &lt;/fieldref&gt;&lt;/eq&gt;
+      &lt;and&gt;
+        &lt;or&gt;
+          &lt;eq&gt;
+            &lt;fieldref name="Status"&gt;
+            &lt;value type="Text"&gt;New&lt;/value&gt;
+          &lt;/fieldref&gt;&lt;/eq&gt;
+          &lt;eq&gt;
+            &lt;fieldref name="Status"&gt;
+            &lt;value type="Text"&gt;In Progress&lt;/value&gt;
+          &lt;/fieldref&gt;&lt;/eq&gt;
+        &lt;/or&gt;
+        &lt;gt&gt;
+          &lt;fieldref name="CreateDate"&gt;
+          &lt;value type="DateTime"&gt;2014-01-01T00:00:00Z&lt;/value&gt;
+        &lt;/fieldref&gt;&lt;/gt&gt;
+    &lt;/and&gt;
+   &lt;/and&gt;&lt;/where&gt;
+&lt;/query&gt;</code></pre>
+
+
+
+<p>Here&#8217;s the same in Fluent Interface</p>
+
+
+
+<pre class="wp-block-code"><code>final Where clause =
+  new Where(
+    and(eq("AssignedTo", "John"),
+    and(
+      or(eq("Status", "New"),
+         eq("Status", "In Progress")),
+      gt("CreateDate", "2014-01-01T00:00:00Z"))));</code></pre>
+]]></content:encoded>
+					
+		
+		
+			</item>
+	</channel>
+</rss>
