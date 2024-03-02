@@ -1,2 +1,2 @@
-# johnra.me-blog
-Personal Blog
+# Person Blog
+Personal Blog (https://www.johnra.me)
