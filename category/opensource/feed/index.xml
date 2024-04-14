@@ -12,13 +12,13 @@
 	<atom:link href="/category/opensource/feed/" rel="self" type="application/rss+xml" />
 	<link>/</link>
 	<description>...yet another musings of a techie</description>
-	<lastBuildDate>Sat, 12 Feb 2022 02:43:20 +0000</lastBuildDate>
+	<lastBuildDate>Thu, 11 Apr 2024 23:15:01 +0000</lastBuildDate>
 	<language>en-US</language>
 	<sy:updatePeriod>
 	hourly	</sy:updatePeriod>
 	<sy:updateFrequency>
 	1	</sy:updateFrequency>
-	<generator>https://wordpress.org/?v=5.9.2</generator>
+	<generator>https://wordpress.org/?v=6.5.2</generator>
 	<item>
 		<title>Java-based Tetris Game</title>
 		<link>/2014/04/06/java-based-tetris-game/</link>
@@ -207,7 +207,7 @@ public static Expression eq(Field field) {
 <p>The monitor should be proactive and not reactive. It should provide early enough warning before something goes wrong. This includes monitoring dependencies and the application itself.Â There are tools that monitor logs and report when it detects various errors in the log file. Although this is better than nothing, it&#8217;s too reactive. If you&#8217;re lucky enough to have nagios in-house, this is better. However, in most cases, they are configured only for Production and, if lucky, QA. However, for other environments, it may be an overkill to use nagios.</p>
 <p><strong>Health Monitoring</strong></p>
 <p>The purpose of my <a href="https://github.com/johnra74/health-monitor">health monitor tool</a> is to provide a simple framework to quickly setup and actively check the overall health of any application.</p>
-<p><a href="/wp-content/uploads/2013/09/healthmonitor.png"><img loading="lazy" class="aligncenter size-full wp-image-345" src="/wp-content/uploads/2013/09/healthmonitor.png" alt="healthmonitor" width="749" height="349" /></a></p>
+<p><a href="/wp-content/uploads/2013/09/healthmonitor.png"><img fetchpriority="high" decoding="async" class="aligncenter size-full wp-image-345" src="/wp-content/uploads/2013/09/healthmonitor.png" alt="healthmonitor" width="749" height="349" /></a></p>
 <p>Health monitoring tool is built on the following open source frameworks:</p>
 <ul>
 <li><a href="http://quartz-scheduler.org/">quartz-scheduler</a> &#8211; used to schedule recurring checks to verify your site, components/modules, and dependencies</li>
@@ -271,7 +271,7 @@ public static Expression eq(Field field) {
 
 
 
-<div class="wp-block-image"><figure class="aligncenter"><a href="/wp-content/uploads/2013/09/healthmonitor.email_.png"><img src="/wp-content/uploads/2013/09/healthmonitor.email_.png" alt="healthmonitor.email" class="wp-image-353"/></a></figure></div>
+<div class="wp-block-image"><figure class="aligncenter"><a href="/wp-content/uploads/2013/09/healthmonitor.email_.png"><img decoding="async" src="/wp-content/uploads/2013/09/healthmonitor.email_.png" alt="healthmonitor.email" class="wp-image-353"/></a></figure></div>
 
 
 

@@ -12,13 +12,13 @@
 	<atom:link href="/category/rant/feed/" rel="self" type="application/rss+xml" />
 	<link>/</link>
 	<description>...yet another musings of a techie</description>
-	<lastBuildDate>Mon, 04 Apr 2022 00:43:52 +0000</lastBuildDate>
+	<lastBuildDate>Thu, 11 Apr 2024 23:12:37 +0000</lastBuildDate>
 	<language>en-US</language>
 	<sy:updatePeriod>
 	hourly	</sy:updatePeriod>
 	<sy:updateFrequency>
 	1	</sy:updateFrequency>
-	<generator>https://wordpress.org/?v=5.9.2</generator>
+	<generator>https://wordpress.org/?v=6.5.2</generator>
 	<item>
 		<title>It&#8217;s a trap!</title>
 		<link>/2022/03/29/its-a-trap/</link>
@@ -26,13 +26,13 @@
 		<dc:creator><![CDATA[John Ra]]></dc:creator>
 		<pubDate>Tue, 29 Mar 2022 15:29:54 +0000</pubDate>
 				<category><![CDATA[Rants]]></category>
-		<guid isPermaLink="false">/?p=560</guid>
+		<guid isPermaLink="false">http://10.0.0.60/?p=560</guid>
 
 					<description><![CDATA[Confirmation bias &#8211; the tendency to discredit non-confirmative evidence, or to seek out (actively or subconsciously) primarily confirming evidence &#8211; is part of all of us. We all suffer from it, every day. As technologist, we could do better. We should always re-evaluate all the facts and not fall into the traps of our dogma/orthodoxy &#8211; what we see or want to see. Rather than reviewing all the facts, we too often hold onto our beliefs. Ask a front-end developer which library/framework should be used for a given project, it&#8217;s rarely followed by a question on what the requirements are.&#8230;]]></description>
 										<content:encoded><![CDATA[<p>Confirmation bias &#8211; the tendency to discredit non-confirmative evidence, or to seek out (actively or subconsciously) primarily confirming evidence &#8211; is part of all of us. We all suffer from it, every day. As technologist, we could do better. We should always re-evaluate all the facts and not fall into the traps of our dogma/orthodoxy &#8211; what we see or want to see.</p>
 
 
-<div class="wp-block-image"><figure class="aligncenter size-full"><img width="525" height="354" src="/wp-content/uploads/2022/03/bias.png" alt="" class="wp-image-565"/></figure></div>
+<div class="wp-block-image"><figure class="aligncenter size-full"><img fetchpriority="high" decoding="async" width="525" height="354" src="/wp-content/uploads/2022/03/bias.png" alt="" class="wp-image-565"/></figure></div>
 
 
 
@@ -40,7 +40,7 @@
 
 
 
-<div class="wp-block-image"><figure class="aligncenter size-full"><img loading="lazy" width="809" height="429" src="/wp-content/uploads/2022/03/reactstat.png" alt="" class="wp-image-566"/></figure></div>
+<div class="wp-block-image"><figure class="aligncenter size-full"><img decoding="async" width="809" height="429" src="/wp-content/uploads/2022/03/reactstat.png" alt="" class="wp-image-566"/></figure></div>
 
 
 
@@ -48,7 +48,7 @@
 
 
 
-<h2>How to Avoid Confirmation Bias?</h2>
+<h2 class="wp-block-heading">How to Avoid Confirmation Bias?</h2>
 
 
 

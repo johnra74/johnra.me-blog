@@ -12,13 +12,13 @@
 	<atom:link href="/category/jscript/feed/" rel="self" type="application/rss+xml" />
 	<link>/</link>
 	<description>...yet another musings of a techie</description>
-	<lastBuildDate>Sat, 12 Feb 2022 02:43:20 +0000</lastBuildDate>
+	<lastBuildDate>Thu, 11 Apr 2024 23:30:30 +0000</lastBuildDate>
 	<language>en-US</language>
 	<sy:updatePeriod>
 	hourly	</sy:updatePeriod>
 	<sy:updateFrequency>
 	1	</sy:updateFrequency>
-	<generator>https://wordpress.org/?v=5.9.2</generator>
+	<generator>https://wordpress.org/?v=6.5.2</generator>
 	<item>
 		<title>Cross-Origin Resource Sharing (CORS)</title>
 		<link>/2012/09/13/cors/</link>
@@ -76,7 +76,7 @@ if( $headers&#91;"Origin"] == "http://www.jstrgames.com/" ) {
 }</code></pre>
 
 
-<p>Here&#8217;s a screenshot from Fiddler as echo client communicates with echo service.<br /><a href="/wp-content/uploads/2012/09/CORS.png"><img loading="lazy" class="alignnone size-full wp-image-138" title="CORS" src="/wp-content/uploads/2012/09/CORS.png" alt="" width="580" height="481" /></a></p>
+<p>Here&#8217;s a screenshot from Fiddler as echo client communicates with echo service.<br /><a href="/wp-content/uploads/2012/09/CORS.png"><img fetchpriority="high" decoding="async" class="alignnone size-full wp-image-138" title="CORS" src="/wp-content/uploads/2012/09/CORS.png" alt="" width="580" height="481" /></a></p>
 <p>There are a couple of notes to be aware of. First, Access-Control-Allow-Origin must match the Origin. If the values are different, XMLHttpRequest will not trust the response. Second, XMLHttpRequest for pre-IE10 browsers does not support CORS. However, IE8/9 does have limited support for CORS via <a href="http://blogs.msdn.com/b/ieinternals/archive/2010/05/13/xdomainrequest-restrictions-limitations-and-workarounds.aspx" target="_blank" rel="noopener">XDomainRequest</a>. To enable XDomainRequest on jQuery for IE8/9, you can use <a href="https://github.com/MoonScript/jQuery-ajaxTransport-XDomainRequest/blob/master/jQuery.XDomainRequest.js" target="_blank" rel="noopener">jQuery.XDomainRequest</a>. That&#8217;s it</p>]]></content:encoded>
 					
 		

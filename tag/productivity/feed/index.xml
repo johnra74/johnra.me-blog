@@ -12,13 +12,13 @@
 	<atom:link href="/tag/productivity/feed/" rel="self" type="application/rss+xml" />
 	<link>/</link>
 	<description>...yet another musings of a techie</description>
-	<lastBuildDate>Sat, 12 Feb 2022 02:43:20 +0000</lastBuildDate>
+	<lastBuildDate>Thu, 11 Apr 2024 23:35:41 +0000</lastBuildDate>
 	<language>en-US</language>
 	<sy:updatePeriod>
 	hourly	</sy:updatePeriod>
 	<sy:updateFrequency>
 	1	</sy:updateFrequency>
-	<generator>https://wordpress.org/?v=5.9.2</generator>
+	<generator>https://wordpress.org/?v=6.5.2</generator>
 	<item>
 		<title>Application Health Monitor</title>
 		<link>/2013/09/06/application-health-monitor/</link>
@@ -47,7 +47,7 @@
 <p>The monitor should be proactive and not reactive. It should provide early enough warning before something goes wrong. This includes monitoring dependencies and the application itself.Â There are tools that monitor logs and report when it detects various errors in the log file. Although this is better than nothing, it&#8217;s too reactive. If you&#8217;re lucky enough to have nagios in-house, this is better. However, in most cases, they are configured only for Production and, if lucky, QA. However, for other environments, it may be an overkill to use nagios.</p>
 <p><strong>Health Monitoring</strong></p>
 <p>The purpose of my <a href="https://github.com/johnra74/health-monitor">health monitor tool</a> is to provide a simple framework to quickly setup and actively check the overall health of any application.</p>
-<p><a href="/wp-content/uploads/2013/09/healthmonitor.png"><img loading="lazy" class="aligncenter size-full wp-image-345" src="/wp-content/uploads/2013/09/healthmonitor.png" alt="healthmonitor" width="749" height="349" /></a></p>
+<p><a href="/wp-content/uploads/2013/09/healthmonitor.png"><img fetchpriority="high" decoding="async" class="aligncenter size-full wp-image-345" src="/wp-content/uploads/2013/09/healthmonitor.png" alt="healthmonitor" width="749" height="349" /></a></p>
 <p>Health monitoring tool is built on the following open source frameworks:</p>
 <ul>
 <li><a href="http://quartz-scheduler.org/">quartz-scheduler</a> &#8211; used to schedule recurring checks to verify your site, components/modules, and dependencies</li>
@@ -111,7 +111,7 @@
 
 
 
-<div class="wp-block-image"><figure class="aligncenter"><a href="/wp-content/uploads/2013/09/healthmonitor.email_.png"><img src="/wp-content/uploads/2013/09/healthmonitor.email_.png" alt="healthmonitor.email" class="wp-image-353"/></a></figure></div>
+<div class="wp-block-image"><figure class="aligncenter"><a href="/wp-content/uploads/2013/09/healthmonitor.email_.png"><img decoding="async" src="/wp-content/uploads/2013/09/healthmonitor.email_.png" alt="healthmonitor.email" class="wp-image-353"/></a></figure></div>
 
 
 
@@ -141,20 +141,19 @@
 <p>Sometimes, it&#8217;s just about simplifying my work-life. Regardless of where I&#8217;ve worked, filling out time sheets has always been a required part of my working life&nbsp;chore. There are times when I&#8217;m diligent at it then there are times when, more often than I would like to admit, I end up playing the guessing game at the end of the week or end of the month.&nbsp;Sure, you could use Outlook Journal to keep track of your hours and I have in the past.&nbsp;It&#8217;s just&nbsp;not ideal when you&#8217;re interrupted with support issues throughout the day. I need to simplify how I track my time. And so, TimeTracker was born.</p>
 
 
-
-<div class="wp-block-image"><figure class="alignright"><a href="/wp-content/uploads/2012/08/TimeTracker_Menu.png"><img src="/wp-content/uploads/2012/08/TimeTracker_Menu.png" alt="" class="wp-image-54" title="TimeTracker_Menu"/></a></figure></div>
-
+<div class="wp-block-image">
+<figure class="alignright"><a href="/wp-content/uploads/2012/08/TimeTracker_Menu.png"><img decoding="async" src="/wp-content/uploads/2012/08/TimeTracker_Menu.png" alt="" class="wp-image-54" title="TimeTracker_Menu"/></a></figure></div>
 
 
 <p>The key success factor is to ensure the user only performs&nbsp;minimal amount of steps. Too many steps and we end up with another chore for the user. If I could keep it down to 2 clicks, this tool will work.&nbsp;My first use case is simple:&nbsp;user start a new activity. This would be performed by right-clicking on a system tray icon then selecting the activity they&#8217;re working on (see right screenshot).&nbsp;Application will then be responsible for create a new&nbsp;audit entry&nbsp;with activity name and start date. When a different activity is clicked, application will be responsible for closing out prior activity and create a new audit activity. My second use case is to display&nbsp;a report that&nbsp;can be used to fill out the actual time sheet.</p>
 
 
 
-<p><strong>Retrieving theÂ Project List</strong><br>I needed a way to retrieve all projects/activities from time sheet application to be displayed as a menu item.Â At my office,Â time sheetsÂ are filled out online. Since you can&#8217;t access my intranet, I&#8217;ve built a <a href="https://www.jstrgames.com/demo/timesheet.html">mockup</a>Â (see screenshot below). One major difference is the single sign on (SSO) authentication and authorization mechanism. Other than that, for the most part, this mockup is close to theÂ time sheet application I have at the office.</p>
+<p><strong>Retrieving the Project List</strong><br>I needed a way to retrieve all projects/activities from time sheet application to be displayed as a menu item. At my office, time sheets are filled out online. Since you can&#8217;t access my intranet, I&#8217;ve built a <a href="https://www.jstrgames.com/demo/timesheet.html">mockup</a> (see screenshot below). One major difference is the single sign on (SSO) authentication and authorization mechanism. Other than that, for the most part, this mockup is close to the time sheet application I have at the office.</p>
 
 
 
-<figure class="wp-block-image"><a href="/wp-content/uploads/2012/08/TimeTracker_Timesheet.png"><img src="/wp-content/uploads/2012/08/TimeTracker_Timesheet.png" alt="" class="wp-image-52" title="TimeTracker_Timesheet"/></a></figure>
+<figure class="wp-block-image"><a href="/wp-content/uploads/2012/08/TimeTracker_Timesheet.png"><img decoding="async" src="/wp-content/uploads/2012/08/TimeTracker_Timesheet.png" alt="" class="wp-image-52" title="TimeTracker_Timesheet"/></a></figure>
 
 
 
@@ -242,7 +241,7 @@ protected void ContextMenuStrip_Opening(object Sender, CancelEventArgs e)
 }</code></pre>
 
 
-<p><strong>DisplayÂ the Report</strong><br />In addition to displaying projects/activities, we want to add &#8220;View Report&#8221; to the context menu. This will display the activity report for the week and eliminate the guessing game at the end of the week.<br /><a href="/wp-content/uploads/2012/08/TimeTracker_Report.png"><img loading="lazy" class="alignnone size-full wp-image-67" title="TimeTracker_Report" src="/wp-content/uploads/2012/08/TimeTracker_Report.png" alt="" width="810" height="428" /></a></p>
+<p><strong>Display the Report</strong><br />In addition to displaying projects/activities, we want to add &#8220;View Report&#8221; to the context menu. This will display the activity report for the week and eliminate the guessing game at the end of the week.<br /><a href="/wp-content/uploads/2012/08/TimeTracker_Report.png"><img decoding="async" class="alignnone size-full wp-image-67" title="TimeTracker_Report" src="/wp-content/uploads/2012/08/TimeTracker_Report.png" alt="" width="810" height="428" /></a></p>
 <p>Copy of the VS2010 Project can be found <a href="https://www.jstrgames.com/demo/TimeTracker.zip">here</a>.</p>
 
 

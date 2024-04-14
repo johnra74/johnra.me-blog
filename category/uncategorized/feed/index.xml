@@ -12,21 +12,48 @@
 	<atom:link href="/category/uncategorized/feed/" rel="self" type="application/rss+xml" />
 	<link>/</link>
 	<description>...yet another musings of a techie</description>
-	<lastBuildDate>Sat, 12 Feb 2022 02:43:19 +0000</lastBuildDate>
+	<lastBuildDate>Thu, 11 Apr 2024 22:59:01 +0000</lastBuildDate>
 	<language>en-US</language>
 	<sy:updatePeriod>
 	hourly	</sy:updatePeriod>
 	<sy:updateFrequency>
 	1	</sy:updateFrequency>
-	<generator>https://wordpress.org/?v=5.9.2</generator>
+	<generator>https://wordpress.org/?v=6.5.2</generator>
 	<item>
+		<title>Context Matters</title>
+		<link>/2024/04/10/context-matters/</link>
+		
+		<dc:creator><![CDATA[John Ra]]></dc:creator>
+		<pubDate>Wed, 10 Apr 2024 18:42:05 +0000</pubDate>
+				<category><![CDATA[Uncategorized]]></category>
+		<category><![CDATA[Best Practices]]></category>
+		<category><![CDATA[Development]]></category>
+		<guid isPermaLink="false">/?p=582</guid>
+
+					<description><![CDATA[Understanding context is essential in becoming an effective software engineer. It is not sufficient to possess deep technical skills. Understanding the context (business domain) you operate in provides the necessary background to build the right solution. It elevates the skill programmer to a value-added software engineer. It allows software engineers to ensure solution fit the situation, background, and purpose, thereby enhancing clarity and reducing the likelihood of misunderstandings. Misunderstanding will only lead to defects. By being mindful of the contexts, software engineer can navigate complex landscapes and build stronger, more meaningful solution. In the realm of building the right solution,&#8230;]]></description>
+										<content:encoded><![CDATA[
+<p>Understanding context is essential in becoming an effective software engineer. It is not sufficient to possess deep technical skills. Understanding the context (business domain) you operate in provides the necessary background to build the right solution. It elevates the skill programmer to a value-added software engineer. It allows software engineers to ensure solution fit the situation, background, and purpose, thereby enhancing clarity and reducing the likelihood of misunderstandings. Misunderstanding will only lead to defects. By being mindful of the contexts, software engineer can navigate complex landscapes and build stronger, more meaningful solution.</p>
+
+
+
+<p>In the realm of building the right solution, business domain is not just a backdrop; it&#8217;s a pivotal player in the interpretation and understanding of requirements. The importance of context cannot be overstressed, as it is the lens through which we perceive and make sense of the requirements. Without good understanding of the business domain, the result is &#8220;blind leading the blind&#8221; solution. Successful software engineers, who take the time to understand the context they operate in, provide higher value. </p>
+
+
+
+<p>Context is the invisible force that molds our understanding of product intent. It is the difference between a solution that resonates and one that falls flat. As we navigate through daily agile ceremonies, recognizing and understanding the context will lead to more successful product and overall solution.</p>
+]]></content:encoded>
+					
+		
+		
+			</item>
+		<item>
 		<title>I&#8217;m Back?</title>
 		<link>/2022/01/23/restart/</link>
 		
 		<dc:creator><![CDATA[John Ra]]></dc:creator>
 		<pubDate>Sun, 23 Jan 2022 22:59:21 +0000</pubDate>
 				<category><![CDATA[Uncategorized]]></category>
-		<guid isPermaLink="false">/?p=527</guid>
+		<guid isPermaLink="false">http://10.0.0.60/?p=527</guid>
 
 					<description><![CDATA[It&#8217;s been a while since I posted an entry &#8211; just go ahead and look at the date on my prior post. I don&#8217;t even know if blogging is a thing anymore in the world of TikTok. Granted, given how vastness and complex technology space is, I don&#8217;t think anyone can do justice on a short video. Look, it&#8217;s not like this is my New Year&#8217;s resolution or anything like that. Let&#8217;s see if I can try to post at least once a month. And yes, I get credit for this post towards January.]]></description>
 										<content:encoded><![CDATA[

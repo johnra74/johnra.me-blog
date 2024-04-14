@@ -12,22 +12,21 @@
 	<atom:link href="/category/humor/feed/" rel="self" type="application/rss+xml" />
 	<link>/</link>
 	<description>...yet another musings of a techie</description>
-	<lastBuildDate>Sat, 12 Feb 2022 02:43:20 +0000</lastBuildDate>
+	<lastBuildDate>Thu, 11 Apr 2024 23:29:34 +0000</lastBuildDate>
 	<language>en-US</language>
 	<sy:updatePeriod>
 	hourly	</sy:updatePeriod>
 	<sy:updateFrequency>
 	1	</sy:updateFrequency>
-	<generator>https://wordpress.org/?v=5.9.2</generator>
+	<generator>https://wordpress.org/?v=6.5.2</generator>
 	<item>
 		<title>7-Minute Abs</title>
 		<link>/2022/02/02/7-minute-abs/</link>
-					<comments>/2022/02/02/7-minute-abs/#respond</comments>
 		
 		<dc:creator><![CDATA[John Ra]]></dc:creator>
 		<pubDate>Wed, 02 Feb 2022 15:20:32 +0000</pubDate>
 				<category><![CDATA[Humor]]></category>
-		<guid isPermaLink="false">/?p=546</guid>
+		<guid isPermaLink="false">http://10.0.0.60/?p=546</guid>
 
 					<description><![CDATA[Unless you&#8217;ve abstained from social networks, you&#8217;re probably heard of Wordle or have seen blocks of green, black, and yellow on your social feed. I have to admit, I&#8217;ve been caught up on the riptide &#8211; even google has acknowledged the popularity of it I tend to stay away from mainstream fad &#8211; especially those on social media platforms. I did, however, read the article on New York Times &#8211; who later purchased it for 7-figures. Eventually, I gave in and played to see what the craze was about. To my surprise, I was instantly hooked. I was surprised by&#8230;]]></description>
 										<content:encoded><![CDATA[
@@ -35,7 +34,7 @@
 
 
 
-<div class="wp-block-image"><figure class="aligncenter size-full"><img width="345" height="151" src="/wp-content/uploads/2022/02/google-wordle.png" alt="" class="wp-image-539"/></figure></div>
+<div class="wp-block-image"><figure class="aligncenter size-full"><img fetchpriority="high" decoding="async" width="345" height="151" src="/wp-content/uploads/2022/02/google-wordle.png" alt="" class="wp-image-539"/></figure></div>
 
 
 
@@ -54,8 +53,6 @@
 <p>If you do find Wordle entertaining and, like me, can&#8217;t wait another day; please visit <a href="https://www.wordhex.app/">WordHex</a>. </p>
 ]]></content:encoded>
 					
-					<wfw:commentRss>/2022/02/02/7-minute-abs/feed/</wfw:commentRss>
-			<slash:comments>0</slash:comments>
 		
 		
 			</item>
@@ -68,9 +65,8 @@
 				<category><![CDATA[Humor]]></category>
 		<guid isPermaLink="false">http://blog.jstrgames.com/?p=154</guid>
 
-					<description><![CDATA[It has been a while since I&#8217;ve posted anything but this is definitely worth an entry. This is what you get when you add a star wars fan, a blizzard, and a lot of know-how in network technology. Â  Here&#8217;s theÂ blog from the originator]]></description>
+					<description><![CDATA[It has been a while since I&#8217;ve posted anything but this is definitely worth an entry. This is what you get when you add a star wars fan, a blizzard, and a lot of know-how in network technology. Here&#8217;s the blog from the originator]]></description>
 										<content:encoded><![CDATA[<p>It has been a while since I&#8217;ve posted anything but this is definitely worth an entry. This is what you get when you add a star wars fan, a blizzard, and a lot of know-how in network technology.</p>
-<pre>Â </pre>
 
 
 <pre class="wp-block-code"><code>$ traceroute 216.81.59.173 
@@ -131,7 +127,7 @@ traceroute to 216.81.59.173 (216.81.59.173), 64 hops max, 52 byte packets
 
 
 
-<p>Here&#8217;s theÂ <a href="http://rwerber.tumblr.com/post/42707829171/star-wars-traceroute">blog</a> from the originator</p>
+<p>Here&#8217;s the <a href="http://rwerber.tumblr.com/post/42707829171/star-wars-traceroute">blog</a> from the originator</p>
 ]]></content:encoded>
 					
 		

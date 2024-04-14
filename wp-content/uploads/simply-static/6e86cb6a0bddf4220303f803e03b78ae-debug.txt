@@ -1,0 +1,321 @@
+[2024-04-14 00:48:04] [class-ss-archive-creation-job.php:83] Starting a job; no job is presently running
+[2024-04-14 00:48:04] [class-ss-archive-creation-job.php:84] Here's our task list: setup, fetch_urls, create_zip_archive, wrapup
+[2024-04-14 00:48:04] [class-ss-archive-creation-job.php:98] Pushing first task to queue: setup
+[2024-04-14 00:48:05] [class-ss-archive-creation-job.php:132] Current task: setup
+[2024-04-14 00:48:05] [class-ss-archive-creation-job.php:149] Performing task: setup
+[2024-04-14 00:48:05] [class-ss-task.php:44] Status message: [setup] Setting up
+[2024-04-14 00:48:06] [class-ss-setup-task.php:33] Creating archive directory: /var/www/html/wp-content/uploads/simply-static/temp-files/simply-static-1-1713055684/
+[2024-04-14 00:48:06] [class-ss-setup-task.php:79] Adding origin URL to queue: http://johnra.k8.local/
+[2024-04-14 00:48:06] [class-ss-setup-task.php:102] Adding additional URL to queue: http://johnra.k8.local
+[2024-04-14 00:48:06] [class-ss-setup-task.php:145] Adding files from directory: /var/www/html/wp-content/uploads
+[2024-04-14 00:48:06] [class-ss-setup-task.php:150] Adding file /var/www/html/wp-content/uploads/2024/04/context-768x307.png to queue as: http://johnra.k8.local/wp-content/uploads/2024/04/context-768x307.png
+[2024-04-14 00:48:06] [class-ss-setup-task.php:150] Adding file /var/www/html/wp-content/uploads/2024/04/context-150x150.png to queue as: http://johnra.k8.local/wp-content/uploads/2024/04/context-150x150.png
+[2024-04-14 00:48:06] [class-ss-setup-task.php:150] Adding file /var/www/html/wp-content/uploads/2024/04/context.png to queue as: http://johnra.k8.local/wp-content/uploads/2024/04/context.png
+[2024-04-14 00:48:06] [class-ss-setup-task.php:150] Adding file /var/www/html/wp-content/uploads/2024/04/context-300x120.png to queue as: http://johnra.k8.local/wp-content/uploads/2024/04/context-300x120.png
+[2024-04-14 00:48:06] [class-ss-setup-task.php:150] Adding file /var/www/html/wp-content/uploads/simply-static/d3176abd64005f00120f663623ca2ba8-debug.txt to queue as: http://johnra.k8.local/wp-content/uploads/simply-static/d3176abd64005f00120f663623ca2ba8-debug.txt
+[2024-04-14 00:48:06] [class-ss-setup-task.php:150] Adding file /var/www/html/wp-content/uploads/simply-static/6e86cb6a0bddf4220303f803e03b78ae-debug.txt to queue as: http://johnra.k8.local/wp-content/uploads/simply-static/6e86cb6a0bddf4220303f803e03b78ae-debug.txt
+[2024-04-14 00:48:07] [class-ss-setup-task.php:150] Adding file /var/www/html/wp-content/uploads/2012/08/NTLM_EclipseRun.png to queue as: http://johnra.k8.local/wp-content/uploads/2012/08/NTLM_EclipseRun.png
+[2024-04-14 00:48:07] [class-ss-setup-task.php:150] Adding file /var/www/html/wp-content/uploads/2012/08/IIS_Fiddler-150x150.png to queue as: http://johnra.k8.local/wp-content/uploads/2012/08/IIS_Fiddler-150x150.png
+[2024-04-14 00:48:07] [class-ss-setup-task.php:150] Adding file /var/www/html/wp-content/uploads/2012/08/IIS_Metabase-150x150.png to queue as: http://johnra.k8.local/wp-content/uploads/2012/08/IIS_Metabase-150x150.png
+[2024-04-14 00:48:07] [class-ss-setup-task.php:150] Adding file /var/www/html/wp-content/uploads/2012/08/NTLM_IIS7Install.png to queue as: http://johnra.k8.local/wp-content/uploads/2012/08/NTLM_IIS7Install.png
+[2024-04-14 00:48:07] [class-ss-setup-task.php:150] Adding file /var/www/html/wp-content/uploads/2012/08/IIS_Compression-300x210.png to queue as: http://johnra.k8.local/wp-content/uploads/2012/08/IIS_Compression-300x210.png
+[2024-04-14 00:48:07] [class-ss-setup-task.php:150] Adding file /var/www/html/wp-content/uploads/2012/08/TimeTracker_Timesheet-300x57.png to queue as: http://johnra.k8.local/wp-content/uploads/2012/08/TimeTracker_Timesheet-300x57.png
+[2024-04-14 00:48:07] [class-ss-setup-task.php:150] Adding file /var/www/html/wp-content/uploads/2012/08/TimeTracker_Timesheet.png to queue as: http://johnra.k8.local/wp-content/uploads/2012/08/TimeTracker_Timesheet.png
+[2024-04-14 00:48:07] [class-ss-setup-task.php:150] Adding file /var/www/html/wp-content/uploads/2012/08/NTLM_IIS7Setup-150x150.png to queue as: http://johnra.k8.local/wp-content/uploads/2012/08/NTLM_IIS7Setup-150x150.png
+[2024-04-14 00:48:07] [class-ss-setup-task.php:150] Adding file /var/www/html/wp-content/uploads/2012/08/NTLM_EclipseRunUbuntu-300x161.png to queue as: http://johnra.k8.local/wp-content/uploads/2012/08/NTLM_EclipseRunUbuntu-300x161.png
+[2024-04-14 00:48:07] [class-ss-setup-task.php:150] Adding file /var/www/html/wp-content/uploads/2012/08/NTLM_EclipseSetup-150x150.png to queue as: http://johnra.k8.local/wp-content/uploads/2012/08/NTLM_EclipseSetup-150x150.png
+[2024-04-14 00:48:07] [class-ss-setup-task.php:150] Adding file /var/www/html/wp-content/uploads/2012/08/TimeTracker_Menu-150x150.png to queue as: http://johnra.k8.local/wp-content/uploads/2012/08/TimeTracker_Menu-150x150.png
+[2024-04-14 00:48:07] [class-ss-setup-task.php:150] Adding file /var/www/html/wp-content/uploads/2012/08/NTLM_IIS7Setup.png to queue as: http://johnra.k8.local/wp-content/uploads/2012/08/NTLM_IIS7Setup.png
+[2024-04-14 00:48:08] [class-ss-setup-task.php:150] Adding file /var/www/html/wp-content/uploads/2012/08/IIS_Metabase-300x184.png to queue as: http://johnra.k8.local/wp-content/uploads/2012/08/IIS_Metabase-300x184.png
+[2024-04-14 00:48:08] [class-ss-setup-task.php:150] Adding file /var/www/html/wp-content/uploads/2012/08/IIS_Fiddler.png to queue as: http://johnra.k8.local/wp-content/uploads/2012/08/IIS_Fiddler.png
+[2024-04-14 00:48:08] [class-ss-setup-task.php:150] Adding file /var/www/html/wp-content/uploads/2012/08/me.png to queue as: http://johnra.k8.local/wp-content/uploads/2012/08/me.png
+[2024-04-14 00:48:08] [class-ss-setup-task.php:150] Adding file /var/www/html/wp-content/uploads/2012/08/IIS_Metabase.png to queue as: http://johnra.k8.local/wp-content/uploads/2012/08/IIS_Metabase.png
+[2024-04-14 00:48:08] [class-ss-setup-task.php:150] Adding file /var/www/html/wp-content/uploads/2012/08/TimeTracker_Report-150x150.png to queue as: http://johnra.k8.local/wp-content/uploads/2012/08/TimeTracker_Report-150x150.png
+[2024-04-14 00:48:08] [class-ss-setup-task.php:150] Adding file /var/www/html/wp-content/uploads/2012/08/IIS_Compression-150x150.png to queue as: http://johnra.k8.local/wp-content/uploads/2012/08/IIS_Compression-150x150.png
+[2024-04-14 00:48:08] [class-ss-setup-task.php:150] Adding file /var/www/html/wp-content/uploads/2012/08/NTLM_IIS7Setup-300x120.png to queue as: http://johnra.k8.local/wp-content/uploads/2012/08/NTLM_IIS7Setup-300x120.png
+[2024-04-14 00:48:08] [class-ss-setup-task.php:150] Adding file /var/www/html/wp-content/uploads/2012/08/TimeTracker_Report.png to queue as: http://johnra.k8.local/wp-content/uploads/2012/08/TimeTracker_Report.png
+[2024-04-14 00:48:09] [class-ss-setup-task.php:150] Adding file /var/www/html/wp-content/uploads/2012/08/IIS_Compression.png to queue as: http://johnra.k8.local/wp-content/uploads/2012/08/IIS_Compression.png
+[2024-04-14 00:48:09] [class-ss-setup-task.php:150] Adding file /var/www/html/wp-content/uploads/2012/08/me-150x150.png to queue as: http://johnra.k8.local/wp-content/uploads/2012/08/me-150x150.png
+[2024-04-14 00:48:09] [class-ss-setup-task.php:150] Adding file /var/www/html/wp-content/uploads/2012/08/TimeTracker_Menu.png to queue as: http://johnra.k8.local/wp-content/uploads/2012/08/TimeTracker_Menu.png
+[2024-04-14 00:48:09] [class-ss-setup-task.php:150] Adding file /var/www/html/wp-content/uploads/2012/08/NTLM_EclipseRun-150x120.png to queue as: http://johnra.k8.local/wp-content/uploads/2012/08/NTLM_EclipseRun-150x120.png
+[2024-04-14 00:48:09] [class-ss-setup-task.php:150] Adding file /var/www/html/wp-content/uploads/2012/08/NTLM_EclipseRunUbuntu-150x150.png to queue as: http://johnra.k8.local/wp-content/uploads/2012/08/NTLM_EclipseRunUbuntu-150x150.png
+[2024-04-14 00:48:09] [class-ss-setup-task.php:150] Adding file /var/www/html/wp-content/uploads/2012/08/TimeTracker_Report-300x158.png to queue as: http://johnra.k8.local/wp-content/uploads/2012/08/TimeTracker_Report-300x158.png
+[2024-04-14 00:48:09] [class-ss-setup-task.php:150] Adding file /var/www/html/wp-content/uploads/2012/08/NTLM_EclipseRunUbuntu.png to queue as: http://johnra.k8.local/wp-content/uploads/2012/08/NTLM_EclipseRunUbuntu.png
+[2024-04-14 00:48:09] [class-ss-setup-task.php:150] Adding file /var/www/html/wp-content/uploads/2012/08/NTLM_IIS7Install-150x150.png to queue as: http://johnra.k8.local/wp-content/uploads/2012/08/NTLM_IIS7Install-150x150.png
+[2024-04-14 00:48:09] [class-ss-setup-task.php:150] Adding file /var/www/html/wp-content/uploads/2012/08/NTLM_IIS7Install-300x125.png to queue as: http://johnra.k8.local/wp-content/uploads/2012/08/NTLM_IIS7Install-300x125.png
+[2024-04-14 00:48:09] [class-ss-setup-task.php:150] Adding file /var/www/html/wp-content/uploads/2012/08/NTLM_EclipseSetup.png to queue as: http://johnra.k8.local/wp-content/uploads/2012/08/NTLM_EclipseSetup.png
+[2024-04-14 00:48:09] [class-ss-setup-task.php:150] Adding file /var/www/html/wp-content/uploads/2012/08/IIS_Fiddler-300x198.png to queue as: http://johnra.k8.local/wp-content/uploads/2012/08/IIS_Fiddler-300x198.png
+[2024-04-14 00:48:10] [class-ss-setup-task.php:150] Adding file /var/www/html/wp-content/uploads/2012/08/TimeTracker_Timesheet-150x145.png to queue as: http://johnra.k8.local/wp-content/uploads/2012/08/TimeTracker_Timesheet-150x145.png
+[2024-04-14 00:48:10] [class-ss-setup-task.php:150] Adding file /var/www/html/wp-content/uploads/2012/09/CORS.png to queue as: http://johnra.k8.local/wp-content/uploads/2012/09/CORS.png
+[2024-04-14 00:48:10] [class-ss-setup-task.php:150] Adding file /var/www/html/wp-content/uploads/2012/09/CORS-300x248.png to queue as: http://johnra.k8.local/wp-content/uploads/2012/09/CORS-300x248.png
+[2024-04-14 00:48:10] [class-ss-setup-task.php:150] Adding file /var/www/html/wp-content/uploads/2012/09/CORS-150x150.png to queue as: http://johnra.k8.local/wp-content/uploads/2012/09/CORS-150x150.png
+[2024-04-14 00:48:10] [class-ss-setup-task.php:150] Adding file /var/www/html/wp-content/uploads/2013/02/avatar.jpg to queue as: http://johnra.k8.local/wp-content/uploads/2013/02/avatar.jpg
+[2024-04-14 00:48:10] [class-ss-setup-task.php:150] Adding file /var/www/html/wp-content/uploads/2013/02/avatar-150x150.jpg to queue as: http://johnra.k8.local/wp-content/uploads/2013/02/avatar-150x150.jpg
+[2024-04-14 00:48:10] [class-ss-setup-task.php:150] Adding file /var/www/html/wp-content/uploads/2013/05/newfile2.png to queue as: http://johnra.k8.local/wp-content/uploads/2013/05/newfile2.png
+[2024-04-14 00:48:10] [class-ss-setup-task.php:150] Adding file /var/www/html/wp-content/uploads/2013/05/xmlgroup-300x179.png to queue as: http://johnra.k8.local/wp-content/uploads/2013/05/xmlgroup-300x179.png
+[2024-04-14 00:48:10] [class-ss-setup-task.php:150] Adding file /var/www/html/wp-content/uploads/2013/05/storyboard3-150x150.png to queue as: http://johnra.k8.local/wp-content/uploads/2013/05/storyboard3-150x150.png
+[2024-04-14 00:48:10] [class-ss-setup-task.php:150] Adding file /var/www/html/wp-content/uploads/2013/05/storyboard15-1024x247.png to queue as: http://johnra.k8.local/wp-content/uploads/2013/05/storyboard15-1024x247.png
+[2024-04-14 00:48:11] [class-ss-setup-task.php:150] Adding file /var/www/html/wp-content/uploads/2013/05/newproject2-150x150.png to queue as: http://johnra.k8.local/wp-content/uploads/2013/05/newproject2-150x150.png
+[2024-04-14 00:48:11] [class-ss-setup-task.php:150] Adding file /var/www/html/wp-content/uploads/2013/05/newfile3-300x202.png to queue as: http://johnra.k8.local/wp-content/uploads/2013/05/newfile3-300x202.png
+[2024-04-14 00:48:11] [class-ss-setup-task.php:150] Adding file /var/www/html/wp-content/uploads/2013/05/storyboard-1024x612.png to queue as: http://johnra.k8.local/wp-content/uploads/2013/05/storyboard-1024x612.png
+[2024-04-14 00:48:11] [class-ss-setup-task.php:150] Adding file /var/www/html/wp-content/uploads/2013/05/storyboard4-150x150.png to queue as: http://johnra.k8.local/wp-content/uploads/2013/05/storyboard4-150x150.png
+[2024-04-14 00:48:11] [class-ss-setup-task.php:150] Adding file /var/www/html/wp-content/uploads/2013/05/storyboard6-150x150.png to queue as: http://johnra.k8.local/wp-content/uploads/2013/05/storyboard6-150x150.png
+[2024-04-14 00:48:11] [class-ss-setup-task.php:150] Adding file /var/www/html/wp-content/uploads/2013/05/newgroup2.png to queue as: http://johnra.k8.local/wp-content/uploads/2013/05/newgroup2.png
+[2024-04-14 00:48:11] [class-ss-setup-task.php:150] Adding file /var/www/html/wp-content/uploads/2013/05/newfile3.png to queue as: http://johnra.k8.local/wp-content/uploads/2013/05/newfile3.png
+[2024-04-14 00:48:11] [class-ss-setup-task.php:150] Adding file /var/www/html/wp-content/uploads/2013/05/mockup-231x300.png to queue as: http://johnra.k8.local/wp-content/uploads/2013/05/mockup-231x300.png
+[2024-04-14 00:48:11] [class-ss-setup-task.php:150] Adding file /var/www/html/wp-content/uploads/2013/05/storyboard8-1024x453.png to queue as: http://johnra.k8.local/wp-content/uploads/2013/05/storyboard8-1024x453.png
+[2024-04-14 00:48:11] [class-ss-setup-task.php:150] Adding file /var/www/html/wp-content/uploads/2013/05/storyboard7.png to queue as: http://johnra.k8.local/wp-content/uploads/2013/05/storyboard7.png
+[2024-04-14 00:48:11] [class-ss-setup-task.php:150] Adding file /var/www/html/wp-content/uploads/2013/05/storyboard14.png to queue as: http://johnra.k8.local/wp-content/uploads/2013/05/storyboard14.png
+[2024-04-14 00:48:12] [class-ss-setup-task.php:150] Adding file /var/www/html/wp-content/uploads/2013/05/storyboard16-300x130.png to queue as: http://johnra.k8.local/wp-content/uploads/2013/05/storyboard16-300x130.png
+[2024-04-14 00:48:12] [class-ss-setup-task.php:150] Adding file /var/www/html/wp-content/uploads/2013/05/storyboard7-150x150.png to queue as: http://johnra.k8.local/wp-content/uploads/2013/05/storyboard7-150x150.png
+[2024-04-14 00:48:12] [class-ss-setup-task.php:150] Adding file /var/www/html/wp-content/uploads/2013/05/storyboard4.png to queue as: http://johnra.k8.local/wp-content/uploads/2013/05/storyboard4.png
+[2024-04-14 00:48:12] [class-ss-setup-task.php:150] Adding file /var/www/html/wp-content/uploads/2013/05/newfile2-300x202.png to queue as: http://johnra.k8.local/wp-content/uploads/2013/05/newfile2-300x202.png
+[2024-04-14 00:48:12] [class-ss-setup-task.php:150] Adding file /var/www/html/wp-content/uploads/2013/05/console2-150x150.png to queue as: http://johnra.k8.local/wp-content/uploads/2013/05/console2-150x150.png
+[2024-04-14 00:48:12] [class-ss-setup-task.php:150] Adding file /var/www/html/wp-content/uploads/2013/05/console.png to queue as: http://johnra.k8.local/wp-content/uploads/2013/05/console.png
+[2024-04-14 00:48:12] [class-ss-setup-task.php:150] Adding file /var/www/html/wp-content/uploads/2013/05/objectbroswer-300x196.png to queue as: http://johnra.k8.local/wp-content/uploads/2013/05/objectbroswer-300x196.png
+[2024-04-14 00:48:12] [class-ss-setup-task.php:150] Adding file /var/www/html/wp-content/uploads/2013/05/objectbroswer.png to queue as: http://johnra.k8.local/wp-content/uploads/2013/05/objectbroswer.png
+[2024-04-14 00:48:12] [class-ss-setup-task.php:150] Adding file /var/www/html/wp-content/uploads/2013/05/storyboard14-150x150.png to queue as: http://johnra.k8.local/wp-content/uploads/2013/05/storyboard14-150x150.png
+[2024-04-14 00:48:13] [class-ss-setup-task.php:150] Adding file /var/www/html/wp-content/uploads/2013/05/simulator4-150x150.png to queue as: http://johnra.k8.local/wp-content/uploads/2013/05/simulator4-150x150.png
+[2024-04-14 00:48:13] [class-ss-setup-task.php:150] Adding file /var/www/html/wp-content/uploads/2013/05/project.png to queue as: http://johnra.k8.local/wp-content/uploads/2013/05/project.png
+[2024-04-14 00:48:13] [class-ss-setup-task.php:150] Adding file /var/www/html/wp-content/uploads/2013/05/simulator1.png to queue as: http://johnra.k8.local/wp-content/uploads/2013/05/simulator1.png
+[2024-04-14 00:48:13] [class-ss-setup-task.php:150] Adding file /var/www/html/wp-content/uploads/2013/05/basicmockup.png to queue as: http://johnra.k8.local/wp-content/uploads/2013/05/basicmockup.png
+[2024-04-14 00:48:13] [class-ss-setup-task.php:150] Adding file /var/www/html/wp-content/uploads/2013/05/storyboard16.png to queue as: http://johnra.k8.local/wp-content/uploads/2013/05/storyboard16.png
+[2024-04-14 00:48:13] [class-ss-setup-task.php:150] Adding file /var/www/html/wp-content/uploads/2013/05/newgroup1-298x300.png to queue as: http://johnra.k8.local/wp-content/uploads/2013/05/newgroup1-298x300.png
+[2024-04-14 00:48:13] [class-ss-setup-task.php:150] Adding file /var/www/html/wp-content/uploads/2013/05/simulator4-191x300.png to queue as: http://johnra.k8.local/wp-content/uploads/2013/05/simulator4-191x300.png
+[2024-04-14 00:48:13] [class-ss-setup-task.php:150] Adding file /var/www/html/wp-content/uploads/2013/05/console-1024x614.png to queue as: http://johnra.k8.local/wp-content/uploads/2013/05/console-1024x614.png
+[2024-04-14 00:48:13] [class-ss-setup-task.php:150] Adding file /var/www/html/wp-content/uploads/2013/05/project-150x150.png to queue as: http://johnra.k8.local/wp-content/uploads/2013/05/project-150x150.png
+[2024-04-14 00:48:13] [class-ss-setup-task.php:150] Adding file /var/www/html/wp-content/uploads/2013/05/console2-300x167.png to queue as: http://johnra.k8.local/wp-content/uploads/2013/05/console2-300x167.png
+[2024-04-14 00:48:14] [class-ss-setup-task.php:150] Adding file /var/www/html/wp-content/uploads/2013/05/newgroup2-192x300.png to queue as: http://johnra.k8.local/wp-content/uploads/2013/05/newgroup2-192x300.png
+[2024-04-14 00:48:14] [class-ss-setup-task.php:150] Adding file /var/www/html/wp-content/uploads/2013/05/storyboard8-300x132.png to queue as: http://johnra.k8.local/wp-content/uploads/2013/05/storyboard8-300x132.png
+[2024-04-14 00:48:14] [class-ss-setup-task.php:150] Adding file /var/www/html/wp-content/uploads/2013/05/storyboard14-300x158.png to queue as: http://johnra.k8.local/wp-content/uploads/2013/05/storyboard14-300x158.png
+[2024-04-14 00:48:14] [class-ss-setup-task.php:150] Adding file /var/www/html/wp-content/uploads/2013/05/storyboard8.png to queue as: http://johnra.k8.local/wp-content/uploads/2013/05/storyboard8.png
+[2024-04-14 00:48:14] [class-ss-setup-task.php:150] Adding file /var/www/html/wp-content/uploads/2013/05/console3-150x150.png to queue as: http://johnra.k8.local/wp-content/uploads/2013/05/console3-150x150.png
+[2024-04-14 00:48:14] [class-ss-setup-task.php:150] Adding file /var/www/html/wp-content/uploads/2013/05/simulator3-191x300.png to queue as: http://johnra.k8.local/wp-content/uploads/2013/05/simulator3-191x300.png
+[2024-04-14 00:48:14] [class-ss-setup-task.php:150] Adding file /var/www/html/wp-content/uploads/2013/05/newfile1-279x300.png to queue as: http://johnra.k8.local/wp-content/uploads/2013/05/newfile1-279x300.png
+[2024-04-14 00:48:14] [class-ss-setup-task.php:150] Adding file /var/www/html/wp-content/uploads/2013/05/storyboard5-150x150.png to queue as: http://johnra.k8.local/wp-content/uploads/2013/05/storyboard5-150x150.png
+[2024-04-14 00:48:14] [class-ss-setup-task.php:150] Adding file /var/www/html/wp-content/uploads/2013/05/storyboard10.png to queue as: http://johnra.k8.local/wp-content/uploads/2013/05/storyboard10.png
+[2024-04-14 00:48:14] [class-ss-setup-task.php:150] Adding file /var/www/html/wp-content/uploads/2013/05/storyboard16-150x150.png to queue as: http://johnra.k8.local/wp-content/uploads/2013/05/storyboard16-150x150.png
+[2024-04-14 00:48:14] [class-ss-setup-task.php:150] Adding file /var/www/html/wp-content/uploads/2013/05/simulator2.png to queue as: http://johnra.k8.local/wp-content/uploads/2013/05/simulator2.png
+[2024-04-14 00:48:15] [class-ss-setup-task.php:150] Adding file /var/www/html/wp-content/uploads/2013/05/newfile4-150x150.png to queue as: http://johnra.k8.local/wp-content/uploads/2013/05/newfile4-150x150.png
+[2024-04-14 00:48:15] [class-ss-setup-task.php:150] Adding file /var/www/html/wp-content/uploads/2013/05/simulator4.png to queue as: http://johnra.k8.local/wp-content/uploads/2013/05/simulator4.png
+[2024-04-14 00:48:15] [class-ss-setup-task.php:150] Adding file /var/www/html/wp-content/uploads/2013/05/storyboard2.png to queue as: http://johnra.k8.local/wp-content/uploads/2013/05/storyboard2.png
+[2024-04-14 00:48:15] [class-ss-setup-task.php:150] Adding file /var/www/html/wp-content/uploads/2013/05/xmlgroup-1024x612.png to queue as: http://johnra.k8.local/wp-content/uploads/2013/05/xmlgroup-1024x612.png
+[2024-04-14 00:48:15] [class-ss-setup-task.php:150] Adding file /var/www/html/wp-content/uploads/2013/05/storyboard15-300x72.png to queue as: http://johnra.k8.local/wp-content/uploads/2013/05/storyboard15-300x72.png
+[2024-04-14 00:48:15] [class-ss-setup-task.php:150] Adding file /var/www/html/wp-content/uploads/2013/05/simulator2-191x300.png to queue as: http://johnra.k8.local/wp-content/uploads/2013/05/simulator2-191x300.png
+[2024-04-14 00:48:15] [class-ss-setup-task.php:150] Adding file /var/www/html/wp-content/uploads/2013/05/newfile4.png to queue as: http://johnra.k8.local/wp-content/uploads/2013/05/newfile4.png
+[2024-04-14 00:48:15] [class-ss-setup-task.php:150] Adding file /var/www/html/wp-content/uploads/2013/05/storyboard12.png to queue as: http://johnra.k8.local/wp-content/uploads/2013/05/storyboard12.png
+[2024-04-14 00:48:15] [class-ss-setup-task.php:150] Adding file /var/www/html/wp-content/uploads/2013/05/storyboard4-300x220.png to queue as: http://johnra.k8.local/wp-content/uploads/2013/05/storyboard4-300x220.png
+[2024-04-14 00:48:16] [class-ss-setup-task.php:150] Adding file /var/www/html/wp-content/uploads/2013/05/xmlgroup.png to queue as: http://johnra.k8.local/wp-content/uploads/2013/05/xmlgroup.png
+[2024-04-14 00:48:16] [class-ss-setup-task.php:150] Adding file /var/www/html/wp-content/uploads/2013/05/xmlparser-150x150.png to queue as: http://johnra.k8.local/wp-content/uploads/2013/05/xmlparser-150x150.png
+[2024-04-14 00:48:16] [class-ss-setup-task.php:150] Adding file /var/www/html/wp-content/uploads/2013/05/newproject1-300x201.png to queue as: http://johnra.k8.local/wp-content/uploads/2013/05/newproject1-300x201.png
+[2024-04-14 00:48:16] [class-ss-setup-task.php:150] Adding file /var/www/html/wp-content/uploads/2013/05/storyboard11.png to queue as: http://johnra.k8.local/wp-content/uploads/2013/05/storyboard11.png
+[2024-04-14 00:48:16] [class-ss-setup-task.php:150] Adding file /var/www/html/wp-content/uploads/2013/05/simulator1-162x300.png to queue as: http://johnra.k8.local/wp-content/uploads/2013/05/simulator1-162x300.png
+[2024-04-14 00:48:16] [class-ss-setup-task.php:150] Adding file /var/www/html/wp-content/uploads/2013/05/newgroup3-285x300.png to queue as: http://johnra.k8.local/wp-content/uploads/2013/05/newgroup3-285x300.png
+[2024-04-14 00:48:16] [class-ss-setup-task.php:150] Adding file /var/www/html/wp-content/uploads/2013/05/xmlparser.png to queue as: http://johnra.k8.local/wp-content/uploads/2013/05/xmlparser.png
+[2024-04-14 00:48:16] [class-ss-setup-task.php:150] Adding file /var/www/html/wp-content/uploads/2013/05/storyboard9.png to queue as: http://johnra.k8.local/wp-content/uploads/2013/05/storyboard9.png
+[2024-04-14 00:48:16] [class-ss-setup-task.php:150] Adding file /var/www/html/wp-content/uploads/2013/05/newfile1-150x150.png to queue as: http://johnra.k8.local/wp-content/uploads/2013/05/newfile1-150x150.png
+[2024-04-14 00:48:16] [class-ss-setup-task.php:150] Adding file /var/www/html/wp-content/uploads/2013/05/newfile4-267x300.png to queue as: http://johnra.k8.local/wp-content/uploads/2013/05/newfile4-267x300.png
+[2024-04-14 00:48:17] [class-ss-setup-task.php:150] Adding file /var/www/html/wp-content/uploads/2013/05/storyboard5.png to queue as: http://johnra.k8.local/wp-content/uploads/2013/05/storyboard5.png
+[2024-04-14 00:48:17] [class-ss-setup-task.php:150] Adding file /var/www/html/wp-content/uploads/2013/05/storyboard11-150x150.png to queue as: http://johnra.k8.local/wp-content/uploads/2013/05/storyboard11-150x150.png
+[2024-04-14 00:48:17] [class-ss-setup-task.php:150] Adding file /var/www/html/wp-content/uploads/2013/05/newgroup3-150x150.png to queue as: http://johnra.k8.local/wp-content/uploads/2013/05/newgroup3-150x150.png
+[2024-04-14 00:48:17] [class-ss-setup-task.php:150] Adding file /var/www/html/wp-content/uploads/2013/05/storyboard-300x179.png to queue as: http://johnra.k8.local/wp-content/uploads/2013/05/storyboard-300x179.png
+[2024-04-14 00:48:17] [class-ss-setup-task.php:150] Adding file /var/www/html/wp-content/uploads/2013/05/simulator3.png to queue as: http://johnra.k8.local/wp-content/uploads/2013/05/simulator3.png
+[2024-04-14 00:48:17] [class-ss-setup-task.php:150] Adding file /var/www/html/wp-content/uploads/2013/05/simulator2-150x150.png to queue as: http://johnra.k8.local/wp-content/uploads/2013/05/simulator2-150x150.png
+[2024-04-14 00:48:17] [class-ss-setup-task.php:150] Adding file /var/www/html/wp-content/uploads/2013/05/storyboard3.png to queue as: http://johnra.k8.local/wp-content/uploads/2013/05/storyboard3.png
+[2024-04-14 00:48:17] [class-ss-setup-task.php:150] Adding file /var/www/html/wp-content/uploads/2013/05/storyboard13.png to queue as: http://johnra.k8.local/wp-content/uploads/2013/05/storyboard13.png
+[2024-04-14 00:48:17] [class-ss-setup-task.php:150] Adding file /var/www/html/wp-content/uploads/2013/05/xmlparser-300x179.png to queue as: http://johnra.k8.local/wp-content/uploads/2013/05/xmlparser-300x179.png
+[2024-04-14 00:48:17] [class-ss-setup-task.php:150] Adding file /var/www/html/wp-content/uploads/2013/05/storyboard14-1024x539.png to queue as: http://johnra.k8.local/wp-content/uploads/2013/05/storyboard14-1024x539.png
+[2024-04-14 00:48:17] [class-ss-setup-task.php:150] Adding file /var/www/html/wp-content/uploads/2013/05/project-300x86.png to queue as: http://johnra.k8.local/wp-content/uploads/2013/05/project-300x86.png
+[2024-04-14 00:48:18] [class-ss-setup-task.php:150] Adding file /var/www/html/wp-content/uploads/2013/05/xmlgroup-150x150.png to queue as: http://johnra.k8.local/wp-content/uploads/2013/05/xmlgroup-150x150.png
+[2024-04-14 00:48:18] [class-ss-setup-task.php:150] Adding file /var/www/html/wp-content/uploads/2013/05/newfile3-150x150.png to queue as: http://johnra.k8.local/wp-content/uploads/2013/05/newfile3-150x150.png
+[2024-04-14 00:48:18] [class-ss-setup-task.php:150] Adding file /var/www/html/wp-content/uploads/2013/05/storyboard5-300x191.png to queue as: http://johnra.k8.local/wp-content/uploads/2013/05/storyboard5-300x191.png
+[2024-04-14 00:48:18] [class-ss-setup-task.php:150] Adding file /var/www/html/wp-content/uploads/2013/05/newfile1.png to queue as: http://johnra.k8.local/wp-content/uploads/2013/05/newfile1.png
+[2024-04-14 00:48:18] [class-ss-setup-task.php:150] Adding file /var/www/html/wp-content/uploads/2013/05/storyboard13-300x116.png to queue as: http://johnra.k8.local/wp-content/uploads/2013/05/storyboard13-300x116.png
+[2024-04-14 00:48:18] [class-ss-setup-task.php:150] Adding file /var/www/html/wp-content/uploads/2013/05/xmlparser-1024x611.png to queue as: http://johnra.k8.local/wp-content/uploads/2013/05/xmlparser-1024x611.png
+[2024-04-14 00:48:18] [class-ss-setup-task.php:150] Adding file /var/www/html/wp-content/uploads/2013/05/storyboard10-1024x434.png to queue as: http://johnra.k8.local/wp-content/uploads/2013/05/storyboard10-1024x434.png
+[2024-04-14 00:48:18] [class-ss-setup-task.php:150] Adding file /var/www/html/wp-content/uploads/2013/05/newproject1-150x150.png to queue as: http://johnra.k8.local/wp-content/uploads/2013/05/newproject1-150x150.png
+[2024-04-14 00:48:18] [class-ss-setup-task.php:150] Adding file /var/www/html/wp-content/uploads/2013/05/newfile2-150x150.png to queue as: http://johnra.k8.local/wp-content/uploads/2013/05/newfile2-150x150.png
+[2024-04-14 00:48:18] [class-ss-setup-task.php:150] Adding file /var/www/html/wp-content/uploads/2013/05/storyboard13-150x150.png to queue as: http://johnra.k8.local/wp-content/uploads/2013/05/storyboard13-150x150.png
+[2024-04-14 00:48:18] [class-ss-setup-task.php:150] Adding file /var/www/html/wp-content/uploads/2013/05/storyboard9-300x177.png to queue as: http://johnra.k8.local/wp-content/uploads/2013/05/storyboard9-300x177.png
+[2024-04-14 00:48:19] [class-ss-setup-task.php:150] Adding file /var/www/html/wp-content/uploads/2013/05/basicmockup-150x150.png to queue as: http://johnra.k8.local/wp-content/uploads/2013/05/basicmockup-150x150.png
+[2024-04-14 00:48:19] [class-ss-setup-task.php:150] Adding file /var/www/html/wp-content/uploads/2013/05/storyboard.png to queue as: http://johnra.k8.local/wp-content/uploads/2013/05/storyboard.png
+[2024-04-14 00:48:19] [class-ss-setup-task.php:150] Adding file /var/www/html/wp-content/uploads/2013/05/autocomplete.png to queue as: http://johnra.k8.local/wp-content/uploads/2013/05/autocomplete.png
+[2024-04-14 00:48:19] [class-ss-setup-task.php:150] Adding file /var/www/html/wp-content/uploads/2013/05/mockup-150x150.png to queue as: http://johnra.k8.local/wp-content/uploads/2013/05/mockup-150x150.png
+[2024-04-14 00:48:19] [class-ss-setup-task.php:150] Adding file /var/www/html/wp-content/uploads/2013/05/objectbroswer-150x150.png to queue as: http://johnra.k8.local/wp-content/uploads/2013/05/objectbroswer-150x150.png
+[2024-04-14 00:48:19] [class-ss-setup-task.php:150] Adding file /var/www/html/wp-content/uploads/2013/05/storyboard8-150x150.png to queue as: http://johnra.k8.local/wp-content/uploads/2013/05/storyboard8-150x150.png
+[2024-04-14 00:48:19] [class-ss-setup-task.php:150] Adding file /var/www/html/wp-content/uploads/2013/05/storyboard10-150x150.png to queue as: http://johnra.k8.local/wp-content/uploads/2013/05/storyboard10-150x150.png
+[2024-04-14 00:48:19] [class-ss-setup-task.php:150] Adding file /var/www/html/wp-content/uploads/2013/05/newgroup3.png to queue as: http://johnra.k8.local/wp-content/uploads/2013/05/newgroup3.png
+[2024-04-14 00:48:19] [class-ss-setup-task.php:150] Adding file /var/www/html/wp-content/uploads/2013/05/autocomplete-150x150.png to queue as: http://johnra.k8.local/wp-content/uploads/2013/05/autocomplete-150x150.png
+[2024-04-14 00:48:19] [class-ss-setup-task.php:150] Adding file /var/www/html/wp-content/uploads/2013/05/newproject2.png to queue as: http://johnra.k8.local/wp-content/uploads/2013/05/newproject2.png
+[2024-04-14 00:48:20] [class-ss-setup-task.php:150] Adding file /var/www/html/wp-content/uploads/2013/05/storyboard3-263x300.png to queue as: http://johnra.k8.local/wp-content/uploads/2013/05/storyboard3-263x300.png
+[2024-04-14 00:48:20] [class-ss-setup-task.php:150] Adding file /var/www/html/wp-content/uploads/2013/05/console-300x180.png to queue as: http://johnra.k8.local/wp-content/uploads/2013/05/console-300x180.png
+[2024-04-14 00:48:20] [class-ss-setup-task.php:150] Adding file /var/www/html/wp-content/uploads/2013/05/storyboard9-150x150.png to queue as: http://johnra.k8.local/wp-content/uploads/2013/05/storyboard9-150x150.png
+[2024-04-14 00:48:20] [class-ss-setup-task.php:150] Adding file /var/www/html/wp-content/uploads/2013/05/storyboard15.png to queue as: http://johnra.k8.local/wp-content/uploads/2013/05/storyboard15.png
+[2024-04-14 00:48:20] [class-ss-setup-task.php:150] Adding file /var/www/html/wp-content/uploads/2013/05/newgroup1.png to queue as: http://johnra.k8.local/wp-content/uploads/2013/05/newgroup1.png
+[2024-04-14 00:48:20] [class-ss-setup-task.php:150] Adding file /var/www/html/wp-content/uploads/2013/05/storyboard2-300x238.png to queue as: http://johnra.k8.local/wp-content/uploads/2013/05/storyboard2-300x238.png
+[2024-04-14 00:48:20] [class-ss-setup-task.php:150] Adding file /var/www/html/wp-content/uploads/2013/05/storyboard13-1024x398.png to queue as: http://johnra.k8.local/wp-content/uploads/2013/05/storyboard13-1024x398.png
+[2024-04-14 00:48:20] [class-ss-setup-task.php:150] Adding file /var/www/html/wp-content/uploads/2013/05/console3-300x195.png to queue as: http://johnra.k8.local/wp-content/uploads/2013/05/console3-300x195.png
+[2024-04-14 00:48:20] [class-ss-setup-task.php:150] Adding file /var/www/html/wp-content/uploads/2013/05/newproject2-300x201.png to queue as: http://johnra.k8.local/wp-content/uploads/2013/05/newproject2-300x201.png
+[2024-04-14 00:48:21] [class-ss-setup-task.php:150] Adding file /var/www/html/wp-content/uploads/2013/05/newgroup1-150x150.png to queue as: http://johnra.k8.local/wp-content/uploads/2013/05/newgroup1-150x150.png
+[2024-04-14 00:48:21] [class-ss-setup-task.php:150] Adding file /var/www/html/wp-content/uploads/2013/05/storyboard-150x150.png to queue as: http://johnra.k8.local/wp-content/uploads/2013/05/storyboard-150x150.png
+[2024-04-14 00:48:21] [class-ss-setup-task.php:150] Adding file /var/www/html/wp-content/uploads/2013/05/storyboard12-150x143.png to queue as: http://johnra.k8.local/wp-content/uploads/2013/05/storyboard12-150x143.png
+[2024-04-14 00:48:21] [class-ss-setup-task.php:150] Adding file /var/www/html/wp-content/uploads/2013/05/console-150x150.png to queue as: http://johnra.k8.local/wp-content/uploads/2013/05/console-150x150.png
+[2024-04-14 00:48:21] [class-ss-setup-task.php:150] Adding file /var/www/html/wp-content/uploads/2013/05/storyboard16-1024x445.png to queue as: http://johnra.k8.local/wp-content/uploads/2013/05/storyboard16-1024x445.png
+[2024-04-14 00:48:21] [class-ss-setup-task.php:150] Adding file /var/www/html/wp-content/uploads/2013/05/storyboard6.png to queue as: http://johnra.k8.local/wp-content/uploads/2013/05/storyboard6.png
+[2024-04-14 00:48:21] [class-ss-setup-task.php:150] Adding file /var/www/html/wp-content/uploads/2013/05/storyboard2-150x150.png to queue as: http://johnra.k8.local/wp-content/uploads/2013/05/storyboard2-150x150.png
+[2024-04-14 00:48:21] [class-ss-setup-task.php:150] Adding file /var/www/html/wp-content/uploads/2013/05/storyboard7-1024x457.png to queue as: http://johnra.k8.local/wp-content/uploads/2013/05/storyboard7-1024x457.png
+[2024-04-14 00:48:21] [class-ss-setup-task.php:150] Adding file /var/www/html/wp-content/uploads/2013/05/storyboard7-300x133.png to queue as: http://johnra.k8.local/wp-content/uploads/2013/05/storyboard7-300x133.png
+[2024-04-14 00:48:21] [class-ss-setup-task.php:150] Adding file /var/www/html/wp-content/uploads/2013/05/console3.png to queue as: http://johnra.k8.local/wp-content/uploads/2013/05/console3.png
+[2024-04-14 00:48:22] [class-ss-setup-task.php:150] Adding file /var/www/html/wp-content/uploads/2013/05/console2.png to queue as: http://johnra.k8.local/wp-content/uploads/2013/05/console2.png
+[2024-04-14 00:48:22] [class-ss-setup-task.php:150] Adding file /var/www/html/wp-content/uploads/2013/05/simulator3-150x150.png to queue as: http://johnra.k8.local/wp-content/uploads/2013/05/simulator3-150x150.png
+[2024-04-14 00:48:22] [class-ss-setup-task.php:150] Adding file /var/www/html/wp-content/uploads/2013/05/storyboard11-300x265.png to queue as: http://johnra.k8.local/wp-content/uploads/2013/05/storyboard11-300x265.png
+[2024-04-14 00:48:22] [class-ss-setup-task.php:150] Adding file /var/www/html/wp-content/uploads/2013/05/simulator1-150x150.png to queue as: http://johnra.k8.local/wp-content/uploads/2013/05/simulator1-150x150.png
+[2024-04-14 00:48:22] [class-ss-setup-task.php:150] Adding file /var/www/html/wp-content/uploads/2013/05/storyboard15-150x150.png to queue as: http://johnra.k8.local/wp-content/uploads/2013/05/storyboard15-150x150.png
+[2024-04-14 00:48:22] [class-ss-setup-task.php:150] Adding file /var/www/html/wp-content/uploads/2013/05/autocomplete-300x127.png to queue as: http://johnra.k8.local/wp-content/uploads/2013/05/autocomplete-300x127.png
+[2024-04-14 00:48:22] [class-ss-setup-task.php:150] Adding file /var/www/html/wp-content/uploads/2013/05/storyboard10-300x127.png to queue as: http://johnra.k8.local/wp-content/uploads/2013/05/storyboard10-300x127.png
+[2024-04-14 00:48:22] [class-ss-setup-task.php:150] Adding file /var/www/html/wp-content/uploads/2013/05/basicmockup-163x300.png to queue as: http://johnra.k8.local/wp-content/uploads/2013/05/basicmockup-163x300.png
+[2024-04-14 00:48:22] [class-ss-setup-task.php:150] Adding file /var/www/html/wp-content/uploads/2013/05/mockup.png to queue as: http://johnra.k8.local/wp-content/uploads/2013/05/mockup.png
+[2024-04-14 00:48:22] [class-ss-setup-task.php:150] Adding file /var/www/html/wp-content/uploads/2013/05/newgroup2-150x150.png to queue as: http://johnra.k8.local/wp-content/uploads/2013/05/newgroup2-150x150.png
+[2024-04-14 00:48:22] [class-ss-setup-task.php:150] Adding file /var/www/html/wp-content/uploads/2013/05/newproject1.png to queue as: http://johnra.k8.local/wp-content/uploads/2013/05/newproject1.png
+[2024-04-14 00:48:23] [class-ss-setup-task.php:150] Adding file /var/www/html/wp-content/uploads/2013/09/healthmonitor.email_.png to queue as: http://johnra.k8.local/wp-content/uploads/2013/09/healthmonitor.email_.png
+[2024-04-14 00:48:23] [class-ss-setup-task.php:150] Adding file /var/www/html/wp-content/uploads/2013/09/healthmonitor.email_-300x121.png to queue as: http://johnra.k8.local/wp-content/uploads/2013/09/healthmonitor.email_-300x121.png
+[2024-04-14 00:48:23] [class-ss-setup-task.php:150] Adding file /var/www/html/wp-content/uploads/2013/09/healthmonitor-150x150.png to queue as: http://johnra.k8.local/wp-content/uploads/2013/09/healthmonitor-150x150.png
+[2024-04-14 00:48:23] [class-ss-setup-task.php:150] Adding file /var/www/html/wp-content/uploads/2013/09/healthmonitor.png to queue as: http://johnra.k8.local/wp-content/uploads/2013/09/healthmonitor.png
+[2024-04-14 00:48:23] [class-ss-setup-task.php:150] Adding file /var/www/html/wp-content/uploads/2013/09/healthmonitor-300x139.png to queue as: http://johnra.k8.local/wp-content/uploads/2013/09/healthmonitor-300x139.png
+[2024-04-14 00:48:23] [class-ss-setup-task.php:150] Adding file /var/www/html/wp-content/uploads/2013/09/healthmonitor.email_-150x150.png to queue as: http://johnra.k8.local/wp-content/uploads/2013/09/healthmonitor.email_-150x150.png
+[2024-04-14 00:48:23] [class-ss-setup-task.php:150] Adding file /var/www/html/wp-content/uploads/2015/04/Demo.mov to queue as: http://johnra.k8.local/wp-content/uploads/2015/04/Demo.mov
+[2024-04-14 00:48:23] [class-ss-setup-task.php:150] Adding file /var/www/html/wp-content/uploads/2022/03/reactstat-768x407.png to queue as: http://johnra.k8.local/wp-content/uploads/2022/03/reactstat-768x407.png
+[2024-04-14 00:48:23] [class-ss-setup-task.php:150] Adding file /var/www/html/wp-content/uploads/2022/03/trap-768x432.png to queue as: http://johnra.k8.local/wp-content/uploads/2022/03/trap-768x432.png
+[2024-04-14 00:48:23] [class-ss-setup-task.php:150] Adding file /var/www/html/wp-content/uploads/2022/03/trap-300x169.png to queue as: http://johnra.k8.local/wp-content/uploads/2022/03/trap-300x169.png
+[2024-04-14 00:48:24] [class-ss-setup-task.php:150] Adding file /var/www/html/wp-content/uploads/2022/03/bias-150x150.png to queue as: http://johnra.k8.local/wp-content/uploads/2022/03/bias-150x150.png
+[2024-04-14 00:48:24] [class-ss-setup-task.php:150] Adding file /var/www/html/wp-content/uploads/2022/03/bias.png to queue as: http://johnra.k8.local/wp-content/uploads/2022/03/bias.png
+[2024-04-14 00:48:24] [class-ss-setup-task.php:150] Adding file /var/www/html/wp-content/uploads/2022/03/trap.png to queue as: http://johnra.k8.local/wp-content/uploads/2022/03/trap.png
+[2024-04-14 00:48:24] [class-ss-setup-task.php:150] Adding file /var/www/html/wp-content/uploads/2022/03/reactstat-300x159.png to queue as: http://johnra.k8.local/wp-content/uploads/2022/03/reactstat-300x159.png
+[2024-04-14 00:48:24] [class-ss-setup-task.php:150] Adding file /var/www/html/wp-content/uploads/2022/03/reactstat.png to queue as: http://johnra.k8.local/wp-content/uploads/2022/03/reactstat.png
+[2024-04-14 00:48:24] [class-ss-setup-task.php:150] Adding file /var/www/html/wp-content/uploads/2022/03/reactstat-150x150.png to queue as: http://johnra.k8.local/wp-content/uploads/2022/03/reactstat-150x150.png
+[2024-04-14 00:48:24] [class-ss-setup-task.php:150] Adding file /var/www/html/wp-content/uploads/2022/03/trap-150x150.png to queue as: http://johnra.k8.local/wp-content/uploads/2022/03/trap-150x150.png
+[2024-04-14 00:48:24] [class-ss-setup-task.php:150] Adding file /var/www/html/wp-content/uploads/2022/03/bias-300x202.png to queue as: http://johnra.k8.local/wp-content/uploads/2022/03/bias-300x202.png
+[2024-04-14 00:48:24] [class-ss-setup-task.php:150] Adding file /var/www/html/wp-content/uploads/2022/02/google-wordle-300x131.png to queue as: http://johnra.k8.local/wp-content/uploads/2022/02/google-wordle-300x131.png
+[2024-04-14 00:48:24] [class-ss-setup-task.php:150] Adding file /var/www/html/wp-content/uploads/2022/02/google-wordle.png to queue as: http://johnra.k8.local/wp-content/uploads/2022/02/google-wordle.png
+[2024-04-14 00:48:25] [class-ss-setup-task.php:150] Adding file /var/www/html/wp-content/uploads/2022/02/7MinuteAbs-150x150.png to queue as: http://johnra.k8.local/wp-content/uploads/2022/02/7MinuteAbs-150x150.png
+[2024-04-14 00:48:25] [class-ss-setup-task.php:150] Adding file /var/www/html/wp-content/uploads/2022/02/google-wordle-150x150.png to queue as: http://johnra.k8.local/wp-content/uploads/2022/02/google-wordle-150x150.png
+[2024-04-14 00:48:25] [class-ss-setup-task.php:150] Adding file /var/www/html/wp-content/uploads/2022/02/7MinuteAbs-300x169.png to queue as: http://johnra.k8.local/wp-content/uploads/2022/02/7MinuteAbs-300x169.png
+[2024-04-14 00:48:25] [class-ss-setup-task.php:150] Adding file /var/www/html/wp-content/uploads/2022/02/7MinuteAbs.png to queue as: http://johnra.k8.local/wp-content/uploads/2022/02/7MinuteAbs.png
+[2024-04-14 00:48:25] [class-ss-setup-task.php:150] Adding file /var/www/html/wp-content/uploads/2022/01/johnwickback-300x126.gif to queue as: http://johnra.k8.local/wp-content/uploads/2022/01/johnwickback-300x126.gif
+[2024-04-14 00:48:25] [class-ss-setup-task.php:150] Adding file /var/www/html/wp-content/uploads/2022/01/johnwickback-150x150.gif to queue as: http://johnra.k8.local/wp-content/uploads/2022/01/johnwickback-150x150.gif
+[2024-04-14 00:48:25] [class-ss-setup-task.php:150] Adding file /var/www/html/wp-content/uploads/2022/01/johnwickback.gif to queue as: http://johnra.k8.local/wp-content/uploads/2022/01/johnwickback.gif
+[2024-04-14 00:48:25] [class-ss-setup-task.php:150] Adding file /var/www/html/wp-content/uploads/2014/03/gradle1.png to queue as: http://johnra.k8.local/wp-content/uploads/2014/03/gradle1.png
+[2024-04-14 00:48:25] [class-ss-setup-task.php:150] Adding file /var/www/html/wp-content/uploads/2014/03/gradle1-150x150.png to queue as: http://johnra.k8.local/wp-content/uploads/2014/03/gradle1-150x150.png
+[2024-04-14 00:48:25] [class-ss-setup-task.php:150] Adding file /var/www/html/wp-content/uploads/2014/03/gradle2.png to queue as: http://johnra.k8.local/wp-content/uploads/2014/03/gradle2.png
+[2024-04-14 00:48:26] [class-ss-setup-task.php:150] Adding file /var/www/html/wp-content/uploads/2014/03/gradle2-150x150.png to queue as: http://johnra.k8.local/wp-content/uploads/2014/03/gradle2-150x150.png
+[2024-04-14 00:48:26] [class-ss-setup-task.php:150] Adding file /var/www/html/wp-content/uploads/2014/05/action_controller_before-300x240.png to queue as: http://johnra.k8.local/wp-content/uploads/2014/05/action_controller_before-300x240.png
+[2024-04-14 00:48:26] [class-ss-setup-task.php:150] Adding file /var/www/html/wp-content/uploads/2014/05/action_controller_after-150x150.png to queue as: http://johnra.k8.local/wp-content/uploads/2014/05/action_controller_after-150x150.png
+[2024-04-14 00:48:26] [class-ss-setup-task.php:150] Adding file /var/www/html/wp-content/uploads/2014/05/chain_of_resp_pattern-300x124.png to queue as: http://johnra.k8.local/wp-content/uploads/2014/05/chain_of_resp_pattern-300x124.png
+[2024-04-14 00:48:26] [class-ss-setup-task.php:150] Adding file /var/www/html/wp-content/uploads/2014/05/action_controller_after-300x242.png to queue as: http://johnra.k8.local/wp-content/uploads/2014/05/action_controller_after-300x242.png
+[2024-04-14 00:48:26] [class-ss-setup-task.php:150] Adding file /var/www/html/wp-content/uploads/2014/05/action_controller_after.png to queue as: http://johnra.k8.local/wp-content/uploads/2014/05/action_controller_after.png
+[2024-04-14 00:48:26] [class-ss-setup-task.php:150] Adding file /var/www/html/wp-content/uploads/2014/05/action_controller_before.png to queue as: http://johnra.k8.local/wp-content/uploads/2014/05/action_controller_before.png
+[2024-04-14 00:48:26] [class-ss-setup-task.php:150] Adding file /var/www/html/wp-content/uploads/2014/05/action_controller_before-150x150.png to queue as: http://johnra.k8.local/wp-content/uploads/2014/05/action_controller_before-150x150.png
+[2024-04-14 00:48:26] [class-ss-setup-task.php:150] Adding file /var/www/html/wp-content/uploads/2014/05/chain_of_resp_pattern-150x150.png to queue as: http://johnra.k8.local/wp-content/uploads/2014/05/chain_of_resp_pattern-150x150.png
+[2024-04-14 00:48:26] [class-ss-setup-task.php:150] Adding file /var/www/html/wp-content/uploads/2014/05/chain_of_resp_pattern.png to queue as: http://johnra.k8.local/wp-content/uploads/2014/05/chain_of_resp_pattern.png
+[2024-04-14 00:48:27] [class-ss-setup-task.php:137] File /var/www/html/wp-content/plugins/simply-static//src/integrations/simply-cdn/assets/ssh-form-webhook.js exists; adding to queue as: http://johnra.k8.local/wp-content/plugins/simply-static//src/integrations/simply-cdn/assets/ssh-form-webhook.js
+[2024-04-14 00:48:27] [class-ss-archive-creation-job.php:171] We've found our next task: fetch_urls
+[2024-04-14 00:48:27] [class-ss-archive-creation-job.php:132] Current task: fetch_urls
+[2024-04-14 00:48:27] [class-ss-archive-creation-job.php:149] Performing task: fetch_urls
+[2024-04-14 00:48:27] [class-ss-fetch-urls-task.php:55] Total pages: 212; Pages remaining: 212
+[2024-04-14 00:48:27] [class-ss-fetch-urls-task.php:58] URL: http://johnra.k8.local/
+[2024-04-14 00:48:27] [class-ss-task.php:58] [PAGES STATUS] Remaining:50; Total: 212
+[2024-04-14 00:48:27] [class-ss-fetch-urls-task.php:69] URL is not being excluded
+[2024-04-14 00:48:27] [class-ss-url-fetcher.php:94] Fetching URL and saving it to: /tmp/661b27dbd41cb-HIICby.tmp
+[2024-04-14 00:48:27] [class-ss-page-handler.php:38] URL Prepared:http://johnra.k8.local/?simply_static_page=3008
+[2024-04-14 00:48:27] [class-ss-url-fetcher.php:251] Fetching URL: http://johnra.k8.local/?simply_static_page=3008
+[2024-04-14 00:48:27] [class-ss-url-fetcher.php:103] Filesize: 34904 bytes
+[2024-04-14 00:48:27] [class-ss-url-fetcher.php:119] http_status_code: 200 | content_type: text/html; charset=UTF-8
+[2024-04-14 00:48:27] [class-ss-url-fetcher.php:233] New filename for static page: index.html
+[2024-04-14 00:48:27] [class-ss-url-fetcher.php:143] Renaming temp file from /tmp/661b27dbd41cb-HIICby.tmp to /var/www/html/wp-content/uploads/simply-static/temp-files/simply-static-1-1713055684/index.html
+[2024-04-14 00:48:28] [class-ss-fetch-urls-task.php:137] Extracting URLs and replacing URLs in the static file
+[2024-04-14 00:48:28] [class-ss-fetch-urls-task.php:144] Adding 45 URLs to the queue
+[2024-04-14 00:48:36] [class-ss-fetch-urls-task.php:155] We're saving this URL; keeping the static file
+[2024-04-14 00:48:36] [class-ss-fetch-urls-task.php:58] URL: http://johnra.k8.local
+[2024-04-14 00:48:36] [class-ss-task.php:58] [PAGES STATUS] Remaining:49; Total: 212
+[2024-04-14 00:48:36] [class-ss-fetch-urls-task.php:69] URL is not being excluded
+[2024-04-14 00:48:36] [class-ss-url-fetcher.php:94] Fetching URL and saving it to: /tmp/661b27e45cbab-g252L8.tmp
+[2024-04-14 00:48:36] [class-ss-page-handler.php:38] URL Prepared:http://johnra.k8.local?simply_static_page=3009
+[2024-04-14 00:48:36] [class-ss-url-fetcher.php:251] Fetching URL: http://johnra.k8.local?simply_static_page=3009
+[2024-04-14 00:48:36] [class-ss-url-fetcher.php:103] Filesize: 34904 bytes
+[2024-04-14 00:48:36] [class-ss-url-fetcher.php:119] http_status_code: 200 | content_type: text/html; charset=UTF-8
+[2024-04-14 00:48:36] [class-ss-url-fetcher.php:233] New filename for static page: index.html
+[2024-04-14 00:48:36] [class-ss-url-fetcher.php:143] Renaming temp file from /tmp/661b27e45cbab-g252L8.tmp to /var/www/html/wp-content/uploads/simply-static/temp-files/simply-static-1-1713055684/index.html
+[2024-04-14 00:48:36] [class-ss-fetch-urls-task.php:137] Extracting URLs and replacing URLs in the static file
+[2024-04-14 00:48:36] [class-ss-fetch-urls-task.php:144] Adding 45 URLs to the queue
+[2024-04-14 00:48:36] [class-ss-fetch-urls-task.php:155] We're saving this URL; keeping the static file
+[2024-04-14 00:48:36] [class-ss-fetch-urls-task.php:58] URL: http://johnra.k8.local/wp-content/uploads/2024/04/context-768x307.png
+[2024-04-14 00:48:36] [class-ss-task.php:58] [PAGES STATUS] Remaining:48; Total: 212
+[2024-04-14 00:48:36] [class-ss-fetch-urls-task.php:69] URL is not being excluded
+[2024-04-14 00:48:36] [class-ss-url-fetcher.php:94] Fetching URL and saving it to: /tmp/661b27e4dfd1c-f4qlKm.tmp
+[2024-04-14 00:48:36] [class-ss-page-handler.php:38] URL Prepared:http://johnra.k8.local/wp-content/uploads/2024/04/context-768x307.png?simply_static_page=3010
+[2024-04-14 00:48:36] [class-ss-url-fetcher.php:251] Fetching URL: http://johnra.k8.local/wp-content/uploads/2024/04/context-768x307.png?simply_static_page=3010
+[2024-04-14 00:48:36] [class-ss-url-fetcher.php:103] Filesize: 317488 bytes
+[2024-04-14 00:48:36] [class-ss-url-fetcher.php:119] http_status_code: 200 | content_type: image/png
+[2024-04-14 00:48:36] [class-ss-url-fetcher.php:233] New filename for static page: wp-content/uploads/2024/04/context-768x307.png
+[2024-04-14 00:48:36] [class-ss-url-fetcher.php:143] Renaming temp file from /tmp/661b27e4dfd1c-f4qlKm.tmp to /var/www/html/wp-content/uploads/simply-static/temp-files/simply-static-1-1713055684/wp-content/uploads/2024/04/context-768x307.png
+[2024-04-14 00:48:37] [class-ss-fetch-urls-task.php:137] Extracting URLs and replacing URLs in the static file
+[2024-04-14 00:48:37] [class-ss-fetch-urls-task.php:144] Adding 0 URLs to the queue
+[2024-04-14 00:48:37] [class-ss-fetch-urls-task.php:155] We're saving this URL; keeping the static file
+[2024-04-14 00:48:37] [class-ss-fetch-urls-task.php:58] URL: http://johnra.k8.local/wp-content/uploads/2024/04/context-150x150.png
+[2024-04-14 00:48:37] [class-ss-task.php:58] [PAGES STATUS] Remaining:47; Total: 212
+[2024-04-14 00:48:37] [class-ss-fetch-urls-task.php:69] URL is not being excluded
+[2024-04-14 00:48:37] [class-ss-url-fetcher.php:94] Fetching URL and saving it to: /tmp/661b27e56154d-9xws8f.tmp
+[2024-04-14 00:48:37] [class-ss-page-handler.php:38] URL Prepared:http://johnra.k8.local/wp-content/uploads/2024/04/context-150x150.png?simply_static_page=3011
+[2024-04-14 00:48:37] [class-ss-url-fetcher.php:251] Fetching URL: http://johnra.k8.local/wp-content/uploads/2024/04/context-150x150.png?simply_static_page=3011
+[2024-04-14 00:48:37] [class-ss-url-fetcher.php:103] Filesize: 26094 bytes
+[2024-04-14 00:48:37] [class-ss-url-fetcher.php:119] http_status_code: 200 | content_type: image/png
+[2024-04-14 00:48:37] [class-ss-url-fetcher.php:233] New filename for static page: wp-content/uploads/2024/04/context-150x150.png
+[2024-04-14 00:48:37] [class-ss-url-fetcher.php:143] Renaming temp file from /tmp/661b27e56154d-9xws8f.tmp to /var/www/html/wp-content/uploads/simply-static/temp-files/simply-static-1-1713055684/wp-content/uploads/2024/04/context-150x150.png
+[2024-04-14 00:48:37] [class-ss-fetch-urls-task.php:137] Extracting URLs and replacing URLs in the static file
+[2024-04-14 00:48:37] [class-ss-fetch-urls-task.php:144] Adding 0 URLs to the queue
+[2024-04-14 00:48:37] [class-ss-fetch-urls-task.php:155] We're saving this URL; keeping the static file
+[2024-04-14 00:48:37] [class-ss-fetch-urls-task.php:58] URL: http://johnra.k8.local/wp-content/uploads/2024/04/context.png
+[2024-04-14 00:48:37] [class-ss-task.php:58] [PAGES STATUS] Remaining:46; Total: 212
+[2024-04-14 00:48:37] [class-ss-fetch-urls-task.php:69] URL is not being excluded
+[2024-04-14 00:48:37] [class-ss-url-fetcher.php:94] Fetching URL and saving it to: /tmp/661b27e5a54f5-iqGbIi.tmp
+[2024-04-14 00:48:37] [class-ss-page-handler.php:38] URL Prepared:http://johnra.k8.local/wp-content/uploads/2024/04/context.png?simply_static_page=3012
+[2024-04-14 00:48:37] [class-ss-url-fetcher.php:251] Fetching URL: http://johnra.k8.local/wp-content/uploads/2024/04/context.png?simply_static_page=3012
+[2024-04-14 00:48:37] [class-ss-url-fetcher.php:103] Filesize: 728443 bytes
+[2024-04-14 00:48:37] [class-ss-url-fetcher.php:119] http_status_code: 200 | content_type: image/png
+[2024-04-14 00:48:37] [class-ss-url-fetcher.php:233] New filename for static page: wp-content/uploads/2024/04/context.png
+[2024-04-14 00:48:37] [class-ss-url-fetcher.php:143] Renaming temp file from /tmp/661b27e5a54f5-iqGbIi.tmp to /var/www/html/wp-content/uploads/simply-static/temp-files/simply-static-1-1713055684/wp-content/uploads/2024/04/context.png
+[2024-04-14 00:48:37] [class-ss-fetch-urls-task.php:137] Extracting URLs and replacing URLs in the static file
+[2024-04-14 00:48:37] [class-ss-fetch-urls-task.php:144] Adding 0 URLs to the queue
+[2024-04-14 00:48:37] [class-ss-fetch-urls-task.php:155] We're saving this URL; keeping the static file
+[2024-04-14 00:48:37] [class-ss-fetch-urls-task.php:58] URL: http://johnra.k8.local/wp-content/uploads/2024/04/context-300x120.png
+[2024-04-14 00:48:37] [class-ss-task.php:58] [PAGES STATUS] Remaining:45; Total: 212
+[2024-04-14 00:48:38] [class-ss-fetch-urls-task.php:69] URL is not being excluded
+[2024-04-14 00:48:38] [class-ss-url-fetcher.php:94] Fetching URL and saving it to: /tmp/661b27e63ec8e-rAkoCO.tmp
+[2024-04-14 00:48:38] [class-ss-page-handler.php:38] URL Prepared:http://johnra.k8.local/wp-content/uploads/2024/04/context-300x120.png?simply_static_page=3013
+[2024-04-14 00:48:38] [class-ss-url-fetcher.php:251] Fetching URL: http://johnra.k8.local/wp-content/uploads/2024/04/context-300x120.png?simply_static_page=3013
+[2024-04-14 00:48:38] [class-ss-url-fetcher.php:103] Filesize: 46181 bytes
+[2024-04-14 00:48:38] [class-ss-url-fetcher.php:119] http_status_code: 200 | content_type: image/png
+[2024-04-14 00:48:38] [class-ss-url-fetcher.php:233] New filename for static page: wp-content/uploads/2024/04/context-300x120.png
+[2024-04-14 00:48:38] [class-ss-url-fetcher.php:143] Renaming temp file from /tmp/661b27e63ec8e-rAkoCO.tmp to /var/www/html/wp-content/uploads/simply-static/temp-files/simply-static-1-1713055684/wp-content/uploads/2024/04/context-300x120.png
+[2024-04-14 00:48:38] [class-ss-fetch-urls-task.php:137] Extracting URLs and replacing URLs in the static file
+[2024-04-14 00:48:38] [class-ss-fetch-urls-task.php:144] Adding 0 URLs to the queue
+[2024-04-14 00:48:38] [class-ss-fetch-urls-task.php:155] We're saving this URL; keeping the static file
+[2024-04-14 00:48:38] [class-ss-fetch-urls-task.php:58] URL: http://johnra.k8.local/wp-content/uploads/simply-static/d3176abd64005f00120f663623ca2ba8-debug.txt
+[2024-04-14 00:48:38] [class-ss-task.php:58] [PAGES STATUS] Remaining:44; Total: 212
+[2024-04-14 00:48:38] [class-ss-fetch-urls-task.php:69] URL is not being excluded
+[2024-04-14 00:48:38] [class-ss-url-fetcher.php:94] Fetching URL and saving it to: /tmp/661b27e693714-hWqClK.tmp
+[2024-04-14 00:48:38] [class-ss-page-handler.php:38] URL Prepared:http://johnra.k8.local/wp-content/uploads/simply-static/d3176abd64005f00120f663623ca2ba8-debug.txt?simply_static_page=3014
+[2024-04-14 00:48:38] [class-ss-url-fetcher.php:251] Fetching URL: http://johnra.k8.local/wp-content/uploads/simply-static/d3176abd64005f00120f663623ca2ba8-debug.txt?simply_static_page=3014
+[2024-04-14 00:48:38] [class-ss-url-fetcher.php:103] Filesize: 0 bytes
+[2024-04-14 00:48:38] [class-ss-url-fetcher.php:119] http_status_code: 200 | content_type: text/plain
+[2024-04-14 00:48:38] [class-ss-url-fetcher.php:233] New filename for static page: wp-content/uploads/simply-static/d3176abd64005f00120f663623ca2ba8-debug.txt
+[2024-04-14 00:48:38] [class-ss-url-fetcher.php:143] Renaming temp file from /tmp/661b27e693714-hWqClK.tmp to /var/www/html/wp-content/uploads/simply-static/temp-files/simply-static-1-1713055684/wp-content/uploads/simply-static/d3176abd64005f00120f663623ca2ba8-debug.txt
+[2024-04-14 00:48:38] [class-ss-fetch-urls-task.php:137] Extracting URLs and replacing URLs in the static file
+[2024-04-14 00:48:38] [class-ss-fetch-urls-task.php:144] Adding 0 URLs to the queue
+[2024-04-14 00:48:38] [class-ss-fetch-urls-task.php:155] We're saving this URL; keeping the static file
+[2024-04-14 00:48:38] [class-ss-fetch-urls-task.php:58] URL: http://johnra.k8.local/wp-content/uploads/simply-static/6e86cb6a0bddf4220303f803e03b78ae-debug.txt
+[2024-04-14 00:48:38] [class-ss-task.php:58] [PAGES STATUS] Remaining:43; Total: 212
+[2024-04-14 00:48:38] [class-ss-fetch-urls-task.php:69] URL is not being excluded
+[2024-04-14 00:48:38] [class-ss-url-fetcher.php:94] Fetching URL and saving it to: /tmp/661b27e6f077f-XLoClT.tmp
+[2024-04-14 00:48:38] [class-ss-page-handler.php:38] URL Prepared:http://johnra.k8.local/wp-content/uploads/simply-static/6e86cb6a0bddf4220303f803e03b78ae-debug.txt?simply_static_page=3015
+[2024-04-14 00:48:38] [class-ss-url-fetcher.php:251] Fetching URL: http://johnra.k8.local/wp-content/uploads/simply-static/6e86cb6a0bddf4220303f803e03b78ae-debug.txt?simply_static_page=3015

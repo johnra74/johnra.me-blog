@@ -12,13 +12,13 @@
 	<atom:link href="/tag/dotnetws/feed/" rel="self" type="application/rss+xml" />
 	<link>/</link>
 	<description>...yet another musings of a techie</description>
-	<lastBuildDate>Sat, 12 Feb 2022 02:43:20 +0000</lastBuildDate>
+	<lastBuildDate>Thu, 11 Apr 2024 23:34:24 +0000</lastBuildDate>
 	<language>en-US</language>
 	<sy:updatePeriod>
 	hourly	</sy:updatePeriod>
 	<sy:updateFrequency>
 	1	</sy:updateFrequency>
-	<generator>https://wordpress.org/?v=5.9.2</generator>
+	<generator>https://wordpress.org/?v=6.5.2</generator>
 	<item>
 		<title>Axis2 and NTLMv2</title>
 		<link>/2012/08/23/axis2-ntlmv2/</link>
@@ -56,7 +56,7 @@
 if(this instanceof org.apache.axis2.transport.http.impl.httpclient4.HTTPClient4TransportSender) {
   sender = new org.apache.axis2.transport.http.impl.httpclient4.HTTPSenderImpl();
 } else {
-Â Â sender = new org.apache.axis2.transport.http.impl.httpclient3.HTTPSenderImpl();
+Â&nbsp;Â&nbsp;sender = new org.apache.axis2.transport.http.impl.httpclient3.HTTPSenderImpl();
 }</code></pre>
 
 
@@ -69,7 +69,7 @@ if(this instanceof org.apache.axis2.transport.http.impl.httpclient4.HTTPClient4T
 
 
 
-<figure class="wp-block-image"><a href="/wp-content/uploads/2012/08/NTLM_IIS7Install.png"><img src="/wp-content/uploads/2012/08/NTLM_IIS7Install-300x125.png" alt="" class="wp-image-81" title="NTLM_IIS7Install"/></a></figure>
+<figure class="wp-block-image"><a href="/wp-content/uploads/2012/08/NTLM_IIS7Install.png"><img decoding="async" src="/wp-content/uploads/2012/08/NTLM_IIS7Install-300x125.png" alt="" class="wp-image-81" title="NTLM_IIS7Install"/></a></figure>
 
 
 
@@ -77,7 +77,37 @@ if(this instanceof org.apache.axis2.transport.http.impl.httpclient4.HTTPClient4T
 
 
 
-<ul><li>IIS Management Console</li><li>IIS Management Service</li><li>.NET Extensibility</li><li>ASP.NET</li><li>ISAPI Extensions</li><li>ISAPI Filters</li><li>Request Filtering</li><li>Windows Authentication</li></ul>
+<ul>
+<li>IIS Management Console</li>
+
+
+
+<li>IIS Management Service</li>
+
+
+
+<li>.NET Extensibility</li>
+
+
+
+<li>ASP.NET</li>
+
+
+
+<li>ISAPI Extensions</li>
+
+
+
+<li>ISAPI Filters</li>
+
+
+
+<li>Request Filtering</li>
+
+
+
+<li>Windows Authentication</li>
+</ul>
 
 
 
@@ -85,7 +115,7 @@ if(this instanceof org.apache.axis2.transport.http.impl.httpclient4.HTTPClient4T
 
 
 
-<figure class="wp-block-image"><a href="/wp-content/uploads/2012/08/NTLM_IIS7Setup.png"><img src="/wp-content/uploads/2012/08/NTLM_IIS7Setup.png" alt="" class="wp-image-83" title="NTLM_IIS7Setup"/></a></figure>
+<figure class="wp-block-image"><a href="/wp-content/uploads/2012/08/NTLM_IIS7Setup.png"><img decoding="async" src="/wp-content/uploads/2012/08/NTLM_IIS7Setup.png" alt="" class="wp-image-83" title="NTLM_IIS7Setup"/></a></figure>
 
 
 
@@ -112,13 +142,11 @@ public string Now(string name)
 <p><strong>3. Generating Axis2 Client</strong><br>If you&#8217;re familiar with Axis, you should know that it comes with a tool to generate Java client based on specified WSDL. If you&#8217;re not, now you know. Since the target WSDL is protected behind NTLMv2, the simplest way is to visit the site&nbsp;using your credentials and then save the WSDL to your file system. To generate the java client stubs, please visit <a href="http://axis.apache.org/axis2/java/core/docs/userguide-creatingclients.html">Axis2 website</a> for their instructions. It&#8217;s pretty thorough.&nbsp;You can also download my <a href="http://www.jstrgames.com/demo/Axis2NTLM.zip">Eclipse Projects</a> which has both the above Axis2 v1.7 patch and generated java stubs based on the TimeService WSDL.</p>
 
 
+<div class="wp-block-image">
+<figure class="alignleft"><a href="/wp-content/uploads/2012/08/NTLM_EclipseSetup.png"><img decoding="async" src="/wp-content/uploads/2012/08/NTLM_EclipseSetup-150x150.png" alt="" class="wp-image-87" title="NTLM_EclipseSetup"/></a></figure></div>
 
-<div class="wp-block-image"><figure class="alignleft"><a href="/wp-content/uploads/2012/08/NTLM_EclipseSetup.png"><img src="/wp-content/uploads/2012/08/NTLM_EclipseSetup-150x150.png" alt="" class="wp-image-87" title="NTLM_EclipseSetup"/></a></figure></div>
-
-
-
-<div class="wp-block-image"><figure class="alignright"><a href="/wp-content/uploads/2012/08/NTLM_EclipseRun.png"><img src="/wp-content/uploads/2012/08/NTLM_EclipseRun.png" alt="" class="wp-image-88" title="NTLM_EclipseRun"/></a></figure></div>
-
+<div class="wp-block-image">
+<figure class="alignright"><a href="/wp-content/uploads/2012/08/NTLM_EclipseRun.png"><img decoding="async" src="/wp-content/uploads/2012/08/NTLM_EclipseRun.png" alt="" class="wp-image-88" title="NTLM_EclipseRun"/></a></figure></div>
 
 
 <p><strong>4. Running Java Client</strong><br>In Axis2NTLMClient project downloaded from prior step, locate the Client.java class which contains the main method. Prior to running this class, you must add a VM argument (&#8220;-Daxis2.xml=conf/axis2.xml&#8221;) under Run Configuration in Eclipse (see image left). This VM argument informs Axis2 to use the axis2.xml located in conf folder instead of the <a href="http://svn.apache.org/viewvc/axis/axis2/java/core/trunk/modules/kernel/conf/">default</a> that comes with axis2-kernel.jar. The version in config/axis.xml has&nbsp;been modified to inform Axis2 to use HTTPClient v4 Transporter (line 232). When you run this class, you will be prompted with a login screen. This is a custom login dialog that I&#8217;ve written as I&#8217;m not a fan of saving username and password in properties file or in code. This simple login dialog will capture your username, password, and domain.&nbsp;If all goes well, you should see the following message on your console screen: &#8220;John, current time is &lt;&lt;your current time&gt;&gt;&#8221;.</p>
@@ -145,7 +173,7 @@ public string Now(string name)
 
 
 
-<p>The HeadlessException catch logic is put in place in the event user does not have a windows/xsession available. It will use the default console to capture username, password, and domain. By default, I set the Realm to ANY_REALM. I haven&#8217;t played around enough withÂ Realm to give you additional insight.Â As for host and port, itÂ MUST match the target URL. For example, if you decided to connect toÂ site via IP address (e.g. 127.0.0.1) instead ofÂ &#8220;localhost&#8221;, you must setHost() with IP address. For this reason, my Client class is constructed with host and port to ensure consistency.</p>
+<p>The HeadlessException catch logic is put in place in the event user does not have a windows/xsession available. It will use the default console to capture username, password, and domain. By default, I set the Realm to ANY_REALM. I haven&#8217;t played around enough with Realm to give you additional insight. As for host and port, it MUST match the target URL. For example, if you decided to connect to site via IP address (e.g. 127.0.0.1) instead of &#8220;localhost&#8221;, you must setHost() with IP address. For this reason, my Client class is constructed with host and port to ensure consistency.</p>
 
 
 
@@ -181,7 +209,7 @@ public string Now(string name)
 
 
 
-<figure class="wp-block-image"><a href="/wp-content/uploads/2012/08/NTLM_EclipseRunUbuntu.png"><img src="/wp-content/uploads/2012/08/NTLM_EclipseRunUbuntu.png" alt="" class="wp-image-90" title="NTLM_EclipseRunUbuntu"/></a></figure>
+<figure class="wp-block-image"><a href="/wp-content/uploads/2012/08/NTLM_EclipseRunUbuntu.png"><img decoding="async" src="/wp-content/uploads/2012/08/NTLM_EclipseRunUbuntu.png" alt="" class="wp-image-90" title="NTLM_EclipseRunUbuntu"/></a></figure>
 ]]></content:encoded>
 					
 		

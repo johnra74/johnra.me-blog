@@ -12,27 +12,54 @@
 	<atom:link href="/author/johnra/feed/" rel="self" type="application/rss+xml" />
 	<link>/</link>
 	<description>...yet another musings of a techie</description>
-	<lastBuildDate>Mon, 04 Apr 2022 00:43:52 +0000</lastBuildDate>
+	<lastBuildDate>Thu, 11 Apr 2024 23:15:01 +0000</lastBuildDate>
 	<language>en-US</language>
 	<sy:updatePeriod>
 	hourly	</sy:updatePeriod>
 	<sy:updateFrequency>
 	1	</sy:updateFrequency>
-	<generator>https://wordpress.org/?v=5.9.2</generator>
+	<generator>https://wordpress.org/?v=6.5.2</generator>
 	<item>
+		<title>Context Matters</title>
+		<link>/2024/04/10/context-matters/</link>
+		
+		<dc:creator><![CDATA[John Ra]]></dc:creator>
+		<pubDate>Wed, 10 Apr 2024 18:42:05 +0000</pubDate>
+				<category><![CDATA[Uncategorized]]></category>
+		<category><![CDATA[Best Practices]]></category>
+		<category><![CDATA[Development]]></category>
+		<guid isPermaLink="false">/?p=582</guid>
+
+					<description><![CDATA[Understanding context is essential in becoming an effective software engineer. It is not sufficient to possess deep technical skills. Understanding the context (business domain) you operate in provides the necessary background to build the right solution. It elevates the skill programmer to a value-added software engineer. It allows software engineers to ensure solution fit the situation, background, and purpose, thereby enhancing clarity and reducing the likelihood of misunderstandings. Misunderstanding will only lead to defects. By being mindful of the contexts, software engineer can navigate complex landscapes and build stronger, more meaningful solution. In the realm of building the right solution,&#8230;]]></description>
+										<content:encoded><![CDATA[
+<p>Understanding context is essential in becoming an effective software engineer. It is not sufficient to possess deep technical skills. Understanding the context (business domain) you operate in provides the necessary background to build the right solution. It elevates the skill programmer to a value-added software engineer. It allows software engineers to ensure solution fit the situation, background, and purpose, thereby enhancing clarity and reducing the likelihood of misunderstandings. Misunderstanding will only lead to defects. By being mindful of the contexts, software engineer can navigate complex landscapes and build stronger, more meaningful solution.</p>
+
+
+
+<p>In the realm of building the right solution, business domain is not just a backdrop; it&#8217;s a pivotal player in the interpretation and understanding of requirements. The importance of context cannot be overstressed, as it is the lens through which we perceive and make sense of the requirements. Without good understanding of the business domain, the result is &#8220;blind leading the blind&#8221; solution. Successful software engineers, who take the time to understand the context they operate in, provide higher value. </p>
+
+
+
+<p>Context is the invisible force that molds our understanding of product intent. It is the difference between a solution that resonates and one that falls flat. As we navigate through daily agile ceremonies, recognizing and understanding the context will lead to more successful product and overall solution.</p>
+]]></content:encoded>
+					
+		
+		
+			</item>
+		<item>
 		<title>It&#8217;s a trap!</title>
 		<link>/2022/03/29/its-a-trap/</link>
 		
 		<dc:creator><![CDATA[John Ra]]></dc:creator>
 		<pubDate>Tue, 29 Mar 2022 15:29:54 +0000</pubDate>
 				<category><![CDATA[Rants]]></category>
-		<guid isPermaLink="false">/?p=560</guid>
+		<guid isPermaLink="false">http://10.0.0.60/?p=560</guid>
 
 					<description><![CDATA[Confirmation bias &#8211; the tendency to discredit non-confirmative evidence, or to seek out (actively or subconsciously) primarily confirming evidence &#8211; is part of all of us. We all suffer from it, every day. As technologist, we could do better. We should always re-evaluate all the facts and not fall into the traps of our dogma/orthodoxy &#8211; what we see or want to see. Rather than reviewing all the facts, we too often hold onto our beliefs. Ask a front-end developer which library/framework should be used for a given project, it&#8217;s rarely followed by a question on what the requirements are.&#8230;]]></description>
 										<content:encoded><![CDATA[<p>Confirmation bias &#8211; the tendency to discredit non-confirmative evidence, or to seek out (actively or subconsciously) primarily confirming evidence &#8211; is part of all of us. We all suffer from it, every day. As technologist, we could do better. We should always re-evaluate all the facts and not fall into the traps of our dogma/orthodoxy &#8211; what we see or want to see.</p>
 
 
-<div class="wp-block-image"><figure class="aligncenter size-full"><img width="525" height="354" src="/wp-content/uploads/2022/03/bias.png" alt="" class="wp-image-565"/></figure></div>
+<div class="wp-block-image"><figure class="aligncenter size-full"><img fetchpriority="high" decoding="async" width="525" height="354" src="/wp-content/uploads/2022/03/bias.png" alt="" class="wp-image-565"/></figure></div>
 
 
 
@@ -40,7 +67,7 @@
 
 
 
-<div class="wp-block-image"><figure class="aligncenter size-full"><img loading="lazy" width="809" height="429" src="/wp-content/uploads/2022/03/reactstat.png" alt="" class="wp-image-566"/></figure></div>
+<div class="wp-block-image"><figure class="aligncenter size-full"><img decoding="async" width="809" height="429" src="/wp-content/uploads/2022/03/reactstat.png" alt="" class="wp-image-566"/></figure></div>
 
 
 
@@ -48,7 +75,7 @@
 
 
 
-<h2>How to Avoid Confirmation Bias?</h2>
+<h2 class="wp-block-heading">How to Avoid Confirmation Bias?</h2>
 
 
 
@@ -61,12 +88,11 @@
 		<item>
 		<title>7-Minute Abs</title>
 		<link>/2022/02/02/7-minute-abs/</link>
-					<comments>/2022/02/02/7-minute-abs/#respond</comments>
 		
 		<dc:creator><![CDATA[John Ra]]></dc:creator>
 		<pubDate>Wed, 02 Feb 2022 15:20:32 +0000</pubDate>
 				<category><![CDATA[Humor]]></category>
-		<guid isPermaLink="false">/?p=546</guid>
+		<guid isPermaLink="false">http://10.0.0.60/?p=546</guid>
 
 					<description><![CDATA[Unless you&#8217;ve abstained from social networks, you&#8217;re probably heard of Wordle or have seen blocks of green, black, and yellow on your social feed. I have to admit, I&#8217;ve been caught up on the riptide &#8211; even google has acknowledged the popularity of it I tend to stay away from mainstream fad &#8211; especially those on social media platforms. I did, however, read the article on New York Times &#8211; who later purchased it for 7-figures. Eventually, I gave in and played to see what the craze was about. To my surprise, I was instantly hooked. I was surprised by&#8230;]]></description>
 										<content:encoded><![CDATA[
@@ -74,7 +100,7 @@
 
 
 
-<div class="wp-block-image"><figure class="aligncenter size-full"><img loading="lazy" width="345" height="151" src="/wp-content/uploads/2022/02/google-wordle.png" alt="" class="wp-image-539"/></figure></div>
+<div class="wp-block-image"><figure class="aligncenter size-full"><img decoding="async" width="345" height="151" src="/wp-content/uploads/2022/02/google-wordle.png" alt="" class="wp-image-539"/></figure></div>
 
 
 
@@ -93,8 +119,6 @@
 <p>If you do find Wordle entertaining and, like me, can&#8217;t wait another day; please visit <a href="https://www.wordhex.app/">WordHex</a>. </p>
 ]]></content:encoded>
 					
-					<wfw:commentRss>/2022/02/02/7-minute-abs/feed/</wfw:commentRss>
-			<slash:comments>0</slash:comments>
 		
 		
 			</item>
@@ -105,7 +129,7 @@
 		<dc:creator><![CDATA[John Ra]]></dc:creator>
 		<pubDate>Sun, 23 Jan 2022 22:59:21 +0000</pubDate>
 				<category><![CDATA[Uncategorized]]></category>
-		<guid isPermaLink="false">/?p=527</guid>
+		<guid isPermaLink="false">http://10.0.0.60/?p=527</guid>
 
 					<description><![CDATA[It&#8217;s been a while since I posted an entry &#8211; just go ahead and look at the date on my prior post. I don&#8217;t even know if blogging is a thing anymore in the world of TikTok. Granted, given how vastness and complex technology space is, I don&#8217;t think anyone can do justice on a short video. Look, it&#8217;s not like this is my New Year&#8217;s resolution or anything like that. Let&#8217;s see if I can try to post at least once a month. And yes, I get credit for this post towards January.]]></description>
 										<content:encoded><![CDATA[
@@ -131,13 +155,14 @@
 		<category><![CDATA[Development]]></category>
 		<guid isPermaLink="false">http://blog.jstrgames.com/?p=387</guid>
 
-					<description><![CDATA[In my original Tetris code base, I started out with a simple RotationController class. As I recall, this was a trivial class with a single shape. However, as more shapes were added, it quickly became unwieldy.&#160;Looking back at this code, I want to cringe at my lack of discipline in following proper design principles. On the bright side, I have something to blog about. Chain of Responsibility The chain of responsibility design pattern&#160;is known as a behavioral pattern consisting of client objects and a series of handler&#160;objects. It provides more than one object the opportunity to handle a request by&#8230;]]></description>
-										<content:encoded><![CDATA[<p>In my original <a href="https://github.com/johnra74/tetris">Tetris code base</a>, I started out with a simple <a href="https://github.com/johnra74/tetris/blob/82b3f058fbf62c036623a3b3eb16ca3bf2550f2d/tetris/tetris-core/src/main/java/com/jstrgames/tetris/core/controller/RotateController.java">RotationController class</a>. As I recall, this was a trivial class with a single shape. However, as more shapes were added, it quickly became unwieldy.&nbsp;Looking back at this code, I want to cringe at my lack of discipline in following proper design principles. On the bright side, I have something to blog about.</p>
+					<description><![CDATA[In my original Tetris code base, I started out with a simple RotationController class. As I recall, this was a trivial class with a single shape. However, as more shapes were added, it quickly became unwieldy. Looking back at this code, I want to cringe at my lack of discipline in following proper design principles. On the bright side, I have something to blog about. Chain of Responsibility The chain of responsibility design pattern is known as a behavioral pattern consisting of client objects and a series of handler objects. It provides more than one object the opportunity to handle a request by&#8230;]]></description>
+										<content:encoded><![CDATA[<p>In my original <a href="https://github.com/johnra74/tetris">Tetris code base</a>, I started out with a simple <a href="https://github.com/johnra74/tetris/blob/82b3f058fbf62c036623a3b3eb16ca3bf2550f2d/tetris/tetris-core/src/main/java/com/jstrgames/tetris/core/controller/RotateController.java">RotationController class</a>. As I recall, this was a trivial class with a single shape. However, as more shapes were added, it quickly became unwieldy. Looking back at this code, I want to cringe at my lack of discipline in following proper design principles. On the bright side, I have something to blog about.</p>
 <p><strong>Chain of Responsibility</strong></p>
-<p><a href="/wp-content/uploads/2014/05/chain_of_resp_pattern.png"><img loading="lazy" class="alignleft size-medium wp-image-399" src="/wp-content/uploads/2014/05/chain_of_resp_pattern-300x124.png" alt="chain_of_resp_pattern" width="300" height="124"></a>The chain of responsibility design pattern&nbsp;is known as a behavioral pattern consisting of client objects and a series of handler&nbsp;objects. It provides more than one object the opportunity to handle a request by linking receivers together (see left UML diagram). Instead of having one monolithic class, as I have or coupling your code to&nbsp;each and every concrete class,&nbsp;with the chain of responsibility pattern, you can avoid both.</p>
-<p><strong>Refactoring&nbsp;Rotation Controller</strong></p>
-<p><a href="/wp-content/uploads/2014/05/action_controller_before.png"><img loading="lazy" class="alignright size-medium wp-image-394" src="/wp-content/uploads/2014/05/action_controller_before-300x240.png" alt="action_controller_before" width="300" height="240"></a>On the right is the&nbsp;UML diagram for handling&nbsp;user inputs in my game. The ControlListener implements the Java AWT Event KeyListener. The ControlListener listens for various keyboard actions (UP_ARROW &#8211;&nbsp;rotate clockwise, DOWN_ARROW &#8211; drop, LEFT_ARROW &#8211; move left, RIGHT_ARROW &#8211; move right, Q &#8211; rotate counter-clockwise, and W &#8211; rotate clockwise). When user presses UP_ARROW, Q, or W, it will create an instance of RotateController class to handle the respective rotation&nbsp;action. On the original UML diagram, you can see the long list of private methods I&#8217;ve implemented to handle the rotation action for various tetris shapes.</p>
-<p><a href="/wp-content/uploads/2014/05/action_controller_after.png"><img loading="lazy" class="alignleft size-medium wp-image-404" src="/wp-content/uploads/2014/05/action_controller_after-300x242.png" alt="action_controller_after" width="300" height="242"></a>On the left is the refactored UML diagram with the&nbsp;rotation logic implemented using the chain of responsibility design pattern. Gone are the many private methods created&nbsp;to handle every possible shapes. For each shape, we&nbsp;now have a respective&nbsp;handler class responsible for rotating the shape. The chain of these rotation handler will check if can handle the rotation request by inspecting the shape associated with the request.</p>
+<p><a href="/wp-content/uploads/2014/05/chain_of_resp_pattern.png"><img loading="lazy" decoding="async" class="alignleft size-medium wp-image-399" src="/wp-content/uploads/2014/05/chain_of_resp_pattern-300x124.png" alt="chain_of_resp_pattern" width="300" height="124" /></a>The chain of responsibility design pattern is known as a behavioral pattern consisting of client objects and a series of handler objects. It provides more than one object the opportunity to handle a request by linking receivers together (see left UML diagram). Instead of having one monolithic class, as I have or coupling your code to each and every concrete class, with the chain of responsibility pattern, you can avoid both.</p>
+<p><strong>Refactoring Rotation Controller</strong></p>
+<p><a href="/wp-content/uploads/2014/05/action_controller_before.png"><img loading="lazy" decoding="async" class="alignright size-medium wp-image-394" src="/wp-content/uploads/2014/05/action_controller_before-300x240.png" alt="action_controller_before" width="300" height="240" /></a>On the right is the UML diagram for handling user inputs in my game. The ControlListener implements the Java AWT Event KeyListener. The ControlListener listens for various keyboard actions (UP_ARROW &#8211; rotate clockwise, DOWN_ARROW &#8211; drop, LEFT_ARROW &#8211; move left, RIGHT_ARROW &#8211; move right, Q &#8211; rotate counter-clockwise, and W &#8211; rotate clockwise). When user presses UP_ARROW, Q, or W, it will create an instance of RotateController class to handle the respective rotation action. On the original UML diagram, you can see the long list of private methods I&#8217;ve implemented to handle the rotation action for various tetris shapes.</p>
+<p><a href="/wp-content/uploads/2014/05/action_controller_after.png"><img loading="lazy" decoding="async" class="alignleft size-medium wp-image-404" src="/wp-content/uploads/2014/05/action_controller_after-300x242.png" alt="action_controller_after" width="300" height="242" /></a>On the left is the refactored UML diagram with the rotation logic implemented using the chain of responsibility design pattern. Gone are the many private methods created to handle every possible shapes. For each shape, we now have a respective handler class responsible for rotating the shape. The chain of these rotation handler will check if can handle the rotation request by inspecting the shape associated with the request.</p>
+<p> </p>
 
 
 <pre class="wp-block-code"><code>public Coordinate&#91;] executeRequest(RotateRequest request) {
@@ -199,7 +224,7 @@
 					<description><![CDATA[It didn&#8217;t take long for me to fall in love with Gradle. Once I was introduced to it, I never looked back. It was the same with Ant as I transitioned from Make. But, Gradle is different. I always felt building was necessary evil. It was often done way after first code was ever written. This isn&#8217;t true with Gradle. Before any code is written, I start every project by setting up my Gradle build. I actually look forward to adding more features to my build. How crazy is that?! WSDL to JavaRecently, I published one of my old SharePoint&#8230;]]></description>
 										<content:encoded><![CDATA[<p>It didn&#8217;t take long for me to fall in love with <a href="http://www.gradle.org/">Gradle</a>. Once I was introduced to it, I never looked back. It was the same with <a href="http://ant.apache.org/">Ant</a> as I transitioned from <a href="https://www.gnu.org/software/make/">Make</a>. But, Gradle is different. I always felt building was necessary evil. It was often done way after first code was ever written. This isn&#8217;t true with Gradle. Before any code is written, I start every project by setting up my Gradle build. I actually look forward to adding more features to my build. How crazy is that?!</p>
 <p><strong>WSDL to Java</strong><br />Recently, I published one of my old <a href="https://github.com/johnra74/sharepoint-api">SharePoint API</a> to GitHub. Originally, I had written the build script using Ant for this project. One of the task I had was to take the SharePoint List WSDL and generate the corresponding java soap client classes. This is fairly trivial task in Ant &#8211; in fact, axis already provides <a href="http://axis.apache.org/axis/java/ant/ant.html">an ant task</a>. Sure, I could google for Gradle plug-in for WSDL to Java but I wanted to use this opportunity to learn to write my own plug-in. I&#8217;ve also been looking to <a href="/2013/07/25/thats-groovy/">write more Groovy code</a>.</p>
-<p><strong>Creating a Custom Gradle Task</strong><br /><a href="/wp-content/uploads/2014/03/gradle1.png"><img loading="lazy" class="alignright size-thumbnail wp-image-375" src="/wp-content/uploads/2014/03/gradle1-150x150.png" alt="gradle buildSrc" width="150" height="150" /></a>All custom Gradle tasks resides under buildSrc at the root of your project. If you are familiar with Gradle multiproject then you will notice that buildSrc is structured like a subproject. In fact, it is a subproject. Since I will be writing my custom task using Groovy, my source file will reside under src/main/groovy. If you wanted to write your custom task in Java, you would create it under src/main/java.</p>
+<p><strong>Creating a Custom Gradle Task</strong><br /><a href="/wp-content/uploads/2014/03/gradle1.png"><img loading="lazy" decoding="async" class="alignright size-thumbnail wp-image-375" src="/wp-content/uploads/2014/03/gradle1-150x150.png" alt="gradle buildSrc" width="150" height="150" /></a>All custom Gradle tasks resides under buildSrc at the root of your project. If you are familiar with Gradle multiproject then you will notice that buildSrc is structured like a subproject. In fact, it is a subproject. Since I will be writing my custom task using Groovy, my source file will reside under src/main/groovy. If you wanted to write your custom task in Java, you would create it under src/main/java.</p>
 <p>Since my custom task is merely a wrapper for Axis2 class org.apache.axis2.wsdl.WSDL2Java, the build.gradle file will contain the Axis2 dependencies. Note, if your custom task does not require any dependencies besides core java, then you do not need to define the build.gradle file. Here&#8217;s my build.gradle file:</p>
 
 
@@ -271,7 +296,7 @@ sourceSets.main.java.srcDir "$buildDir/generated/wsdl/main/resources"</code></pr
 
 
 
-<div class="wp-block-image"><figure class="alignleft"><a href="/wp-content/uploads/2014/03/gradle2.png"><img src="/wp-content/uploads/2014/03/gradle2.png" alt="Gradle Project" class="wp-image-378"/></a></figure></div>
+<div class="wp-block-image"><figure class="alignleft"><a href="/wp-content/uploads/2014/03/gradle2.png"><img decoding="async" src="/wp-content/uploads/2014/03/gradle2.png" alt="Gradle Project" class="wp-image-378"/></a></figure></div>
 
 
 
@@ -452,7 +477,7 @@ public static Expression eq(Field field) {
 <p>The monitor should be proactive and not reactive. It should provide early enough warning before something goes wrong. This includes monitoring dependencies and the application itself.Â There are tools that monitor logs and report when it detects various errors in the log file. Although this is better than nothing, it&#8217;s too reactive. If you&#8217;re lucky enough to have nagios in-house, this is better. However, in most cases, they are configured only for Production and, if lucky, QA. However, for other environments, it may be an overkill to use nagios.</p>
 <p><strong>Health Monitoring</strong></p>
 <p>The purpose of my <a href="https://github.com/johnra74/health-monitor">health monitor tool</a> is to provide a simple framework to quickly setup and actively check the overall health of any application.</p>
-<p><a href="/wp-content/uploads/2013/09/healthmonitor.png"><img loading="lazy" class="aligncenter size-full wp-image-345" src="/wp-content/uploads/2013/09/healthmonitor.png" alt="healthmonitor" width="749" height="349" /></a></p>
+<p><a href="/wp-content/uploads/2013/09/healthmonitor.png"><img loading="lazy" decoding="async" class="aligncenter size-full wp-image-345" src="/wp-content/uploads/2013/09/healthmonitor.png" alt="healthmonitor" width="749" height="349" /></a></p>
 <p>Health monitoring tool is built on the following open source frameworks:</p>
 <ul>
 <li><a href="http://quartz-scheduler.org/">quartz-scheduler</a> &#8211; used to schedule recurring checks to verify your site, components/modules, and dependencies</li>
@@ -516,7 +541,7 @@ public static Expression eq(Field field) {
 
 
 
-<div class="wp-block-image"><figure class="aligncenter"><a href="/wp-content/uploads/2013/09/healthmonitor.email_.png"><img src="/wp-content/uploads/2013/09/healthmonitor.email_.png" alt="healthmonitor.email" class="wp-image-353"/></a></figure></div>
+<div class="wp-block-image"><figure class="aligncenter"><a href="/wp-content/uploads/2013/09/healthmonitor.email_.png"><img decoding="async" src="/wp-content/uploads/2013/09/healthmonitor.email_.png" alt="healthmonitor.email" class="wp-image-353"/></a></figure></div>
 
 
 
@@ -660,193 +685,6 @@ print myBook</code></pre>
 
 
 <p>You can clearly see an increased productivity building modules/application/APIs with Groovy. If you want to learn more, I highly recommend reading <em>Groovy by Action</em> by Dierk Koenig.</p>
-]]></content:encoded>
-					
-		
-		
-			</item>
-		<item>
-		<title>iOS App Development Tutorial Part VII: In-App Web Browsing</title>
-		<link>/2013/05/25/ios-appdev-part7/</link>
-		
-		<dc:creator><![CDATA[John Ra]]></dc:creator>
-		<pubDate>Sat, 25 May 2013 23:46:20 +0000</pubDate>
-				<category><![CDATA[iOS]]></category>
-		<category><![CDATA[Tutorial]]></category>
-		<category><![CDATA[Development]]></category>
-		<category><![CDATA[Mobile]]></category>
-		<guid isPermaLink="false">http://blog.jstrgames.com/?p=302</guid>
-
-					<description><![CDATA[Having a list of article isn&#8217;t enough, we need to allow users to click through to the actual article. It&#8217;s also not a good user experience to have each article open in safari. We want to provide the ability to view the article within our app. Apple UIKit makes this extremely easy by providing a Web View component to view the target website. 1. Add New View Controller We want to first add a new View Controller that will hold the Web View. This can be done by dragging View Controller from object browser over to the storyboard. Once added,&#8230;]]></description>
-										<content:encoded><![CDATA[<p>Having a list of article isn&#8217;t enough, we need to allow users to click through to the actual article. It&#8217;s also not a good user experience to have each article open in safari. We want to provide the ability to view the article within our app. Apple UIKit makes this extremely easy by providing a Web View component to view the target website.</p>
-<p><strong>1. Add New View Controller</strong></p>
-<p>We want to first add a new View Controller that will hold the Web View. This can be done by dragging View Controller from object browser over to the storyboard. Once added, we want to push this new view controller when each Collection View Cell is clicked. First, drill down to the Collection View Cell, view connection inspector, and drag the selection under triggered segues over to the new view controller. Repeat this last step for the other Collection View Controller&#8217;s Collection View Cell.</p>
-<p><a href="/wp-content/uploads/2013/05/storyboard14.png"><img loading="lazy" class="alignnone size-medium wp-image-304" src="/wp-content/uploads/2013/05/storyboard14-300x158.png" alt="storyboard14" width="300" height="158" /></a></p>
-<p>Now, whenever a cell is clicked, it will push this new view controller to the Navigation Controller stack.</p>
-<p><strong>2. Add Web View to the View Controller</strong></p>
-<p>Go back to the object browser and drag it under the main view of our newly added View Controller.</p>
-<p><a href="/wp-content/uploads/2013/05/storyboard15.png"><img loading="lazy" class="alignnone size-medium wp-image-305" src="/wp-content/uploads/2013/05/storyboard15-300x72.png" alt="storyboard15" width="300" height="72" /></a></p>
-<p>We now need to create a custom view controller class that will enable us to control what to display in this web view. Following prior tutorial, add a new class named &#8220;JSTRBrowserViewController&#8221; that&#8217;s a subclass of &#8220;UIViewController&#8221;. Then, expose 2 properties, one for the web view component and the other to hold the target URL.</p>
-
-
-<pre class="wp-block-code"><code>#import &lt;UIKit/UIKit.h>
-
-@interface JSTRBrowserViewController : UIViewController
-
-@property (retain, nonatomic) IBOutlet UIWebView *webView;
-@property (retain, nonatomic) NSString *targetURL;
-
-@end</code></pre>
-
-
-
-<p>Since the target url is not a visual component, it does not need the keyword &#8220;IBOutlet&#8221;. It will be only used to set the target url from the collection view controller when user clicks on the cell. This will require us to synthesize targetURL on the implementation class. Let&#8217;s also implement the loading of our target url for the web view component</p>
-
-
-
-<pre class="wp-block-code"><code>#import "JSTRBrowserViewController.h"
-
-@implementation JSTRBrowserViewController
-
-@synthesize targetURL;
-
-- (id)initWithNibName:(NSString *)nibNameOrNil bundle:(NSBundle *)nibBundleOrNil
-{
-  self = &#91;super initWithNibName:nibNameOrNil bundle:nibBundleOrNil];
-  if (self) {
-    // Custom initialization
-  }
-  return self;
-}
-
-- (void)viewDidLoad
-{
-  &#91;super viewDidLoad];
-  // Do any additional setup after loading the view.
-  NSURL *url = &#91;&#91;NSURL alloc] initWithString:targetURL];
-  NSURLRequest *request = &#91;&#91;NSURLRequest alloc] initWithURL:url];
-
-  &#91;self.webView setScalesPageToFit:YES];
-  &#91;self.webView loadRequest:request];
-}
-
-- (void)didReceiveMemoryWarning
-{
-  &#91;super didReceiveMemoryWarning];
-  // Dispose of any resources that can be recreated.
-}
-
-@end</code></pre>
-
-
-
-<p>In our viewDidLoad method, we use the targetURL to construct an instance of NSURL.&nbsp;Then, we construct the NSURLRequest from&nbsp;and&nbsp;message webView to load this request on load.</p>
-
-
-
-<p>Now that we have our custom class, click the recently added view controller from above, go to identity inspector, and update the class from UIViewController to JSTRBrowserViewController. Then, go to connection inspector, and drag the webView outlet over to Web View component within the latest view controller.</p>
-
-
-
-<figure class="wp-block-image"><a href="/wp-content/uploads/2013/05/storyboard16.png"><img src="/wp-content/uploads/2013/05/storyboard16-300x130.png" alt="storyboard16" class="wp-image-308"/></a></figure>
-
-
-
-<p><strong>3. Setting&nbsp;Target URL</strong></p>
-
-
-
-<p>To set the target URL, we need to&nbsp;implement the prepareForSegue:sender method. This is similar to .NET winform event handler. This method will be called prior to performing the connection segue.</p>
-
-
-
-<pre class="wp-block-code"><code>- (void)prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender
-{
-  JSTRCollectionViewCell *selectedCell = (JSTRCollectionViewCell *)sender;
-  JSTRBrowserViewController *targetVC = (JSTRBrowserViewController *) &#91;segue destinationViewController];
-  targetVC.targetURL = selectedCell.targetURL;
-}</code></pre>
-
-
-
-<p>Since we know the destination of our segue will be JSTRBrowserViewController, we cast the destinationViewController and set the targetURL. Additionally, since we now have a new reference, import this new header: JSTRBrowserViewController.h.</p>
-
-
-
-<p>But wait, I don&#8217;t have a property called targetURL on my JSTRCollectionViewCell! We need to add this property to the bottom of our JSTRCollectionViewCell header file and synthesize it on the implementation class.</p>
-
-
-
-<pre class="wp-block-code"><code>#import &lt;UIKit/UIKit.h >
-
-@interface JSTRCollectionViewCell : UICollectionViewCell
-
-@property (retain, nonatomic) IBOutlet UILabel *title;
-@property (retain, nonatomic) IBOutlet UILabel *category;
-@property (retain, nonatomic) IBOutlet UILabel *summary;
-@property (retain, nonatomic) IBOutlet UIImageView *avatar;
-@property (retain, nonatomic) IBOutlet UIImageView *thumbnail;
-@property (retain, nonatomic) NSString *targetURL;
-
-@end</code></pre>
-
-
-
-<p>Then, we need to set this for each and every cell that we display in our app by updating collectionView:cellForItemAtIndexPath method.</p>
-
-
-
-<pre class="wp-block-code"><code>- (UICollectionViewCell *) collectionView:(UICollectionView *)collectionView cellForItemAtIndexPath:(NSIndexPath *)indexPath
-{
-  JSTRCollectionViewCell *cell = &#91;collectionView dequeueReusableCellWithReuseIdentifier:@"articleCell"
-forIndexPath:indexPath];
-  NSDictionary *item = &#91;_articleList objectAtIndex:indexPath.item];
-
-  NSURL *userImgURL = &#91;NSURL URLWithString:&#91;item objectForKey:@"userimage"]];
-  NSData *userImgData = &#91;NSData dataWithContentsOfURL:userImgURL];
-  UIImage *userImage = &#91;UIImage imageWithData:userImgData];
-  &#91;cell.avatar setImage:userImage];
-
-  cell.title.text = &#91;NSString stringWithFormat:@"%@\n\n\n\n", &#91;item objectForKey:@"title"]];
-
-  NSArray *catList = &#91;item objectForKey:@"category"];
-  NSString *catString = &#91;catList componentsJoinedByString:@", "];
-  cell.category.text = &#91;NSString stringWithFormat:@"%@", catString];
-  cell.summary.text = &#91;NSString stringWithFormat:@"%@\n\n\n\n\n\n\n\n\n", &#91;item objectForKey:@"description"]];
-
-  NSURL *thumbImgURL = &#91;NSURL URLWithString:&#91;item objectForKey:@"thumbnail"]];
-  NSData *thumbImgData = &#91;NSData dataWithContentsOfURL:thumbImgURL];
-  UIImage *thumbImage = &#91;UIImage imageWithData:thumbImgData];
-  &#91;cell.thumbnail setImage:thumbImage];
-
-  cell.targetURL = &#91;item objectForKey:@"link"];
-
- return cell;
-}</code></pre>
-
-
-
-<p>As you can see, prior to our return call in this method, we retrieve the link from our dictionary representing the article from the RSS. Now that the cell has been set, our segue can extract it from the source cell that&#8217;s been click and pass it to the target view controller that holds the web view.</p>
-
-
-
-<p><strong>4. Run it</strong></p>
-
-
-
-<div class="wp-block-image"><figure class="alignright"><a href="/wp-content/uploads/2013/05/simulator4.png"><img src="/wp-content/uploads/2013/05/simulator4.png" alt="simulator4" class="wp-image-310"/></a></figure></div>
-
-
-
-<p>Now, when you run your app, clicking on the cell on the simulator will push a new view controller. Since we&#8217;re using navigation controller, adding a new view controller will automatically add the back button for us on the navigation bar.</p>
-
-
-
-<p>By default, if the prior navigation bar has no title, then the button will be rendered with &#8220;Back&#8221;. However, had we named the title bar of our prior navigation bar as &#8220;Featured Links&#8221;, then our back button would have had the label of &#8220;Featured Links&#8221;.</p>
-
-
-
-<p>This concludes this tutorial series. I have intentionally did not implement Recent Link Collection View. Using the Featured Link Collection View, this should be fairly easy to figure out. You will need to refactor JSTRRSSReader class to handle both Featured and Recent Links. Currently, it&#8217;s hard coded to only retrieve Featured. The app that&#8217;s actually published has it fully implemented with ability for users to vote. As of May 25, it is currently under review by Apple. I&#8217;ll update this post when it does go live. Xcode project with source code for these tutorial can be downloaded from <a href="http://demo.jstrgames.com/DZoneRSS.zip">here</a>.</p>
 ]]></content:encoded>
 					
 		

@@ -12,13 +12,13 @@
 	<atom:link href="/category/tutorial/feed/" rel="self" type="application/rss+xml" />
 	<link>/</link>
 	<description>...yet another musings of a techie</description>
-	<lastBuildDate>Sat, 12 Feb 2022 02:43:20 +0000</lastBuildDate>
+	<lastBuildDate>Thu, 11 Apr 2024 23:28:07 +0000</lastBuildDate>
 	<language>en-US</language>
 	<sy:updatePeriod>
 	hourly	</sy:updatePeriod>
 	<sy:updateFrequency>
 	1	</sy:updateFrequency>
-	<generator>https://wordpress.org/?v=5.9.2</generator>
+	<generator>https://wordpress.org/?v=6.5.2</generator>
 	<item>
 		<title>Design Pattern: Chain of Responsibility</title>
 		<link>/2014/05/06/design-pattern-chain-of-responsibility/</link>
@@ -31,13 +31,14 @@
 		<category><![CDATA[Development]]></category>
 		<guid isPermaLink="false">http://blog.jstrgames.com/?p=387</guid>
 
-					<description><![CDATA[In my original Tetris code base, I started out with a simple RotationController class. As I recall, this was a trivial class with a single shape. However, as more shapes were added, it quickly became unwieldy.&#160;Looking back at this code, I want to cringe at my lack of discipline in following proper design principles. On the bright side, I have something to blog about. Chain of Responsibility The chain of responsibility design pattern&#160;is known as a behavioral pattern consisting of client objects and a series of handler&#160;objects. It provides more than one object the opportunity to handle a request by&#8230;]]></description>
-										<content:encoded><![CDATA[<p>In my original <a href="https://github.com/johnra74/tetris">Tetris code base</a>, I started out with a simple <a href="https://github.com/johnra74/tetris/blob/82b3f058fbf62c036623a3b3eb16ca3bf2550f2d/tetris/tetris-core/src/main/java/com/jstrgames/tetris/core/controller/RotateController.java">RotationController class</a>. As I recall, this was a trivial class with a single shape. However, as more shapes were added, it quickly became unwieldy.&nbsp;Looking back at this code, I want to cringe at my lack of discipline in following proper design principles. On the bright side, I have something to blog about.</p>
+					<description><![CDATA[In my original Tetris code base, I started out with a simple RotationController class. As I recall, this was a trivial class with a single shape. However, as more shapes were added, it quickly became unwieldy. Looking back at this code, I want to cringe at my lack of discipline in following proper design principles. On the bright side, I have something to blog about. Chain of Responsibility The chain of responsibility design pattern is known as a behavioral pattern consisting of client objects and a series of handler objects. It provides more than one object the opportunity to handle a request by&#8230;]]></description>
+										<content:encoded><![CDATA[<p>In my original <a href="https://github.com/johnra74/tetris">Tetris code base</a>, I started out with a simple <a href="https://github.com/johnra74/tetris/blob/82b3f058fbf62c036623a3b3eb16ca3bf2550f2d/tetris/tetris-core/src/main/java/com/jstrgames/tetris/core/controller/RotateController.java">RotationController class</a>. As I recall, this was a trivial class with a single shape. However, as more shapes were added, it quickly became unwieldy. Looking back at this code, I want to cringe at my lack of discipline in following proper design principles. On the bright side, I have something to blog about.</p>
 <p><strong>Chain of Responsibility</strong></p>
-<p><a href="/wp-content/uploads/2014/05/chain_of_resp_pattern.png"><img loading="lazy" class="alignleft size-medium wp-image-399" src="/wp-content/uploads/2014/05/chain_of_resp_pattern-300x124.png" alt="chain_of_resp_pattern" width="300" height="124"></a>The chain of responsibility design pattern&nbsp;is known as a behavioral pattern consisting of client objects and a series of handler&nbsp;objects. It provides more than one object the opportunity to handle a request by linking receivers together (see left UML diagram). Instead of having one monolithic class, as I have or coupling your code to&nbsp;each and every concrete class,&nbsp;with the chain of responsibility pattern, you can avoid both.</p>
-<p><strong>Refactoring&nbsp;Rotation Controller</strong></p>
-<p><a href="/wp-content/uploads/2014/05/action_controller_before.png"><img loading="lazy" class="alignright size-medium wp-image-394" src="/wp-content/uploads/2014/05/action_controller_before-300x240.png" alt="action_controller_before" width="300" height="240"></a>On the right is the&nbsp;UML diagram for handling&nbsp;user inputs in my game. The ControlListener implements the Java AWT Event KeyListener. The ControlListener listens for various keyboard actions (UP_ARROW &#8211;&nbsp;rotate clockwise, DOWN_ARROW &#8211; drop, LEFT_ARROW &#8211; move left, RIGHT_ARROW &#8211; move right, Q &#8211; rotate counter-clockwise, and W &#8211; rotate clockwise). When user presses UP_ARROW, Q, or W, it will create an instance of RotateController class to handle the respective rotation&nbsp;action. On the original UML diagram, you can see the long list of private methods I&#8217;ve implemented to handle the rotation action for various tetris shapes.</p>
-<p><a href="/wp-content/uploads/2014/05/action_controller_after.png"><img loading="lazy" class="alignleft size-medium wp-image-404" src="/wp-content/uploads/2014/05/action_controller_after-300x242.png" alt="action_controller_after" width="300" height="242"></a>On the left is the refactored UML diagram with the&nbsp;rotation logic implemented using the chain of responsibility design pattern. Gone are the many private methods created&nbsp;to handle every possible shapes. For each shape, we&nbsp;now have a respective&nbsp;handler class responsible for rotating the shape. The chain of these rotation handler will check if can handle the rotation request by inspecting the shape associated with the request.</p>
+<p><a href="/wp-content/uploads/2014/05/chain_of_resp_pattern.png"><img decoding="async" class="alignleft size-medium wp-image-399" src="/wp-content/uploads/2014/05/chain_of_resp_pattern-300x124.png" alt="chain_of_resp_pattern" width="300" height="124" /></a>The chain of responsibility design pattern is known as a behavioral pattern consisting of client objects and a series of handler objects. It provides more than one object the opportunity to handle a request by linking receivers together (see left UML diagram). Instead of having one monolithic class, as I have or coupling your code to each and every concrete class, with the chain of responsibility pattern, you can avoid both.</p>
+<p><strong>Refactoring Rotation Controller</strong></p>
+<p><a href="/wp-content/uploads/2014/05/action_controller_before.png"><img fetchpriority="high" decoding="async" class="alignright size-medium wp-image-394" src="/wp-content/uploads/2014/05/action_controller_before-300x240.png" alt="action_controller_before" width="300" height="240" /></a>On the right is the UML diagram for handling user inputs in my game. The ControlListener implements the Java AWT Event KeyListener. The ControlListener listens for various keyboard actions (UP_ARROW &#8211; rotate clockwise, DOWN_ARROW &#8211; drop, LEFT_ARROW &#8211; move left, RIGHT_ARROW &#8211; move right, Q &#8211; rotate counter-clockwise, and W &#8211; rotate clockwise). When user presses UP_ARROW, Q, or W, it will create an instance of RotateController class to handle the respective rotation action. On the original UML diagram, you can see the long list of private methods I&#8217;ve implemented to handle the rotation action for various tetris shapes.</p>
+<p><a href="/wp-content/uploads/2014/05/action_controller_after.png"><img decoding="async" class="alignleft size-medium wp-image-404" src="/wp-content/uploads/2014/05/action_controller_after-300x242.png" alt="action_controller_after" width="300" height="242" /></a>On the left is the refactored UML diagram with the rotation logic implemented using the chain of responsibility design pattern. Gone are the many private methods created to handle every possible shapes. For each shape, we now have a respective handler class responsible for rotating the shape. The chain of these rotation handler will check if can handle the rotation request by inspecting the shape associated with the request.</p>
+<p> </p>
 
 
 <pre class="wp-block-code"><code>public Coordinate&#91;] executeRequest(RotateRequest request) {
@@ -82,7 +83,7 @@
 					<description><![CDATA[It didn&#8217;t take long for me to fall in love with Gradle. Once I was introduced to it, I never looked back. It was the same with Ant as I transitioned from Make. But, Gradle is different. I always felt building was necessary evil. It was often done way after first code was ever written. This isn&#8217;t true with Gradle. Before any code is written, I start every project by setting up my Gradle build. I actually look forward to adding more features to my build. How crazy is that?! WSDL to JavaRecently, I published one of my old SharePoint&#8230;]]></description>
 										<content:encoded><![CDATA[<p>It didn&#8217;t take long for me to fall in love with <a href="http://www.gradle.org/">Gradle</a>. Once I was introduced to it, I never looked back. It was the same with <a href="http://ant.apache.org/">Ant</a> as I transitioned from <a href="https://www.gnu.org/software/make/">Make</a>. But, Gradle is different. I always felt building was necessary evil. It was often done way after first code was ever written. This isn&#8217;t true with Gradle. Before any code is written, I start every project by setting up my Gradle build. I actually look forward to adding more features to my build. How crazy is that?!</p>
 <p><strong>WSDL to Java</strong><br />Recently, I published one of my old <a href="https://github.com/johnra74/sharepoint-api">SharePoint API</a> to GitHub. Originally, I had written the build script using Ant for this project. One of the task I had was to take the SharePoint List WSDL and generate the corresponding java soap client classes. This is fairly trivial task in Ant &#8211; in fact, axis already provides <a href="http://axis.apache.org/axis/java/ant/ant.html">an ant task</a>. Sure, I could google for Gradle plug-in for WSDL to Java but I wanted to use this opportunity to learn to write my own plug-in. I&#8217;ve also been looking to <a href="/2013/07/25/thats-groovy/">write more Groovy code</a>.</p>
-<p><strong>Creating a Custom Gradle Task</strong><br /><a href="/wp-content/uploads/2014/03/gradle1.png"><img loading="lazy" class="alignright size-thumbnail wp-image-375" src="/wp-content/uploads/2014/03/gradle1-150x150.png" alt="gradle buildSrc" width="150" height="150" /></a>All custom Gradle tasks resides under buildSrc at the root of your project. If you are familiar with Gradle multiproject then you will notice that buildSrc is structured like a subproject. In fact, it is a subproject. Since I will be writing my custom task using Groovy, my source file will reside under src/main/groovy. If you wanted to write your custom task in Java, you would create it under src/main/java.</p>
+<p><strong>Creating a Custom Gradle Task</strong><br /><a href="/wp-content/uploads/2014/03/gradle1.png"><img loading="lazy" decoding="async" class="alignright size-thumbnail wp-image-375" src="/wp-content/uploads/2014/03/gradle1-150x150.png" alt="gradle buildSrc" width="150" height="150" /></a>All custom Gradle tasks resides under buildSrc at the root of your project. If you are familiar with Gradle multiproject then you will notice that buildSrc is structured like a subproject. In fact, it is a subproject. Since I will be writing my custom task using Groovy, my source file will reside under src/main/groovy. If you wanted to write your custom task in Java, you would create it under src/main/java.</p>
 <p>Since my custom task is merely a wrapper for Axis2 class org.apache.axis2.wsdl.WSDL2Java, the build.gradle file will contain the Axis2 dependencies. Note, if your custom task does not require any dependencies besides core java, then you do not need to define the build.gradle file. Here&#8217;s my build.gradle file:</p>
 
 
@@ -154,7 +155,7 @@ sourceSets.main.java.srcDir "$buildDir/generated/wsdl/main/resources"</code></pr
 
 
 
-<div class="wp-block-image"><figure class="alignleft"><a href="/wp-content/uploads/2014/03/gradle2.png"><img src="/wp-content/uploads/2014/03/gradle2.png" alt="Gradle Project" class="wp-image-378"/></a></figure></div>
+<div class="wp-block-image"><figure class="alignleft"><a href="/wp-content/uploads/2014/03/gradle2.png"><img decoding="async" src="/wp-content/uploads/2014/03/gradle2.png" alt="Gradle Project" class="wp-image-378"/></a></figure></div>
 
 
 
@@ -458,11 +459,11 @@ print myBook</code></pre>
 										<content:encoded><![CDATA[<p>Having a list of article isn&#8217;t enough, we need to allow users to click through to the actual article. It&#8217;s also not a good user experience to have each article open in safari. We want to provide the ability to view the article within our app. Apple UIKit makes this extremely easy by providing a Web View component to view the target website.</p>
 <p><strong>1. Add New View Controller</strong></p>
 <p>We want to first add a new View Controller that will hold the Web View. This can be done by dragging View Controller from object browser over to the storyboard. Once added, we want to push this new view controller when each Collection View Cell is clicked. First, drill down to the Collection View Cell, view connection inspector, and drag the selection under triggered segues over to the new view controller. Repeat this last step for the other Collection View Controller&#8217;s Collection View Cell.</p>
-<p><a href="/wp-content/uploads/2013/05/storyboard14.png"><img loading="lazy" class="alignnone size-medium wp-image-304" src="/wp-content/uploads/2013/05/storyboard14-300x158.png" alt="storyboard14" width="300" height="158" /></a></p>
+<p><a href="/wp-content/uploads/2013/05/storyboard14.png"><img loading="lazy" decoding="async" class="alignnone size-medium wp-image-304" src="/wp-content/uploads/2013/05/storyboard14-300x158.png" alt="storyboard14" width="300" height="158" /></a></p>
 <p>Now, whenever a cell is clicked, it will push this new view controller to the Navigation Controller stack.</p>
 <p><strong>2. Add Web View to the View Controller</strong></p>
 <p>Go back to the object browser and drag it under the main view of our newly added View Controller.</p>
-<p><a href="/wp-content/uploads/2013/05/storyboard15.png"><img loading="lazy" class="alignnone size-medium wp-image-305" src="/wp-content/uploads/2013/05/storyboard15-300x72.png" alt="storyboard15" width="300" height="72" /></a></p>
+<p><a href="/wp-content/uploads/2013/05/storyboard15.png"><img loading="lazy" decoding="async" class="alignnone size-medium wp-image-305" src="/wp-content/uploads/2013/05/storyboard15-300x72.png" alt="storyboard15" width="300" height="72" /></a></p>
 <p>We now need to create a custom view controller class that will enable us to control what to display in this web view. Following prior tutorial, add a new class named &#8220;JSTRBrowserViewController&#8221; that&#8217;s a subclass of &#8220;UIViewController&#8221;. Then, expose 2 properties, one for the web view component and the other to hold the target URL.</p>
 
 
@@ -525,7 +526,7 @@ print myBook</code></pre>
 
 
 
-<figure class="wp-block-image"><a href="/wp-content/uploads/2013/05/storyboard16.png"><img src="/wp-content/uploads/2013/05/storyboard16-300x130.png" alt="storyboard16" class="wp-image-308"/></a></figure>
+<figure class="wp-block-image"><a href="/wp-content/uploads/2013/05/storyboard16.png"><img decoding="async" src="/wp-content/uploads/2013/05/storyboard16-300x130.png" alt="storyboard16" class="wp-image-308"/></a></figure>
 
 
 
@@ -611,7 +612,7 @@ forIndexPath:indexPath];
 
 
 
-<div class="wp-block-image"><figure class="alignright"><a href="/wp-content/uploads/2013/05/simulator4.png"><img src="/wp-content/uploads/2013/05/simulator4.png" alt="simulator4" class="wp-image-310"/></a></figure></div>
+<div class="wp-block-image"><figure class="alignright"><a href="/wp-content/uploads/2013/05/simulator4.png"><img decoding="async" src="/wp-content/uploads/2013/05/simulator4.png" alt="simulator4" class="wp-image-310"/></a></figure></div>
 
 
 
@@ -641,30 +642,30 @@ forIndexPath:indexPath];
 		<category><![CDATA[Mobile]]></category>
 		<guid isPermaLink="false">http://blog.jstrgames.com/?p=261</guid>
 
-					<description><![CDATA[This tutorial, up until now, focused on the non-visual aspect of development, or as I would call it, the plumbing. Itâ€™s now time to put the visuals aspects using some of these plumbing weâ€™ve built onto our storyboard. Storyboard is a feature built into Xcode thatÂ represents the screens in an app and the transitions between them. It is similar to Interface Builder with the added advantage of defining transitions. If you have done any WinForm development, both storyboard and interface builder concepts will be easy to understand. If you&#8217;re coming from Java AWT and/or swing, concepts may be very foreign&#8230;]]></description>
-										<content:encoded><![CDATA[<p>This tutorial, up until now, focused on the non-visual aspect of development, or as I would call it, the plumbing. Itâ€<img src="https://s.w.org/images/core/emoji/13.1.0/72x72/2122.png" alt="™" class="wp-smiley" style="height: 1em; max-height: 1em;" />s now time to put the visuals aspects using some of these plumbing weâ€<img src="https://s.w.org/images/core/emoji/13.1.0/72x72/2122.png" alt="™" class="wp-smiley" style="height: 1em; max-height: 1em;" />ve built onto our storyboard.</p>
-<p>Storyboard is a feature built into Xcode thatÂ represents the screens in an app and the transitions between them. It is similar to Interface Builder with the added advantage of defining transitions. If you have done any WinForm development, both storyboard and interface builder concepts will be easy to understand. If you&#8217;re coming from Java AWT and/or swing, concepts may be very foreign to you. Luckily, Google did manage to improve UI development on the android platform. Too bad, itÂ wouldn&#8217;t replace swing anytime soon.Â Once you get used to it, you&#8217;re really going to hate developing UIs in Java AWT and/or swing. I certainly did.</p>
+					<description><![CDATA[This tutorial, up until now, focused on the non-visual aspect of development, or as I would call it, the plumbing. It&#8217;s now time to put the visuals aspects using some of these plumbing we&#8217;ve built onto our storyboard. Storyboard is a feature built into Xcode that represents the screens in an app and the transitions between them. It is similar to Interface Builder with the added advantage of defining transitions. If you have done any WinForm development, both storyboard and interface builder concepts will be easy to understand. If you&#8217;re coming from Java AWT and/or swing, concepts may be very foreign&#8230;]]></description>
+										<content:encoded><![CDATA[<p>This tutorial, up until now, focused on the non-visual aspect of development, or as I would call it, the plumbing. It&#8217;s now time to put the visuals aspects using some of these plumbing we&#8217;ve built onto our storyboard.</p>
+<p>Storyboard is a feature built into Xcode that represents the screens in an app and the transitions between them. It is similar to Interface Builder with the added advantage of defining transitions. If you have done any WinForm development, both storyboard and interface builder concepts will be easy to understand. If you&#8217;re coming from Java AWT and/or swing, concepts may be very foreign to you. Luckily, Google did manage to improve UI development on the android platform. Too bad, it wouldn&#8217;t replace swing anytime soon.Â Once you get used to it, you&#8217;re really going to hate developing UIs in Java AWT and/or swing. I certainly did.</p>
 <p>Now that I got my dig on Java swing and AWT, let&#8217;s leverage the mockups we&#8217;ve created from our earlier tutorial: <a href="/2013/05/13/ios-appdev-part2/">Putting Pen to Paper</a>.</p>
-<p><strong>1. Create Storyboard</strong><br /><a href="/wp-content/uploads/2013/05/newfile4.png"><img loading="lazy" class="alignright size-thumbnail wp-image-262" src="/wp-content/uploads/2013/05/newfile4-150x150.png" alt="newfile4" width="150" height="150" /></a>Right-click &#8220;DZone RSS&#8221; group under project DZone RSS and select &#8220;New File&#8230;&#8221;. In the &#8220;choose a template for your new file&#8221;, select &#8220;User Interface&#8221; on left panel, &#8220;Storyboard&#8221; on right panel, andÂ click next. Leave Device Family option as &#8220;iPhone&#8221; and click Next.Â Name the storyboard as &#8220;MainStoryboard&#8221; underÂ &#8220;Save As&#8221; field and click &#8220;create&#8221;. MainStoryboard should now appear under &#8220;DZone RSS&#8221; group.</p>
-<p><a href="/wp-content/uploads/2013/05/storyboard.png"><img loading="lazy" class="alignnone size-medium wp-image-263" src="/wp-content/uploads/2013/05/storyboard-300x179.png" alt="storyboard" width="300" height="179" /></a></p>
+<p><strong>1. Create Storyboard</strong><br /><a href="/wp-content/uploads/2013/05/newfile4.png"><img loading="lazy" decoding="async" class="alignright size-thumbnail wp-image-262" src="/wp-content/uploads/2013/05/newfile4-150x150.png" alt="newfile4" width="150" height="150" /></a>Right-click &#8220;DZone RSS&#8221; group under project DZone RSS and select &#8220;New File&#8230;&#8221;. In the &#8220;choose a template for your new file&#8221;, select &#8220;User Interface&#8221; on left panel, &#8220;Storyboard&#8221; on right panel, and click next. Leave Device Family option as &#8220;iPhone&#8221; and click Next.Â Name the storyboard as &#8220;MainStoryboard&#8221; underÂ &#8220;Save As&#8221; field and click &#8220;create&#8221;. MainStoryboard should now appear under &#8220;DZone RSS&#8221; group.</p>
+<p><a href="/wp-content/uploads/2013/05/storyboard.png"><img loading="lazy" decoding="async" class="alignnone size-medium wp-image-263" src="/wp-content/uploads/2013/05/storyboard-300x179.png" alt="storyboard" width="300" height="179" /></a></p>
 <p><strong>2. Add Navigation Controller</strong></p>
-<p>The starting controller for our application will be the UINavigationController. With UINavigationController, we can stack many types of ViewControllers on top of it. In our case, as described in earlier post,Â UITabbarController will beÂ stacked on top next.</p>
-<p><a href="/wp-content/uploads/2013/05/objectbroswer.png"><img loading="lazy" class="alignright size-thumbnail wp-image-267" src="/wp-content/uploads/2013/05/objectbroswer-150x150.png" alt="objectbroswer" width="150" height="150" /></a>To add UINavigationController, simply drag Navigation Controller from the object browser on your right bottom corner to the storyboard. By default, the root view controller will be UITableViewController. Since we will be using UITabbarController, you can select &#8220;Table View Controller &#8211; Root&#8221; and delete it.</p>
+<p>The starting controller for our application will be the UINavigationController. With UINavigationController, we can stack many types of ViewControllers on top of it. In our case, as described in earlier post, UITabbarController will be stacked on top next.</p>
+<p><a href="/wp-content/uploads/2013/05/objectbroswer.png"><img loading="lazy" decoding="async" class="alignright size-thumbnail wp-image-267" src="/wp-content/uploads/2013/05/objectbroswer-150x150.png" alt="objectbroswer" width="150" height="150" /></a>To add UINavigationController, simply drag Navigation Controller from the object browser on your right bottom corner to the storyboard. By default, the root view controller will be UITableViewController. Since we will be using UITabbarController, you can select &#8220;Table View Controller &#8211; Root&#8221; and delete it.</p>
 <p>On the Attribute Inspector, you&#8217;ll notice &#8220;Is Initial View Controller&#8221; checked. Only one ViewController within the storyboard can have this checked. This will inform our application which view controller should be loaded first on startup.</p>
-<p><a href="/wp-content/uploads/2013/05/storyboard2.png"><img loading="lazy" class="alignnone size-full wp-image-268" src="/wp-content/uploads/2013/05/storyboard2.png" alt="storyboard2" width="515" height="410" /></a></p>
+<p><a href="/wp-content/uploads/2013/05/storyboard2.png"><img loading="lazy" decoding="async" class="alignnone size-full wp-image-268" src="/wp-content/uploads/2013/05/storyboard2.png" alt="storyboard2" width="515" height="410" /></a></p>
 <p><strong>2. Add Tab Bar Controller</strong></p>
 <p>From the object browser, drag Tab Bar Controller to Storyboard. By default Tab Bar Controller comes withÂ two UIViewControllers. However, we don&#8217;t want UIViewControllers. We want UICollectionViewController instead so select and delete each of the view controller attached to Tab Bar Controller.</p>
-<p><a href="/wp-content/uploads/2013/05/storyboard3.png"><img loading="lazy" class="size-medium wp-image-269 alignnone" src="/wp-content/uploads/2013/05/storyboard3-263x300.png" alt="storyboard3" width="263" height="300" /></a></p>
-<p>Now dragÂ two Collection View Controllers to the storyboard. Select Tab Bar Controller from storyboard and go to Connections inspector. Select the outlet next to view controllers under Triggered Segues and drag it over to the top Collection View Controller.</p>
-<p><a href="/wp-content/uploads/2013/05/storyboard4.png"><img loading="lazy" class="alignnone size-medium wp-image-270" src="/wp-content/uploads/2013/05/storyboard4-300x220.png" alt="storyboard4" width="300" height="220" /></a></p>
+<p><a href="/wp-content/uploads/2013/05/storyboard3.png"><img loading="lazy" decoding="async" class="size-medium wp-image-269 alignnone" src="/wp-content/uploads/2013/05/storyboard3-263x300.png" alt="storyboard3" width="263" height="300" /></a></p>
+<p>Now drag two Collection View Controllers to the storyboard. Select Tab Bar Controller from storyboard and go to Connections inspector. Select the outlet next to view controllers under Triggered Segues and drag it over to the top Collection View Controller.</p>
+<p><a href="/wp-content/uploads/2013/05/storyboard4.png"><img loading="lazy" decoding="async" class="alignnone size-medium wp-image-270" src="/wp-content/uploads/2013/05/storyboard4-300x220.png" alt="storyboard4" width="300" height="220" /></a></p>
 <p>Repeat this for the second collection view. Now, click on Navigation Controller, select &#8220;root view controller&#8221; outlet and drag it over to Tab Bar Controller. It should now look like below.</p>
-<p><a href="/wp-content/uploads/2013/05/storyboard5.png"><img loading="lazy" class="alignnone size-medium wp-image-271" src="/wp-content/uploads/2013/05/storyboard5-300x191.png" alt="storyboard5" width="300" height="191" /></a></p>
-<p><a href="/wp-content/uploads/2013/05/storyboard6.png"><img loading="lazy" class="alignright size-thumbnail wp-image-272" src="/wp-content/uploads/2013/05/storyboard6-150x150.png" alt="storyboard6" width="150" height="150" /></a>Since our Tab Bar is black, we need to change the navigation bar to black as well. While Navigation Controller is selected, go to Attribute inspector and change the Top Bar from &#8220;Inferred&#8221; to &#8220;Back Navigation Bar&#8221;.</p>
+<p><a href="/wp-content/uploads/2013/05/storyboard5.png"><img loading="lazy" decoding="async" class="alignnone size-medium wp-image-271" src="/wp-content/uploads/2013/05/storyboard5-300x191.png" alt="storyboard5" width="300" height="191" /></a></p>
+<p><a href="/wp-content/uploads/2013/05/storyboard6.png"><img loading="lazy" decoding="async" class="alignright size-thumbnail wp-image-272" src="/wp-content/uploads/2013/05/storyboard6-150x150.png" alt="storyboard6" width="150" height="150" /></a>Since our Tab Bar is black, we need to change the navigation bar to black as well. While Navigation Controller is selected, go to Attribute inspector and change the Top Bar from &#8220;Inferred&#8221; to &#8220;Back Navigation Bar&#8221;.</p>
 <p>Now that we have our segues defined for the tabs, let&#8217;s change the icon on the tab bar. If you have your document outline closed, open them by clicking on the left corner. Expand the first Collection View Controller Scene and select Tab Bar Item. Then, go to Attribute inspector. If the selected Tab Bar Item from document outline is pointing to the bottom collection view on the storyboard, change the identifier from &#8220;Custom&#8221; to &#8220;Most Recent&#8221;. Otherwise, change it to Featured.</p>
-<p><a href="/wp-content/uploads/2013/05/storyboard7.png"><img loading="lazy" class="alignnone size-medium wp-image-273" src="/wp-content/uploads/2013/05/storyboard7-300x133.png" alt="storyboard7" width="300" height="133" /></a></p>
+<p><a href="/wp-content/uploads/2013/05/storyboard7.png"><img loading="lazy" decoding="async" class="alignnone size-medium wp-image-273" src="/wp-content/uploads/2013/05/storyboard7-300x133.png" alt="storyboard7" width="300" height="133" /></a></p>
 <p>Repeat this for the other Collection View Controller.</p>
 <p>Let&#8217;s take a moment and run what we have. But first, we need to delete some code from JSTRAppDelegate.m and update our project setting. First, click on DZone RSS project. Under targets, select DZone RSS and go to Summary tab. Under iPhone / iPod Deployment Info, select &#8220;MainStoryboard&#8221; next to the &#8220;Main Storyboard&#8221; field.</p>
-<p><a href="/wp-content/uploads/2013/05/project.png"><img loading="lazy" class="alignnone size-medium wp-image-276" src="/wp-content/uploads/2013/05/project-300x86.png" alt="project" width="300" height="86" /></a></p>
+<p><a href="/wp-content/uploads/2013/05/project.png"><img loading="lazy" decoding="async" class="alignnone size-medium wp-image-276" src="/wp-content/uploads/2013/05/project-300x86.png" alt="project" width="300" height="86" /></a></p>
 <p>Next, open JSTRAppDelegate and delete everything in the method application:didFinishLaunchingWithOptions except for the following lines.</p>
 
 
@@ -678,7 +679,7 @@ forIndexPath:indexPath];
 
 
 
-<div class="wp-block-image"><figure class="alignright"><a href="/wp-content/uploads/2013/05/simulator2.png"><img src="/wp-content/uploads/2013/05/simulator2-191x300.png" alt="simulator2" class="wp-image-277"/></a></figure></div>
+<div class="wp-block-image"><figure class="alignright"><a href="/wp-content/uploads/2013/05/simulator2.png"><img decoding="async" src="/wp-content/uploads/2013/05/simulator2-191x300.png" alt="simulator2" class="wp-image-277"/></a></figure></div>
 
 
 
@@ -698,7 +699,7 @@ forIndexPath:indexPath];
 
 
 
-<figure class="wp-block-image"><a href="/wp-content/uploads/2013/05/storyboard8.png"><img src="/wp-content/uploads/2013/05/storyboard8-300x132.png" alt="storyboard8" class="wp-image-283"/></a></figure>
+<figure class="wp-block-image"><a href="/wp-content/uploads/2013/05/storyboard8.png"><img decoding="async" src="/wp-content/uploads/2013/05/storyboard8-300x132.png" alt="storyboard8" class="wp-image-283"/></a></figure>
 
 
 
@@ -718,7 +719,7 @@ forIndexPath:indexPath];
 
 
 
-<figure class="wp-block-image"><a href="/wp-content/uploads/2013/05/storyboard9.png"><img src="/wp-content/uploads/2013/05/storyboard9-300x177.png" alt="storyboard9" class="wp-image-285"/></a></figure>
+<figure class="wp-block-image"><a href="/wp-content/uploads/2013/05/storyboard9.png"><img decoding="async" src="/wp-content/uploads/2013/05/storyboard9-300x177.png" alt="storyboard9" class="wp-image-285"/></a></figure>
 
 
 
@@ -726,7 +727,7 @@ forIndexPath:indexPath];
 
 
 
-<p>In order to assign values to these components, we need to create a custom class. Following earlier tutorial, create a group called &#8220;UI&#8221; and associate it to a specific file system folder â€œUIâ€. Then, add a new file called â€œJSTRCollectionViewCellâ€, a subclass of UICollectionViewCell, to this group. This will be a simple class with 5 outlets. We will only modify the header file and leave the implementation class as is.</p>
+<p>In order to assign values to these components, we need to create a custom class. Following earlier tutorial, create a group called &#8220;UI&#8221; and associate it to a specific file system folder UI. Then, add a new file called JSTRCollectionViewCell, a subclass of UICollectionViewCell, to this group. This will be a simple class with 5 outlets. We will only modify the header file and leave the implementation class as is.</p>
 
 
 
@@ -748,7 +749,7 @@ forIndexPath:indexPath];
 
 
 
-<figure class="wp-block-image"><a href="/wp-content/uploads/2013/05/storyboard10.png"><img src="/wp-content/uploads/2013/05/storyboard10-300x127.png" alt="storyboard10" class="wp-image-287"/></a></figure>
+<figure class="wp-block-image"><a href="/wp-content/uploads/2013/05/storyboard10.png"><img decoding="async" src="/wp-content/uploads/2013/05/storyboard10-300x127.png" alt="storyboard10" class="wp-image-287"/></a></figure>
 
 
 
@@ -756,11 +757,11 @@ forIndexPath:indexPath];
 
 
 
-<figure class="wp-block-image"><a href="/wp-content/uploads/2013/05/storyboard11.png"><img src="/wp-content/uploads/2013/05/storyboard11-300x265.png" alt="storyboard11" class="wp-image-288"/></a></figure>
+<figure class="wp-block-image"><a href="/wp-content/uploads/2013/05/storyboard11.png"><img decoding="async" src="/wp-content/uploads/2013/05/storyboard11-300x265.png" alt="storyboard11" class="wp-image-288"/></a></figure>
 
 
 
-<div class="wp-block-image"><figure class="alignright"><a href="/wp-content/uploads/2013/05/storyboard12.png"><img src="/wp-content/uploads/2013/05/storyboard12.png" alt="storyboard12" class="wp-image-289"/></a></figure></div>
+<div class="wp-block-image"><figure class="alignright"><a href="/wp-content/uploads/2013/05/storyboard12.png"><img decoding="async" src="/wp-content/uploads/2013/05/storyboard12.png" alt="storyboard12" class="wp-image-289"/></a></figure></div>
 
 
 
@@ -876,7 +877,7 @@ forIndexPath:indexPath];
 
 
 
-<figure class="wp-block-image"><a href="/wp-content/uploads/2013/05/storyboard13.png"><img src="/wp-content/uploads/2013/05/storyboard13-300x116.png" alt="storyboard13" class="wp-image-290"/></a></figure>
+<figure class="wp-block-image"><a href="/wp-content/uploads/2013/05/storyboard13.png"><img decoding="async" src="/wp-content/uploads/2013/05/storyboard13-300x116.png" alt="storyboard13" class="wp-image-290"/></a></figure>
 
 
 
@@ -888,7 +889,7 @@ forIndexPath:indexPath];
 
 
 
-<figure class="wp-block-image"><a href="/wp-content/uploads/2013/05/simulator3.png"><img src="/wp-content/uploads/2013/05/simulator3-191x300.png" alt="simulator3" class="wp-image-291"/></a></figure>
+<figure class="wp-block-image"><a href="/wp-content/uploads/2013/05/simulator3.png"><img decoding="async" src="/wp-content/uploads/2013/05/simulator3-191x300.png" alt="simulator3" class="wp-image-291"/></a></figure>
 
 
 
@@ -910,10 +911,10 @@ forIndexPath:indexPath];
 		<category><![CDATA[Mobile]]></category>
 		<guid isPermaLink="false">http://blog.jstrgames.com/?p=248</guid>
 
-					<description><![CDATA[Up to previous entry, we&#8217;ve successfully connected to DZone RSS Feed and parsed its XML. Given we&#8217;re working with mobile devices that could be disconnected from the internet, we want to persist the parsed RSS XML. This is helpful as it allows our app to display the most recently downloaded content when there&#8217;s no internet connectivity. Persisting RSS Content Following prior tutorial, let&#8217;s create a group call &#8220;Util&#8221; and associate it to a specific file system folder &#8220;Util&#8221;. Then, add a new file called â€œJSTRRSSUtilâ€, a subclass of NSObject, to this group. Let&#8217;s expose a convenience method in our header&#8230;]]></description>
+					<description><![CDATA[Up to previous entry, we&#8217;ve successfully connected to DZone RSS Feed and parsed its XML. Given we&#8217;re working with mobile devices that could be disconnected from the internet, we want to persist the parsed RSS XML. This is helpful as it allows our app to display the most recently downloaded content when there&#8217;s no internet connectivity. Persisting RSS Content Following prior tutorial, let&#8217;s create a group call &#8220;Util&#8221; and associate it to a specific file system folder &#8220;Util&#8221;. Then, add a new file called JSTRRSSUtil, a subclass of NSObject, to this group. Let&#8217;s expose a convenience method in our header&#8230;]]></description>
 										<content:encoded><![CDATA[<p>Up to <a href="/2013/05/17/ios-appdev-part4">previous entry</a>, we&#8217;ve successfully connected to DZone RSS Feed and parsed its XML. Given we&#8217;re working with mobile devices that could be disconnected from the internet, we want to persist the parsed RSS XML. This is helpful as it allows our app to display the most recently downloaded content when there&#8217;s no internet connectivity.</p>
 <p><strong>Persisting RSS Content</strong></p>
-<p>Following prior tutorial, let&#8217;s create a group call &#8220;Util&#8221; and associate it to a specific file system folder &#8220;Util&#8221;. Then, add a new file called â€œJSTRRSSUtilâ€, a subclass of NSObject, to this group. Let&#8217;s expose a convenience method in our header that will retrieve the root document folder where we can save our parsed RSS content.</p>
+<p>Following prior tutorial, let&#8217;s create a group call &#8220;Util&#8221; and associate it to a specific file system folder &#8220;Util&#8221;. Then, add a new file called JSTRRSSUtil, a subclass of NSObject, to this group. Let&#8217;s expose a convenience method in our header that will retrieve the root document folder where we can save our parsed RSS content.</p>
 
 
 <pre class="wp-block-code"><code>#import &lt;Foundation/Foundation.h>
@@ -973,7 +974,7 @@ forIndexPath:indexPath];
 
 
 
-<figure class="wp-block-image"><a href="/wp-content/uploads/2013/05/console3.png"><img src="/wp-content/uploads/2013/05/console3-300x195.png" alt="console3" class="wp-image-250"/></a></figure>
+<figure class="wp-block-image"><a href="/wp-content/uploads/2013/05/console3.png"><img decoding="async" src="/wp-content/uploads/2013/05/console3-300x195.png" alt="console3" class="wp-image-250"/></a></figure>
 
 
 
@@ -1058,7 +1059,7 @@ forIndexPath:indexPath];
 
 
 
-<div class="wp-block-image"><figure class="alignright"><a href="/wp-content/uploads/2013/05/xmlgroup.png"><img src="/wp-content/uploads/2013/05/xmlgroup-150x150.png" alt="xmlgroup" class="wp-image-221"/></a></figure></div>
+<div class="wp-block-image"><figure class="alignright"><a href="/wp-content/uploads/2013/05/xmlgroup.png"><img decoding="async" src="/wp-content/uploads/2013/05/xmlgroup-150x150.png" alt="xmlgroup" class="wp-image-221"/></a></figure></div>
 
 
 
@@ -1122,11 +1123,11 @@ forIndexPath:indexPath];
 
 
 
-<p>Tip:Â Add pragma to logically group methods together. It&#8217;s a good practice to organize your methods. I personally </p>
+<p>Tip: Add pragma to logically group methods together. It&#8217;s a good practice to organize your methods. I personally </p>
 
 
 
-<div class="wp-block-image"><figure class="alignright"><a href="/wp-content/uploads/2013/05/xmlparser.png"><img src="/wp-content/uploads/2013/05/xmlparser-150x150.png" alt="xmlparser" class="wp-image-223"/></a></figure></div>
+<div class="wp-block-image"><figure class="alignright"><a href="/wp-content/uploads/2013/05/xmlparser.png"><img decoding="async" src="/wp-content/uploads/2013/05/xmlparser-150x150.png" alt="xmlparser" class="wp-image-223"/></a></figure></div>
 
 
 
@@ -1282,7 +1283,7 @@ forIndexPath:indexPath];
 
 
 
-<figure class="wp-block-image"><a href="/wp-content/uploads/2013/05/console2.png"><img src="/wp-content/uploads/2013/05/console2-300x167.png" alt="console2" class="wp-image-238"/></a></figure>
+<figure class="wp-block-image"><a href="/wp-content/uploads/2013/05/console2.png"><img decoding="async" src="/wp-content/uploads/2013/05/console2-300x167.png" alt="console2" class="wp-image-238"/></a></figure>
 
 
 
@@ -1304,11 +1305,11 @@ forIndexPath:indexPath];
 		<category><![CDATA[Mobile]]></category>
 		<guid isPermaLink="false">http://blog.jstrgames.com/?p=181</guid>
 
-					<description><![CDATA[Now that we have our idea and our visual mock ups,Â letâ€™s start coding. I will be using Xcode 4.6.2, it is the latest at the time of this writing If you have never developed in Objective-C but did some other coding in C++ or CÂ for example it should be pretty simple to catch up. I personally haven&#8217;t touchedÂ C or C++ since college, someÂ 15 years ago.Â Even with knowledge ofÂ Java and C#, I was ableÂ to pick upÂ Objective-C. IÂ highly recommend readingÂ iOS Programming: The Big Nerd Ranch GuideÂ as well. Create a blank project Open Xcode from your dock. If it&#8217;s not on your dock,&#8230;]]></description>
-										<content:encoded><![CDATA[<p>Now that we have our idea and our visual mock ups,Â letâ€<img src="https://s.w.org/images/core/emoji/13.1.0/72x72/2122.png" alt="™" class="wp-smiley" style="height: 1em; max-height: 1em;" />s start coding. I will be using Xcode 4.6.2, it is the latest at the time of this writing</p>
-<p>If you have never developed in Objective-C but did some other coding in C++ or CÂ for example it should be pretty simple to catch up. I personally haven&#8217;t touchedÂ C or C++ since college, someÂ 15 years ago.Â Even with knowledge ofÂ Java and C#, I was ableÂ to pick upÂ Objective-C. IÂ highly recommend readingÂ <a href="http://www.amazon.com/iOS-Programming-Ranch-Guide-Guides/dp/0321821521/ref=sr_1_4?s=books&amp;ie=UTF8&amp;qid=1368629049&amp;sr=1-4&amp;keywords=objective-c">iOS Programming: The Big Nerd Ranch Guide</a>Â as well.</p>
+					<description><![CDATA[Now that we have our idea and our visual mock ups, let&#8217;s start coding. I will be using Xcode 4.6.2, it is the latest at the time of this writing If you have never developed in Objective-C but did some other coding in C++ or C for example it should be pretty simple to catch up. I personally haven&#8217;t touched C or C++ since college, some 15 years ago. Even with knowledge of Java and C#, I was ableÂ to pick up Objective-C. I highly recommend reading iOS Programming: The Big Nerd Ranch GuideÂ as well. Create a blank project Open Xcode from your dock. If it&#8217;s not on your dock,&#8230;]]></description>
+										<content:encoded><![CDATA[<p>Now that we have our idea and our visual mock ups, let&#8217;s start coding. I will be using Xcode 4.6.2, it is the latest at the time of this writing</p>
+<p>If you have never developed in Objective-C but did some other coding in C++ or C for example it should be pretty simple to catch up. I personally haven&#8217;t touched C or C++ since college, some 15 years ago. Even with knowledge of Java and C#, I was ableÂ to pick up Objective-C. I highly recommend reading <a href="http://www.amazon.com/iOS-Programming-Ranch-Guide-Guides/dp/0321821521/ref=sr_1_4?s=books&amp;ie=UTF8&amp;qid=1368629049&amp;sr=1-4&amp;keywords=objective-c">iOS Programming: The Big Nerd Ranch Guide</a>Â as well.</p>
 <p><strong>Create a blank project</strong></p>
-<p><a href="/wp-content/uploads/2013/05/newproject1.png"><img loading="lazy" class="alignright size-thumbnail wp-image-190" src="/wp-content/uploads/2013/05/newproject1-150x150.png" alt="newproject1" width="150" height="150" /></a>Open Xcode from your dock. If it&#8217;s not on your dock, you can open it from Applications.Â Select &#8220;Create a new Xcode project&#8221; from the Welcome to Xcode screen. Choose &#8220;Empty Application&#8221; from &#8220;Choose a template for your new project&#8221; dialog. Fill out the options for your project.</p>
+<p><a href="/wp-content/uploads/2013/05/newproject1.png"><img loading="lazy" decoding="async" class="alignright size-thumbnail wp-image-190" src="/wp-content/uploads/2013/05/newproject1-150x150.png" alt="newproject1" width="150" height="150" /></a>Open Xcode from your dock. If it&#8217;s not on your dock, you can open it from Applications.Â Select &#8220;Create a new Xcode project&#8221; from the Welcome to Xcode screen. Choose &#8220;Empty Application&#8221; from &#8220;Choose a template for your new project&#8221; dialog. Fill out the options for your project.</p>
 <ul>
 <li>Product Name: DZone RSS</li>
 <li>Organization Name: &lt;&lt;enter your organization&gt;&gt;</li>
@@ -1332,7 +1333,7 @@ forIndexPath:indexPath];
 
 
 
-<p>The default pricipalClassName (3rd parameter) is UIApplication. When nil is passed, the default pricipalClassName will be used. UIApplication can be subclassed if custom UIApplication is used. The 4th parameter is the app delegate class. In our case, it&#8217;s JSTRAppDelegate. If you look at the JSTRAppDelegate.h, you&#8217;ll notice that itÂ implements the UIApplicationDelegate protocol. All methods in UIApplicationDelegate are optional. UIApplication sends messages to delegate concerning App Launch/Termination, memory warnings, changes in orientation, and becoming the active application. As I don&#8217;t like having empty methods, I tend to remove all but the <strong>application:didFinishLaunchingWithOptions</strong> method until I&#8217;m ready to implement them.</p>
+<p>The default pricipalClassName (3rd parameter) is UIApplication. When nil is passed, the default pricipalClassName will be used. UIApplication can be subclassed if custom UIApplication is used. The 4th parameter is the app delegate class. In our case, it&#8217;s JSTRAppDelegate. If you look at the JSTRAppDelegate.h, you&#8217;ll notice that it implements the UIApplicationDelegate protocol. All methods in UIApplicationDelegate are optional. UIApplication sends messages to delegate concerning App Launch/Termination, memory warnings, changes in orientation, and becoming the active application. As I don&#8217;t like having empty methods, I tend to remove all but the <strong>application:didFinishLaunchingWithOptions</strong> method until I&#8217;m ready to implement them.</p>
 
 
 
@@ -1352,9 +1353,8 @@ return YES;
 <p>Click run on top left and the iPhone Simulator will launch will bring you to a yellow screen. Congrats! If you&#8217;ve never</p>
 
 
-
-<div class="wp-block-image"><figure class="alignright"><a href="/wp-content/uploads/2013/05/simulator1.png"><img src="/wp-content/uploads/2013/05/simulator1-150x150.png" alt="simulator1" class="wp-image-201"/></a></figure></div>
-
+<div class="wp-block-image">
+<figure class="alignright"><a href="/wp-content/uploads/2013/05/simulator1.png"><img decoding="async" src="/wp-content/uploads/2013/05/simulator1-150x150.png" alt="simulator1" class="wp-image-201"/></a></figure></div>
 
 
 <p> created an iPhone app before, you&#8217;ve successfully written and launched your first app, a yellow flashlight. If you have any plans to launch this application, don&#8217;t bother. The very first flashlight application and mirror was exactly this with white and black background respectively. Since then, Apple has banned these types of applications.</p>
@@ -1368,13 +1368,11 @@ return YES;
 <p>Although Objective-C has no concept of C# namespace or Java package, Xcode does have a concept of groups. This is particularly helpful in organizing your code base. However, creating a group does not create an associated folder for that group. If you do not bind you group to a particular folder, all your code will reside at the root of your project in the file system. If you want to keep you file system consistent with your Xcode groups, You may want to bind your group to a specific folder. This way, when a file is added, it will add the new file to the linked folder.</p>
 
 
+<div class="wp-block-image">
+<figure class="alignleft"><a href="/wp-content/uploads/2013/05/newgroup1.png"><img decoding="async" src="/wp-content/uploads/2013/05/newgroup1-150x150.png" alt="newgroup1" class="wp-image-187"/></a></figure></div>
 
-<div class="wp-block-image"><figure class="alignleft"><a href="/wp-content/uploads/2013/05/newgroup1.png"><img src="/wp-content/uploads/2013/05/newgroup1-150x150.png" alt="newgroup1" class="wp-image-187"/></a></figure></div>
-
-
-
-<div class="wp-block-image"><figure class="alignright"><a href="/wp-content/uploads/2013/05/newgroup2.png"><img src="/wp-content/uploads/2013/05/newgroup2-150x150.png" alt="newgroup2" class="wp-image-188"/></a></figure></div>
-
+<div class="wp-block-image">
+<figure class="alignright"><a href="/wp-content/uploads/2013/05/newgroup2.png"><img decoding="async" src="/wp-content/uploads/2013/05/newgroup2-150x150.png" alt="newgroup2" class="wp-image-188"/></a></figure></div>
 
 
 <p>To create a new&nbsp;group under DZone RSS, hold the control key and click on &#8220;DZone RSS&#8221; group. On the context menu, select &#8220;New Group&#8221; and specify the name &#8220;Net&#8221;. Select this new group &#8220;Net&#8221;. On the right side of Xcode, under Identity section, click the white square next to grayed out word &#8220;None&#8221;&nbsp;(see screenshot). This will open up a dialog where you can create a corresponding folder for your group. Create a new folder called &#8220;Net&#8221; to match your group name then click &#8220;Choose&#8221;. Now, any new file added to&nbsp;this group will reside in the &#8220;Net&#8221; folder in the file system. We&#8217;re now ready to create a new class to interact with DZone RSS URL.</p>
@@ -1393,7 +1391,7 @@ return YES;
 
 
 
-<pre class="wp-block-code"><code>@interface JSTRRSSReader : NSObject &lt;NSURLConnectionDataDelegate>
+<pre class="wp-block-code"><code>@interface JSTRRSSReader : NSObject &lt;NSURLConnectionDataDelegate&gt;
 {
 NSMutableData *_receivedData;
 }
@@ -1483,7 +1481,7 @@ NSMutableData *_receivedData;
 
 
 
-<figure class="wp-block-image"><a href="/wp-content/uploads/2013/05/console.png"><img src="/wp-content/uploads/2013/05/console-300x180.png" alt="console" class="wp-image-211"/></a></figure>
+<figure class="wp-block-image"><a href="/wp-content/uploads/2013/05/console.png"><img decoding="async" src="/wp-content/uploads/2013/05/console-300x180.png" alt="console" class="wp-image-211"/></a></figure>
 ]]></content:encoded>
 					
 		
@@ -1501,12 +1499,12 @@ NSMutableData *_receivedData;
 		<category><![CDATA[Mobile]]></category>
 		<guid isPermaLink="false">http://blog.jstrgames.com/?p=169</guid>
 
-					<description><![CDATA[Now thatÂ IÂ have my iPhone AppÂ idea, I like to draft out on a piece ofÂ paper what my app will look visually. If you&#8217;re not a fan of drawing or can&#8217;t draw, here&#8217;s a simple online tool to help visualize your iPhone app. Looking at the content of the RSS feed from DZone, I want my application to look as follows. Don&#8217;t worry about getting every details right the first time. Trust me, it&#8217;ll evolve over time. Given the above, I know that I will need a tab bar to switch screens from Feature Links and Latest Links. I also want to&#8230;]]></description>
-										<content:encoded><![CDATA[<p>Now thatÂ IÂ have my iPhone AppÂ idea, I like to draft out on a piece ofÂ paper what my app will look visually. If you&#8217;re not a fan of drawing or can&#8217;t draw, here&#8217;s a <a href="http://iphonemockup.lkmc.ch/">simple online tool</a> to help visualize your iPhone app. Looking at the content of the <a href="http://feeds.dzone.com/dzone/frontpage?format=xml">RSS feed</a> from DZone, I want my application to look as follows. Don&#8217;t worry about getting every details right the first time. Trust me, it&#8217;ll evolve over time.</p>
-<p><a href="/wp-content/uploads/2013/05/basicmockup.png"><img loading="lazy" class="alignnone size-full wp-image-171" alt="basicmockup" src="/wp-content/uploads/2013/05/basicmockup.png" width="165" height="260" /></a></p>
-<p>Given the above, I know that I will need a tab bar to switch screens from Feature Links and Latest Links. I also want to use theÂ navigation bar to push down another view controller to display site within my app. This will mean my root view controller should be the navigation bar with the tab bar pushed into it. Then, view controller will be pushedÂ to display the list of articles (see below image).</p>
-<p><a href="/wp-content/uploads/2013/05/mockup.png"><img loading="lazy" class="alignnone size-full wp-image-170" alt="mockup" src="/wp-content/uploads/2013/05/mockup.png" width="160" height="215" /></a></p>
-<p>Once user clicks on the article, it would then push downÂ yet anotherÂ view controller for in-app browsing. Since we&#8217;re using the navigation controller, it will automaticallyÂ provide us with a back button on the in-app browsing to pop back to the article listing. For more information regarding UINavigationController, please check out <a href="http://developer.apple.com/library/IOS/#documentation/UIKit/Reference/UINavigationController_Class/Reference/Reference.html">iOS Developer library</a>. In my next tutorial, I&#8217;ll walk you through creating your first app that will interact with the DZone RSS service.</p>
+					<description><![CDATA[Now that I have my iPhone App idea, I like to draft out on a piece of paper what my app will look visually. If you&#8217;re not a fan of drawing or can&#8217;t draw, here&#8217;s a simple online tool to help visualize your iPhone app. Looking at the content of the RSS feed from DZone, I want my application to look as follows. Don&#8217;t worry about getting every details right the first time. Trust me, it&#8217;ll evolve over time. Given the above, I know that I will need a tab bar to switch screens from Feature Links and Latest Links. I also want to&#8230;]]></description>
+										<content:encoded><![CDATA[<p>Now that I have my iPhone App idea, I like to draft out on a piece of paper what my app will look visually. If you&#8217;re not a fan of drawing or can&#8217;t draw, here&#8217;s a <a href="http://iphonemockup.lkmc.ch/">simple online tool</a> to help visualize your iPhone app. Looking at the content of the <a href="http://feeds.dzone.com/dzone/frontpage?format=xml">RSS feed</a> from DZone, I want my application to look as follows. Don&#8217;t worry about getting every details right the first time. Trust me, it&#8217;ll evolve over time.</p>
+<p><a href="/wp-content/uploads/2013/05/basicmockup.png"><img loading="lazy" decoding="async" class="alignnone size-full wp-image-171" alt="basicmockup" src="/wp-content/uploads/2013/05/basicmockup.png" width="165" height="260" /></a></p>
+<p>Given the above, I know that I will need a tab bar to switch screens from Feature Links and Latest Links. I also want to use the navigation bar to push down another view controller to display site within my app. This will mean my root view controller should be the navigation bar with the tab bar pushed into it. Then, view controller will be pushed to display the list of articles (see below image).</p>
+<p><a href="/wp-content/uploads/2013/05/mockup.png"><img loading="lazy" decoding="async" class="alignnone size-full wp-image-170" alt="mockup" src="/wp-content/uploads/2013/05/mockup.png" width="160" height="215" /></a></p>
+<p>Once user clicks on the article, it would then push down yet another view controller for in-app browsing. Since we&#8217;re using the navigation controller, it will automatically provide us with a back button on the in-app browsing to pop back to the article listing. For more information regarding UINavigationController, please check out <a href="http://developer.apple.com/library/IOS/#documentation/UIKit/Reference/UINavigationController_Class/Reference/Reference.html">iOS Developer library</a>. In my next tutorial, I&#8217;ll walk you through creating your first app that will interact with the DZone RSS service.</p>
 ]]></content:encoded>
 					
 		
