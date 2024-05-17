@@ -18,7 +18,7 @@
 	hourly	</sy:updatePeriod>
 	<sy:updateFrequency>
 	1	</sy:updateFrequency>
-	<generator>https://wordpress.org/?v=6.5.2</generator>
+	<generator>https://wordpress.org/?v=6.5.3</generator>
 	<item>
 		<title>Design Pattern: Chain of Responsibility</title>
 		<link>/2014/05/06/design-pattern-chain-of-responsibility/</link>

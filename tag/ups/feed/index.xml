@@ -1,0 +1,261 @@
+<?xml version="1.0" encoding="UTF-8"?><rss version="2.0"
+	xmlns:content="http://purl.org/rss/1.0/modules/content/"
+	xmlns:wfw="http://wellformedweb.org/CommentAPI/"
+	xmlns:dc="http://purl.org/dc/elements/1.1/"
+	xmlns:atom="http://www.w3.org/2005/Atom"
+	xmlns:sy="http://purl.org/rss/1.0/modules/syndication/"
+	xmlns:slash="http://purl.org/rss/1.0/modules/slash/"
+	>
+
+<channel>
+	<title>UPS &#8211; J O H N R A . M E</title>
+	<atom:link href="/tag/ups/feed/" rel="self" type="application/rss+xml" />
+	<link>/</link>
+	<description>...yet another musings of a techie</description>
+	<lastBuildDate>Thu, 16 May 2024 00:58:49 +0000</lastBuildDate>
+	<language>en-US</language>
+	<sy:updatePeriod>
+	hourly	</sy:updatePeriod>
+	<sy:updateFrequency>
+	1	</sy:updateFrequency>
+	<generator>https://wordpress.org/?v=6.5.3</generator>
+	<item>
+		<title>Synology + UPS as NUT Primary</title>
+		<link>/2024/05/16/synology-ups-as-nut-primary/</link>
+		
+		<dc:creator><![CDATA[John Ra]]></dc:creator>
+		<pubDate>Thu, 16 May 2024 00:39:58 +0000</pubDate>
+				<category><![CDATA[Tutorial]]></category>
+		<category><![CDATA[NUT]]></category>
+		<category><![CDATA[Synology]]></category>
+		<category><![CDATA[UPS]]></category>
+		<guid isPermaLink="false">/?p=632</guid>
+
+					<description><![CDATA[I recently purchased a CyberPower CST135XLU Uninterruptible Power Supply (UPS) for my linux server, Orbi Wifi Router, and Synology NAS. However, I only need my Orbi running on UPS in the event of a power outage; the others don&#8217;t need to be running. With my Fios on a dedicated UPS and Orbi on this new UPS, I will be able to stay on line while I wait for the power to be restored. This means I need to setup Network UPS Tools (NUT) so that I can gracefully shutdown my Synology NAS and linux server &#8211; giving my Orbi extended&#8230;]]></description>
+										<content:encoded><![CDATA[
+<p>I recently purchased a CyberPower CST135XLU Uninterruptible Power Supply (UPS) for my linux server, Orbi Wifi Router, and  Synology NAS. However, I only need my Orbi running on UPS in the event of a power outage; the others don&#8217;t need to be running. With my Fios on a dedicated UPS and Orbi on this new UPS, I will be able to stay on line while I wait for the power to be restored. This means I need to setup Network UPS Tools (NUT) so that I can gracefully shutdown my Synology NAS and linux server &#8211; giving my Orbi extended uptime on UPS battery mode. </p>
+
+
+
+<h3 class="wp-block-heading">Options</h3>
+
+
+
+<p>I can either attach the UPS to my linux server with NUT as primary then setup Synology NAS as secondary. Or, reverse it with Synology NAS as primary with linux as secondary. There are many other factors but, ultimately, primary has to stay up longer than secondary to avoid unexpected behavior caused by loss of communication to primary. Additionally, given that my linux server consumes more raw power than my Synology, it was an obvious decision to make Synology my primary.</p>
+
+
+
+<h3 class="wp-block-heading">Synology UPS Setup</h3>
+
+
+
+<p>To setup local UPS support, connect the UPS device to a USB port of the Synology NAS. Login to your DSM and navigate to &#8220;Control Panel&#8221; then click &#8220;Hardware &amp; Power&#8221;. Under the UPS tab, &#8220;Enable UPS support&#8221; and select &#8220;USB UPS&#8221;. In my case, I want to gracefully shutdown after 5 minutes &#8211; not have it running &#8220;Until low battery&#8221;</p>
+
+
+
+<figure class="wp-block-image size-full"><img fetchpriority="high" decoding="async" width="585" height="463" src="/wp-content/uploads/2024/05/image.png" alt="" class="wp-image-635" srcset="/wp-content/uploads/2024/05/image.png 585w, /wp-content/uploads/2024/05/image-300x237.png 300w" sizes="(max-width: 585px) 100vw, 585px" /></figure>
+
+
+
+<p>Tick &#8220;Enable network UPS server&#8221; to allow NUT client to connect to this service as secondary. Click &#8220;Permitted DiskStation Devices&#8221; and enter the client IP address &#8211; in my case, this would be my linux server&#8217;s fixed IP address.</p>
+
+
+
+<figure class="wp-block-image size-full"><img decoding="async" width="530" height="270" src="/wp-content/uploads/2024/05/image-1.png" alt="" class="wp-image-636" srcset="/wp-content/uploads/2024/05/image-1.png 530w, /wp-content/uploads/2024/05/image-1-300x153.png 300w" sizes="(max-width: 530px) 100vw, 530px" /></figure>
+
+
+
+<p>Click &#8220;OK&#8221; then click &#8220;Apply&#8221;. You now have NUT service running on Synology as primary. </p>
+
+
+
+<h4 class="wp-block-heading">Extract Required NUT client details</h4>
+
+
+
+<p>To access required data to properly configure NUT client, you must login to DSM via terminal over SSH. From DSM, go to &#8220;Control Panel&#8221; and click &#8220;Terminal &amp; SNMP&#8221;. Under &#8220;Terminal&#8221; tab, tick &#8220;Enable SSH service&#8221;. </p>
+
+
+
+<p>SSH into DSM as user with administrative role. Once logged in, run <code>sudo tail /etc/ups/upsd.users</code> command. Look for the line <code>password = &lt;password&gt;</code>, note this password down. Prior to the password line, note down the username defined within square brackets ([monuser]). Then, run <code>sudo tail /etc/ups/ups.conf</code>. The name within square braces is the UPS name. See green outline in screenshot</p>
+
+
+
+<figure class="wp-block-image size-full"><img decoding="async" width="979" height="631" src="/wp-content/uploads/2024/05/console.png" alt="" class="wp-image-641" srcset="/wp-content/uploads/2024/05/console.png 979w, /wp-content/uploads/2024/05/console-300x193.png 300w, /wp-content/uploads/2024/05/console-768x495.png 768w" sizes="(max-width: 979px) 100vw, 979px" /></figure>
+
+
+
+<p></p>
+
+
+
+<h3 class="wp-block-heading">Linux Server Setup as NUT client</h3>
+
+
+
+<h4 class="wp-block-heading">Pre-requisite</h4>
+
+
+
+<p>First install Network UPS Tools &#8211; if not already installed</p>
+
+
+
+<pre class="wp-block-code"><code>$ sudo apt update
+$ sudo apt install nut</code></pre>
+
+
+
+<h4 class="wp-block-heading">Setup NUT Monitor</h4>
+
+
+
+<p>First, configure NUT as netclient by editing <code>/var/nut/nut.conf</code>. Look for MODE and change it to netclient</p>
+
+
+
+<pre class="wp-block-code"><code>MODE=netclient</code></pre>
+
+
+
+<p>Then, edit <code>/etc/nut/upsmon.conf</code>  to add MONITOR line with the name capture from ups.conf along with the monitor user (e.g. monuser) and password from upsd.user from above Synology section. </p>
+
+
+
+<pre class="wp-block-code"><code>MONITOR &lt;name from ups.conf on synology&gt;@&lt;ip address of your synology&gt; 1 &lt;monitor user from above&gt; &lt;password from above&gt; slave</code></pre>
+
+
+
+<p>Then setup NOTIFYFLAG. If NOTIFYFLAG are commented out, please add the follow. Otherwise, edit them according. </p>
+
+
+
+<pre class="wp-block-code"><code>NOTIFYFLAG ONLINE     SYSLOG+EXEC
+NOTIFYFLAG ONBATT     SYSLOG+EXEC
+NOTIFYFLAG LOWBATT    SYSLOG+EXEC
+NOTIFYFLAG FSD        SYSLOG+WALL+EXEC
+NOTIFYFLAG COMMOK     SYSLOG+EXEC
+NOTIFYFLAG COMMBAD    SYSLOG+EXEC
+NOTIFYFLAG SHUTDOWN   SYSLOG+WALL+EXEC
+NOTIFYFLAG REPLBATT   SYSLOG+WALL+EXEC
+NOTIFYFLAG NOCOMM     SYSLOG+WALL+EXEC
+NOTIFYFLAG NOPARENT   SYSLOG+WALL+EXEC</code></pre>
+
+
+
+<p>The SYSLOG will trigger logging. WALL will send message to all terminal sessions. The EXEC command will trigger script defined by NOTIFYCMD. This will be further discussed in next section. </p>
+
+
+
+<pre class="wp-block-code"><code>NOTIFYCMD /usr/sbin/upssched</code></pre>
+
+
+
+<p>This will enable NUT to monitor your UPS status on Synology and notify and/or execute action</p>
+
+
+
+<h4 class="wp-block-heading">Setup NUT Schedule</h4>
+
+
+
+<p>When UPS notification occurs, NOTIFYFLAG is used to perform actions for a given notification type. For example, when UPS moves to battery mode, ONBATT will be triggered. In the above case,  It will perform SYSLOG which will log to <code>/var/log/syslog</code> and EXEC will trigger the script defined by NOTIFYCMD. When power is restored to UPS, ONLINE will be trigger. </p>
+
+
+
+<p>Edit <code>/etc/nut/upssched.conf</code> uncomment the following line. This sets the file name of the First In First Out (FIFO) between processes to start and stop timer.</p>
+
+
+
+<pre class="wp-block-code"><code>PIPEFN /run/nut/upssched/upssched.pipe</code></pre>
+
+
+
+<p>Then uncomment the following line. This will prevent race condition.</p>
+
+
+
+<pre class="wp-block-code"><code>LOCKFN /run/nut/upssched/upssched.lock</code></pre>
+
+
+
+<p>Add the following commands</p>
+
+
+
+<pre class="wp-block-code"><code>AT ONLINE * EXECUTE online
+AT ONBATT * EXECUTE onbatt</code></pre>
+
+
+
+<p>Search for CMDSCRIPT and edit the file referenced (e.g. <code>/bin/upssched-cmd</code>). Replace with following:</p>
+
+
+
+<pre class="wp-block-code"><code>#! /bin/sh
+#
+# This script should be called by upssched via the CMDSCRIPT directive.
+#
+# Here is a quick example to show how to handle a bunch of possible
+# timer names with the help of the case structure.
+#
+# This script may be replaced with another program without harm.
+#
+# The first argument passed to your CMDSCRIPT is the name of the timer
+# from your AT lines.
+
+UPS="&lt;name from ups.conf on synology&gt;@&lt;ip address of your synology&gt;"
+
+STATUS=$( upsc $UPS ups.status )
+CHARGE=$( upsc $UPS battery.charge )
+CHMSG="&#091;$STATUS]:$CHARGE%"
+
+case $1 in
+        online)
+                MSG="$UPS, $CHMSG - power supply has been restored."
+                /sbin/shutdown -c
+                ;;
+        onbatt)
+                MSG="$UPS, $CHMSG - power failure - save your work!"
+                /sbin/shutdown -h +2
+                ;;
+        lowbatt)
+                MSG="$UPS, $CHMSG - shutdown now!"
+                /sbin/shutdown -h now
+                ;;
+        upsgone) MSG="The UPS $UPS has been gone for awhile" ;;
+        *) MSG="$UPS, $CHMSG - Unrecognized command: $1" ;;
+esac
+logger -i -t upssched-cmd $MSG</code></pre>
+
+
+
+<p>In above example, when NOTIFYFLAG ONBATT occurs, it will execute <code>/usr/sbin/upssched</code> defined by NOTIFYCMD. This will trigger <code>AT ONLINE * EXECUTE online</code> which will call <code>/bin/upssched-cmd</code> defined by CMDSCRIPT. In <code>/bin/upssched-cmd</code> onbatt case will result execute shutdown in 2 minutes (see <code>/sbin/shutdown -h +2</code>). However, when power is restored, the online trigger will cancel the shutdown (see <code>/sbin/shutdown -c</code>).</p>
+
+
+
+<h4 class="wp-block-heading">Restart NUT Monitor</h4>
+
+
+
+<p>Reload NUT monitor with the latest changes by executing following commands</p>
+
+
+
+<pre class="wp-block-code"><code>$ sudo service nut-monitor stop
+$ sudo service nut-monitor start</code></pre>
+
+
+
+<p>To test, unplug your battery from power source to trigger ONBATT notification then plug it back in. If everything is setup correctly, you should see in the <code>/var/log/syslog</code> similar to below. </p>
+
+
+
+<figure class="wp-block-image size-large"><img loading="lazy" decoding="async" width="1024" height="186" src="/wp-content/uploads/2024/05/console-1-1024x186.png" alt="" class="wp-image-646" srcset="/wp-content/uploads/2024/05/console-1-1024x186.png 1024w, /wp-content/uploads/2024/05/console-1-300x55.png 300w, /wp-content/uploads/2024/05/console-1-768x140.png 768w, /wp-content/uploads/2024/05/console-1.png 1056w" sizes="(max-width: 1024px) 100vw, 1024px" /></figure>
+]]></content:encoded>
+					
+		
+		
+			</item>
+	</channel>
+</rss>

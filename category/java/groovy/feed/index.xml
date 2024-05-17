@@ -18,7 +18,7 @@
 	hourly	</sy:updatePeriod>
 	<sy:updateFrequency>
 	1	</sy:updateFrequency>
-	<generator>https://wordpress.org/?v=6.5.2</generator>
+	<generator>https://wordpress.org/?v=6.5.3</generator>
 	<item>
 		<title>Gradle Plug-in: WSDL to Java Code Generation</title>
 		<link>/2014/03/08/gradle-plug-in-wsdl-to-java-code-generation/</link>
