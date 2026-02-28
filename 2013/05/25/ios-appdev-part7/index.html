@@ -1,22 +1,23 @@
 <!DOCTYPE html>
 <html lang="en-US">
 <head>
-	<title>iOS App Development Tutorial Part VII: In-App Web Browsing &#8211; J O H N R A . M E</title>
+	<title>iOS App Development Tutorial Part VII: In-App Web Browsing &ndash; J O H N R A . M E</title>
 <meta name="robots" content="max-image-preview:large">
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
-<meta name="template" content="Ignite 1.82">
+<meta name="template" content="Ignite 1.84">
 <link rel="dns-prefetch" href="//fonts.googleapis.com">
 <link rel="alternate" type="application/rss+xml" title="J O H N R A . M E &raquo; Feed" href="/feed/">
 <link rel="alternate" type="application/rss+xml" title="J O H N R A . M E &raquo; Comments Feed" href="/comments/feed/">
-<script type="text/javascript">
-/* <![CDATA[ */
-window._wpemojiSettings = {"baseUrl":"https:\/\/s.w.org\/images\/core\/emoji\/15.0.3\/72x72\/","ext":".png","svgUrl":"https:\/\/s.w.org\/images\/core\/emoji\/15.0.3\/svg\/","svgExt":".svg","source":{"concatemoji":"\/wp-includes\/js\/wp-emoji-release.min.js?ver=6.5.3"}};
-/*! This file is auto-generated */
-!function(i,n){var o,s,e;function c(e){try{var t={supportTests:e,timestamp:(new Date).valueOf()};sessionStorage.setItem(o,JSON.stringify(t))}catch(e){}}function p(e,t,n){e.clearRect(0,0,e.canvas.width,e.canvas.height),e.fillText(t,0,0);var t=new Uint32Array(e.getImageData(0,0,e.canvas.width,e.canvas.height).data),r=(e.clearRect(0,0,e.canvas.width,e.canvas.height),e.fillText(n,0,0),new Uint32Array(e.getImageData(0,0,e.canvas.width,e.canvas.height).data));return t.every(function(e,t){return e===r[t]})}function u(e,t,n){switch(t){case"flag":return n(e,"🏳️‍⚧️","🏳️​⚧️")?!1:!n(e,"🇺🇳","🇺​🇳")&&!n(e,"🏴󠁧󠁢󠁥󠁮󠁧󠁿","🏴​󠁧​󠁢​󠁥​󠁮​󠁧​󠁿");case"emoji":return!n(e,"🐦‍⬛","🐦​⬛")}return!1}function f(e,t,n){var r="undefined"!=typeof WorkerGlobalScope&&self instanceof WorkerGlobalScope?new OffscreenCanvas(300,150):i.createElement("canvas"),a=r.getContext("2d",{willReadFrequently:!0}),o=(a.textBaseline="top",a.font="600 32px Arial",{});return e.forEach(function(e){o[e]=t(a,e,n)}),o}function t(e){var t=i.createElement("script");t.src=e,t.defer=!0,i.head.appendChild(t)}"undefined"!=typeof Promise&&(o="wpEmojiSettingsSupports",s=["flag","emoji"],n.supports={everything:!0,everythingExceptFlag:!0},e=new Promise(function(e){i.addEventListener("DOMContentLoaded",e,{once:!0})}),new Promise(function(t){var n=function(){try{var e=JSON.parse(sessionStorage.getItem(o));if("object"==typeof e&&"number"==typeof e.timestamp&&(new Date).valueOf()<e.timestamp+604800&&"object"==typeof e.supportTests)return e.supportTests}catch(e){}return null}();if(!n){if("undefined"!=typeof Worker&&"undefined"!=typeof OffscreenCanvas&&"undefined"!=typeof URL&&URL.createObjectURL&&"undefined"!=typeof Blob)try{var e="postMessage("+f.toString()+"("+[JSON.stringify(s),u.toString(),p.toString()].join(",")+"));",r=new Blob([e],{type:"text/javascript"}),a=new Worker(URL.createObjectURL(r),{name:"wpTestEmojiSupports"});return void(a.onmessage=function(e){c(n=e.data),a.terminate(),t(n)})}catch(e){}c(n=f(s,u,p))}t(n)}).then(function(e){for(var t in e)n.supports[t]=e[t],n.supports.everything=n.supports.everything&&n.supports[t],"flag"!==t&&(n.supports.everythingExceptFlag=n.supports.everythingExceptFlag&&n.supports[t]);n.supports.everythingExceptFlag=n.supports.everythingExceptFlag&&!n.supports.flag,n.DOMReady=!1,n.readyCallback=function(){n.DOMReady=!0}}).then(function(){return e}).then(function(){var e;n.supports.everything||(n.readyCallback(),(e=n.source||{}).concatemoji?t(e.concatemoji):e.wpemoji&&e.twemoji&&(t(e.twemoji),t(e.wpemoji)))}))}((window,document),window._wpemojiSettings);
-/* ]]> */
-</script>
-<style id="wp-emoji-styles-inline-css" type="text/css">img.wp-smiley, img.emoji {
+<link rel="alternate" title="oEmbed (JSON)" type="application/json+oembed" href="/wp-json/oembed/1.0/embed?url=http%3A%2F%2F%2F2013%2F05%2F25%2Fios-appdev-part7%2F">
+<link rel="alternate" title="oEmbed (XML)" type="text/xml+oembed" href="/wp-json/oembed/1.0/embed?url=http%3A%2F%2F%2F2013%2F05%2F25%2Fios-appdev-part7%2F&amp;format=xml">
+<style id="wp-img-auto-sizes-contain-inline-css" type="text/css">
+img:is([sizes=auto i],[sizes^="auto," i]){contain-intrinsic-size:3000px 1500px}
+/*# sourceURL=wp-img-auto-sizes-contain-inline-css */
+</style>
+<style id="wp-emoji-styles-inline-css" type="text/css">
+
+	img.wp-smiley, img.emoji {
 		display: inline !important;
 		border: none !important;
 		box-shadow: none !important;
@@ -26,19 +27,60 @@ window._wpemojiSettings = {"baseUrl":"https:\/\/s.w.org\/images\/core\/emoji\/15
 		vertical-align: -0.1em !important;
 		background: none !important;
 		padding: 0 !important;
-	}</style>
-<link rel="stylesheet" id="wp-block-library-css" href="/wp-includes/css/dist/block-library/style.min.css?ver=6.5.3" type="text/css" media="all">
-<style id="classic-theme-styles-inline-css" type="text/css">/*! This file is auto-generated */
-.wp-block-button__link{color:#fff;background-color:#32373c;border-radius:9999px;box-shadow:none;text-decoration:none;padding:calc(.667em + 2px) calc(1.333em + 2px);font-size:1.125em}.wp-block-file__button{background:#32373c;color:#fff;text-decoration:none}</style>
-<style id="global-styles-inline-css" type="text/css">body{--wp--preset--color--black: #000000;--wp--preset--color--cyan-bluish-gray: #abb8c3;--wp--preset--color--white: #ffffff;--wp--preset--color--pale-pink: #f78da7;--wp--preset--color--vivid-red: #cf2e2e;--wp--preset--color--luminous-vivid-orange: #ff6900;--wp--preset--color--luminous-vivid-amber: #fcb900;--wp--preset--color--light-green-cyan: #7bdcb5;--wp--preset--color--vivid-green-cyan: #00d084;--wp--preset--color--pale-cyan-blue: #8ed1fc;--wp--preset--color--vivid-cyan-blue: #0693e3;--wp--preset--color--vivid-purple: #9b51e0;--wp--preset--gradient--vivid-cyan-blue-to-vivid-purple: linear-gradient(135deg,rgba(6,147,227,1) 0%,rgb(155,81,224) 100%);--wp--preset--gradient--light-green-cyan-to-vivid-green-cyan: linear-gradient(135deg,rgb(122,220,180) 0%,rgb(0,208,130) 100%);--wp--preset--gradient--luminous-vivid-amber-to-luminous-vivid-orange: linear-gradient(135deg,rgba(252,185,0,1) 0%,rgba(255,105,0,1) 100%);--wp--preset--gradient--luminous-vivid-orange-to-vivid-red: linear-gradient(135deg,rgba(255,105,0,1) 0%,rgb(207,46,46) 100%);--wp--preset--gradient--very-light-gray-to-cyan-bluish-gray: linear-gradient(135deg,rgb(238,238,238) 0%,rgb(169,184,195) 100%);--wp--preset--gradient--cool-to-warm-spectrum: linear-gradient(135deg,rgb(74,234,220) 0%,rgb(151,120,209) 20%,rgb(207,42,186) 40%,rgb(238,44,130) 60%,rgb(251,105,98) 80%,rgb(254,248,76) 100%);--wp--preset--gradient--blush-light-purple: linear-gradient(135deg,rgb(255,206,236) 0%,rgb(152,150,240) 100%);--wp--preset--gradient--blush-bordeaux: linear-gradient(135deg,rgb(254,205,165) 0%,rgb(254,45,45) 50%,rgb(107,0,62) 100%);--wp--preset--gradient--luminous-dusk: linear-gradient(135deg,rgb(255,203,112) 0%,rgb(199,81,192) 50%,rgb(65,88,208) 100%);--wp--preset--gradient--pale-ocean: linear-gradient(135deg,rgb(255,245,203) 0%,rgb(182,227,212) 50%,rgb(51,167,181) 100%);--wp--preset--gradient--electric-grass: linear-gradient(135deg,rgb(202,248,128) 0%,rgb(113,206,126) 100%);--wp--preset--gradient--midnight: linear-gradient(135deg,rgb(2,3,129) 0%,rgb(40,116,252) 100%);--wp--preset--font-size--small: 13px;--wp--preset--font-size--medium: 20px;--wp--preset--font-size--large: 21px;--wp--preset--font-size--x-large: 42px;--wp--preset--font-size--regular: 16px;--wp--preset--font-size--larger: 36px;--wp--preset--spacing--20: 0.44rem;--wp--preset--spacing--30: 0.67rem;--wp--preset--spacing--40: 1rem;--wp--preset--spacing--50: 1.5rem;--wp--preset--spacing--60: 2.25rem;--wp--preset--spacing--70: 3.38rem;--wp--preset--spacing--80: 5.06rem;--wp--preset--shadow--natural: 6px 6px 9px rgba(0, 0, 0, 0.2);--wp--preset--shadow--deep: 12px 12px 50px rgba(0, 0, 0, 0.4);--wp--preset--shadow--sharp: 6px 6px 0px rgba(0, 0, 0, 0.2);--wp--preset--shadow--outlined: 6px 6px 0px -3px rgba(255, 255, 255, 1), 6px 6px rgba(0, 0, 0, 1);--wp--preset--shadow--crisp: 6px 6px 0px rgba(0, 0, 0, 1);}:where(.is-layout-flex){gap: 0.5em;}:where(.is-layout-grid){gap: 0.5em;}body .is-layout-flex{display: flex;}body .is-layout-flex{flex-wrap: wrap;align-items: center;}body .is-layout-flex > *{margin: 0;}body .is-layout-grid{display: grid;}body .is-layout-grid > *{margin: 0;}:where(.wp-block-columns.is-layout-flex){gap: 2em;}:where(.wp-block-columns.is-layout-grid){gap: 2em;}:where(.wp-block-post-template.is-layout-flex){gap: 1.25em;}:where(.wp-block-post-template.is-layout-grid){gap: 1.25em;}.has-black-color{color: var(--wp--preset--color--black) !important;}.has-cyan-bluish-gray-color{color: var(--wp--preset--color--cyan-bluish-gray) !important;}.has-white-color{color: var(--wp--preset--color--white) !important;}.has-pale-pink-color{color: var(--wp--preset--color--pale-pink) !important;}.has-vivid-red-color{color: var(--wp--preset--color--vivid-red) !important;}.has-luminous-vivid-orange-color{color: var(--wp--preset--color--luminous-vivid-orange) !important;}.has-luminous-vivid-amber-color{color: var(--wp--preset--color--luminous-vivid-amber) !important;}.has-light-green-cyan-color{color: var(--wp--preset--color--light-green-cyan) !important;}.has-vivid-green-cyan-color{color: var(--wp--preset--color--vivid-green-cyan) !important;}.has-pale-cyan-blue-color{color: var(--wp--preset--color--pale-cyan-blue) !important;}.has-vivid-cyan-blue-color{color: var(--wp--preset--color--vivid-cyan-blue) !important;}.has-vivid-purple-color{color: var(--wp--preset--color--vivid-purple) !important;}.has-black-background-color{background-color: var(--wp--preset--color--black) !important;}.has-cyan-bluish-gray-background-color{background-color: var(--wp--preset--color--cyan-bluish-gray) !important;}.has-white-background-color{background-color: var(--wp--preset--color--white) !important;}.has-pale-pink-background-color{background-color: var(--wp--preset--color--pale-pink) !important;}.has-vivid-red-background-color{background-color: var(--wp--preset--color--vivid-red) !important;}.has-luminous-vivid-orange-background-color{background-color: var(--wp--preset--color--luminous-vivid-orange) !important;}.has-luminous-vivid-amber-background-color{background-color: var(--wp--preset--color--luminous-vivid-amber) !important;}.has-light-green-cyan-background-color{background-color: var(--wp--preset--color--light-green-cyan) !important;}.has-vivid-green-cyan-background-color{background-color: var(--wp--preset--color--vivid-green-cyan) !important;}.has-pale-cyan-blue-background-color{background-color: var(--wp--preset--color--pale-cyan-blue) !important;}.has-vivid-cyan-blue-background-color{background-color: var(--wp--preset--color--vivid-cyan-blue) !important;}.has-vivid-purple-background-color{background-color: var(--wp--preset--color--vivid-purple) !important;}.has-black-border-color{border-color: var(--wp--preset--color--black) !important;}.has-cyan-bluish-gray-border-color{border-color: var(--wp--preset--color--cyan-bluish-gray) !important;}.has-white-border-color{border-color: var(--wp--preset--color--white) !important;}.has-pale-pink-border-color{border-color: var(--wp--preset--color--pale-pink) !important;}.has-vivid-red-border-color{border-color: var(--wp--preset--color--vivid-red) !important;}.has-luminous-vivid-orange-border-color{border-color: var(--wp--preset--color--luminous-vivid-orange) !important;}.has-luminous-vivid-amber-border-color{border-color: var(--wp--preset--color--luminous-vivid-amber) !important;}.has-light-green-cyan-border-color{border-color: var(--wp--preset--color--light-green-cyan) !important;}.has-vivid-green-cyan-border-color{border-color: var(--wp--preset--color--vivid-green-cyan) !important;}.has-pale-cyan-blue-border-color{border-color: var(--wp--preset--color--pale-cyan-blue) !important;}.has-vivid-cyan-blue-border-color{border-color: var(--wp--preset--color--vivid-cyan-blue) !important;}.has-vivid-purple-border-color{border-color: var(--wp--preset--color--vivid-purple) !important;}.has-vivid-cyan-blue-to-vivid-purple-gradient-background{background: var(--wp--preset--gradient--vivid-cyan-blue-to-vivid-purple) !important;}.has-light-green-cyan-to-vivid-green-cyan-gradient-background{background: var(--wp--preset--gradient--light-green-cyan-to-vivid-green-cyan) !important;}.has-luminous-vivid-amber-to-luminous-vivid-orange-gradient-background{background: var(--wp--preset--gradient--luminous-vivid-amber-to-luminous-vivid-orange) !important;}.has-luminous-vivid-orange-to-vivid-red-gradient-background{background: var(--wp--preset--gradient--luminous-vivid-orange-to-vivid-red) !important;}.has-very-light-gray-to-cyan-bluish-gray-gradient-background{background: var(--wp--preset--gradient--very-light-gray-to-cyan-bluish-gray) !important;}.has-cool-to-warm-spectrum-gradient-background{background: var(--wp--preset--gradient--cool-to-warm-spectrum) !important;}.has-blush-light-purple-gradient-background{background: var(--wp--preset--gradient--blush-light-purple) !important;}.has-blush-bordeaux-gradient-background{background: var(--wp--preset--gradient--blush-bordeaux) !important;}.has-luminous-dusk-gradient-background{background: var(--wp--preset--gradient--luminous-dusk) !important;}.has-pale-ocean-gradient-background{background: var(--wp--preset--gradient--pale-ocean) !important;}.has-electric-grass-gradient-background{background: var(--wp--preset--gradient--electric-grass) !important;}.has-midnight-gradient-background{background: var(--wp--preset--gradient--midnight) !important;}.has-small-font-size{font-size: var(--wp--preset--font-size--small) !important;}.has-medium-font-size{font-size: var(--wp--preset--font-size--medium) !important;}.has-large-font-size{font-size: var(--wp--preset--font-size--large) !important;}.has-x-large-font-size{font-size: var(--wp--preset--font-size--x-large) !important;}
-.wp-block-navigation a:where(:not(.wp-element-button)){color: inherit;}
-:where(.wp-block-post-template.is-layout-flex){gap: 1.25em;}:where(.wp-block-post-template.is-layout-grid){gap: 1.25em;}
-:where(.wp-block-columns.is-layout-flex){gap: 2em;}:where(.wp-block-columns.is-layout-grid){gap: 2em;}
-.wp-block-pullquote{font-size: 1.5em;line-height: 1.6;}</style>
-<link rel="stylesheet" id="ct-ignite-google-fonts-css" href="//fonts.googleapis.com/css?family=Roboto+Slab%3AThin%2CLight%2CRegular%2CBold&#038;subset=latin%2Clatin-ext&#038;ver=6.5.3" type="text/css" media="all">
-<link rel="stylesheet" id="ct-ignite-font-awesome-css" href="/wp-content/themes/ignite/assets/font-awesome/css/all.min.css?ver=6.5.3" type="text/css" media="all">
-<link rel="stylesheet" id="ct-ignite-style-css" href="/wp-content/themes/ignite/style.css?ver=6.5.3" type="text/css" media="all">
-<style id="ct-ignite-style-inline-css" type="text/css">li.linkcat {
+	}
+/*# sourceURL=wp-emoji-styles-inline-css */
+</style>
+<style id="wp-block-library-inline-css" type="text/css">
+:root{--wp-block-synced-color:#7a00df;--wp-block-synced-color--rgb:122,0,223;--wp-bound-block-color:var(--wp-block-synced-color);--wp-editor-canvas-background:#ddd;--wp-admin-theme-color:#007cba;--wp-admin-theme-color--rgb:0,124,186;--wp-admin-theme-color-darker-10:#006ba1;--wp-admin-theme-color-darker-10--rgb:0,107,160.5;--wp-admin-theme-color-darker-20:#005a87;--wp-admin-theme-color-darker-20--rgb:0,90,135;--wp-admin-border-width-focus:2px}@media (min-resolution:192dpi){:root{--wp-admin-border-width-focus:1.5px}}.wp-element-button{cursor:pointer}:root .has-very-light-gray-background-color{background-color:#eee}:root .has-very-dark-gray-background-color{background-color:#313131}:root .has-very-light-gray-color{color:#eee}:root .has-very-dark-gray-color{color:#313131}:root .has-vivid-green-cyan-to-vivid-cyan-blue-gradient-background{background:linear-gradient(135deg,#00d084,#0693e3)}:root .has-purple-crush-gradient-background{background:linear-gradient(135deg,#34e2e4,#4721fb 50%,#ab1dfe)}:root .has-hazy-dawn-gradient-background{background:linear-gradient(135deg,#faaca8,#dad0ec)}:root .has-subdued-olive-gradient-background{background:linear-gradient(135deg,#fafae1,#67a671)}:root .has-atomic-cream-gradient-background{background:linear-gradient(135deg,#fdd79a,#004a59)}:root .has-nightshade-gradient-background{background:linear-gradient(135deg,#330968,#31cdcf)}:root .has-midnight-gradient-background{background:linear-gradient(135deg,#020381,#2874fc)}:root{--wp--preset--font-size--normal:16px;--wp--preset--font-size--huge:42px}.has-regular-font-size{font-size:1em}.has-larger-font-size{font-size:2.625em}.has-normal-font-size{font-size:var(--wp--preset--font-size--normal)}.has-huge-font-size{font-size:var(--wp--preset--font-size--huge)}.has-text-align-center{text-align:center}.has-text-align-left{text-align:left}.has-text-align-right{text-align:right}.has-fit-text{white-space:nowrap!important}#end-resizable-editor-section{display:none}.aligncenter{clear:both}.items-justified-left{justify-content:flex-start}.items-justified-center{justify-content:center}.items-justified-right{justify-content:flex-end}.items-justified-space-between{justify-content:space-between}.screen-reader-text{border:0;clip-path:inset(50%);height:1px;margin:-1px;overflow:hidden;padding:0;position:absolute;width:1px;word-wrap:normal!important}.screen-reader-text:focus{background-color:#ddd;clip-path:none;color:#444;display:block;font-size:1em;height:auto;left:5px;line-height:normal;padding:15px 23px 14px;text-decoration:none;top:5px;width:auto;z-index:100000}html :where(.has-border-color){border-style:solid}html :where([style*=border-top-color]){border-top-style:solid}html :where([style*=border-right-color]){border-right-style:solid}html :where([style*=border-bottom-color]){border-bottom-style:solid}html :where([style*=border-left-color]){border-left-style:solid}html :where([style*=border-width]){border-style:solid}html :where([style*=border-top-width]){border-top-style:solid}html :where([style*=border-right-width]){border-right-style:solid}html :where([style*=border-bottom-width]){border-bottom-style:solid}html :where([style*=border-left-width]){border-left-style:solid}html :where(img[class*=wp-image-]){height:auto;max-width:100%}:where(figure){margin:0 0 1em}html :where(.is-position-sticky){--wp-admin--admin-bar--position-offset:var(--wp-admin--admin-bar--height,0px)}@media screen and (max-width:600px){html :where(.is-position-sticky){--wp-admin--admin-bar--position-offset:0px}}
+
+/*# sourceURL=wp-block-library-inline-css */
+</style>
+<style id="wp-block-categories-inline-css" type="text/css">
+.wp-block-categories{box-sizing:border-box}.wp-block-categories.alignleft{margin-right:2em}.wp-block-categories.alignright{margin-left:2em}.wp-block-categories.wp-block-categories-dropdown.aligncenter{text-align:center}.wp-block-categories .wp-block-categories__label{display:block;width:100%}
+/*# sourceURL=/wp-includes/blocks/categories/style.min.css */
+</style>
+<style id="wp-block-heading-inline-css" type="text/css">
+h1:where(.wp-block-heading).has-background,h2:where(.wp-block-heading).has-background,h3:where(.wp-block-heading).has-background,h4:where(.wp-block-heading).has-background,h5:where(.wp-block-heading).has-background,h6:where(.wp-block-heading).has-background{padding:1.25em 2.375em}h1.has-text-align-left[style*=writing-mode]:where([style*=vertical-lr]),h1.has-text-align-right[style*=writing-mode]:where([style*=vertical-rl]),h2.has-text-align-left[style*=writing-mode]:where([style*=vertical-lr]),h2.has-text-align-right[style*=writing-mode]:where([style*=vertical-rl]),h3.has-text-align-left[style*=writing-mode]:where([style*=vertical-lr]),h3.has-text-align-right[style*=writing-mode]:where([style*=vertical-rl]),h4.has-text-align-left[style*=writing-mode]:where([style*=vertical-lr]),h4.has-text-align-right[style*=writing-mode]:where([style*=vertical-rl]),h5.has-text-align-left[style*=writing-mode]:where([style*=vertical-lr]),h5.has-text-align-right[style*=writing-mode]:where([style*=vertical-rl]),h6.has-text-align-left[style*=writing-mode]:where([style*=vertical-lr]),h6.has-text-align-right[style*=writing-mode]:where([style*=vertical-rl]){rotate:180deg}
+/*# sourceURL=/wp-includes/blocks/heading/style.min.css */
+</style>
+<style id="wp-block-image-inline-css" type="text/css">
+.wp-block-image>a,.wp-block-image>figure>a{display:inline-block}.wp-block-image img{box-sizing:border-box;height:auto;max-width:100%;vertical-align:bottom}@media not (prefers-reduced-motion){.wp-block-image img.hide{visibility:hidden}.wp-block-image img.show{animation:show-content-image .4s}}.wp-block-image[style*=border-radius] img,.wp-block-image[style*=border-radius]>a{border-radius:inherit}.wp-block-image.has-custom-border img{box-sizing:border-box}.wp-block-image.aligncenter{text-align:center}.wp-block-image.alignfull>a,.wp-block-image.alignwide>a{width:100%}.wp-block-image.alignfull img,.wp-block-image.alignwide img{height:auto;width:100%}.wp-block-image .aligncenter,.wp-block-image .alignleft,.wp-block-image .alignright,.wp-block-image.aligncenter,.wp-block-image.alignleft,.wp-block-image.alignright{display:table}.wp-block-image .aligncenter>figcaption,.wp-block-image .alignleft>figcaption,.wp-block-image .alignright>figcaption,.wp-block-image.aligncenter>figcaption,.wp-block-image.alignleft>figcaption,.wp-block-image.alignright>figcaption{caption-side:bottom;display:table-caption}.wp-block-image .alignleft{float:left;margin:.5em 1em .5em 0}.wp-block-image .alignright{float:right;margin:.5em 0 .5em 1em}.wp-block-image .aligncenter{margin-left:auto;margin-right:auto}.wp-block-image :where(figcaption){margin-bottom:1em;margin-top:.5em}.wp-block-image.is-style-circle-mask img{border-radius:9999px}@supports ((-webkit-mask-image:none) or (mask-image:none)) or (-webkit-mask-image:none){.wp-block-image.is-style-circle-mask img{border-radius:0;-webkit-mask-image:url('data:image/svg+xml;utf8,<svg viewBox="0 0 100 100" xmlns="http://www.w3.org/2000/svg"><circle cx="50" cy="50" r="50"/>');mask-image:url('data:image/svg+xml;utf8,<svg viewBox="0 0 100 100" xmlns="http://www.w3.org/2000/svg"><circle cx="50" cy="50" r="50"/>');mask-mode:alpha;-webkit-mask-position:center;mask-position:center;-webkit-mask-repeat:no-repeat;mask-repeat:no-repeat;-webkit-mask-size:contain;mask-size:contain}}:root :where(.wp-block-image.is-style-rounded img,.wp-block-image .is-style-rounded img){border-radius:9999px}.wp-block-image figure{margin:0}.wp-lightbox-container{display:flex;flex-direction:column;position:relative}.wp-lightbox-container img{cursor:zoom-in}.wp-lightbox-container img:hover+button{opacity:1}.wp-lightbox-container button{align-items:center;backdrop-filter:blur(16px) saturate(180%);background-color:#5a5a5a40;border:none;border-radius:4px;cursor:zoom-in;display:flex;height:20px;justify-content:center;opacity:0;padding:0;position:absolute;right:16px;text-align:center;top:16px;width:20px;z-index:100}@media not (prefers-reduced-motion){.wp-lightbox-container button{transition:opacity .2s ease}}.wp-lightbox-container button:focus-visible{outline:3px auto #5a5a5a40;outline:3px auto -webkit-focus-ring-color;outline-offset:3px}.wp-lightbox-container button:hover{cursor:pointer;opacity:1}.wp-lightbox-container button:focus{opacity:1}.wp-lightbox-container button:focus,.wp-lightbox-container button:hover,.wp-lightbox-container button:not(:hover):not(:active):not(.has-background){background-color:#5a5a5a40;border:none}.wp-lightbox-overlay{box-sizing:border-box;cursor:zoom-out;height:100vh;left:0;overflow:hidden;position:fixed;top:0;visibility:hidden;width:100%;z-index:100000}.wp-lightbox-overlay .close-button{align-items:center;cursor:pointer;display:flex;justify-content:center;min-height:40px;min-width:40px;padding:0;position:absolute;right:calc(env(safe-area-inset-right) + 16px);top:calc(env(safe-area-inset-top) + 16px);z-index:5000000}.wp-lightbox-overlay .close-button:focus,.wp-lightbox-overlay .close-button:hover,.wp-lightbox-overlay .close-button:not(:hover):not(:active):not(.has-background){background:none;border:none}.wp-lightbox-overlay .lightbox-image-container{height:var(--wp--lightbox-container-height);left:50%;overflow:hidden;position:absolute;top:50%;transform:translate(-50%,-50%);transform-origin:top left;width:var(--wp--lightbox-container-width);z-index:9999999999}.wp-lightbox-overlay .wp-block-image{align-items:center;box-sizing:border-box;display:flex;height:100%;justify-content:center;margin:0;position:relative;transform-origin:0 0;width:100%;z-index:3000000}.wp-lightbox-overlay .wp-block-image img{height:var(--wp--lightbox-image-height);min-height:var(--wp--lightbox-image-height);min-width:var(--wp--lightbox-image-width);width:var(--wp--lightbox-image-width)}.wp-lightbox-overlay .wp-block-image figcaption{display:none}.wp-lightbox-overlay button{background:none;border:none}.wp-lightbox-overlay .scrim{background-color:#fff;height:100%;opacity:.9;position:absolute;width:100%;z-index:2000000}.wp-lightbox-overlay.active{visibility:visible}@media not (prefers-reduced-motion){.wp-lightbox-overlay.active{animation:turn-on-visibility .25s both}.wp-lightbox-overlay.active img{animation:turn-on-visibility .35s both}.wp-lightbox-overlay.show-closing-animation:not(.active){animation:turn-off-visibility .35s both}.wp-lightbox-overlay.show-closing-animation:not(.active) img{animation:turn-off-visibility .25s both}.wp-lightbox-overlay.zoom.active{animation:none;opacity:1;visibility:visible}.wp-lightbox-overlay.zoom.active .lightbox-image-container{animation:lightbox-zoom-in .4s}.wp-lightbox-overlay.zoom.active .lightbox-image-container img{animation:none}.wp-lightbox-overlay.zoom.active .scrim{animation:turn-on-visibility .4s forwards}.wp-lightbox-overlay.zoom.show-closing-animation:not(.active){animation:none}.wp-lightbox-overlay.zoom.show-closing-animation:not(.active) .lightbox-image-container{animation:lightbox-zoom-out .4s}.wp-lightbox-overlay.zoom.show-closing-animation:not(.active) .lightbox-image-container img{animation:none}.wp-lightbox-overlay.zoom.show-closing-animation:not(.active) .scrim{animation:turn-off-visibility .4s forwards}}@keyframes show-content-image{0%{visibility:hidden}99%{visibility:hidden}to{visibility:visible}}@keyframes turn-on-visibility{0%{opacity:0}to{opacity:1}}@keyframes turn-off-visibility{0%{opacity:1;visibility:visible}99%{opacity:0;visibility:visible}to{opacity:0;visibility:hidden}}@keyframes lightbox-zoom-in{0%{transform:translate(calc((-100vw + var(--wp--lightbox-scrollbar-width))/2 + var(--wp--lightbox-initial-left-position)),calc(-50vh + var(--wp--lightbox-initial-top-position))) scale(var(--wp--lightbox-scale))}to{transform:translate(-50%,-50%) scale(1)}}@keyframes lightbox-zoom-out{0%{transform:translate(-50%,-50%) scale(1);visibility:visible}99%{visibility:visible}to{transform:translate(calc((-100vw + var(--wp--lightbox-scrollbar-width))/2 + var(--wp--lightbox-initial-left-position)),calc(-50vh + var(--wp--lightbox-initial-top-position))) scale(var(--wp--lightbox-scale));visibility:hidden}}
+/*# sourceURL=/wp-includes/blocks/image/style.min.css */
+</style>
+<style id="wp-block-latest-posts-inline-css" type="text/css">
+.wp-block-latest-posts{box-sizing:border-box}.wp-block-latest-posts.alignleft{margin-right:2em}.wp-block-latest-posts.alignright{margin-left:2em}.wp-block-latest-posts.wp-block-latest-posts__list{list-style:none}.wp-block-latest-posts.wp-block-latest-posts__list li{clear:both;overflow-wrap:break-word}.wp-block-latest-posts.is-grid{display:flex;flex-wrap:wrap}.wp-block-latest-posts.is-grid li{margin:0 1.25em 1.25em 0;width:100%}@media (min-width:600px){.wp-block-latest-posts.columns-2 li{width:calc(50% - .625em)}.wp-block-latest-posts.columns-2 li:nth-child(2n){margin-right:0}.wp-block-latest-posts.columns-3 li{width:calc(33.33333% - .83333em)}.wp-block-latest-posts.columns-3 li:nth-child(3n){margin-right:0}.wp-block-latest-posts.columns-4 li{width:calc(25% - .9375em)}.wp-block-latest-posts.columns-4 li:nth-child(4n){margin-right:0}.wp-block-latest-posts.columns-5 li{width:calc(20% - 1em)}.wp-block-latest-posts.columns-5 li:nth-child(5n){margin-right:0}.wp-block-latest-posts.columns-6 li{width:calc(16.66667% - 1.04167em)}.wp-block-latest-posts.columns-6 li:nth-child(6n){margin-right:0}}:root :where(.wp-block-latest-posts.is-grid){padding:0}:root :where(.wp-block-latest-posts.wp-block-latest-posts__list){padding-left:0}.wp-block-latest-posts__post-author,.wp-block-latest-posts__post-date{display:block;font-size:.8125em}.wp-block-latest-posts__post-excerpt,.wp-block-latest-posts__post-full-content{margin-bottom:1em;margin-top:.5em}.wp-block-latest-posts__featured-image a{display:inline-block}.wp-block-latest-posts__featured-image img{height:auto;max-width:100%;width:auto}.wp-block-latest-posts__featured-image.alignleft{float:left;margin-right:1em}.wp-block-latest-posts__featured-image.alignright{float:right;margin-left:1em}.wp-block-latest-posts__featured-image.aligncenter{margin-bottom:1em;text-align:center}
+/*# sourceURL=/wp-includes/blocks/latest-posts/style.min.css */
+</style>
+<style id="wp-block-code-inline-css" type="text/css">
+.wp-block-code{box-sizing:border-box}.wp-block-code code{
+  /*!rtl:begin:ignore*/direction:ltr;display:block;font-family:inherit;overflow-wrap:break-word;text-align:initial;white-space:pre-wrap
+  /*!rtl:end:ignore*/}
+/*# sourceURL=/wp-includes/blocks/code/style.min.css */
+</style>
+<style id="wp-block-group-inline-css" type="text/css">
+.wp-block-group{box-sizing:border-box}:where(.wp-block-group.wp-block-group-is-layout-constrained){position:relative}
+/*# sourceURL=/wp-includes/blocks/group/style.min.css */
+</style>
+<style id="wp-block-paragraph-inline-css" type="text/css">
+.is-small-text{font-size:.875em}.is-regular-text{font-size:1em}.is-large-text{font-size:2.25em}.is-larger-text{font-size:3em}.has-drop-cap:not(:focus):first-letter{float:left;font-size:8.4em;font-style:normal;font-weight:100;line-height:.68;margin:.05em .1em 0 0;text-transform:uppercase}body.rtl .has-drop-cap:not(:focus):first-letter{float:none;margin-left:.1em}p.has-drop-cap.has-background{overflow:hidden}:root :where(p.has-background){padding:1.25em 2.375em}:where(p.has-text-color:not(.has-link-color)) a{color:inherit}p.has-text-align-left[style*="writing-mode:vertical-lr"],p.has-text-align-right[style*="writing-mode:vertical-rl"]{rotate:180deg}
+/*# sourceURL=/wp-includes/blocks/paragraph/style.min.css */
+</style>
+
+<style id="classic-theme-styles-inline-css" type="text/css">
+/*! This file is auto-generated */
+.wp-block-button__link{color:#fff;background-color:#32373c;border-radius:9999px;box-shadow:none;text-decoration:none;padding:calc(.667em + 2px) calc(1.333em + 2px);font-size:1.125em}.wp-block-file__button{background:#32373c;color:#fff;text-decoration:none}
+/*# sourceURL=/wp-includes/css/classic-themes.min.css */
+</style>
+<style id="global-styles-inline-css" type="text/css">
+:root{--wp--preset--aspect-ratio--square: 1;--wp--preset--aspect-ratio--4-3: 4/3;--wp--preset--aspect-ratio--3-4: 3/4;--wp--preset--aspect-ratio--3-2: 3/2;--wp--preset--aspect-ratio--2-3: 2/3;--wp--preset--aspect-ratio--16-9: 16/9;--wp--preset--aspect-ratio--9-16: 9/16;--wp--preset--color--black: #000000;--wp--preset--color--cyan-bluish-gray: #abb8c3;--wp--preset--color--white: #ffffff;--wp--preset--color--pale-pink: #f78da7;--wp--preset--color--vivid-red: #cf2e2e;--wp--preset--color--luminous-vivid-orange: #ff6900;--wp--preset--color--luminous-vivid-amber: #fcb900;--wp--preset--color--light-green-cyan: #7bdcb5;--wp--preset--color--vivid-green-cyan: #00d084;--wp--preset--color--pale-cyan-blue: #8ed1fc;--wp--preset--color--vivid-cyan-blue: #0693e3;--wp--preset--color--vivid-purple: #9b51e0;--wp--preset--gradient--vivid-cyan-blue-to-vivid-purple: linear-gradient(135deg,rgb(6,147,227) 0%,rgb(155,81,224) 100%);--wp--preset--gradient--light-green-cyan-to-vivid-green-cyan: linear-gradient(135deg,rgb(122,220,180) 0%,rgb(0,208,130) 100%);--wp--preset--gradient--luminous-vivid-amber-to-luminous-vivid-orange: linear-gradient(135deg,rgb(252,185,0) 0%,rgb(255,105,0) 100%);--wp--preset--gradient--luminous-vivid-orange-to-vivid-red: linear-gradient(135deg,rgb(255,105,0) 0%,rgb(207,46,46) 100%);--wp--preset--gradient--very-light-gray-to-cyan-bluish-gray: linear-gradient(135deg,rgb(238,238,238) 0%,rgb(169,184,195) 100%);--wp--preset--gradient--cool-to-warm-spectrum: linear-gradient(135deg,rgb(74,234,220) 0%,rgb(151,120,209) 20%,rgb(207,42,186) 40%,rgb(238,44,130) 60%,rgb(251,105,98) 80%,rgb(254,248,76) 100%);--wp--preset--gradient--blush-light-purple: linear-gradient(135deg,rgb(255,206,236) 0%,rgb(152,150,240) 100%);--wp--preset--gradient--blush-bordeaux: linear-gradient(135deg,rgb(254,205,165) 0%,rgb(254,45,45) 50%,rgb(107,0,62) 100%);--wp--preset--gradient--luminous-dusk: linear-gradient(135deg,rgb(255,203,112) 0%,rgb(199,81,192) 50%,rgb(65,88,208) 100%);--wp--preset--gradient--pale-ocean: linear-gradient(135deg,rgb(255,245,203) 0%,rgb(182,227,212) 50%,rgb(51,167,181) 100%);--wp--preset--gradient--electric-grass: linear-gradient(135deg,rgb(202,248,128) 0%,rgb(113,206,126) 100%);--wp--preset--gradient--midnight: linear-gradient(135deg,rgb(2,3,129) 0%,rgb(40,116,252) 100%);--wp--preset--font-size--small: 13px;--wp--preset--font-size--medium: 20px;--wp--preset--font-size--large: 21px;--wp--preset--font-size--x-large: 42px;--wp--preset--font-size--regular: 16px;--wp--preset--font-size--larger: 36px;--wp--preset--spacing--20: 0.44rem;--wp--preset--spacing--30: 0.67rem;--wp--preset--spacing--40: 1rem;--wp--preset--spacing--50: 1.5rem;--wp--preset--spacing--60: 2.25rem;--wp--preset--spacing--70: 3.38rem;--wp--preset--spacing--80: 5.06rem;--wp--preset--shadow--natural: 6px 6px 9px rgba(0, 0, 0, 0.2);--wp--preset--shadow--deep: 12px 12px 50px rgba(0, 0, 0, 0.4);--wp--preset--shadow--sharp: 6px 6px 0px rgba(0, 0, 0, 0.2);--wp--preset--shadow--outlined: 6px 6px 0px -3px rgb(255, 255, 255), 6px 6px rgb(0, 0, 0);--wp--preset--shadow--crisp: 6px 6px 0px rgb(0, 0, 0);}:where(.is-layout-flex){gap: 0.5em;}:where(.is-layout-grid){gap: 0.5em;}body .is-layout-flex{display: flex;}.is-layout-flex{flex-wrap: wrap;align-items: center;}.is-layout-flex > :is(*, div){margin: 0;}body .is-layout-grid{display: grid;}.is-layout-grid > :is(*, div){margin: 0;}:where(.wp-block-columns.is-layout-flex){gap: 2em;}:where(.wp-block-columns.is-layout-grid){gap: 2em;}:where(.wp-block-post-template.is-layout-flex){gap: 1.25em;}:where(.wp-block-post-template.is-layout-grid){gap: 1.25em;}.has-black-color{color: var(--wp--preset--color--black) !important;}.has-cyan-bluish-gray-color{color: var(--wp--preset--color--cyan-bluish-gray) !important;}.has-white-color{color: var(--wp--preset--color--white) !important;}.has-pale-pink-color{color: var(--wp--preset--color--pale-pink) !important;}.has-vivid-red-color{color: var(--wp--preset--color--vivid-red) !important;}.has-luminous-vivid-orange-color{color: var(--wp--preset--color--luminous-vivid-orange) !important;}.has-luminous-vivid-amber-color{color: var(--wp--preset--color--luminous-vivid-amber) !important;}.has-light-green-cyan-color{color: var(--wp--preset--color--light-green-cyan) !important;}.has-vivid-green-cyan-color{color: var(--wp--preset--color--vivid-green-cyan) !important;}.has-pale-cyan-blue-color{color: var(--wp--preset--color--pale-cyan-blue) !important;}.has-vivid-cyan-blue-color{color: var(--wp--preset--color--vivid-cyan-blue) !important;}.has-vivid-purple-color{color: var(--wp--preset--color--vivid-purple) !important;}.has-black-background-color{background-color: var(--wp--preset--color--black) !important;}.has-cyan-bluish-gray-background-color{background-color: var(--wp--preset--color--cyan-bluish-gray) !important;}.has-white-background-color{background-color: var(--wp--preset--color--white) !important;}.has-pale-pink-background-color{background-color: var(--wp--preset--color--pale-pink) !important;}.has-vivid-red-background-color{background-color: var(--wp--preset--color--vivid-red) !important;}.has-luminous-vivid-orange-background-color{background-color: var(--wp--preset--color--luminous-vivid-orange) !important;}.has-luminous-vivid-amber-background-color{background-color: var(--wp--preset--color--luminous-vivid-amber) !important;}.has-light-green-cyan-background-color{background-color: var(--wp--preset--color--light-green-cyan) !important;}.has-vivid-green-cyan-background-color{background-color: var(--wp--preset--color--vivid-green-cyan) !important;}.has-pale-cyan-blue-background-color{background-color: var(--wp--preset--color--pale-cyan-blue) !important;}.has-vivid-cyan-blue-background-color{background-color: var(--wp--preset--color--vivid-cyan-blue) !important;}.has-vivid-purple-background-color{background-color: var(--wp--preset--color--vivid-purple) !important;}.has-black-border-color{border-color: var(--wp--preset--color--black) !important;}.has-cyan-bluish-gray-border-color{border-color: var(--wp--preset--color--cyan-bluish-gray) !important;}.has-white-border-color{border-color: var(--wp--preset--color--white) !important;}.has-pale-pink-border-color{border-color: var(--wp--preset--color--pale-pink) !important;}.has-vivid-red-border-color{border-color: var(--wp--preset--color--vivid-red) !important;}.has-luminous-vivid-orange-border-color{border-color: var(--wp--preset--color--luminous-vivid-orange) !important;}.has-luminous-vivid-amber-border-color{border-color: var(--wp--preset--color--luminous-vivid-amber) !important;}.has-light-green-cyan-border-color{border-color: var(--wp--preset--color--light-green-cyan) !important;}.has-vivid-green-cyan-border-color{border-color: var(--wp--preset--color--vivid-green-cyan) !important;}.has-pale-cyan-blue-border-color{border-color: var(--wp--preset--color--pale-cyan-blue) !important;}.has-vivid-cyan-blue-border-color{border-color: var(--wp--preset--color--vivid-cyan-blue) !important;}.has-vivid-purple-border-color{border-color: var(--wp--preset--color--vivid-purple) !important;}.has-vivid-cyan-blue-to-vivid-purple-gradient-background{background: var(--wp--preset--gradient--vivid-cyan-blue-to-vivid-purple) !important;}.has-light-green-cyan-to-vivid-green-cyan-gradient-background{background: var(--wp--preset--gradient--light-green-cyan-to-vivid-green-cyan) !important;}.has-luminous-vivid-amber-to-luminous-vivid-orange-gradient-background{background: var(--wp--preset--gradient--luminous-vivid-amber-to-luminous-vivid-orange) !important;}.has-luminous-vivid-orange-to-vivid-red-gradient-background{background: var(--wp--preset--gradient--luminous-vivid-orange-to-vivid-red) !important;}.has-very-light-gray-to-cyan-bluish-gray-gradient-background{background: var(--wp--preset--gradient--very-light-gray-to-cyan-bluish-gray) !important;}.has-cool-to-warm-spectrum-gradient-background{background: var(--wp--preset--gradient--cool-to-warm-spectrum) !important;}.has-blush-light-purple-gradient-background{background: var(--wp--preset--gradient--blush-light-purple) !important;}.has-blush-bordeaux-gradient-background{background: var(--wp--preset--gradient--blush-bordeaux) !important;}.has-luminous-dusk-gradient-background{background: var(--wp--preset--gradient--luminous-dusk) !important;}.has-pale-ocean-gradient-background{background: var(--wp--preset--gradient--pale-ocean) !important;}.has-electric-grass-gradient-background{background: var(--wp--preset--gradient--electric-grass) !important;}.has-midnight-gradient-background{background: var(--wp--preset--gradient--midnight) !important;}.has-small-font-size{font-size: var(--wp--preset--font-size--small) !important;}.has-medium-font-size{font-size: var(--wp--preset--font-size--medium) !important;}.has-large-font-size{font-size: var(--wp--preset--font-size--large) !important;}.has-x-large-font-size{font-size: var(--wp--preset--font-size--x-large) !important;}
+/*# sourceURL=global-styles-inline-css */
+</style>
+
+<link rel="stylesheet" id="ct-ignite-google-fonts-css" href="//fonts.googleapis.com/css?family=Roboto+Slab%3AThin%2CLight%2CRegular%2CBold&amp;subset=latin%2Clatin-ext&amp;ver=6.9.1" type="text/css" media="all">
+<link rel="stylesheet" id="ct-ignite-font-awesome-css" href="/wp-content/themes/ignite/assets/font-awesome/css/all.min.css?ver=6.9.1" type="text/css" media="all">
+<link rel="stylesheet" id="ct-ignite-style-css" href="/wp-content/themes/ignite/style.css?ver=6.9.1" type="text/css" media="all">
+<style id="ct-ignite-style-inline-css" type="text/css">
+li.linkcat {
 	list-style-type: none;
 }
 
@@ -54,35 +96,32 @@ window._wpemojiSettings = {"baseUrl":"https:\/\/s.w.org\/images\/core\/emoji\/15
             }
             .main, .sidebar-primary-container, .breadcrumb-trail {
                 background: none;
-            }</style>
+            }
+        
+/*# sourceURL=ct-ignite-style-inline-css */
+</style>
 <script type="text/javascript" src="/wp-includes/js/jquery/jquery.min.js?ver=3.7.1" id="jquery-core-js"></script>
 <script type="text/javascript" src="/wp-includes/js/jquery/jquery-migrate.min.js?ver=3.4.1" id="jquery-migrate-js"></script>
-<link rel="https://api.w.org/" href="/wp-json/">
-<link rel="alternate" type="application/json" href="/wp-json/wp/v2/posts/302">
-<link rel="EditURI" type="application/rsd+xml" title="RSD" href="/xmlrpc.php?rsd">
-<meta name="generator" content="WordPress 6.5.3">
+<link rel="https://api.w.org/" href="/wp-json/"><link rel="alternate" title="JSON" type="application/json" href="/wp-json/wp/v2/posts/302"><link rel="EditURI" type="application/rsd+xml" title="RSD" href="/xmlrpc.php?rsd">
+<meta name="generator" content="WordPress 6.9.1">
 <link rel="canonical" href="/2013/05/25/ios-appdev-part7/">
 <link rel="shortlink" href="/?p=302">
-<link rel="alternate" type="application/json+oembed" href="/wp-json/oembed/1.0/embed?url=http%3A%2F%2F%2F2013%2F05%2F25%2Fios-appdev-part7%2F">
-<link rel="alternate" type="text/xml+oembed" href="/wp-json/oembed/1.0/embed?url=http%3A%2F%2F%2F2013%2F05%2F25%2Fios-appdev-part7%2F#038;format=xml">
-		<style type="text/css" id="wp-custom-css">li.linkcat {
+		<style type="text/css" id="wp-custom-css">
+			li.linkcat {
 	list-style-type: none;
-}</style>
+}		</style>
 		</head>
-<body id="ignite" class="post-template-default single single-post postid-302 single-format-standard singular singular-post singular-post-302">
+<body id="ignite" class="wp-singular post-template-default single single-post postid-302 single-format-standard wp-theme-ignite singular singular-post singular-post-302">
 		<a class="skip-content" href="#main">Skip to content</a>
 		<header class="site-header" id="site-header" role="banner">
 		<div id="title-info" class="title-info">
 			<div class="site-title"><a href="/">J O H N R A . M E</a></div>		</div>
 		<button id="toggle-navigation" class="toggle-navigation"><i class="fas fa-bars"></i></button>
 <div class="menu-container menu-primary" id="menu-primary" role="navigation">
-	<p id="site-description" class="tagline">...yet another musings of a techie</p>
-<ul id="menu-primary-items" class="menu-primary-items">
-<li id="menu-item-489" class="menu-item menu-item-type-custom menu-item-object-custom menu-item-489"><a href="/">Blog</a></li>
+	<p id="site-description" class="tagline">...yet another musings of a techie</p><ul id="menu-primary-items" class="menu-primary-items"><li id="menu-item-489" class="menu-item menu-item-type-custom menu-item-object-custom menu-item-489"><a href="/">Blog</a></li>
 <li id="menu-item-490" class="menu-item menu-item-type-post_type menu-item-object-page menu-item-490"><a href="/about-me/">About</a></li>
-<li id="menu-item-522" class="menu-item menu-item-type-post_type menu-item-object-page menu-item-522"><a href="/resume/">Résumé</a></li>
-</ul>
-<ul class="social-media-icons">				<li>
+<li id="menu-item-522" class="menu-item menu-item-type-post_type menu-item-object-page menu-item-522"><a href="/resume/">R&eacute;sum&eacute;</a></li>
+</ul><ul class="social-media-icons">				<li>
 					<a class="facebook" target="_blank" href="https://www.facebook.com/jra75">
 						<i class="fab fa-facebook-square" title="facebook"></i>
 						<span class="screen-reader-text">facebook</span>
@@ -106,12 +145,9 @@ window._wpemojiSettings = {"baseUrl":"https:\/\/s.w.org\/images\/core\/emoji\/15
 						<span class="screen-reader-text">github</span>
 					</a>
 				</li>
-				</ul>
-</div>	</header>
+				</ul></div>	</header>
 		<div id="overflow-container" class="overflow-container">
-		<div id="breadcrumbs" class="breadcrumb-trail breadcrumbs">
-<span class="item-home"><a class="bread-link bread-home" href="/" title="Home">Home</a></span><span class="separator"> &gt; </span><span class="item-cat"><a href="/category/tutorial/">Tutorial</a></span><span class="separator"> &gt; </span><span class="item-current item-302"><span class="bread-current bread-302" title="iOS App Development Tutorial Part VII: In-App Web Browsing">iOS App Development Tutorial Part VII: In-App Web Browsing</span></span>
-</div>		<div id="main" class="main" role="main">	<div id="loop-container" class="loop-container">
+		<div id="breadcrumbs" class="breadcrumb-trail breadcrumbs"><span class="item-home"><a class="bread-link bread-home" href="/" title="Home">Home</a></span><span class="separator"> &gt; </span><span class="item-cat"><a href="/category/tutorial/">Tutorial</a></span><span class="separator"> &gt; </span><span class="item-current item-302"><span class="bread-current bread-302" title="iOS App Development Tutorial Part VII: In-App Web Browsing">iOS App Development Tutorial Part VII: In-App Web Browsing</span></span></div>		<div id="main" class="main" role="main">	<div id="loop-container" class="loop-container">
 			<div class="post-302 post type-post status-publish format-standard hentry category-ios category-tutorial tag-development tag-mobile entry">
 					<div class="entry-meta-top">
 		Published May 25, 2013 by <a href="/author/johnra/" title="Posts by John Ra" rel="author">John Ra</a>	</div>
@@ -120,18 +156,18 @@ window._wpemojiSettings = {"baseUrl":"https:\/\/s.w.org\/images\/core\/emoji\/15
 		</div>
 		<div class="entry-content">
 			<article>
-				<p class="last-updated">Last updated on April 11, 2024 </p>				<p>Having a list of article isn&#8217;t enough, we need to allow users to click through to the actual article. It&#8217;s also not a good user experience to have each article open in safari. We want to provide the ability to view the article within our app. Apple UIKit makes this extremely easy by providing a Web View component to view the target website.</p>
+				<p class="last-updated">Last updated on April 11, 2024 </p>				<p>Having a list of article isn&rsquo;t enough, we need to allow users to click through to the actual article. It&rsquo;s also not a good user experience to have each article open in safari. We want to provide the ability to view the article within our app. Apple UIKit makes this extremely easy by providing a Web View component to view the target website.</p>
 <p><strong>1. Add New View Controller</strong></p>
-<p>We want to first add a new View Controller that will hold the Web View. This can be done by dragging View Controller from object browser over to the storyboard. Once added, we want to push this new view controller when each Collection View Cell is clicked. First, drill down to the Collection View Cell, view connection inspector, and drag the selection under triggered segues over to the new view controller. Repeat this last step for the other Collection View Controller&#8217;s Collection View Cell.</p>
+<p>We want to first add a new View Controller that will hold the Web View. This can be done by dragging View Controller from object browser over to the storyboard. Once added, we want to push this new view controller when each Collection View Cell is clicked. First, drill down to the Collection View Cell, view connection inspector, and drag the selection under triggered segues over to the new view controller. Repeat this last step for the other Collection View Controller&rsquo;s Collection View Cell.</p>
 <p><a href="/wp-content/uploads/2013/05/storyboard14.png"><img decoding="async" class="alignnone size-medium wp-image-304" src="/wp-content/uploads/2013/05/storyboard14-300x158.png" alt="storyboard14" width="300" height="158"></a></p>
 <p>Now, whenever a cell is clicked, it will push this new view controller to the Navigation Controller stack.</p>
 <p><strong>2. Add Web View to the View Controller</strong></p>
 <p>Go back to the object browser and drag it under the main view of our newly added View Controller.</p>
 <p><a href="/wp-content/uploads/2013/05/storyboard15.png"><img decoding="async" class="alignnone size-medium wp-image-305" src="/wp-content/uploads/2013/05/storyboard15-300x72.png" alt="storyboard15" width="300" height="72"></a></p>
-<p>We now need to create a custom view controller class that will enable us to control what to display in this web view. Following prior tutorial, add a new class named &#8220;JSTRBrowserViewController&#8221; that&#8217;s a subclass of &#8220;UIViewController&#8221;. Then, expose 2 properties, one for the web view component and the other to hold the target URL.</p>
+<p>We now need to create a custom view controller class that will enable us to control what to display in this web view. Following prior tutorial, add a new class named &ldquo;JSTRBrowserViewController&rdquo; that&rsquo;s a subclass of &ldquo;UIViewController&rdquo;. Then, expose 2 properties, one for the web view component and the other to hold the target URL.</p>
 
 
-<pre class="wp-block-code"><code>#import &lt;UIKit/UIKit.h>
+<pre class="wp-block-code"><code>#import &lt;UIKit/UIKit.h&gt;
 
 @interface JSTRBrowserViewController : UIViewController
 
@@ -142,7 +178,7 @@ window._wpemojiSettings = {"baseUrl":"https:\/\/s.w.org\/images\/core\/emoji\/15
 
 
 
-<p>Since the target url is not a visual component, it does not need the keyword &#8220;IBOutlet&#8221;. It will be only used to set the target url from the collection view controller when user clicks on the cell. This will require us to synthesize targetURL on the implementation class. Let&#8217;s also implement the loading of our target url for the web view component</p>
+<p>Since the target url is not a visual component, it does not need the keyword &ldquo;IBOutlet&rdquo;. It will be only used to set the target url from the collection view controller when user clicks on the cell. This will require us to synthesize targetURL on the implementation class. Let&rsquo;s also implement the loading of our target url for the web view component</p>
 
 
 
@@ -154,7 +190,7 @@ window._wpemojiSettings = {"baseUrl":"https:\/\/s.w.org\/images\/core\/emoji\/15
 
 - (id)initWithNibName:(NSString *)nibNameOrNil bundle:(NSBundle *)nibBundleOrNil
 {
-  self = &#91;super initWithNibName:nibNameOrNil bundle:nibBundleOrNil];
+  self = [super initWithNibName:nibNameOrNil bundle:nibBundleOrNil];
   if (self) {
     // Custom initialization
   }
@@ -163,18 +199,18 @@ window._wpemojiSettings = {"baseUrl":"https:\/\/s.w.org\/images\/core\/emoji\/15
 
 - (void)viewDidLoad
 {
-  &#91;super viewDidLoad];
+  [super viewDidLoad];
   // Do any additional setup after loading the view.
-  NSURL *url = &#91;&#91;NSURL alloc] initWithString:targetURL];
-  NSURLRequest *request = &#91;&#91;NSURLRequest alloc] initWithURL:url];
+  NSURL *url = [[NSURL alloc] initWithString:targetURL];
+  NSURLRequest *request = [[NSURLRequest alloc] initWithURL:url];
 
-  &#91;self.webView setScalesPageToFit:YES];
-  &#91;self.webView loadRequest:request];
+  [self.webView setScalesPageToFit:YES];
+  [self.webView loadRequest:request];
 }
 
 - (void)didReceiveMemoryWarning
 {
-  &#91;super didReceiveMemoryWarning];
+  [super didReceiveMemoryWarning];
   // Dispose of any resources that can be recreated.
 }
 
@@ -205,7 +241,7 @@ window._wpemojiSettings = {"baseUrl":"https:\/\/s.w.org\/images\/core\/emoji\/15
 <pre class="wp-block-code"><code>- (void)prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender
 {
   JSTRCollectionViewCell *selectedCell = (JSTRCollectionViewCell *)sender;
-  JSTRBrowserViewController *targetVC = (JSTRBrowserViewController *) &#91;segue destinationViewController];
+  JSTRBrowserViewController *targetVC = (JSTRBrowserViewController *) [segue destinationViewController];
   targetVC.targetURL = selectedCell.targetURL;
 }</code></pre>
 
@@ -215,11 +251,11 @@ window._wpemojiSettings = {"baseUrl":"https:\/\/s.w.org\/images\/core\/emoji\/15
 
 
 
-<p>But wait, I don&#8217;t have a property called targetURL on my JSTRCollectionViewCell! We need to add this property to the bottom of our JSTRCollectionViewCell header file and synthesize it on the implementation class.</p>
+<p>But wait, I don&rsquo;t have a property called targetURL on my JSTRCollectionViewCell! We need to add this property to the bottom of our JSTRCollectionViewCell header file and synthesize it on the implementation class.</p>
 
 
 
-<pre class="wp-block-code"><code>#import &lt;UIKit/UIKit.h >
+<pre class="wp-block-code"><code>#import &lt;UIKit/UIKit.h &gt;
 
 @interface JSTRCollectionViewCell : UICollectionViewCell
 
@@ -240,35 +276,35 @@ window._wpemojiSettings = {"baseUrl":"https:\/\/s.w.org\/images\/core\/emoji\/15
 
 <pre class="wp-block-code"><code>- (UICollectionViewCell *) collectionView:(UICollectionView *)collectionView cellForItemAtIndexPath:(NSIndexPath *)indexPath
 {
-  JSTRCollectionViewCell *cell = &#91;collectionView dequeueReusableCellWithReuseIdentifier:@"articleCell"
+  JSTRCollectionViewCell *cell = [collectionView dequeueReusableCellWithReuseIdentifier:@"articleCell"
 forIndexPath:indexPath];
-  NSDictionary *item = &#91;_articleList objectAtIndex:indexPath.item];
+  NSDictionary *item = [_articleList objectAtIndex:indexPath.item];
 
-  NSURL *userImgURL = &#91;NSURL URLWithString:&#91;item objectForKey:@"userimage"]];
-  NSData *userImgData = &#91;NSData dataWithContentsOfURL:userImgURL];
-  UIImage *userImage = &#91;UIImage imageWithData:userImgData];
-  &#91;cell.avatar setImage:userImage];
+  NSURL *userImgURL = [NSURL URLWithString:[item objectForKey:@"userimage"]];
+  NSData *userImgData = [NSData dataWithContentsOfURL:userImgURL];
+  UIImage *userImage = [UIImage imageWithData:userImgData];
+  [cell.avatar setImage:userImage];
 
-  cell.title.text = &#91;NSString stringWithFormat:@"%@\n\n\n\n", &#91;item objectForKey:@"title"]];
+  cell.title.text = [NSString stringWithFormat:@"%@\n\n\n\n", [item objectForKey:@"title"]];
 
-  NSArray *catList = &#91;item objectForKey:@"category"];
-  NSString *catString = &#91;catList componentsJoinedByString:@", "];
-  cell.category.text = &#91;NSString stringWithFormat:@"%@", catString];
-  cell.summary.text = &#91;NSString stringWithFormat:@"%@\n\n\n\n\n\n\n\n\n", &#91;item objectForKey:@"description"]];
+  NSArray *catList = [item objectForKey:@"category"];
+  NSString *catString = [catList componentsJoinedByString:@", "];
+  cell.category.text = [NSString stringWithFormat:@"%@", catString];
+  cell.summary.text = [NSString stringWithFormat:@"%@\n\n\n\n\n\n\n\n\n", [item objectForKey:@"description"]];
 
-  NSURL *thumbImgURL = &#91;NSURL URLWithString:&#91;item objectForKey:@"thumbnail"]];
-  NSData *thumbImgData = &#91;NSData dataWithContentsOfURL:thumbImgURL];
-  UIImage *thumbImage = &#91;UIImage imageWithData:thumbImgData];
-  &#91;cell.thumbnail setImage:thumbImage];
+  NSURL *thumbImgURL = [NSURL URLWithString:[item objectForKey:@"thumbnail"]];
+  NSData *thumbImgData = [NSData dataWithContentsOfURL:thumbImgURL];
+  UIImage *thumbImage = [UIImage imageWithData:thumbImgData];
+  [cell.thumbnail setImage:thumbImage];
 
-  cell.targetURL = &#91;item objectForKey:@"link"];
+  cell.targetURL = [item objectForKey:@"link"];
 
  return cell;
 }</code></pre>
 
 
 
-<p>As you can see, prior to our return call in this method, we retrieve the link from our dictionary representing the article from the RSS. Now that the cell has been set, our segue can extract it from the source cell that&#8217;s been click and pass it to the target view controller that holds the web view.</p>
+<p>As you can see, prior to our return call in this method, we retrieve the link from our dictionary representing the article from the RSS. Now that the cell has been set, our segue can extract it from the source cell that&rsquo;s been click and pass it to the target view controller that holds the web view.</p>
 
 
 
@@ -280,15 +316,15 @@ forIndexPath:indexPath];
 
 
 
-<p>Now, when you run your app, clicking on the cell on the simulator will push a new view controller. Since we&#8217;re using navigation controller, adding a new view controller will automatically add the back button for us on the navigation bar.</p>
+<p>Now, when you run your app, clicking on the cell on the simulator will push a new view controller. Since we&rsquo;re using navigation controller, adding a new view controller will automatically add the back button for us on the navigation bar.</p>
 
 
 
-<p>By default, if the prior navigation bar has no title, then the button will be rendered with &#8220;Back&#8221;. However, had we named the title bar of our prior navigation bar as &#8220;Featured Links&#8221;, then our back button would have had the label of &#8220;Featured Links&#8221;.</p>
+<p>By default, if the prior navigation bar has no title, then the button will be rendered with &ldquo;Back&rdquo;. However, had we named the title bar of our prior navigation bar as &ldquo;Featured Links&rdquo;, then our back button would have had the label of &ldquo;Featured Links&rdquo;.</p>
 
 
 
-<p>This concludes this tutorial series. I have intentionally did not implement Recent Link Collection View. Using the Featured Link Collection View, this should be fairly easy to figure out. You will need to refactor JSTRRSSReader class to handle both Featured and Recent Links. Currently, it&#8217;s hard coded to only retrieve Featured. The app that&#8217;s actually published has it fully implemented with ability for users to vote. As of May 25, it is currently under review by Apple. I&#8217;ll update this post when it does go live. Xcode project with source code for these tutorial can be downloaded from <a href="http://demo.jstrgames.com/DZoneRSS.zip">here</a>.</p>
+<p>This concludes this tutorial series. I have intentionally did not implement Recent Link Collection View. Using the Featured Link Collection View, this should be fairly easy to figure out. You will need to refactor JSTRRSSReader class to handle both Featured and Recent Links. Currently, it&rsquo;s hard coded to only retrieve Featured. The app that&rsquo;s actually published has it fully implemented with ability for users to vote. As of May 25, it is currently under review by Apple. I&rsquo;ll update this post when it does go live. Xcode project with source code for these tutorial can be downloaded from <a href="http://demo.jstrgames.com/DZoneRSS.zip">here</a>.</p>
 							</article>
 		</div>
 		<div class="entry-meta-bottom">
@@ -299,10 +335,10 @@ forIndexPath:indexPath];
 	</p>
 	<p class="next">
 		<span>Next Post</span>
-		<a href="/2013/07/25/thats-groovy/">That&#8217;s Groovy!</a>
+		<a href="/2013/07/25/thats-groovy/">That&rsquo;s Groovy!</a>
 	</p>
-</nav>			<div class="author-meta">	
-	<img alt="John Ra" src="//0.gravatar.com/avatar/9cf78ef0cb8ec76b55c0045c4aa1f183?s=72&#038;d=mm&#038;r=g" srcset="//0.gravatar.com/avatar/9cf78ef0cb8ec76b55c0045c4aa1f183?s=144&#038;d=mm&#038;r=g 2x" class="avatar avatar-72 photo" height="72" width="72" decoding="async">	<div class="name-container">
+</nav>			<div class="author-meta">
+	<img alt="John Ra" src="https://secure.gravatar.com/avatar/88cb6789ec0a6354ab77f6c84c19815ae2625e0c5ae3861db81495b92365bdbe?s=72&amp;d=mm&amp;r=g" srcset="https://secure.gravatar.com/avatar/88cb6789ec0a6354ab77f6c84c19815ae2625e0c5ae3861db81495b92365bdbe?s=144&amp;d=mm&amp;r=g 2x" class="avatar avatar-72 photo" height="72" width="72" decoding="async">	<div class="name-container">
 		<h4>
 			John Ra		</h4>
 	</div>
@@ -311,8 +347,7 @@ forIndexPath:indexPath];
 </div>			<div class="entry-categories"><p><i class="fas fa-folder-open"></i><a href="/category/ios/" title="View all posts in iOS">iOS</a> <a href="/category/tutorial/" title="View all posts in Tutorial">Tutorial</a></p></div>			<div class="entry-tags"><p><i class="fas fa-tag"></i><a href="/tag/development/" title="View all posts tagged Development">Development</a> <a href="/tag/mobile/" title="View all posts tagged Mobile">Mobile</a></p></div>		</div>
 	</div>
 		</div>
-</div>
-<!-- .main -->
+</div><!-- .main -->
 	<aside id="sidebar-primary-container" class="sidebar-primary-container">
 		<h1 class="screen-reader-text">Primary Sidebar</h1>
 		<div class="sidebar sidebar-primary" id="sidebar-primary" role="complementary">
@@ -321,109 +356,56 @@ forIndexPath:indexPath];
 <h2 class="wp-block-heading">Recent Posts</h2>
 
 
-<ul class="wp-block-latest-posts__list wp-block-latest-posts">
-<li><a class="wp-block-latest-posts__post-title" href="/2024/05/16/synology-ups-as-nut-primary/">Synology + UPS as NUT Primary</a></li>
+<ul class="wp-block-latest-posts__list wp-block-latest-posts"><li><a class="wp-block-latest-posts__post-title" href="/2024/05/16/synology-ups-as-nut-primary/">Synology + UPS as NUT Primary</a></li>
 <li><a class="wp-block-latest-posts__post-title" href="/2024/04/10/context-matters/">Context Matters</a></li>
-<li><a class="wp-block-latest-posts__post-title" href="/2022/03/29/its-a-trap/">It&#8217;s a trap!</a></li>
+<li><a class="wp-block-latest-posts__post-title" href="/2022/03/29/its-a-trap/">It&rsquo;s a trap!</a></li>
 <li><a class="wp-block-latest-posts__post-title" href="/2022/02/02/7-minute-abs/">7-Minute Abs</a></li>
-<li><a class="wp-block-latest-posts__post-title" href="/2022/01/23/restart/">I&#8217;m Back?</a></li>
-</ul>
-</div></div>
+<li><a class="wp-block-latest-posts__post-title" href="/2022/01/23/restart/">I&rsquo;m Back?</a></li>
+</ul></div></div>
 </section><section id="block-19" class="widget widget_block">
-<div class="wp-block-group"><div class="wp-block-group__inner-container is-layout-flow wp-block-group-is-layout-flow">
-<p></p>
-<li id="linkcat-8" class="linkcat">
-<h2>Favorite Blogs</h2>
-	<ul class="xoxo blogroll">
-<li><a href="http://blog.activelylazy.co.uk/">Actively Lazy</a></li>
-<li><a href="http://www.codeofhonor.com/blog/">Code Of Honor</a></li>
-<li><a href="http://www.codinghorror.com/blog/">Coding Horror</a></li>
-<li><a href="http://blog.sanaulla.info/">Experiences Unlimited</a></li>
-<li><a href="http://javadepend.wordpress.com/">JArchitect</a></li>
-<li><a href="http://www.markhneedham.com/blog/">Mark Needham</a></li>
-<li><a href="https://msun.io/" rel="friend colleague">Mike Sun</a></li>
-<li><a href="http://blogs.msdn.com/b/oldnewthing/">Old New Thing</a></li>
-<li><a href="http://www.opsbs.com/">Operation Bootstrap</a></li>
-<li><a href="http://blog.schauderhaft.de/">Schauderhaft</a></li>
-<li><a href="http://www.hanselman.com/blog/">Scott Hanselman</a></li>
-<li><a href="http://simpleprogrammer.com/">Simple Programmer</a></li>
-
-	</ul>
-</li>
-<li id="linkcat-11" class="linkcat">
-<h2>Favorite Sites</h2>
-	<ul class="xoxo blogroll">
-<li><a href="http://www.dotnetcodegeeks.com/">.NET Code Geeks</a></li>
-<li><a href="http://www.dzone.com/">DZone</a></li>
-<li><a href="http://www.gizmodo.com/">Gizmodo</a></li>
-<li><a href="http://www.javacodegeeks.com/">Java Code Geeks</a></li>
-<li><a href="http://www.slashdot.com/">Slashdot</a></li>
-<li><a href="http://www.theregister.co.uk/">The Register</a></li>
-<li><a href="http://www.theserverside.com/">The Serverside</a></li>
-
-	</ul>
-</li>
-
+<div class="wp-block-group"><div class="wp-block-group__inner-container is-layout-flow wp-block-group-is-layout-flow"><p>[bookmarks categorize=1]</p>
 </div></div>
 </section><section id="block-4" class="widget widget_block">
 <div class="wp-block-group"><div class="wp-block-group__inner-container is-layout-flow wp-block-group-is-layout-flow">
 <h2 class="wp-block-heading">Categories</h2>
 
 
-<ul class="wp-block-categories-list wp-block-categories">	<li class="cat-item cat-item-9">
-<a href="/category/dotnet/">.NET</a>
+<ul class="wp-block-categories-list wp-block-categories">	<li class="cat-item cat-item-9"><a href="/category/dotnet/">.NET</a>
 </li>
-	<li class="cat-item cat-item-18">
-<a href="/category/dotnet/aspnet/">ASP.NET</a>
+	<li class="cat-item cat-item-18"><a href="/category/dotnet/aspnet/">ASP.NET</a>
 </li>
-	<li class="cat-item cat-item-4">
-<a href="/category/dotnet/csharp/">C#</a>
+	<li class="cat-item cat-item-4"><a href="/category/dotnet/csharp/">C#</a>
 </li>
-	<li class="cat-item cat-item-34">
-<a href="/category/java/gradle/">Gradle</a>
+	<li class="cat-item cat-item-34"><a href="/category/java/gradle/">Gradle</a>
 </li>
-	<li class="cat-item cat-item-29">
-<a href="/category/java/groovy/">Groovy</a>
+	<li class="cat-item cat-item-29"><a href="/category/java/groovy/">Groovy</a>
 </li>
-	<li class="cat-item cat-item-25">
-<a href="/category/humor/">Humor</a>
+	<li class="cat-item cat-item-25"><a href="/category/humor/">Humor</a>
 </li>
-	<li class="cat-item cat-item-17">
-<a href="/category/iis/">IIS</a>
+	<li class="cat-item cat-item-17"><a href="/category/iis/">IIS</a>
 </li>
-	<li class="cat-item cat-item-26">
-<a href="/category/ios/">iOS</a>
+	<li class="cat-item cat-item-26"><a href="/category/ios/">iOS</a>
 </li>
-	<li class="cat-item cat-item-3">
-<a href="/category/java/">Java</a>
+	<li class="cat-item cat-item-3"><a href="/category/java/">Java</a>
 </li>
-	<li class="cat-item cat-item-22">
-<a href="/category/jscript/">JavaScript</a>
+	<li class="cat-item cat-item-22"><a href="/category/jscript/">JavaScript</a>
 </li>
-	<li class="cat-item cat-item-23">
-<a href="/category/jscript/jquery/">jQuery</a>
+	<li class="cat-item cat-item-23"><a href="/category/jscript/jquery/">jQuery</a>
 </li>
-	<li class="cat-item cat-item-32">
-<a href="/category/opensource/">Open Source</a>
+	<li class="cat-item cat-item-32"><a href="/category/opensource/">Open Source</a>
 </li>
-	<li class="cat-item cat-item-33">
-<a href="/category/patterns/">Patterns</a>
+	<li class="cat-item cat-item-33"><a href="/category/patterns/">Patterns</a>
 </li>
-	<li class="cat-item cat-item-6">
-<a href="/category/rant/">Rants</a>
+	<li class="cat-item cat-item-6"><a href="/category/rant/">Rants</a>
 </li>
-	<li class="cat-item cat-item-5">
-<a href="/category/tutorial/">Tutorial</a>
+	<li class="cat-item cat-item-5"><a href="/category/tutorial/">Tutorial</a>
 </li>
-	<li class="cat-item cat-item-1">
-<a href="/category/uncategorized/">Uncategorized</a>
+	<li class="cat-item cat-item-1"><a href="/category/uncategorized/">Uncategorized</a>
 </li>
-</ul>
-</div></div>
+</ul></div></div>
 </section>		</div>
 	</aside>
-</div>
-<!-- .overflow-container -->
+</div><!-- .overflow-container -->
 <footer id="site-footer" class="site-footer" role="contentinfo">
 	<h1>
 		<a href="/">
@@ -431,21 +413,22 @@ forIndexPath:indexPath];
 	</h1>
 	<span class="tagline">...yet another musings of a techie</span>	<div class="design-credit">
         <span>
-             &nbsp;        </span>
+            &nbsp;&nbsp;        </span>
 	</div>
-	<script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-0170985620077101" crossorigin="anonymous"></script>
-	<!-- BlogFooter -->
-	<ins class="adsbygoogle" style="display:block" data-ad-client="ca-pub-0170985620077101" data-ad-slot="8538453118" data-ad-format="auto" data-full-width-responsive="true"></ins>
-	<script>(adsbygoogle = window.adsbygoogle || []).push({});</script>
 </footer>
-<script type="text/javascript" src="/wp-content/themes/ignite/js/build/production.min.js?ver=6.5.3" id="ct-ignite-production-js"></script>
-
-<!-- Google tag (gtag.js) -->
-<script async src="https://www.googletagmanager.com/gtag/js?id=G-M1C40BG5Q3"></script>
-<script>window.dataLayer = window.dataLayer || [];
-  function gtag(){dataLayer.push(arguments);}
-  gtag('js', new Date());
-
-  gtag('config', 'G-M1C40BG5Q3');</script>
+<script type="speculationrules">
+{"prefetch":[{"source":"document","where":{"and":[{"href_matches":"/*"},{"not":{"href_matches":["/wp-*.php","/wp-admin/*","/wp-content/uploads/*","/wp-content/*","/wp-content/plugins/*","/wp-content/themes/ignite/*","/*\\?(.+)"]}},{"not":{"selector_matches":"a[rel~=\"nofollow\"]"}},{"not":{"selector_matches":".no-prefetch, .no-prefetch a"}}]},"eagerness":"conservative"}]}
+</script>
+<script type="text/javascript" src="/wp-content/themes/ignite/js/build/production.min.js?ver=6.9.1" id="ct-ignite-production-js"></script>
+<script id="wp-emoji-settings" type="application/json">
+{"baseUrl":"https://s.w.org/images/core/emoji/17.0.2/72x72/","ext":".png","svgUrl":"https://s.w.org/images/core/emoji/17.0.2/svg/","svgExt":".svg","source":{"concatemoji":"/wp-includes/js/wp-emoji-release.min.js?ver=6.9.1"}}
+</script>
+<script type="module">
+/* <![CDATA[ */
+/*! This file is auto-generated */
+const a=JSON.parse(document.getElementById("wp-emoji-settings").textContent),o=(window._wpemojiSettings=a,"wpEmojiSettingsSupports"),s=["flag","emoji"];function i(e){try{var t={supportTests:e,timestamp:(new Date).valueOf()};sessionStorage.setItem(o,JSON.stringify(t))}catch(e){}}function c(e,t,n){e.clearRect(0,0,e.canvas.width,e.canvas.height),e.fillText(t,0,0);t=new Uint32Array(e.getImageData(0,0,e.canvas.width,e.canvas.height).data);e.clearRect(0,0,e.canvas.width,e.canvas.height),e.fillText(n,0,0);const a=new Uint32Array(e.getImageData(0,0,e.canvas.width,e.canvas.height).data);return t.every((e,t)=>e===a[t])}function p(e,t){e.clearRect(0,0,e.canvas.width,e.canvas.height),e.fillText(t,0,0);var n=e.getImageData(16,16,1,1);for(let e=0;e<n.data.length;e++)if(0!==n.data[e])return!1;return!0}function u(e,t,n,a){switch(t){case"flag":return n(e,"\ud83c\udff3\ufe0f\u200d\u26a7\ufe0f","\ud83c\udff3\ufe0f\u200b\u26a7\ufe0f")?!1:!n(e,"\ud83c\udde8\ud83c\uddf6","\ud83c\udde8\u200b\ud83c\uddf6")&&!n(e,"\ud83c\udff4\udb40\udc67\udb40\udc62\udb40\udc65\udb40\udc6e\udb40\udc67\udb40\udc7f","\ud83c\udff4\u200b\udb40\udc67\u200b\udb40\udc62\u200b\udb40\udc65\u200b\udb40\udc6e\u200b\udb40\udc67\u200b\udb40\udc7f");case"emoji":return!a(e,"\ud83e\u1fac8")}return!1}function f(e,t,n,a){let r;const o=(r="undefined"!=typeof WorkerGlobalScope&&self instanceof WorkerGlobalScope?new OffscreenCanvas(300,150):document.createElement("canvas")).getContext("2d",{willReadFrequently:!0}),s=(o.textBaseline="top",o.font="600 32px Arial",{});return e.forEach(e=>{s[e]=t(o,e,n,a)}),s}function r(e){var t=document.createElement("script");t.src=e,t.defer=!0,document.head.appendChild(t)}a.supports={everything:!0,everythingExceptFlag:!0},new Promise(t=>{let n=function(){try{var e=JSON.parse(sessionStorage.getItem(o));if("object"==typeof e&&"number"==typeof e.timestamp&&(new Date).valueOf()<e.timestamp+604800&&"object"==typeof e.supportTests)return e.supportTests}catch(e){}return null}();if(!n){if("undefined"!=typeof Worker&&"undefined"!=typeof OffscreenCanvas&&"undefined"!=typeof URL&&URL.createObjectURL&&"undefined"!=typeof Blob)try{var e="postMessage("+f.toString()+"("+[JSON.stringify(s),u.toString(),c.toString(),p.toString()].join(",")+"));",a=new Blob([e],{type:"text/javascript"});const r=new Worker(URL.createObjectURL(a),{name:"wpTestEmojiSupports"});return void(r.onmessage=e=>{i(n=e.data),r.terminate(),t(n)})}catch(e){}i(n=f(s,u,c,p))}t(n)}).then(e=>{for(const n in e)a.supports[n]=e[n],a.supports.everything=a.supports.everything&&a.supports[n],"flag"!==n&&(a.supports.everythingExceptFlag=a.supports.everythingExceptFlag&&a.supports[n]);var t;a.supports.everythingExceptFlag=a.supports.everythingExceptFlag&&!a.supports.flag,a.supports.everything||((t=a.source||{}).concatemoji?r(t.concatemoji):t.wpemoji&&t.twemoji&&(r(t.twemoji),r(t.wpemoji)))});
+//# sourceURL=/wp-includes/js/wp-emoji-loader.min.js
+/* ]]> */
+</script>
 </body>
 </html>
