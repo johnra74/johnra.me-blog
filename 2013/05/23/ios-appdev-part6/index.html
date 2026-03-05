@@ -1,16 +1,16 @@
 <!DOCTYPE html>
 <html lang="en-US">
-<head>
-	<title>iOS App Development Tutorial Part VI: Storyboarding &ndash; J O H N R A . M E</title>
+<head><meta charset="UTF-8">
+	<title>iOS App Development Tutorial Part VI: Storyboarding – J O H N R A . M E</title>
 <meta name="robots" content="max-image-preview:large">
-<meta charset="UTF-8">
+
 <meta name="viewport" content="width=device-width, initial-scale=1">
 <meta name="template" content="Ignite 1.84">
 <link rel="dns-prefetch" href="//fonts.googleapis.com">
-<link rel="alternate" type="application/rss+xml" title="J O H N R A . M E &raquo; Feed" href="/feed/">
-<link rel="alternate" type="application/rss+xml" title="J O H N R A . M E &raquo; Comments Feed" href="/comments/feed/">
-<link rel="alternate" title="oEmbed (JSON)" type="application/json+oembed" href="/wp-json/oembed/1.0/embed?url=http%3A%2F%2F%2F2013%2F05%2F23%2Fios-appdev-part6%2F">
-<link rel="alternate" title="oEmbed (XML)" type="text/xml+oembed" href="/wp-json/oembed/1.0/embed?url=http%3A%2F%2F%2F2013%2F05%2F23%2Fios-appdev-part6%2F&amp;format=xml">
+<link rel="alternate" type="application/rss+xml" title="J O H N R A . M E » Feed" href="/feed/">
+<link rel="alternate" type="application/rss+xml" title="J O H N R A . M E » Comments Feed" href="/comments/feed/">
+<link rel="alternate" title="oEmbed (JSON)" type="application/json+oembed" href="/wp-json/oembed/1.0/embed?url=%2F2013%2F05%2F23%2Fios-appdev-part6%2F">
+<link rel="alternate" title="oEmbed (XML)" type="text/xml+oembed" href="/wp-json/oembed/1.0/embed?url=%2F2013%2F05%2F23%2Fios-appdev-part6%2F&amp;format=xml">
 <style id="wp-img-auto-sizes-contain-inline-css" type="text/css">
 img:is([sizes=auto i],[sizes^="auto," i]){contain-intrinsic-size:3000px 1500px}
 /*# sourceURL=wp-img-auto-sizes-contain-inline-css */
@@ -124,7 +124,7 @@ li.linkcat {
 <div class="menu-container menu-primary" id="menu-primary" role="navigation">
 	<p id="site-description" class="tagline">...yet another musings of a techie</p><ul id="menu-primary-items" class="menu-primary-items"><li id="menu-item-489" class="menu-item menu-item-type-custom menu-item-object-custom menu-item-489"><a href="/">Blog</a></li>
 <li id="menu-item-490" class="menu-item menu-item-type-post_type menu-item-object-page menu-item-490"><a href="/about-me/">About</a></li>
-<li id="menu-item-522" class="menu-item menu-item-type-post_type menu-item-object-page menu-item-522"><a href="/resume/">R&eacute;sum&eacute;</a></li>
+<li id="menu-item-522" class="menu-item menu-item-type-post_type menu-item-object-page menu-item-522"><a href="/resume/">Résumé</a></li>
 </ul><ul class="social-media-icons">				<li>
 					<a class="facebook" target="_blank" href="https://www.facebook.com/jra75">
 						<i class="fab fa-facebook-square" title="facebook"></i>
@@ -160,28 +160,28 @@ li.linkcat {
 		</div>
 		<div class="entry-content">
 			<article>
-				<p class="last-updated">Last updated on April 11, 2024 </p>				<p>This tutorial, up until now, focused on the non-visual aspect of development, or as I would call it, the plumbing. It&rsquo;s now time to put the visuals aspects using some of these plumbing we&rsquo;ve built onto our storyboard.</p>
-<p>Storyboard is a feature built into Xcode that&nbsp;represents the screens in an app and the transitions between them. It is similar to Interface Builder with the added advantage of defining transitions. If you have done any WinForm development, both storyboard and interface builder concepts will be easy to understand. If you&rsquo;re coming from Java AWT and/or swing, concepts may be very foreign to you. Luckily, Google did manage to improve UI development on the android platform. Too bad, it&nbsp;wouldn&rsquo;t replace swing anytime soon.&Acirc;&nbsp;Once you get used to it, you&rsquo;re really going to hate developing UIs in Java AWT and/or swing. I certainly did.</p>
-<p>Now that I got my dig on Java swing and AWT, let&rsquo;s leverage the mockups we&rsquo;ve created from our earlier tutorial: <a href="/2013/05/13/ios-appdev-part2/">Putting Pen to Paper</a>.</p>
-<p><strong>1. Create Storyboard</strong><br><a href="/wp-content/uploads/2013/05/newfile4.png"><img decoding="async" class="alignright size-thumbnail wp-image-262" src="/wp-content/uploads/2013/05/newfile4-150x150.png" alt="newfile4" width="150" height="150"></a>Right-click &ldquo;DZone RSS&rdquo; group under project DZone RSS and select &ldquo;New File&hellip;&rdquo;. In the &ldquo;choose a template for your new file&rdquo;, select &ldquo;User Interface&rdquo; on left panel, &ldquo;Storyboard&rdquo; on right panel, and&nbsp;click next. Leave Device Family option as &ldquo;iPhone&rdquo; and click Next.&Acirc;&nbsp;Name the storyboard as &ldquo;MainStoryboard&rdquo; under&Acirc;&nbsp;&ldquo;Save As&rdquo; field and click &ldquo;create&rdquo;. MainStoryboard should now appear under &ldquo;DZone RSS&rdquo; group.</p>
+				<p class="last-updated">Last updated on April 11, 2024 </p>				<p>This tutorial, up until now, focused on the non-visual aspect of development, or as I would call it, the plumbing. It’s now time to put the visuals aspects using some of these plumbing we’ve built onto our storyboard.</p>
+<p>Storyboard is a feature built into Xcode that represents the screens in an app and the transitions between them. It is similar to Interface Builder with the added advantage of defining transitions. If you have done any WinForm development, both storyboard and interface builder concepts will be easy to understand. If you’re coming from Java AWT and/or swing, concepts may be very foreign to you. Luckily, Google did manage to improve UI development on the android platform. Too bad, it wouldn’t replace swing anytime soon.Â Once you get used to it, you’re really going to hate developing UIs in Java AWT and/or swing. I certainly did.</p>
+<p>Now that I got my dig on Java swing and AWT, let’s leverage the mockups we’ve created from our earlier tutorial: <a href="/2013/05/13/ios-appdev-part2/">Putting Pen to Paper</a>.</p>
+<p><strong>1. Create Storyboard</strong><br><a href="/wp-content/uploads/2013/05/newfile4.png"><img decoding="async" class="alignright size-thumbnail wp-image-262" src="/wp-content/uploads/2013/05/newfile4-150x150.png" alt="newfile4" width="150" height="150"></a>Right-click “DZone RSS” group under project DZone RSS and select “New File…”. In the “choose a template for your new file”, select “User Interface” on left panel, “Storyboard” on right panel, and click next. Leave Device Family option as “iPhone” and click Next.Â Name the storyboard as “MainStoryboard” underÂ “Save As” field and click “create”. MainStoryboard should now appear under “DZone RSS” group.</p>
 <p><a href="/wp-content/uploads/2013/05/storyboard.png"><img fetchpriority="high" decoding="async" class="alignnone size-medium wp-image-263" src="/wp-content/uploads/2013/05/storyboard-300x179.png" alt="storyboard" width="300" height="179"></a></p>
 <p><strong>2. Add Navigation Controller</strong></p>
-<p>The starting controller for our application will be the UINavigationController. With UINavigationController, we can stack many types of ViewControllers on top of it. In our case, as described in earlier post,&nbsp;UITabbarController will be&nbsp;stacked on top next.</p>
-<p><a href="/wp-content/uploads/2013/05/objectbroswer.png"><img decoding="async" class="alignright size-thumbnail wp-image-267" src="/wp-content/uploads/2013/05/objectbroswer-150x150.png" alt="objectbroswer" width="150" height="150"></a>To add UINavigationController, simply drag Navigation Controller from the object browser on your right bottom corner to the storyboard. By default, the root view controller will be UITableViewController. Since we will be using UITabbarController, you can select &ldquo;Table View Controller &ndash; Root&rdquo; and delete it.</p>
-<p>On the Attribute Inspector, you&rsquo;ll notice &ldquo;Is Initial View Controller&rdquo; checked. Only one ViewController within the storyboard can have this checked. This will inform our application which view controller should be loaded first on startup.</p>
+<p>The starting controller for our application will be the UINavigationController. With UINavigationController, we can stack many types of ViewControllers on top of it. In our case, as described in earlier post, UITabbarController will be stacked on top next.</p>
+<p><a href="/wp-content/uploads/2013/05/objectbroswer.png"><img decoding="async" class="alignright size-thumbnail wp-image-267" src="/wp-content/uploads/2013/05/objectbroswer-150x150.png" alt="objectbroswer" width="150" height="150"></a>To add UINavigationController, simply drag Navigation Controller from the object browser on your right bottom corner to the storyboard. By default, the root view controller will be UITableViewController. Since we will be using UITabbarController, you can select “Table View Controller – Root” and delete it.</p>
+<p>On the Attribute Inspector, you’ll notice “Is Initial View Controller” checked. Only one ViewController within the storyboard can have this checked. This will inform our application which view controller should be loaded first on startup.</p>
 <p><a href="/wp-content/uploads/2013/05/storyboard2.png"><img loading="lazy" decoding="async" class="alignnone size-full wp-image-268" src="/wp-content/uploads/2013/05/storyboard2.png" alt="storyboard2" width="515" height="410"></a></p>
 <p><strong>2. Add Tab Bar Controller</strong></p>
-<p>From the object browser, drag Tab Bar Controller to Storyboard. By default Tab Bar Controller comes with&Acirc;&nbsp;two UIViewControllers. However, we don&rsquo;t want UIViewControllers. We want UICollectionViewController instead so select and delete each of the view controller attached to Tab Bar Controller.</p>
+<p>From the object browser, drag Tab Bar Controller to Storyboard. By default Tab Bar Controller comes withÂ two UIViewControllers. However, we don’t want UIViewControllers. We want UICollectionViewController instead so select and delete each of the view controller attached to Tab Bar Controller.</p>
 <p><a href="/wp-content/uploads/2013/05/storyboard3.png"><img loading="lazy" decoding="async" class="size-medium wp-image-269 alignnone" src="/wp-content/uploads/2013/05/storyboard3-263x300.png" alt="storyboard3" width="263" height="300"></a></p>
-<p>Now drag&nbsp;two Collection View Controllers to the storyboard. Select Tab Bar Controller from storyboard and go to Connections inspector. Select the outlet next to view controllers under Triggered Segues and drag it over to the top Collection View Controller.</p>
+<p>Now drag two Collection View Controllers to the storyboard. Select Tab Bar Controller from storyboard and go to Connections inspector. Select the outlet next to view controllers under Triggered Segues and drag it over to the top Collection View Controller.</p>
 <p><a href="/wp-content/uploads/2013/05/storyboard4.png"><img loading="lazy" decoding="async" class="alignnone size-medium wp-image-270" src="/wp-content/uploads/2013/05/storyboard4-300x220.png" alt="storyboard4" width="300" height="220"></a></p>
-<p>Repeat this for the second collection view. Now, click on Navigation Controller, select &ldquo;root view controller&rdquo; outlet and drag it over to Tab Bar Controller. It should now look like below.</p>
+<p>Repeat this for the second collection view. Now, click on Navigation Controller, select “root view controller” outlet and drag it over to Tab Bar Controller. It should now look like below.</p>
 <p><a href="/wp-content/uploads/2013/05/storyboard5.png"><img loading="lazy" decoding="async" class="alignnone size-medium wp-image-271" src="/wp-content/uploads/2013/05/storyboard5-300x191.png" alt="storyboard5" width="300" height="191"></a></p>
-<p><a href="/wp-content/uploads/2013/05/storyboard6.png"><img loading="lazy" decoding="async" class="alignright size-thumbnail wp-image-272" src="/wp-content/uploads/2013/05/storyboard6-150x150.png" alt="storyboard6" width="150" height="150"></a>Since our Tab Bar is black, we need to change the navigation bar to black as well. While Navigation Controller is selected, go to Attribute inspector and change the Top Bar from &ldquo;Inferred&rdquo; to &ldquo;Back Navigation Bar&rdquo;.</p>
-<p>Now that we have our segues defined for the tabs, let&rsquo;s change the icon on the tab bar. If you have your document outline closed, open them by clicking on the left corner. Expand the first Collection View Controller Scene and select Tab Bar Item. Then, go to Attribute inspector. If the selected Tab Bar Item from document outline is pointing to the bottom collection view on the storyboard, change the identifier from &ldquo;Custom&rdquo; to &ldquo;Most Recent&rdquo;. Otherwise, change it to Featured.</p>
+<p><a href="/wp-content/uploads/2013/05/storyboard6.png"><img loading="lazy" decoding="async" class="alignright size-thumbnail wp-image-272" src="/wp-content/uploads/2013/05/storyboard6-150x150.png" alt="storyboard6" width="150" height="150"></a>Since our Tab Bar is black, we need to change the navigation bar to black as well. While Navigation Controller is selected, go to Attribute inspector and change the Top Bar from “Inferred” to “Back Navigation Bar”.</p>
+<p>Now that we have our segues defined for the tabs, let’s change the icon on the tab bar. If you have your document outline closed, open them by clicking on the left corner. Expand the first Collection View Controller Scene and select Tab Bar Item. Then, go to Attribute inspector. If the selected Tab Bar Item from document outline is pointing to the bottom collection view on the storyboard, change the identifier from “Custom” to “Most Recent”. Otherwise, change it to Featured.</p>
 <p><a href="/wp-content/uploads/2013/05/storyboard7.png"><img loading="lazy" decoding="async" class="alignnone size-medium wp-image-273" src="/wp-content/uploads/2013/05/storyboard7-300x133.png" alt="storyboard7" width="300" height="133"></a></p>
 <p>Repeat this for the other Collection View Controller.</p>
-<p>Let&rsquo;s take a moment and run what we have. But first, we need to delete some code from JSTRAppDelegate.m and update our project setting. First, click on DZone RSS project. Under targets, select DZone RSS and go to Summary tab. Under iPhone / iPod Deployment Info, select &ldquo;MainStoryboard&rdquo; next to the &ldquo;Main Storyboard&rdquo; field.</p>
+<p>Let’s take a moment and run what we have. But first, we need to delete some code from JSTRAppDelegate.m and update our project setting. First, click on DZone RSS project. Under targets, select DZone RSS and go to Summary tab. Under iPhone / iPod Deployment Info, select “MainStoryboard” next to the “Main Storyboard” field.</p>
 <p><a href="/wp-content/uploads/2013/05/project.png"><img loading="lazy" decoding="async" class="alignnone size-medium wp-image-276" src="/wp-content/uploads/2013/05/project-300x86.png" alt="project" width="300" height="86"></a></p>
 <p>Next, open JSTRAppDelegate and delete everything in the method application:didFinishLaunchingWithOptions except for the following lines.</p>
 
@@ -200,19 +200,19 @@ li.linkcat {
 
 
 
-<p>Since our storyboard will handle launching of the Main View Controller, we don&rsquo;t need to instantiate the UIWindow in our code and make it visible. On run, we now have our app with navigation bar and tab bar with two items.</p>
+<p>Since our storyboard will handle launching of the Main View Controller, we don’t need to instantiate the UIWindow in our code and make it visible. On run, we now have our app with navigation bar and tab bar with two items.</p>
 
 
 
-<p>You may be asking why I choose to use Collection View over Table View. The main reason is that I want to reuse many of my UI components for the iPad version of this app. With Collection view, I can define and reuse my Collection Cell so that they appear in multiple columns and rows as oppose to single column cells in a table view. In&nbsp;iPad view, a single column view is a waste of space.&nbsp;It&rsquo;s a design decision that you too have to make when you start implementing your own app.</p>
+<p>You may be asking why I choose to use Collection View over Table View. The main reason is that I want to reuse many of my UI components for the iPad version of this app. With Collection view, I can define and reuse my Collection Cell so that they appear in multiple columns and rows as oppose to single column cells in a table view. In iPad view, a single column view is a waste of space. It’s a design decision that you too have to make when you start implementing your own app.</p>
 
 
 
-<p><strong>3. Define&nbsp;Collection Cell Layout</strong></p>
+<p><strong>3. Define Collection Cell Layout</strong></p>
 
 
 
-<p>From&nbsp;Collection View Controller we will use as &ldquo;Feature&rdquo; tab, select the&nbsp;child component&nbsp;named &ldquo;Collection View&rdquo;. On the right panel, go to Size inspector and update the Collection View Size details. We want our cell to be 314 by 314.</p>
+<p>From Collection View Controller we will use as “Feature” tab, select the child component named “Collection View”. On the right panel, go to Size inspector and update the Collection View Size details. We want our cell to be 314 by 314.</p>
 
 
 
@@ -220,15 +220,15 @@ li.linkcat {
 
 
 
-<p>Select the child component&nbsp;under Collection View named &ldquo;Collection View Cell&rdquo; and add the following components:</p>
+<p>Select the child component under Collection View named “Collection View Cell” and add the following components:</p>
 
 
 
-<ul class="wp-block-list"><li>drag a View from Object browser to be used as background tile (size: 275 x 290; bound to&nbsp;x=30 &amp;&nbsp;y=10). Set the background color to RBG value of 172, 204, and 252.</li><li>drag 2 ImageViews from Object browser to be used as avatar (size: 24x 24; bound to&nbsp;x=0 &amp;&nbsp;y=0)&nbsp;and thumbnail (size: 120 x 90; bound to&nbsp;x=194 &amp;&nbsp;y=0)</li><li>drag 3 Labels from Object browser to be used as title (size: 115 x 60; bound to&nbsp;x=34 &amp;&nbsp;y=10), category (size: 155 x 20; bound to&nbsp;x=34 &amp;&nbsp;y=70), and summary (size: 267 x 177; bound to&nbsp;x=34 &amp;&nbsp;y=90)</li></ul>
+<ul class="wp-block-list"><li>drag a View from Object browser to be used as background tile (size: 275 x 290; bound to x=30 &amp; y=10). Set the background color to RBG value of 172, 204, and 252.</li><li>drag 2 ImageViews from Object browser to be used as avatar (size: 24x 24; bound to x=0 &amp; y=0) and thumbnail (size: 120 x 90; bound to x=194 &amp; y=0)</li><li>drag 3 Labels from Object browser to be used as title (size: 115 x 60; bound to x=34 &amp; y=10), category (size: 155 x 20; bound to x=34 &amp; y=70), and summary (size: 267 x 177; bound to x=34 &amp; y=90)</li></ul>
 
 
 
-<p>Once you&rsquo;ve updated the size attributes, we need to make small changes to our UILabel components: title, category, and summary.&nbsp;Under attribute inspector, we want title to have font sized to 12,&nbsp;lines set to 3, and line breaks to &ldquo;Word Wrap&rdquo;.&nbsp;For category,&nbsp;font sized to 10. For summary, font sized to 14, lines to 9, and Line Breaks set to &ldquo;Word Wrap&rdquo;.&nbsp;This will enable our app to properly layout our text on screen.</p>
+<p>Once you’ve updated the size attributes, we need to make small changes to our UILabel components: title, category, and summary. Under attribute inspector, we want title to have font sized to 12, lines set to 3, and line breaks to “Word Wrap”. For category, font sized to 10. For summary, font sized to 14, lines to 9, and Line Breaks set to “Word Wrap”. This will enable our app to properly layout our text on screen.</p>
 
 
 
@@ -244,7 +244,7 @@ li.linkcat {
 
 
 
-<p>In order to assign values to these components, we need to create a custom class. Following earlier tutorial, create a group called &ldquo;UI&rdquo; and associate it to a specific file system folder UI. Then, add a new file called JSTRCollectionViewCell, a subclass of UICollectionViewCell, to this group. This will be a simple class with 5 outlets. We will only modify the header file and leave the implementation class as is.</p>
+<p>In order to assign values to these components, we need to create a custom class. Following earlier tutorial, create a group called “UI” and associate it to a specific file system folder UI. Then, add a new file called JSTRCollectionViewCell, a subclass of UICollectionViewCell, to this group. This will be a simple class with 5 outlets. We will only modify the header file and leave the implementation class as is.</p>
 
 
 
@@ -270,7 +270,7 @@ li.linkcat {
 
 
 
-<p>When you click on connection inspector, you&rsquo;ll see the 5 outlets defined in your custom class. For each outlet, select and drag it over to their relevant component. Below, I am dragging the avatar outlet to top left corner where I want my image to reside.</p>
+<p>When you click on connection inspector, you’ll see the 5 outlets defined in your custom class. For each outlet, select and drag it over to their relevant component. Below, I am dragging the avatar outlet to top left corner where I want my image to reside.</p>
 
 
 
@@ -282,7 +282,7 @@ li.linkcat {
 
 
 
-<p>Finally, I need to specify the reusable view identifier. This identifier will be used by the Collection View Controller to retrieve and instance of this cell so that we can assign data to them. To do this, go to the attribute inspector and set the identifier to &ldquo;articleCell&rdquo;.</p>
+<p>Finally, I need to specify the reusable view identifier. This identifier will be used by the Collection View Controller to retrieve and instance of this cell so that we can assign data to them. To do this, go to the attribute inspector and set the identifier to “articleCell”.</p>
 
 
 
@@ -290,11 +290,11 @@ li.linkcat {
 
 
 
-<p>Like custom collection cell, we now need a custom collection view controller class. This class will be used to retrieve the parsed RSS file from the file system and populate each cell that&rsquo;s rendered within collection view controller.</p>
+<p>Like custom collection cell, we now need a custom collection view controller class. This class will be used to retrieve the parsed RSS file from the file system and populate each cell that’s rendered within collection view controller.</p>
 
 
 
-<p>Once again, add a new file called &acirc;&euro;&oelig;JSTRCollectionViewController&acirc;&euro;&#157;, a subclass of UICollectionViewController, to the &ldquo;UI&rdquo; group. There&rsquo;s one delegate we must define in our header for our custom class: UICollectionViewDataSource. Additionally, we want to create an instance variable to hold the content of our parsed RSS file.</p>
+<p>Once again, add a new file called â€œJSTRCollectionViewControllerâ€&#157;, a subclass of UICollectionViewController, to the “UI” group. There’s one delegate we must define in our header for our custom class: UICollectionViewDataSource. Additionally, we want to create an instance variable to hold the content of our parsed RSS file.</p>
 
 
 
@@ -309,7 +309,7 @@ li.linkcat {
 
 
 
-<p>First, let&rsquo;s retrieve the content of the parsed RSS file when our UI component becomes visible by updating viewDidLoad method. Additionally, since we are referencing JSTRRSSUtil class, don&rsquo;t forget to import this class.</p>
+<p>First, let’s retrieve the content of the parsed RSS file when our UI component becomes visible by updating viewDidLoad method. Additionally, since we are referencing JSTRRSSUtil class, don’t forget to import this class.</p>
 
 
 
@@ -340,7 +340,7 @@ li.linkcat {
 
 
 
-<p>In our next method, we inform our collection view controller how many items will be in the selected section. Since we only have one section, I don&rsquo;t need to know the value of the parameter section. I just return the size of our array of articles.</p>
+<p>In our next method, we inform our collection view controller how many items will be in the selected section. Since we only have one section, I don’t need to know the value of the parameter section. I just return the size of our array of articles.</p>
 
 
 
@@ -351,7 +351,7 @@ li.linkcat {
 
 
 
-<p>Finally, we retrieve each cell within our section and populated it. In the first line, you&rsquo;ll notice the same value &ldquo;articleCell&rdquo; I provided as our reusable identifier in prior step. Using dequeueReusableCellWithReuseIdentifier, an instance of the cell defined by our indexPath is returned. I then assign the necessary values of the cell&rsquo;s components via the already defined outlets. Additionally, since we have a reference to JSTRCollectionViewCell, don&rsquo;t forget to import this header.</p>
+<p>Finally, we retrieve each cell within our section and populated it. In the first line, you’ll notice the same value “articleCell” I provided as our reusable identifier in prior step. Using dequeueReusableCellWithReuseIdentifier, an instance of the cell defined by our indexPath is returned. I then assign the necessary values of the cell’s components via the already defined outlets. Additionally, since we have a reference to JSTRCollectionViewCell, don’t forget to import this header.</p>
 
 
 
@@ -398,11 +398,11 @@ forIndexPath:indexPath];
 
 
 
-<p><strong>6. Let&rsquo;s Run</strong></p>
+<p><strong>6. Let’s Run</strong></p>
 
 
 
-<p>When you run now, the RSS content will appear in our app. Granted, we haven&rsquo;t implemented the latest links tab but you should have the following appear.</p>
+<p>When you run now, the RSS content will appear in our app. Granted, we haven’t implemented the latest links tab but you should have the following appear.</p>
 
 
 
@@ -410,7 +410,7 @@ forIndexPath:indexPath];
 
 
 
-<p>Currently, this app uses system font. You can change the front by selecting each UILabel control from storyboard and change the size and type from attribute inspector. Go ahead, I&rsquo;ll take no offense to your customizations.</p>
+<p>Currently, this app uses system font. You can change the front by selecting each UILabel control from storyboard and change the size and type from attribute inspector. Go ahead, I’ll take no offense to your customizations.</p>
 							</article>
 		</div>
 		<div class="entry-meta-bottom">
@@ -444,13 +444,70 @@ forIndexPath:indexPath];
 
 <ul class="wp-block-latest-posts__list wp-block-latest-posts"><li><a class="wp-block-latest-posts__post-title" href="/2024/05/16/synology-ups-as-nut-primary/">Synology + UPS as NUT Primary</a></li>
 <li><a class="wp-block-latest-posts__post-title" href="/2024/04/10/context-matters/">Context Matters</a></li>
-<li><a class="wp-block-latest-posts__post-title" href="/2022/03/29/its-a-trap/">It&rsquo;s a trap!</a></li>
+<li><a class="wp-block-latest-posts__post-title" href="/2022/03/29/its-a-trap/">It’s a trap!</a></li>
 <li><a class="wp-block-latest-posts__post-title" href="/2022/02/02/7-minute-abs/">7-Minute Abs</a></li>
-<li><a class="wp-block-latest-posts__post-title" href="/2022/01/23/restart/">I&rsquo;m Back?</a></li>
+<li><a class="wp-block-latest-posts__post-title" href="/2022/01/23/restart/">I’m Back?</a></li>
 </ul></div></div>
-</section><section id="block-19" class="widget widget_block">
-<div class="wp-block-group"><div class="wp-block-group__inner-container is-layout-flow wp-block-group-is-layout-flow"><p>[bookmarks categorize=1]</p>
-</div></div>
+</section><section id="block-21" class="widget widget_block">
+<ul class="wp-block-list">
+<li><a href="http://blog.activelylazy.co.uk/">Actively Lazy</a></li>
+
+
+
+<li><a href="http://www.codeofhonor.com/blog" data-type="link" data-id="http://www.codeofhonor.com/blog">Code Of Honor</a></li>
+
+
+
+<li><a href="http://www.codinghorror.com/blog">Coding Horror</a></li>
+
+
+
+<li><a href="http://blog.sanaulla.info/">Experiences Unlimited</a></li>
+
+
+
+<li><a href="http://javadepend.wordpress.com/">JArchitect</a></li>
+
+
+
+<li><a href="http://www.markhneedham.com/blog">Mark Needham</a></li>
+
+
+
+<li><a href="https://martinfowler.com/">Martin Fowler</a></li>
+
+
+
+<li><a href="https://msun.io/">Mike Sun</a></li>
+
+
+
+<li><a href="http://blogs.msdn.com/b/oldnewthing">Old New Thing</a></li>
+
+
+
+<li><a href="http://www.opsbs.com/">Operation Bootstrap</a></li>
+
+
+
+<li><a href="http://blog.schauderhaft.de/">Schauderhaft</a></li>
+
+
+
+<li><a href="http://www.hanselman.com/blog">Scott Hanselman</a></li>
+
+
+
+<li><a href="http://simpleprogrammer.com/">Simple Programmer</a></li>
+
+
+
+<li><a href="https://francisshanahan.substack.com/">Tech Field Notes</a></li>
+
+
+
+<li><a href="http://tidyfirst.substack.com/">Tidy First? (Kent Beck)</a></li>
+</ul>
 </section><section id="block-4" class="widget widget_block">
 <div class="wp-block-group"><div class="wp-block-group__inner-container is-layout-flow wp-block-group-is-layout-flow">
 <h2 class="wp-block-heading">Categories</h2>
@@ -499,7 +556,7 @@ forIndexPath:indexPath];
 	</h1>
 	<span class="tagline">...yet another musings of a techie</span>	<div class="design-credit">
         <span>
-            &nbsp;&nbsp;        </span>
+                      </span>
 	</div>
 </footer>
 <script type="speculationrules">

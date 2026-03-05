@@ -1,16 +1,16 @@
 <!DOCTYPE html>
 <html lang="en-US">
-<head>
-	<title>iOS App Development Tutorial Part IV: Parsing RSS XML &ndash; J O H N R A . M E</title>
+<head><meta charset="UTF-8">
+	<title>iOS App Development Tutorial Part IV: Parsing RSS XML – J O H N R A . M E</title>
 <meta name="robots" content="max-image-preview:large">
-<meta charset="UTF-8">
+
 <meta name="viewport" content="width=device-width, initial-scale=1">
 <meta name="template" content="Ignite 1.84">
 <link rel="dns-prefetch" href="//fonts.googleapis.com">
-<link rel="alternate" type="application/rss+xml" title="J O H N R A . M E &raquo; Feed" href="/feed/">
-<link rel="alternate" type="application/rss+xml" title="J O H N R A . M E &raquo; Comments Feed" href="/comments/feed/">
-<link rel="alternate" title="oEmbed (JSON)" type="application/json+oembed" href="/wp-json/oembed/1.0/embed?url=http%3A%2F%2F%2F2013%2F05%2F17%2Fios-appdev-part4%2F">
-<link rel="alternate" title="oEmbed (XML)" type="text/xml+oembed" href="/wp-json/oembed/1.0/embed?url=http%3A%2F%2F%2F2013%2F05%2F17%2Fios-appdev-part4%2F&amp;format=xml">
+<link rel="alternate" type="application/rss+xml" title="J O H N R A . M E » Feed" href="/feed/">
+<link rel="alternate" type="application/rss+xml" title="J O H N R A . M E » Comments Feed" href="/comments/feed/">
+<link rel="alternate" title="oEmbed (JSON)" type="application/json+oembed" href="/wp-json/oembed/1.0/embed?url=%2F2013%2F05%2F17%2Fios-appdev-part4%2F">
+<link rel="alternate" title="oEmbed (XML)" type="text/xml+oembed" href="/wp-json/oembed/1.0/embed?url=%2F2013%2F05%2F17%2Fios-appdev-part4%2F&amp;format=xml">
 <style id="wp-img-auto-sizes-contain-inline-css" type="text/css">
 img:is([sizes=auto i],[sizes^="auto," i]){contain-intrinsic-size:3000px 1500px}
 /*# sourceURL=wp-img-auto-sizes-contain-inline-css */
@@ -50,6 +50,10 @@ h1:where(.wp-block-heading).has-background,h2:where(.wp-block-heading).has-backg
 <style id="wp-block-latest-posts-inline-css" type="text/css">
 .wp-block-latest-posts{box-sizing:border-box}.wp-block-latest-posts.alignleft{margin-right:2em}.wp-block-latest-posts.alignright{margin-left:2em}.wp-block-latest-posts.wp-block-latest-posts__list{list-style:none}.wp-block-latest-posts.wp-block-latest-posts__list li{clear:both;overflow-wrap:break-word}.wp-block-latest-posts.is-grid{display:flex;flex-wrap:wrap}.wp-block-latest-posts.is-grid li{margin:0 1.25em 1.25em 0;width:100%}@media (min-width:600px){.wp-block-latest-posts.columns-2 li{width:calc(50% - .625em)}.wp-block-latest-posts.columns-2 li:nth-child(2n){margin-right:0}.wp-block-latest-posts.columns-3 li{width:calc(33.33333% - .83333em)}.wp-block-latest-posts.columns-3 li:nth-child(3n){margin-right:0}.wp-block-latest-posts.columns-4 li{width:calc(25% - .9375em)}.wp-block-latest-posts.columns-4 li:nth-child(4n){margin-right:0}.wp-block-latest-posts.columns-5 li{width:calc(20% - 1em)}.wp-block-latest-posts.columns-5 li:nth-child(5n){margin-right:0}.wp-block-latest-posts.columns-6 li{width:calc(16.66667% - 1.04167em)}.wp-block-latest-posts.columns-6 li:nth-child(6n){margin-right:0}}:root :where(.wp-block-latest-posts.is-grid){padding:0}:root :where(.wp-block-latest-posts.wp-block-latest-posts__list){padding-left:0}.wp-block-latest-posts__post-author,.wp-block-latest-posts__post-date{display:block;font-size:.8125em}.wp-block-latest-posts__post-excerpt,.wp-block-latest-posts__post-full-content{margin-bottom:1em;margin-top:.5em}.wp-block-latest-posts__featured-image a{display:inline-block}.wp-block-latest-posts__featured-image img{height:auto;max-width:100%;width:auto}.wp-block-latest-posts__featured-image.alignleft{float:left;margin-right:1em}.wp-block-latest-posts__featured-image.alignright{float:right;margin-left:1em}.wp-block-latest-posts__featured-image.aligncenter{margin-bottom:1em;text-align:center}
 /*# sourceURL=/wp-includes/blocks/latest-posts/style.min.css */
+</style>
+<style id="wp-block-list-inline-css" type="text/css">
+ol,ul{box-sizing:border-box}:root :where(.wp-block-list.has-background){padding:1.25em 2.375em}
+/*# sourceURL=/wp-includes/blocks/list/style.min.css */
 </style>
 <style id="wp-block-code-inline-css" type="text/css">
 .wp-block-code{box-sizing:border-box}.wp-block-code code{
@@ -120,7 +124,7 @@ li.linkcat {
 <div class="menu-container menu-primary" id="menu-primary" role="navigation">
 	<p id="site-description" class="tagline">...yet another musings of a techie</p><ul id="menu-primary-items" class="menu-primary-items"><li id="menu-item-489" class="menu-item menu-item-type-custom menu-item-object-custom menu-item-489"><a href="/">Blog</a></li>
 <li id="menu-item-490" class="menu-item menu-item-type-post_type menu-item-object-page menu-item-490"><a href="/about-me/">About</a></li>
-<li id="menu-item-522" class="menu-item menu-item-type-post_type menu-item-object-page menu-item-522"><a href="/resume/">R&eacute;sum&eacute;</a></li>
+<li id="menu-item-522" class="menu-item menu-item-type-post_type menu-item-object-page menu-item-522"><a href="/resume/">Résumé</a></li>
 </ul><ul class="social-media-icons">				<li>
 					<a class="facebook" target="_blank" href="https://www.facebook.com/jra75">
 						<i class="fab fa-facebook-square" title="facebook"></i>
@@ -156,7 +160,7 @@ li.linkcat {
 		</div>
 		<div class="entry-content">
 			<article>
-				<p class="last-updated">Last updated on April 11, 2024 </p>				<p>In previous <a href="/2013/05/15/ios-appdev-part3">tutorial</a>, we learn to make a call to a website and download its content. Since we are dealing with RSS, we need to be able to parse the resulting XML data. Here&rsquo;s an example article from DZone article at the time of writing this blog.</p>
+				<p class="last-updated">Last updated on April 11, 2024 </p>				<p>In previous <a href="/2013/05/15/ios-appdev-part3">tutorial</a>, we learn to make a call to a website and download its content. Since we are dealing with RSS, we need to be able to parse the resulting XML data. Here’s an example article from DZone article at the time of writing this blog.</p>
 
 
 <pre class="wp-block-code"><code>&lt;item&gt;
@@ -214,7 +218,7 @@ li.linkcat {
 
 
 
-<p>With objective-c foundation&Acirc;&nbsp;library, we can easily parse the above XML by simply implementing the optional methods of NSXMLParserDelegate. We will pick out only the relevant data from each item and store them in dictionary. Each item will then be added to an array to be used in our storyboarding tutorial.</p>
+<p>With objective-c foundationÂ library, we can easily parse the above XML by simply implementing the optional methods of NSXMLParserDelegate. We will pick out only the relevant data from each item and store them in dictionary. Each item will then be added to an array to be used in our storyboarding tutorial.</p>
 
 
 
@@ -226,7 +230,7 @@ li.linkcat {
 
 
 
-<p>Like in prior example,&nbsp;let&rsquo;s create a&nbsp;group call &ldquo;XML&rdquo; and associate it to a specific file system folder &ldquo;XML&rdquo;. Then, add a new file called &ldquo;JSTRRSSParser&rdquo;, a subclass of NSObject, to this group. We need to update our header file to include the NSXMLParserDelegate protocol with necessary instance variables to store&nbsp;&nbsp;xml content.</p>
+<p>Like in prior example, let’s create a group call “XML” and associate it to a specific file system folder “XML”. Then, add a new file called “JSTRRSSParser”, a subclass of NSObject, to this group. We need to update our header file to include the NSXMLParserDelegate protocol with necessary instance variables to store  xml content.</p>
 
 
 
@@ -247,7 +251,7 @@ li.linkcat {
 
 
 
-<p>The array is used to store a dictionary (a.k.a hashmap) of article details. The dictionary will represent a single article. A mutable string is used to&nbsp;capture&nbsp;xml&nbsp;data within element.&nbsp;Finally, Boolean will be used to track when new article (i.e. &lt;item&gt; tag has appeared).</p>
+<p>The array is used to store a dictionary (a.k.a hashmap) of article details. The dictionary will represent a single article. A mutable string is used to capture xml data within element. Finally, Boolean will be used to track when new article (i.e. &lt;item&gt; tag has appeared).</p>
 
 
 
@@ -282,7 +286,7 @@ li.linkcat {
 
 
 
-<p>Tip: Add pragma to logically group methods together. It&rsquo;s a good practice to organize your methods. I personally </p>
+<p>Tip: Add pragma to logically group methods together. It’s a good practice to organize your methods. I personally </p>
 
 
 
@@ -290,7 +294,7 @@ li.linkcat {
 
 
 
-<p>prefer to use &ldquo;#pragma mark -&rdquo; to add a horizontal bar and comment for Xcode breadcrumb navigation.</p>
+<p>prefer to use “#pragma mark -” to add a horizontal bar and comment for Xcode breadcrumb navigation.</p>
 
 
 
@@ -334,15 +338,15 @@ li.linkcat {
 
 
 
-<p>This method is called by the XMLDataParser when a new tag has been discovered. When the open/start xml element &lt;item&gt; is discovered, we want to initialize a new dictionary to store the content of the article in a new dictionary. We also preset the dictionary value for key &ldquo;category&rdquo; as we can have multiple occurrence of xml element &lt;category&gt; (i.e. see example xml at top). Additionally, when the start xml element is any of the elements we want to store in our dictionary, we allocate a new mutable string.</p>
+<p>This method is called by the XMLDataParser when a new tag has been discovered. When the open/start xml element &lt;item&gt; is discovered, we want to initialize a new dictionary to store the content of the article in a new dictionary. We also preset the dictionary value for key “category” as we can have multiple occurrence of xml element &lt;category&gt; (i.e. see example xml at top). Additionally, when the start xml element is any of the elements we want to store in our dictionary, we allocate a new mutable string.</p>
 
 
 
-<p>Tip: Use auto complete when available, particularly with delegate methods. You&rsquo;ll run lower risk of fat-fingering the wrong character and wonder why your method is not being called. Given how simple it is, why not use it and save yourself the headache of banging your head on the wall. Simply, type &ldquo;-&rdquo; and first couple of letters of the method you wanted to implement. In our case, it was &ldquo;- p&rdquo;. Once you select it and try it again, you&rsquo;ll notice that implemented method will not re-appear.</p>
+<p>Tip: Use auto complete when available, particularly with delegate methods. You’ll run lower risk of fat-fingering the wrong character and wonder why your method is not being called. Given how simple it is, why not use it and save yourself the headache of banging your head on the wall. Simply, type “-” and first couple of letters of the method you wanted to implement. In our case, it was “- p”. Once you select it and try it again, you’ll notice that implemented method will not re-appear.</p>
 
 
 
-<p>Store all content between start xml element and end xml element for item&rsquo;s child elements we care about by implementing parse:foundCharacters delegate method. In majority of the use cases, this method is called once. However, if content between the start and end element is too large, it will be chunked and this method will be called multiple time. For this reason, we want to append to it until end element is reached.</p>
+<p>Store all content between start xml element and end xml element for item’s child elements we care about by implementing parse:foundCharacters delegate method. In majority of the use cases, this method is called once. However, if content between the start and end element is too large, it will be chunked and this method will be called multiple time. For this reason, we want to append to it until end element is reached.</p>
 
 
 
@@ -369,12 +373,12 @@ li.linkcat {
 
     // trim whitespace from left and right and replace commonly encoded html string
     NSString *content = [_tempStore stringByTrimmingCharactersInSet: [NSCharacterSet whitespaceCharacterSet]];
-    content = [content stringByReplacingOccurrencesOfString:@"&Acirc;&nbsp;" withString:@""];
+    content = [content stringByReplacingOccurrencesOfString:@"Â " withString:@""];
     content = [content stringByReplacingOccurrencesOfString:@"&amp;" withString:@"&amp;"];
     content = [content stringByReplacingOccurrencesOfString:@""" withString:@"\""];
-    content = [content stringByReplacingOccurrencesOfString:@"&Acirc;&shy;" withString:@"-"];
-    content = [content stringByReplacingOccurrencesOfString:@"&Acirc;&raquo;" withString:@"&gt;&gt;"];
-    content = [content stringByReplacingOccurrencesOfString:@"&Acirc;&middot;" withString:@"-"];
+    content = [content stringByReplacingOccurrencesOfString:@"Â­" withString:@"-"];
+    content = [content stringByReplacingOccurrencesOfString:@"Â»" withString:@"&gt;&gt;"];
+    content = [content stringByReplacingOccurrencesOfString:@"Â·" withString:@"-"];
     content = [content stringByReplacingOccurrencesOfString:@"&lt;" withString:@"&lt;"]; 
     content = [content stringByReplacingOccurrencesOfString:@"&gt;" withString:@"&gt;"];
 
@@ -413,7 +417,7 @@ li.linkcat {
 
 
 
-<p>Go back to our code from prior tutorial and&nbsp;import our new class &ldquo;JSTRRSSParser.h&rdquo; to &ldquo;JSTRRSSReader.m&rdquo;. Then,&nbsp;update the connectionDidFinishLoading method.</p>
+<p>Go back to our code from prior tutorial and import our new class “JSTRRSSParser.h” to “JSTRRSSReader.m”. Then, update the connectionDidFinishLoading method.</p>
 
 
 
@@ -438,7 +442,7 @@ li.linkcat {
 
 
 
-<p>If all works out, when you run your program again, you&rsquo;ll now see only the relevant parsed data in your console.</p>
+<p>If all works out, when you run your program again, you’ll now see only the relevant parsed data in your console.</p>
 
 
 
@@ -446,7 +450,7 @@ li.linkcat {
 
 
 
-<p>If the format looks familiar, that&rsquo;s because it&rsquo;s JSON format. Congrats! You have successfully parsed an xml content.</p>
+<p>If the format looks familiar, that’s because it’s JSON format. Congrats! You have successfully parsed an xml content.</p>
 							</article>
 		</div>
 		<div class="entry-meta-bottom">
@@ -480,13 +484,70 @@ li.linkcat {
 
 <ul class="wp-block-latest-posts__list wp-block-latest-posts"><li><a class="wp-block-latest-posts__post-title" href="/2024/05/16/synology-ups-as-nut-primary/">Synology + UPS as NUT Primary</a></li>
 <li><a class="wp-block-latest-posts__post-title" href="/2024/04/10/context-matters/">Context Matters</a></li>
-<li><a class="wp-block-latest-posts__post-title" href="/2022/03/29/its-a-trap/">It&rsquo;s a trap!</a></li>
+<li><a class="wp-block-latest-posts__post-title" href="/2022/03/29/its-a-trap/">It’s a trap!</a></li>
 <li><a class="wp-block-latest-posts__post-title" href="/2022/02/02/7-minute-abs/">7-Minute Abs</a></li>
-<li><a class="wp-block-latest-posts__post-title" href="/2022/01/23/restart/">I&rsquo;m Back?</a></li>
+<li><a class="wp-block-latest-posts__post-title" href="/2022/01/23/restart/">I’m Back?</a></li>
 </ul></div></div>
-</section><section id="block-19" class="widget widget_block">
-<div class="wp-block-group"><div class="wp-block-group__inner-container is-layout-flow wp-block-group-is-layout-flow"><p>[bookmarks categorize=1]</p>
-</div></div>
+</section><section id="block-21" class="widget widget_block">
+<ul class="wp-block-list">
+<li><a href="http://blog.activelylazy.co.uk/">Actively Lazy</a></li>
+
+
+
+<li><a href="http://www.codeofhonor.com/blog" data-type="link" data-id="http://www.codeofhonor.com/blog">Code Of Honor</a></li>
+
+
+
+<li><a href="http://www.codinghorror.com/blog">Coding Horror</a></li>
+
+
+
+<li><a href="http://blog.sanaulla.info/">Experiences Unlimited</a></li>
+
+
+
+<li><a href="http://javadepend.wordpress.com/">JArchitect</a></li>
+
+
+
+<li><a href="http://www.markhneedham.com/blog">Mark Needham</a></li>
+
+
+
+<li><a href="https://martinfowler.com/">Martin Fowler</a></li>
+
+
+
+<li><a href="https://msun.io/">Mike Sun</a></li>
+
+
+
+<li><a href="http://blogs.msdn.com/b/oldnewthing">Old New Thing</a></li>
+
+
+
+<li><a href="http://www.opsbs.com/">Operation Bootstrap</a></li>
+
+
+
+<li><a href="http://blog.schauderhaft.de/">Schauderhaft</a></li>
+
+
+
+<li><a href="http://www.hanselman.com/blog">Scott Hanselman</a></li>
+
+
+
+<li><a href="http://simpleprogrammer.com/">Simple Programmer</a></li>
+
+
+
+<li><a href="https://francisshanahan.substack.com/">Tech Field Notes</a></li>
+
+
+
+<li><a href="http://tidyfirst.substack.com/">Tidy First? (Kent Beck)</a></li>
+</ul>
 </section><section id="block-4" class="widget widget_block">
 <div class="wp-block-group"><div class="wp-block-group__inner-container is-layout-flow wp-block-group-is-layout-flow">
 <h2 class="wp-block-heading">Categories</h2>
@@ -535,7 +596,7 @@ li.linkcat {
 	</h1>
 	<span class="tagline">...yet another musings of a techie</span>	<div class="design-credit">
         <span>
-            &nbsp;&nbsp;        </span>
+                      </span>
 	</div>
 </footer>
 <script type="speculationrules">

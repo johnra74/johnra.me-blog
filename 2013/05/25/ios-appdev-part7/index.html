@@ -1,16 +1,16 @@
 <!DOCTYPE html>
 <html lang="en-US">
-<head>
-	<title>iOS App Development Tutorial Part VII: In-App Web Browsing &ndash; J O H N R A . M E</title>
+<head><meta charset="UTF-8">
+	<title>iOS App Development Tutorial Part VII: In-App Web Browsing – J O H N R A . M E</title>
 <meta name="robots" content="max-image-preview:large">
-<meta charset="UTF-8">
+
 <meta name="viewport" content="width=device-width, initial-scale=1">
 <meta name="template" content="Ignite 1.84">
 <link rel="dns-prefetch" href="//fonts.googleapis.com">
-<link rel="alternate" type="application/rss+xml" title="J O H N R A . M E &raquo; Feed" href="/feed/">
-<link rel="alternate" type="application/rss+xml" title="J O H N R A . M E &raquo; Comments Feed" href="/comments/feed/">
-<link rel="alternate" title="oEmbed (JSON)" type="application/json+oembed" href="/wp-json/oembed/1.0/embed?url=http%3A%2F%2F%2F2013%2F05%2F25%2Fios-appdev-part7%2F">
-<link rel="alternate" title="oEmbed (XML)" type="text/xml+oembed" href="/wp-json/oembed/1.0/embed?url=http%3A%2F%2F%2F2013%2F05%2F25%2Fios-appdev-part7%2F&amp;format=xml">
+<link rel="alternate" type="application/rss+xml" title="J O H N R A . M E » Feed" href="/feed/">
+<link rel="alternate" type="application/rss+xml" title="J O H N R A . M E » Comments Feed" href="/comments/feed/">
+<link rel="alternate" title="oEmbed (JSON)" type="application/json+oembed" href="/wp-json/oembed/1.0/embed?url=%2F2013%2F05%2F25%2Fios-appdev-part7%2F">
+<link rel="alternate" title="oEmbed (XML)" type="text/xml+oembed" href="/wp-json/oembed/1.0/embed?url=%2F2013%2F05%2F25%2Fios-appdev-part7%2F&amp;format=xml">
 <style id="wp-img-auto-sizes-contain-inline-css" type="text/css">
 img:is([sizes=auto i],[sizes^="auto," i]){contain-intrinsic-size:3000px 1500px}
 /*# sourceURL=wp-img-auto-sizes-contain-inline-css */
@@ -50,6 +50,10 @@ h1:where(.wp-block-heading).has-background,h2:where(.wp-block-heading).has-backg
 <style id="wp-block-latest-posts-inline-css" type="text/css">
 .wp-block-latest-posts{box-sizing:border-box}.wp-block-latest-posts.alignleft{margin-right:2em}.wp-block-latest-posts.alignright{margin-left:2em}.wp-block-latest-posts.wp-block-latest-posts__list{list-style:none}.wp-block-latest-posts.wp-block-latest-posts__list li{clear:both;overflow-wrap:break-word}.wp-block-latest-posts.is-grid{display:flex;flex-wrap:wrap}.wp-block-latest-posts.is-grid li{margin:0 1.25em 1.25em 0;width:100%}@media (min-width:600px){.wp-block-latest-posts.columns-2 li{width:calc(50% - .625em)}.wp-block-latest-posts.columns-2 li:nth-child(2n){margin-right:0}.wp-block-latest-posts.columns-3 li{width:calc(33.33333% - .83333em)}.wp-block-latest-posts.columns-3 li:nth-child(3n){margin-right:0}.wp-block-latest-posts.columns-4 li{width:calc(25% - .9375em)}.wp-block-latest-posts.columns-4 li:nth-child(4n){margin-right:0}.wp-block-latest-posts.columns-5 li{width:calc(20% - 1em)}.wp-block-latest-posts.columns-5 li:nth-child(5n){margin-right:0}.wp-block-latest-posts.columns-6 li{width:calc(16.66667% - 1.04167em)}.wp-block-latest-posts.columns-6 li:nth-child(6n){margin-right:0}}:root :where(.wp-block-latest-posts.is-grid){padding:0}:root :where(.wp-block-latest-posts.wp-block-latest-posts__list){padding-left:0}.wp-block-latest-posts__post-author,.wp-block-latest-posts__post-date{display:block;font-size:.8125em}.wp-block-latest-posts__post-excerpt,.wp-block-latest-posts__post-full-content{margin-bottom:1em;margin-top:.5em}.wp-block-latest-posts__featured-image a{display:inline-block}.wp-block-latest-posts__featured-image img{height:auto;max-width:100%;width:auto}.wp-block-latest-posts__featured-image.alignleft{float:left;margin-right:1em}.wp-block-latest-posts__featured-image.alignright{float:right;margin-left:1em}.wp-block-latest-posts__featured-image.aligncenter{margin-bottom:1em;text-align:center}
 /*# sourceURL=/wp-includes/blocks/latest-posts/style.min.css */
+</style>
+<style id="wp-block-list-inline-css" type="text/css">
+ol,ul{box-sizing:border-box}:root :where(.wp-block-list.has-background){padding:1.25em 2.375em}
+/*# sourceURL=/wp-includes/blocks/list/style.min.css */
 </style>
 <style id="wp-block-code-inline-css" type="text/css">
 .wp-block-code{box-sizing:border-box}.wp-block-code code{
@@ -120,7 +124,7 @@ li.linkcat {
 <div class="menu-container menu-primary" id="menu-primary" role="navigation">
 	<p id="site-description" class="tagline">...yet another musings of a techie</p><ul id="menu-primary-items" class="menu-primary-items"><li id="menu-item-489" class="menu-item menu-item-type-custom menu-item-object-custom menu-item-489"><a href="/">Blog</a></li>
 <li id="menu-item-490" class="menu-item menu-item-type-post_type menu-item-object-page menu-item-490"><a href="/about-me/">About</a></li>
-<li id="menu-item-522" class="menu-item menu-item-type-post_type menu-item-object-page menu-item-522"><a href="/resume/">R&eacute;sum&eacute;</a></li>
+<li id="menu-item-522" class="menu-item menu-item-type-post_type menu-item-object-page menu-item-522"><a href="/resume/">Résumé</a></li>
 </ul><ul class="social-media-icons">				<li>
 					<a class="facebook" target="_blank" href="https://www.facebook.com/jra75">
 						<i class="fab fa-facebook-square" title="facebook"></i>
@@ -156,15 +160,15 @@ li.linkcat {
 		</div>
 		<div class="entry-content">
 			<article>
-				<p class="last-updated">Last updated on April 11, 2024 </p>				<p>Having a list of article isn&rsquo;t enough, we need to allow users to click through to the actual article. It&rsquo;s also not a good user experience to have each article open in safari. We want to provide the ability to view the article within our app. Apple UIKit makes this extremely easy by providing a Web View component to view the target website.</p>
+				<p class="last-updated">Last updated on April 11, 2024 </p>				<p>Having a list of article isn’t enough, we need to allow users to click through to the actual article. It’s also not a good user experience to have each article open in safari. We want to provide the ability to view the article within our app. Apple UIKit makes this extremely easy by providing a Web View component to view the target website.</p>
 <p><strong>1. Add New View Controller</strong></p>
-<p>We want to first add a new View Controller that will hold the Web View. This can be done by dragging View Controller from object browser over to the storyboard. Once added, we want to push this new view controller when each Collection View Cell is clicked. First, drill down to the Collection View Cell, view connection inspector, and drag the selection under triggered segues over to the new view controller. Repeat this last step for the other Collection View Controller&rsquo;s Collection View Cell.</p>
+<p>We want to first add a new View Controller that will hold the Web View. This can be done by dragging View Controller from object browser over to the storyboard. Once added, we want to push this new view controller when each Collection View Cell is clicked. First, drill down to the Collection View Cell, view connection inspector, and drag the selection under triggered segues over to the new view controller. Repeat this last step for the other Collection View Controller’s Collection View Cell.</p>
 <p><a href="/wp-content/uploads/2013/05/storyboard14.png"><img decoding="async" class="alignnone size-medium wp-image-304" src="/wp-content/uploads/2013/05/storyboard14-300x158.png" alt="storyboard14" width="300" height="158"></a></p>
 <p>Now, whenever a cell is clicked, it will push this new view controller to the Navigation Controller stack.</p>
 <p><strong>2. Add Web View to the View Controller</strong></p>
 <p>Go back to the object browser and drag it under the main view of our newly added View Controller.</p>
 <p><a href="/wp-content/uploads/2013/05/storyboard15.png"><img decoding="async" class="alignnone size-medium wp-image-305" src="/wp-content/uploads/2013/05/storyboard15-300x72.png" alt="storyboard15" width="300" height="72"></a></p>
-<p>We now need to create a custom view controller class that will enable us to control what to display in this web view. Following prior tutorial, add a new class named &ldquo;JSTRBrowserViewController&rdquo; that&rsquo;s a subclass of &ldquo;UIViewController&rdquo;. Then, expose 2 properties, one for the web view component and the other to hold the target URL.</p>
+<p>We now need to create a custom view controller class that will enable us to control what to display in this web view. Following prior tutorial, add a new class named “JSTRBrowserViewController” that’s a subclass of “UIViewController”. Then, expose 2 properties, one for the web view component and the other to hold the target URL.</p>
 
 
 <pre class="wp-block-code"><code>#import &lt;UIKit/UIKit.h&gt;
@@ -178,7 +182,7 @@ li.linkcat {
 
 
 
-<p>Since the target url is not a visual component, it does not need the keyword &ldquo;IBOutlet&rdquo;. It will be only used to set the target url from the collection view controller when user clicks on the cell. This will require us to synthesize targetURL on the implementation class. Let&rsquo;s also implement the loading of our target url for the web view component</p>
+<p>Since the target url is not a visual component, it does not need the keyword “IBOutlet”. It will be only used to set the target url from the collection view controller when user clicks on the cell. This will require us to synthesize targetURL on the implementation class. Let’s also implement the loading of our target url for the web view component</p>
 
 
 
@@ -218,7 +222,7 @@ li.linkcat {
 
 
 
-<p>In our viewDidLoad method, we use the targetURL to construct an instance of NSURL.&nbsp;Then, we construct the NSURLRequest from&nbsp;and&nbsp;message webView to load this request on load.</p>
+<p>In our viewDidLoad method, we use the targetURL to construct an instance of NSURL. Then, we construct the NSURLRequest from and message webView to load this request on load.</p>
 
 
 
@@ -230,11 +234,11 @@ li.linkcat {
 
 
 
-<p><strong>3. Setting&nbsp;Target URL</strong></p>
+<p><strong>3. Setting Target URL</strong></p>
 
 
 
-<p>To set the target URL, we need to&nbsp;implement the prepareForSegue:sender method. This is similar to .NET winform event handler. This method will be called prior to performing the connection segue.</p>
+<p>To set the target URL, we need to implement the prepareForSegue:sender method. This is similar to .NET winform event handler. This method will be called prior to performing the connection segue.</p>
 
 
 
@@ -251,7 +255,7 @@ li.linkcat {
 
 
 
-<p>But wait, I don&rsquo;t have a property called targetURL on my JSTRCollectionViewCell! We need to add this property to the bottom of our JSTRCollectionViewCell header file and synthesize it on the implementation class.</p>
+<p>But wait, I don’t have a property called targetURL on my JSTRCollectionViewCell! We need to add this property to the bottom of our JSTRCollectionViewCell header file and synthesize it on the implementation class.</p>
 
 
 
@@ -304,7 +308,7 @@ forIndexPath:indexPath];
 
 
 
-<p>As you can see, prior to our return call in this method, we retrieve the link from our dictionary representing the article from the RSS. Now that the cell has been set, our segue can extract it from the source cell that&rsquo;s been click and pass it to the target view controller that holds the web view.</p>
+<p>As you can see, prior to our return call in this method, we retrieve the link from our dictionary representing the article from the RSS. Now that the cell has been set, our segue can extract it from the source cell that’s been click and pass it to the target view controller that holds the web view.</p>
 
 
 
@@ -316,15 +320,15 @@ forIndexPath:indexPath];
 
 
 
-<p>Now, when you run your app, clicking on the cell on the simulator will push a new view controller. Since we&rsquo;re using navigation controller, adding a new view controller will automatically add the back button for us on the navigation bar.</p>
+<p>Now, when you run your app, clicking on the cell on the simulator will push a new view controller. Since we’re using navigation controller, adding a new view controller will automatically add the back button for us on the navigation bar.</p>
 
 
 
-<p>By default, if the prior navigation bar has no title, then the button will be rendered with &ldquo;Back&rdquo;. However, had we named the title bar of our prior navigation bar as &ldquo;Featured Links&rdquo;, then our back button would have had the label of &ldquo;Featured Links&rdquo;.</p>
+<p>By default, if the prior navigation bar has no title, then the button will be rendered with “Back”. However, had we named the title bar of our prior navigation bar as “Featured Links”, then our back button would have had the label of “Featured Links”.</p>
 
 
 
-<p>This concludes this tutorial series. I have intentionally did not implement Recent Link Collection View. Using the Featured Link Collection View, this should be fairly easy to figure out. You will need to refactor JSTRRSSReader class to handle both Featured and Recent Links. Currently, it&rsquo;s hard coded to only retrieve Featured. The app that&rsquo;s actually published has it fully implemented with ability for users to vote. As of May 25, it is currently under review by Apple. I&rsquo;ll update this post when it does go live. Xcode project with source code for these tutorial can be downloaded from <a href="http://demo.jstrgames.com/DZoneRSS.zip">here</a>.</p>
+<p>This concludes this tutorial series. I have intentionally did not implement Recent Link Collection View. Using the Featured Link Collection View, this should be fairly easy to figure out. You will need to refactor JSTRRSSReader class to handle both Featured and Recent Links. Currently, it’s hard coded to only retrieve Featured. The app that’s actually published has it fully implemented with ability for users to vote. As of May 25, it is currently under review by Apple. I’ll update this post when it does go live. Xcode project with source code for these tutorial can be downloaded from <a href="http://demo.jstrgames.com/DZoneRSS.zip">here</a>.</p>
 							</article>
 		</div>
 		<div class="entry-meta-bottom">
@@ -335,7 +339,7 @@ forIndexPath:indexPath];
 	</p>
 	<p class="next">
 		<span>Next Post</span>
-		<a href="/2013/07/25/thats-groovy/">That&rsquo;s Groovy!</a>
+		<a href="/2013/07/25/thats-groovy/">That’s Groovy!</a>
 	</p>
 </nav>			<div class="author-meta">
 	<img alt="John Ra" src="https://secure.gravatar.com/avatar/88cb6789ec0a6354ab77f6c84c19815ae2625e0c5ae3861db81495b92365bdbe?s=72&amp;d=mm&amp;r=g" srcset="https://secure.gravatar.com/avatar/88cb6789ec0a6354ab77f6c84c19815ae2625e0c5ae3861db81495b92365bdbe?s=144&amp;d=mm&amp;r=g 2x" class="avatar avatar-72 photo" height="72" width="72" decoding="async">	<div class="name-container">
@@ -358,13 +362,70 @@ forIndexPath:indexPath];
 
 <ul class="wp-block-latest-posts__list wp-block-latest-posts"><li><a class="wp-block-latest-posts__post-title" href="/2024/05/16/synology-ups-as-nut-primary/">Synology + UPS as NUT Primary</a></li>
 <li><a class="wp-block-latest-posts__post-title" href="/2024/04/10/context-matters/">Context Matters</a></li>
-<li><a class="wp-block-latest-posts__post-title" href="/2022/03/29/its-a-trap/">It&rsquo;s a trap!</a></li>
+<li><a class="wp-block-latest-posts__post-title" href="/2022/03/29/its-a-trap/">It’s a trap!</a></li>
 <li><a class="wp-block-latest-posts__post-title" href="/2022/02/02/7-minute-abs/">7-Minute Abs</a></li>
-<li><a class="wp-block-latest-posts__post-title" href="/2022/01/23/restart/">I&rsquo;m Back?</a></li>
+<li><a class="wp-block-latest-posts__post-title" href="/2022/01/23/restart/">I’m Back?</a></li>
 </ul></div></div>
-</section><section id="block-19" class="widget widget_block">
-<div class="wp-block-group"><div class="wp-block-group__inner-container is-layout-flow wp-block-group-is-layout-flow"><p>[bookmarks categorize=1]</p>
-</div></div>
+</section><section id="block-21" class="widget widget_block">
+<ul class="wp-block-list">
+<li><a href="http://blog.activelylazy.co.uk/">Actively Lazy</a></li>
+
+
+
+<li><a href="http://www.codeofhonor.com/blog" data-type="link" data-id="http://www.codeofhonor.com/blog">Code Of Honor</a></li>
+
+
+
+<li><a href="http://www.codinghorror.com/blog">Coding Horror</a></li>
+
+
+
+<li><a href="http://blog.sanaulla.info/">Experiences Unlimited</a></li>
+
+
+
+<li><a href="http://javadepend.wordpress.com/">JArchitect</a></li>
+
+
+
+<li><a href="http://www.markhneedham.com/blog">Mark Needham</a></li>
+
+
+
+<li><a href="https://martinfowler.com/">Martin Fowler</a></li>
+
+
+
+<li><a href="https://msun.io/">Mike Sun</a></li>
+
+
+
+<li><a href="http://blogs.msdn.com/b/oldnewthing">Old New Thing</a></li>
+
+
+
+<li><a href="http://www.opsbs.com/">Operation Bootstrap</a></li>
+
+
+
+<li><a href="http://blog.schauderhaft.de/">Schauderhaft</a></li>
+
+
+
+<li><a href="http://www.hanselman.com/blog">Scott Hanselman</a></li>
+
+
+
+<li><a href="http://simpleprogrammer.com/">Simple Programmer</a></li>
+
+
+
+<li><a href="https://francisshanahan.substack.com/">Tech Field Notes</a></li>
+
+
+
+<li><a href="http://tidyfirst.substack.com/">Tidy First? (Kent Beck)</a></li>
+</ul>
 </section><section id="block-4" class="widget widget_block">
 <div class="wp-block-group"><div class="wp-block-group__inner-container is-layout-flow wp-block-group-is-layout-flow">
 <h2 class="wp-block-heading">Categories</h2>
@@ -413,7 +474,7 @@ forIndexPath:indexPath];
 	</h1>
 	<span class="tagline">...yet another musings of a techie</span>	<div class="design-credit">
         <span>
-            &nbsp;&nbsp;        </span>
+                      </span>
 	</div>
 </footer>
 <script type="speculationrules">

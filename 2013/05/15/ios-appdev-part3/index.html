@@ -1,16 +1,16 @@
 <!DOCTYPE html>
 <html lang="en-US">
-<head>
-	<title>iOS App Development Tutorial Part III: Interacting with Web Sites &ndash; J O H N R A . M E</title>
+<head><meta charset="UTF-8">
+	<title>iOS App Development Tutorial Part III: Interacting with Web Sites – J O H N R A . M E</title>
 <meta name="robots" content="max-image-preview:large">
-<meta charset="UTF-8">
+
 <meta name="viewport" content="width=device-width, initial-scale=1">
 <meta name="template" content="Ignite 1.84">
 <link rel="dns-prefetch" href="//fonts.googleapis.com">
-<link rel="alternate" type="application/rss+xml" title="J O H N R A . M E &raquo; Feed" href="/feed/">
-<link rel="alternate" type="application/rss+xml" title="J O H N R A . M E &raquo; Comments Feed" href="/comments/feed/">
-<link rel="alternate" title="oEmbed (JSON)" type="application/json+oembed" href="/wp-json/oembed/1.0/embed?url=http%3A%2F%2F%2F2013%2F05%2F15%2Fios-appdev-part3%2F">
-<link rel="alternate" title="oEmbed (XML)" type="text/xml+oembed" href="/wp-json/oembed/1.0/embed?url=http%3A%2F%2F%2F2013%2F05%2F15%2Fios-appdev-part3%2F&amp;format=xml">
+<link rel="alternate" type="application/rss+xml" title="J O H N R A . M E » Feed" href="/feed/">
+<link rel="alternate" type="application/rss+xml" title="J O H N R A . M E » Comments Feed" href="/comments/feed/">
+<link rel="alternate" title="oEmbed (JSON)" type="application/json+oembed" href="/wp-json/oembed/1.0/embed?url=%2F2013%2F05%2F15%2Fios-appdev-part3%2F">
+<link rel="alternate" title="oEmbed (XML)" type="text/xml+oembed" href="/wp-json/oembed/1.0/embed?url=%2F2013%2F05%2F15%2Fios-appdev-part3%2F&amp;format=xml">
 <style id="wp-img-auto-sizes-contain-inline-css" type="text/css">
 img:is([sizes=auto i],[sizes^="auto," i]){contain-intrinsic-size:3000px 1500px}
 /*# sourceURL=wp-img-auto-sizes-contain-inline-css */
@@ -50,6 +50,10 @@ h1:where(.wp-block-heading).has-background,h2:where(.wp-block-heading).has-backg
 <style id="wp-block-latest-posts-inline-css" type="text/css">
 .wp-block-latest-posts{box-sizing:border-box}.wp-block-latest-posts.alignleft{margin-right:2em}.wp-block-latest-posts.alignright{margin-left:2em}.wp-block-latest-posts.wp-block-latest-posts__list{list-style:none}.wp-block-latest-posts.wp-block-latest-posts__list li{clear:both;overflow-wrap:break-word}.wp-block-latest-posts.is-grid{display:flex;flex-wrap:wrap}.wp-block-latest-posts.is-grid li{margin:0 1.25em 1.25em 0;width:100%}@media (min-width:600px){.wp-block-latest-posts.columns-2 li{width:calc(50% - .625em)}.wp-block-latest-posts.columns-2 li:nth-child(2n){margin-right:0}.wp-block-latest-posts.columns-3 li{width:calc(33.33333% - .83333em)}.wp-block-latest-posts.columns-3 li:nth-child(3n){margin-right:0}.wp-block-latest-posts.columns-4 li{width:calc(25% - .9375em)}.wp-block-latest-posts.columns-4 li:nth-child(4n){margin-right:0}.wp-block-latest-posts.columns-5 li{width:calc(20% - 1em)}.wp-block-latest-posts.columns-5 li:nth-child(5n){margin-right:0}.wp-block-latest-posts.columns-6 li{width:calc(16.66667% - 1.04167em)}.wp-block-latest-posts.columns-6 li:nth-child(6n){margin-right:0}}:root :where(.wp-block-latest-posts.is-grid){padding:0}:root :where(.wp-block-latest-posts.wp-block-latest-posts__list){padding-left:0}.wp-block-latest-posts__post-author,.wp-block-latest-posts__post-date{display:block;font-size:.8125em}.wp-block-latest-posts__post-excerpt,.wp-block-latest-posts__post-full-content{margin-bottom:1em;margin-top:.5em}.wp-block-latest-posts__featured-image a{display:inline-block}.wp-block-latest-posts__featured-image img{height:auto;max-width:100%;width:auto}.wp-block-latest-posts__featured-image.alignleft{float:left;margin-right:1em}.wp-block-latest-posts__featured-image.alignright{float:right;margin-left:1em}.wp-block-latest-posts__featured-image.aligncenter{margin-bottom:1em;text-align:center}
 /*# sourceURL=/wp-includes/blocks/latest-posts/style.min.css */
+</style>
+<style id="wp-block-list-inline-css" type="text/css">
+ol,ul{box-sizing:border-box}:root :where(.wp-block-list.has-background){padding:1.25em 2.375em}
+/*# sourceURL=/wp-includes/blocks/list/style.min.css */
 </style>
 <style id="wp-block-code-inline-css" type="text/css">
 .wp-block-code{box-sizing:border-box}.wp-block-code code{
@@ -120,7 +124,7 @@ li.linkcat {
 <div class="menu-container menu-primary" id="menu-primary" role="navigation">
 	<p id="site-description" class="tagline">...yet another musings of a techie</p><ul id="menu-primary-items" class="menu-primary-items"><li id="menu-item-489" class="menu-item menu-item-type-custom menu-item-object-custom menu-item-489"><a href="/">Blog</a></li>
 <li id="menu-item-490" class="menu-item menu-item-type-post_type menu-item-object-page menu-item-490"><a href="/about-me/">About</a></li>
-<li id="menu-item-522" class="menu-item menu-item-type-post_type menu-item-object-page menu-item-522"><a href="/resume/">R&eacute;sum&eacute;</a></li>
+<li id="menu-item-522" class="menu-item menu-item-type-post_type menu-item-object-page menu-item-522"><a href="/resume/">Résumé</a></li>
 </ul><ul class="social-media-icons">				<li>
 					<a class="facebook" target="_blank" href="https://www.facebook.com/jra75">
 						<i class="fab fa-facebook-square" title="facebook"></i>
@@ -156,19 +160,19 @@ li.linkcat {
 		</div>
 		<div class="entry-content">
 			<article>
-				<p class="last-updated">Last updated on April 11, 2024 </p>				<p>Now that we have our idea and our visual mock ups,&nbsp;let&rsquo;s start coding. I will be using Xcode 4.6.2, it is the latest at the time of this writing</p>
-<p>If you have never developed in Objective-C but did some other coding in C++ or C&nbsp;for example it should be pretty simple to catch up. I personally haven&rsquo;t touched&nbsp;C or C++ since college, some&nbsp;15 years ago.&nbsp;Even with knowledge of&nbsp;Java and C#, I was able&Acirc;&nbsp;to pick up&nbsp;Objective-C. I&nbsp;highly recommend reading&nbsp;<a href="http://www.amazon.com/iOS-Programming-Ranch-Guide-Guides/dp/0321821521/ref=sr_1_4?s=books&amp;ie=UTF8&amp;qid=1368629049&amp;sr=1-4&amp;keywords=objective-c">iOS Programming: The Big Nerd Ranch Guide</a>&Acirc;&nbsp;as well.</p>
+				<p class="last-updated">Last updated on April 11, 2024 </p>				<p>Now that we have our idea and our visual mock ups, let’s start coding. I will be using Xcode 4.6.2, it is the latest at the time of this writing</p>
+<p>If you have never developed in Objective-C but did some other coding in C++ or C for example it should be pretty simple to catch up. I personally haven’t touched C or C++ since college, some 15 years ago. Even with knowledge of Java and C#, I was ableÂ to pick up Objective-C. I highly recommend reading <a href="http://www.amazon.com/iOS-Programming-Ranch-Guide-Guides/dp/0321821521/ref=sr_1_4?s=books&amp;ie=UTF8&amp;qid=1368629049&amp;sr=1-4&amp;keywords=objective-c">iOS Programming: The Big Nerd Ranch Guide</a>Â as well.</p>
 <p><strong>Create a blank project</strong></p>
-<p><a href="/wp-content/uploads/2013/05/newproject1.png"><img decoding="async" class="alignright size-thumbnail wp-image-190" src="/wp-content/uploads/2013/05/newproject1-150x150.png" alt="newproject1" width="150" height="150"></a>Open Xcode from your dock. If it&rsquo;s not on your dock, you can open it from Applications.&Acirc;&nbsp;Select &ldquo;Create a new Xcode project&rdquo; from the Welcome to Xcode screen. Choose &ldquo;Empty Application&rdquo; from &ldquo;Choose a template for your new project&rdquo; dialog. Fill out the options for your project.</p>
+<p><a href="/wp-content/uploads/2013/05/newproject1.png"><img decoding="async" class="alignright size-thumbnail wp-image-190" src="/wp-content/uploads/2013/05/newproject1-150x150.png" alt="newproject1" width="150" height="150"></a>Open Xcode from your dock. If it’s not on your dock, you can open it from Applications.Â Select “Create a new Xcode project” from the Welcome to Xcode screen. Choose “Empty Application” from “Choose a template for your new project” dialog. Fill out the options for your project.</p>
 <ul>
 <li>Product Name: DZone RSS</li>
 <li>Organization Name: &lt;&lt;enter your organization&gt;&gt;</li>
 <li>Company Identifier: &lt;&lt;enter your company identifier&gt;&gt;</li>
 <li>Class Prefix: &lt;&lt;enter the default prefix for your classes&gt;&gt;</li>
 <li>Devices: iPhone</li>
-<li>Only tick &ldquo;Use Automatic Reference Counting&rdquo;</li>
+<li>Only tick “Use Automatic Reference Counting”</li>
 </ul>
-<p>When specifying a Class Prefix, I recommend coming up with your own 3-4 character prefix, especially if you plan to publish any frameworks to opensource. This is necessary as Objective-C does not have a concept C# namespace or Java package. Without a prefix, you run the risk of class name collision when 3rd party libraries. On a related note, &ldquo;NS&rdquo; and &ldquo;UI&rdquo; prefix is reserved for Apple. &ldquo;NS&rdquo; stands for NeXTSTEP where Objective-C was developed. It&rsquo;s a holdover from when <strong style="color: red;">N</strong>eXT<strong style="color: red;">S</strong>TEP took over Apple. Yes, I said that correctly. All resemblance of Apple as we see today is the product of Steve Jobs&rsquo; vision of NeXTSTEP that was acquired by Apple.</p>
+<p>When specifying a Class Prefix, I recommend coming up with your own 3-4 character prefix, especially if you plan to publish any frameworks to opensource. This is necessary as Objective-C does not have a concept C# namespace or Java package. Without a prefix, you run the risk of class name collision when 3rd party libraries. On a related note, “NS” and “UI” prefix is reserved for Apple. “NS” stands for NeXTSTEP where Objective-C was developed. It’s a holdover from when <strong style="color: red;">N</strong>eXT<strong style="color: red;">S</strong>TEP took over Apple. Yes, I said that correctly. All resemblance of Apple as we see today is the product of Steve Jobs’ vision of NeXTSTEP that was acquired by Apple.</p>
 <p>For this initial project, we will only target iPhone. I plan to refactor this project on a separate tutorial to run on iPad. For this reason, I plan to use UICollectionViewControlller to layout the RSS article instead of the UITableViewController. This will be further discussed in Part VI: Storyboarding.</p>
 <p><strong>iOS Project Basics</strong></p>
 <p>Each project has a main.m file. Below is the application entry point.</p>
@@ -183,7 +187,7 @@ li.linkcat {
 
 
 
-<p>The default pricipalClassName (3rd parameter) is UIApplication. When nil is passed, the default pricipalClassName will be used. UIApplication can be subclassed if custom UIApplication is used. The 4th parameter is the app delegate class. In our case, it&rsquo;s JSTRAppDelegate. If you look at the JSTRAppDelegate.h, you&rsquo;ll notice that it&nbsp;implements the UIApplicationDelegate protocol. All methods in UIApplicationDelegate are optional. UIApplication sends messages to delegate concerning App Launch/Termination, memory warnings, changes in orientation, and becoming the active application. As I don&rsquo;t like having empty methods, I tend to remove all but the <strong>application:didFinishLaunchingWithOptions</strong> method until I&rsquo;m ready to implement them.</p>
+<p>The default pricipalClassName (3rd parameter) is UIApplication. When nil is passed, the default pricipalClassName will be used. UIApplication can be subclassed if custom UIApplication is used. The 4th parameter is the app delegate class. In our case, it’s JSTRAppDelegate. If you look at the JSTRAppDelegate.h, you’ll notice that it implements the UIApplicationDelegate protocol. All methods in UIApplicationDelegate are optional. UIApplication sends messages to delegate concerning App Launch/Termination, memory warnings, changes in orientation, and becoming the active application. As I don’t like having empty methods, I tend to remove all but the <strong>application:didFinishLaunchingWithOptions</strong> method until I’m ready to implement them.</p>
 
 
 
@@ -200,7 +204,7 @@ return YES;
 
 
 
-<p>Click run on top left and the iPhone Simulator will launch will bring you to a yellow screen. Congrats! If you&rsquo;ve never</p>
+<p>Click run on top left and the iPhone Simulator will launch will bring you to a yellow screen. Congrats! If you’ve never</p>
 
 
 <div class="wp-block-image">
@@ -208,7 +212,7 @@ return YES;
 </div>
 
 
-<p> created an iPhone app before, you&rsquo;ve successfully written and launched your first app, a yellow flashlight. If you have any plans to launch this application, don&rsquo;t bother. The very first flashlight application and mirror was exactly this with white and black background respectively. Since then, Apple has banned these types of applications.</p>
+<p> created an iPhone app before, you’ve successfully written and launched your first app, a yellow flashlight. If you have any plans to launch this application, don’t bother. The very first flashlight application and mirror was exactly this with white and black background respectively. Since then, Apple has banned these types of applications.</p>
 
 
 
@@ -228,7 +232,7 @@ return YES;
 </div>
 
 
-<p>To create a new&nbsp;group under DZone RSS, hold the control key and click on &ldquo;DZone RSS&rdquo; group. On the context menu, select &ldquo;New Group&rdquo; and specify the name &ldquo;Net&rdquo;. Select this new group &ldquo;Net&rdquo;. On the right side of Xcode, under Identity section, click the white square next to grayed out word &ldquo;None&rdquo;&nbsp;(see screenshot). This will open up a dialog where you can create a corresponding folder for your group. Create a new folder called &ldquo;Net&rdquo; to match your group name then click &ldquo;Choose&rdquo;. Now, any new file added to&nbsp;this group will reside in the &ldquo;Net&rdquo; folder in the file system. We&rsquo;re now ready to create a new class to interact with DZone RSS URL.</p>
+<p>To create a new group under DZone RSS, hold the control key and click on “DZone RSS” group. On the context menu, select “New Group” and specify the name “Net”. Select this new group “Net”. On the right side of Xcode, under Identity section, click the white square next to grayed out word “None” (see screenshot). This will open up a dialog where you can create a corresponding folder for your group. Create a new folder called “Net” to match your group name then click “Choose”. Now, any new file added to this group will reside in the “Net” folder in the file system. We’re now ready to create a new class to interact with DZone RSS URL.</p>
 
 
 
@@ -236,11 +240,11 @@ return YES;
 
 
 
-<p>Once again, hold the control key and click &ldquo;Net&rdquo; folder. On the context menu, select &ldquo;New File&hellip;&rdquo;.&nbsp;On &ldquo;Choose a template&nbsp;for your new file&rdquo;, select Cocoa Touch from left panel and Objective-C class on right panel. After clicking &ldquo;Next&rdquo;, specify the class name &ldquo;JSTRRSSReader&rdquo;. This class should be a subclass of &ldquo;NSObject&rdquo;. Click &ldquo;Next&rdquo; will open the file dialog to &ldquo;Net&rdquo;. Since we want this class to reside in &ldquo;Net&rdquo; folder, just click &ldquo;Create&rdquo;.</p>
+<p>Once again, hold the control key and click “Net” folder. On the context menu, select “New File…”. On “Choose a template for your new file”, select Cocoa Touch from left panel and Objective-C class on right panel. After clicking “Next”, specify the class name “JSTRRSSReader”. This class should be a subclass of “NSObject”. Click “Next” will open the file dialog to “Net”. Since we want this class to reside in “Net” folder, just click “Create”.</p>
 
 
 
-<p>Our class needs to implement NSURLConnectionDataDelegate. This protocol describes methods that should be implemented to handle download data to memory. To hold this data into memory, we declare an instance&nbsp;variable _receivedData of type NSMutableData. It is also a good practice to prefix your instance variable with an underscore. We also need to expose the method in our interface so the caller can start the RSS request.</p>
+<p>Our class needs to implement NSURLConnectionDataDelegate. This protocol describes methods that should be implemented to handle download data to memory. To hold this data into memory, we declare an instance variable _receivedData of type NSMutableData. It is also a good practice to prefix your instance variable with an underscore. We also need to expose the method in our interface so the caller can start the RSS request.</p>
 
 
 
@@ -259,7 +263,7 @@ NSMutableData *_receivedData;
 
 
 
-<p>We now&nbsp;implement our class: our custom method startRequest and&nbsp;required NSURLConnectionDataDelegate methods.</p>
+<p>We now implement our class: our custom method startRequest and required NSURLConnectionDataDelegate methods.</p>
 
 
 
@@ -298,7 +302,7 @@ NSMutableData *_receivedData;
 
 
 
-<p>In startRequest, we&nbsp;allocate an instance of NSURL&nbsp;to DZone RSS. The connection will initialize immediately.&nbsp;If an error occurs, connection:didFailWithError will log to console the error message. Otherwise, when data is received, connection:didReceiveData will be called where we append the data chunk/block to our instance variable _receivedData. When the request has completed, connectionDidFinishloading will be called. We will then log to console the complete response body.</p>
+<p>In startRequest, we allocate an instance of NSURL to DZone RSS. The connection will initialize immediately. If an error occurs, connection:didFailWithError will log to console the error message. Otherwise, when data is received, connection:didReceiveData will be called where we append the data chunk/block to our instance variable _receivedData. When the request has completed, connectionDidFinishloading will be called. We will then log to console the complete response body.</p>
 
 
 
@@ -306,7 +310,7 @@ NSMutableData *_receivedData;
 
 
 
-<p>Let&rsquo;s now update our app delegate (JSTRAppDelegate) to make a call to DZone RSS.</p>
+<p>Let’s now update our app delegate (JSTRAppDelegate) to make a call to DZone RSS.</p>
 
 
 
@@ -330,7 +334,7 @@ NSMutableData *_receivedData;
 
 
 
-<p>On run, the body of&nbsp;the response will now appear on your Xcode console. Congrats! you have successfully made request to a website.</p>
+<p>On run, the body of the response will now appear on your Xcode console. Congrats! you have successfully made request to a website.</p>
 
 
 
@@ -368,13 +372,70 @@ NSMutableData *_receivedData;
 
 <ul class="wp-block-latest-posts__list wp-block-latest-posts"><li><a class="wp-block-latest-posts__post-title" href="/2024/05/16/synology-ups-as-nut-primary/">Synology + UPS as NUT Primary</a></li>
 <li><a class="wp-block-latest-posts__post-title" href="/2024/04/10/context-matters/">Context Matters</a></li>
-<li><a class="wp-block-latest-posts__post-title" href="/2022/03/29/its-a-trap/">It&rsquo;s a trap!</a></li>
+<li><a class="wp-block-latest-posts__post-title" href="/2022/03/29/its-a-trap/">It’s a trap!</a></li>
 <li><a class="wp-block-latest-posts__post-title" href="/2022/02/02/7-minute-abs/">7-Minute Abs</a></li>
-<li><a class="wp-block-latest-posts__post-title" href="/2022/01/23/restart/">I&rsquo;m Back?</a></li>
+<li><a class="wp-block-latest-posts__post-title" href="/2022/01/23/restart/">I’m Back?</a></li>
 </ul></div></div>
-</section><section id="block-19" class="widget widget_block">
-<div class="wp-block-group"><div class="wp-block-group__inner-container is-layout-flow wp-block-group-is-layout-flow"><p>[bookmarks categorize=1]</p>
-</div></div>
+</section><section id="block-21" class="widget widget_block">
+<ul class="wp-block-list">
+<li><a href="http://blog.activelylazy.co.uk/">Actively Lazy</a></li>
+
+
+
+<li><a href="http://www.codeofhonor.com/blog" data-type="link" data-id="http://www.codeofhonor.com/blog">Code Of Honor</a></li>
+
+
+
+<li><a href="http://www.codinghorror.com/blog">Coding Horror</a></li>
+
+
+
+<li><a href="http://blog.sanaulla.info/">Experiences Unlimited</a></li>
+
+
+
+<li><a href="http://javadepend.wordpress.com/">JArchitect</a></li>
+
+
+
+<li><a href="http://www.markhneedham.com/blog">Mark Needham</a></li>
+
+
+
+<li><a href="https://martinfowler.com/">Martin Fowler</a></li>
+
+
+
+<li><a href="https://msun.io/">Mike Sun</a></li>
+
+
+
+<li><a href="http://blogs.msdn.com/b/oldnewthing">Old New Thing</a></li>
+
+
+
+<li><a href="http://www.opsbs.com/">Operation Bootstrap</a></li>
+
+
+
+<li><a href="http://blog.schauderhaft.de/">Schauderhaft</a></li>
+
+
+
+<li><a href="http://www.hanselman.com/blog">Scott Hanselman</a></li>
+
+
+
+<li><a href="http://simpleprogrammer.com/">Simple Programmer</a></li>
+
+
+
+<li><a href="https://francisshanahan.substack.com/">Tech Field Notes</a></li>
+
+
+
+<li><a href="http://tidyfirst.substack.com/">Tidy First? (Kent Beck)</a></li>
+</ul>
 </section><section id="block-4" class="widget widget_block">
 <div class="wp-block-group"><div class="wp-block-group__inner-container is-layout-flow wp-block-group-is-layout-flow">
 <h2 class="wp-block-heading">Categories</h2>
@@ -423,7 +484,7 @@ NSMutableData *_receivedData;
 	</h1>
 	<span class="tagline">...yet another musings of a techie</span>	<div class="design-credit">
         <span>
-            &nbsp;&nbsp;        </span>
+                      </span>
 	</div>
 </footer>
 <script type="speculationrules">

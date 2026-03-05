@@ -1,17 +1,17 @@
 <!DOCTYPE html>
 <html lang="en-US">
-<head>
-	<title>Cross-Origin Resource Sharing (CORS) &ndash; J O H N R A . M E</title>
+<head><meta charset="UTF-8">
+	<title>Cross-Origin Resource Sharing (CORS) – J O H N R A . M E</title>
 <meta name="robots" content="max-image-preview:large">
-<meta charset="UTF-8">
+
 <meta name="viewport" content="width=device-width, initial-scale=1">
 <meta name="template" content="Ignite 1.84">
 <link rel="dns-prefetch" href="//fonts.googleapis.com">
-<link rel="alternate" type="application/rss+xml" title="J O H N R A . M E &raquo; Feed" href="/feed/">
-<link rel="alternate" type="application/rss+xml" title="J O H N R A . M E &raquo; Comments Feed" href="/comments/feed/">
-<link rel="alternate" type="application/rss+xml" title="J O H N R A . M E &raquo; Cross-Origin Resource Sharing (CORS) Comments Feed" href="/2012/09/13/cors/feed/">
-<link rel="alternate" title="oEmbed (JSON)" type="application/json+oembed" href="/wp-json/oembed/1.0/embed?url=http%3A%2F%2F%2F2012%2F09%2F13%2Fcors%2F">
-<link rel="alternate" title="oEmbed (XML)" type="text/xml+oembed" href="/wp-json/oembed/1.0/embed?url=http%3A%2F%2F%2F2012%2F09%2F13%2Fcors%2F&amp;format=xml">
+<link rel="alternate" type="application/rss+xml" title="J O H N R A . M E » Feed" href="/feed/">
+<link rel="alternate" type="application/rss+xml" title="J O H N R A . M E » Comments Feed" href="/comments/feed/">
+<link rel="alternate" type="application/rss+xml" title="J O H N R A . M E » Cross-Origin Resource Sharing (CORS) Comments Feed" href="/2012/09/13/cors/feed/">
+<link rel="alternate" title="oEmbed (JSON)" type="application/json+oembed" href="/wp-json/oembed/1.0/embed?url=%2F2012%2F09%2F13%2Fcors%2F">
+<link rel="alternate" title="oEmbed (XML)" type="text/xml+oembed" href="/wp-json/oembed/1.0/embed?url=%2F2012%2F09%2F13%2Fcors%2F&amp;format=xml">
 <style id="wp-img-auto-sizes-contain-inline-css" type="text/css">
 img:is([sizes=auto i],[sizes^="auto," i]){contain-intrinsic-size:3000px 1500px}
 /*# sourceURL=wp-img-auto-sizes-contain-inline-css */
@@ -47,6 +47,10 @@ h1:where(.wp-block-heading).has-background,h2:where(.wp-block-heading).has-backg
 <style id="wp-block-latest-posts-inline-css" type="text/css">
 .wp-block-latest-posts{box-sizing:border-box}.wp-block-latest-posts.alignleft{margin-right:2em}.wp-block-latest-posts.alignright{margin-left:2em}.wp-block-latest-posts.wp-block-latest-posts__list{list-style:none}.wp-block-latest-posts.wp-block-latest-posts__list li{clear:both;overflow-wrap:break-word}.wp-block-latest-posts.is-grid{display:flex;flex-wrap:wrap}.wp-block-latest-posts.is-grid li{margin:0 1.25em 1.25em 0;width:100%}@media (min-width:600px){.wp-block-latest-posts.columns-2 li{width:calc(50% - .625em)}.wp-block-latest-posts.columns-2 li:nth-child(2n){margin-right:0}.wp-block-latest-posts.columns-3 li{width:calc(33.33333% - .83333em)}.wp-block-latest-posts.columns-3 li:nth-child(3n){margin-right:0}.wp-block-latest-posts.columns-4 li{width:calc(25% - .9375em)}.wp-block-latest-posts.columns-4 li:nth-child(4n){margin-right:0}.wp-block-latest-posts.columns-5 li{width:calc(20% - 1em)}.wp-block-latest-posts.columns-5 li:nth-child(5n){margin-right:0}.wp-block-latest-posts.columns-6 li{width:calc(16.66667% - 1.04167em)}.wp-block-latest-posts.columns-6 li:nth-child(6n){margin-right:0}}:root :where(.wp-block-latest-posts.is-grid){padding:0}:root :where(.wp-block-latest-posts.wp-block-latest-posts__list){padding-left:0}.wp-block-latest-posts__post-author,.wp-block-latest-posts__post-date{display:block;font-size:.8125em}.wp-block-latest-posts__post-excerpt,.wp-block-latest-posts__post-full-content{margin-bottom:1em;margin-top:.5em}.wp-block-latest-posts__featured-image a{display:inline-block}.wp-block-latest-posts__featured-image img{height:auto;max-width:100%;width:auto}.wp-block-latest-posts__featured-image.alignleft{float:left;margin-right:1em}.wp-block-latest-posts__featured-image.alignright{float:right;margin-left:1em}.wp-block-latest-posts__featured-image.aligncenter{margin-bottom:1em;text-align:center}
 /*# sourceURL=/wp-includes/blocks/latest-posts/style.min.css */
+</style>
+<style id="wp-block-list-inline-css" type="text/css">
+ol,ul{box-sizing:border-box}:root :where(.wp-block-list.has-background){padding:1.25em 2.375em}
+/*# sourceURL=/wp-includes/blocks/list/style.min.css */
 </style>
 <style id="wp-block-code-inline-css" type="text/css">
 .wp-block-code{box-sizing:border-box}.wp-block-code code{
@@ -117,7 +121,7 @@ li.linkcat {
 <div class="menu-container menu-primary" id="menu-primary" role="navigation">
 	<p id="site-description" class="tagline">...yet another musings of a techie</p><ul id="menu-primary-items" class="menu-primary-items"><li id="menu-item-489" class="menu-item menu-item-type-custom menu-item-object-custom menu-item-489"><a href="/">Blog</a></li>
 <li id="menu-item-490" class="menu-item menu-item-type-post_type menu-item-object-page menu-item-490"><a href="/about-me/">About</a></li>
-<li id="menu-item-522" class="menu-item menu-item-type-post_type menu-item-object-page menu-item-522"><a href="/resume/">R&eacute;sum&eacute;</a></li>
+<li id="menu-item-522" class="menu-item menu-item-type-post_type menu-item-object-page menu-item-522"><a href="/resume/">Résumé</a></li>
 </ul><ul class="social-media-icons">				<li>
 					<a class="facebook" target="_blank" href="https://www.facebook.com/jra75">
 						<i class="fab fa-facebook-square" title="facebook"></i>
@@ -154,19 +158,19 @@ li.linkcat {
 		<div class="entry-content">
 			<article>
 				<p class="last-updated">Last updated on April 11, 2024 </p>				
-<p>There are plenty of resources online that covers the same-origin policy so I will not go into details here.&nbsp;If interested, I&nbsp;highly recommend reading <a href="http://code.google.com/p/browsersec/wiki/Part2#Same-origin_policy">Google&rsquo;s Browser Security Handbook</a>.</p>
+<p>There are plenty of resources online that covers the same-origin policy so I will not go into details here. If interested, I highly recommend reading <a href="http://code.google.com/p/browsersec/wiki/Part2#Same-origin_policy">Google’s Browser Security Handbook</a>.</p>
 
 
 
-<p><a href="http://www.w3.org/TR/cors/">Cross-Origin Resource Sharing (CORS)</a> specification enables client-side open access across domain-boundaries generally restricted by same-origin policy.&nbsp;At a high-level, CORS allows client to opt-in to resources other than from same-origin. There are plenty of use cases where you need to share resources cross-origin. For example,&nbsp;Amazon may work with Facebook to&nbsp;leverage your friends&rsquo; feedbacks/recommendations while you browse through their products. If such service did exist, Amazon would opt-in to a CORS-enabled Facebook service.</p>
+<p><a href="http://www.w3.org/TR/cors/">Cross-Origin Resource Sharing (CORS)</a> specification enables client-side open access across domain-boundaries generally restricted by same-origin policy. At a high-level, CORS allows client to opt-in to resources other than from same-origin. There are plenty of use cases where you need to share resources cross-origin. For example, Amazon may work with Facebook to leverage your friends’ feedbacks/recommendations while you browse through their products. If such service did exist, Amazon would opt-in to a CORS-enabled Facebook service.</p>
 
 
 
-<p><strong>Echo Service</strong><br>I&rsquo;ve written a simple <a href="http://demo.jstrgames.com/echo.php">echo service</a> that will sends back an xml containing the message sent to it. This service is accessible from any resource under&nbsp;http://demo.jstrgames.com. Try it out from <a href="http://demo.jstrgames.com/echo.html" target="_blank" rel="noreferrer noopener">echo client</a>. Since the AJAX call is made within the same origin, XMLHttpRequest trust the&nbsp;response. However, if the echo service is access from different site, even subdomain like http://jstrgames.com, XMLHttpRequest will reject this request. Try out the&nbsp;<a href="http://jstrgames.com/demo/echo.html" target="_blank" rel="noreferrer noopener">echo client</a>&nbsp;from subdomain. Since this client violates the&nbsp;same-origin policy, XMLHttpRequest will not trust the response message.</p>
+<p><strong>Echo Service</strong><br>I’ve written a simple <a href="http://demo.jstrgames.com/echo.php">echo service</a> that will sends back an xml containing the message sent to it. This service is accessible from any resource under http://demo.jstrgames.com. Try it out from <a href="http://demo.jstrgames.com/echo.html" target="_blank" rel="noreferrer noopener">echo client</a>. Since the AJAX call is made within the same origin, XMLHttpRequest trust the response. However, if the echo service is access from different site, even subdomain like http://jstrgames.com, XMLHttpRequest will reject this request. Try out the <a href="http://jstrgames.com/demo/echo.html" target="_blank" rel="noreferrer noopener">echo client</a> from subdomain. Since this client violates the same-origin policy, XMLHttpRequest will not trust the response message.</p>
 
 
 
-<p><strong>CORS via jQuery</strong><br>As you can see, there&rsquo;s nothing special to the AJAX call below. By default, XMLHttpRequest will send an &ldquo;Origin&rdquo; HTTP request header.</p>
+<p><strong>CORS via jQuery</strong><br>As you can see, there’s nothing special to the AJAX call below. By default, XMLHttpRequest will send an “Origin” HTTP request header.</p>
 
 
 
@@ -185,7 +189,7 @@ li.linkcat {
 
 
 
-<p>The &ldquo;Origin&rdquo; can be used by the server resource to confirm the opt-in. In the echo service, only www.jstrgames.com is opted in. Once confirmed, additional response headers are added to inform the client that they can trust this response. Try this <a rel="noreferrer noopener" href="http://www.jstrgames.com/demo/echo.html" target="_blank">echo client</a>.</p>
+<p>The “Origin” can be used by the server resource to confirm the opt-in. In the echo service, only www.jstrgames.com is opted in. Once confirmed, additional response headers are added to inform the client that they can trust this response. Try this <a rel="noreferrer noopener" href="http://www.jstrgames.com/demo/echo.html" target="_blank">echo client</a>.</p>
 
 
 
@@ -197,14 +201,14 @@ if( $headers["Origin"] == "http://www.jstrgames.com" ) {
 }</code></pre>
 
 
-<p>Here&rsquo;s a screenshot from Fiddler as echo client communicates with echo service.<br><a href="/wp-content/uploads/2012/09/CORS.png"><img fetchpriority="high" decoding="async" class="alignnone size-full wp-image-138" title="CORS" src="/wp-content/uploads/2012/09/CORS.png" alt="" width="580" height="481"></a></p>
-<p>There are a couple of notes to be aware of. First, Access-Control-Allow-Origin must match the Origin. If the values are different, XMLHttpRequest will not trust the response. Second, XMLHttpRequest for pre-IE10 browsers does not support CORS. However, IE8/9 does have limited support for CORS via <a href="http://blogs.msdn.com/b/ieinternals/archive/2010/05/13/xdomainrequest-restrictions-limitations-and-workarounds.aspx" target="_blank" rel="noopener">XDomainRequest</a>. To enable XDomainRequest on jQuery for IE8/9, you can use <a href="https://github.com/MoonScript/jQuery-ajaxTransport-XDomainRequest/blob/master/jQuery.XDomainRequest.js" target="_blank" rel="noopener">jQuery.XDomainRequest</a>. That&rsquo;s it</p>							</article>
+<p>Here’s a screenshot from Fiddler as echo client communicates with echo service.<br><a href="/wp-content/uploads/2012/09/CORS.png"><img fetchpriority="high" decoding="async" class="alignnone size-full wp-image-138" title="CORS" src="/wp-content/uploads/2012/09/CORS.png" alt="" width="580" height="481"></a></p>
+<p>There are a couple of notes to be aware of. First, Access-Control-Allow-Origin must match the Origin. If the values are different, XMLHttpRequest will not trust the response. Second, XMLHttpRequest for pre-IE10 browsers does not support CORS. However, IE8/9 does have limited support for CORS via <a href="http://blogs.msdn.com/b/ieinternals/archive/2010/05/13/xdomainrequest-restrictions-limitations-and-workarounds.aspx" target="_blank" rel="noopener">XDomainRequest</a>. To enable XDomainRequest on jQuery for IE8/9, you can use <a href="https://github.com/MoonScript/jQuery-ajaxTransport-XDomainRequest/blob/master/jQuery.XDomainRequest.js" target="_blank" rel="noopener">jQuery.XDomainRequest</a>. That’s it</p>							</article>
 		</div>
 		<div class="entry-meta-bottom">
 			<nav class="further-reading">
 	<p class="prev">
 		<span>Previous Post</span>
-		<a href="/2012/08/31/iiscompression/">These are not the settings you&rsquo;re looking for</a>
+		<a href="/2012/08/31/iiscompression/">These are not the settings you’re looking for</a>
 	</p>
 	<p class="next">
 		<span>Next Post</span>
@@ -235,13 +239,70 @@ if( $headers["Origin"] == "http://www.jstrgames.com" ) {
 
 <ul class="wp-block-latest-posts__list wp-block-latest-posts"><li><a class="wp-block-latest-posts__post-title" href="/2024/05/16/synology-ups-as-nut-primary/">Synology + UPS as NUT Primary</a></li>
 <li><a class="wp-block-latest-posts__post-title" href="/2024/04/10/context-matters/">Context Matters</a></li>
-<li><a class="wp-block-latest-posts__post-title" href="/2022/03/29/its-a-trap/">It&rsquo;s a trap!</a></li>
+<li><a class="wp-block-latest-posts__post-title" href="/2022/03/29/its-a-trap/">It’s a trap!</a></li>
 <li><a class="wp-block-latest-posts__post-title" href="/2022/02/02/7-minute-abs/">7-Minute Abs</a></li>
-<li><a class="wp-block-latest-posts__post-title" href="/2022/01/23/restart/">I&rsquo;m Back?</a></li>
+<li><a class="wp-block-latest-posts__post-title" href="/2022/01/23/restart/">I’m Back?</a></li>
 </ul></div></div>
-</section><section id="block-19" class="widget widget_block">
-<div class="wp-block-group"><div class="wp-block-group__inner-container is-layout-flow wp-block-group-is-layout-flow"><p>[bookmarks categorize=1]</p>
-</div></div>
+</section><section id="block-21" class="widget widget_block">
+<ul class="wp-block-list">
+<li><a href="http://blog.activelylazy.co.uk/">Actively Lazy</a></li>
+
+
+
+<li><a href="http://www.codeofhonor.com/blog" data-type="link" data-id="http://www.codeofhonor.com/blog">Code Of Honor</a></li>
+
+
+
+<li><a href="http://www.codinghorror.com/blog">Coding Horror</a></li>
+
+
+
+<li><a href="http://blog.sanaulla.info/">Experiences Unlimited</a></li>
+
+
+
+<li><a href="http://javadepend.wordpress.com/">JArchitect</a></li>
+
+
+
+<li><a href="http://www.markhneedham.com/blog">Mark Needham</a></li>
+
+
+
+<li><a href="https://martinfowler.com/">Martin Fowler</a></li>
+
+
+
+<li><a href="https://msun.io/">Mike Sun</a></li>
+
+
+
+<li><a href="http://blogs.msdn.com/b/oldnewthing">Old New Thing</a></li>
+
+
+
+<li><a href="http://www.opsbs.com/">Operation Bootstrap</a></li>
+
+
+
+<li><a href="http://blog.schauderhaft.de/">Schauderhaft</a></li>
+
+
+
+<li><a href="http://www.hanselman.com/blog">Scott Hanselman</a></li>
+
+
+
+<li><a href="http://simpleprogrammer.com/">Simple Programmer</a></li>
+
+
+
+<li><a href="https://francisshanahan.substack.com/">Tech Field Notes</a></li>
+
+
+
+<li><a href="http://tidyfirst.substack.com/">Tidy First? (Kent Beck)</a></li>
+</ul>
 </section><section id="block-4" class="widget widget_block">
 <div class="wp-block-group"><div class="wp-block-group__inner-container is-layout-flow wp-block-group-is-layout-flow">
 <h2 class="wp-block-heading">Categories</h2>
@@ -290,7 +351,7 @@ if( $headers["Origin"] == "http://www.jstrgames.com" ) {
 	</h1>
 	<span class="tagline">...yet another musings of a techie</span>	<div class="design-credit">
         <span>
-            &nbsp;&nbsp;        </span>
+                      </span>
 	</div>
 </footer>
 <script type="speculationrules">

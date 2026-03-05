@@ -1,16 +1,16 @@
 <!DOCTYPE html>
 <html lang="en-US">
-<head>
-	<title>Application Health Monitor &ndash; J O H N R A . M E</title>
+<head><meta charset="UTF-8">
+	<title>Application Health Monitor – J O H N R A . M E</title>
 <meta name="robots" content="max-image-preview:large">
-<meta charset="UTF-8">
+
 <meta name="viewport" content="width=device-width, initial-scale=1">
 <meta name="template" content="Ignite 1.84">
 <link rel="dns-prefetch" href="//fonts.googleapis.com">
-<link rel="alternate" type="application/rss+xml" title="J O H N R A . M E &raquo; Feed" href="/feed/">
-<link rel="alternate" type="application/rss+xml" title="J O H N R A . M E &raquo; Comments Feed" href="/comments/feed/">
-<link rel="alternate" title="oEmbed (JSON)" type="application/json+oembed" href="/wp-json/oembed/1.0/embed?url=http%3A%2F%2F%2F2013%2F09%2F06%2Fapplication-health-monitor%2F">
-<link rel="alternate" title="oEmbed (XML)" type="text/xml+oembed" href="/wp-json/oembed/1.0/embed?url=http%3A%2F%2F%2F2013%2F09%2F06%2Fapplication-health-monitor%2F&amp;format=xml">
+<link rel="alternate" type="application/rss+xml" title="J O H N R A . M E » Feed" href="/feed/">
+<link rel="alternate" type="application/rss+xml" title="J O H N R A . M E » Comments Feed" href="/comments/feed/">
+<link rel="alternate" title="oEmbed (JSON)" type="application/json+oembed" href="/wp-json/oembed/1.0/embed?url=%2F2013%2F09%2F06%2Fapplication-health-monitor%2F">
+<link rel="alternate" title="oEmbed (XML)" type="text/xml+oembed" href="/wp-json/oembed/1.0/embed?url=%2F2013%2F09%2F06%2Fapplication-health-monitor%2F&amp;format=xml">
 <style id="wp-img-auto-sizes-contain-inline-css" type="text/css">
 img:is([sizes=auto i],[sizes^="auto," i]){contain-intrinsic-size:3000px 1500px}
 /*# sourceURL=wp-img-auto-sizes-contain-inline-css */
@@ -124,7 +124,7 @@ li.linkcat {
 <div class="menu-container menu-primary" id="menu-primary" role="navigation">
 	<p id="site-description" class="tagline">...yet another musings of a techie</p><ul id="menu-primary-items" class="menu-primary-items"><li id="menu-item-489" class="menu-item menu-item-type-custom menu-item-object-custom menu-item-489"><a href="/">Blog</a></li>
 <li id="menu-item-490" class="menu-item menu-item-type-post_type menu-item-object-page menu-item-490"><a href="/about-me/">About</a></li>
-<li id="menu-item-522" class="menu-item menu-item-type-post_type menu-item-object-page menu-item-522"><a href="/resume/">R&eacute;sum&eacute;</a></li>
+<li id="menu-item-522" class="menu-item menu-item-type-post_type menu-item-object-page menu-item-522"><a href="/resume/">Résumé</a></li>
 </ul><ul class="social-media-icons">				<li>
 					<a class="facebook" target="_blank" href="https://www.facebook.com/jra75">
 						<i class="fab fa-facebook-square" title="facebook"></i>
@@ -160,7 +160,7 @@ li.linkcat {
 		</div>
 		<div class="entry-content">
 			<article>
-				<p class="last-updated">Last updated on April 11, 2024 </p>				<p>I&rsquo;ve been meaning to contribute to open source for some time. I really didn&rsquo;t have anything particularly in mind to what I wanted to publish. However, I&rsquo;ve been dealing with varying degree of integration complexity&Acirc;&nbsp;to some of my application environments at the office. Inevitably, someone would scratch their head for several minutes trying to figure out why something failed only to realize that it was due to an external dependency. Needless to say, a simple tool that would provide a holistic view of the system could have saved them some pain. This could then be expanded to other environments: shared development, integration, UAT, QA, and Production. A single page that would provide an overview of the health of the specified environment would be very helpful.</p>
+				<p class="last-updated">Last updated on April 11, 2024 </p>				<p>I’ve been meaning to contribute to open source for some time. I really didn’t have anything particularly in mind to what I wanted to publish. However, I’ve been dealing with varying degree of integration complexityÂ to some of my application environments at the office. Inevitably, someone would scratch their head for several minutes trying to figure out why something failed only to realize that it was due to an external dependency. Needless to say, a simple tool that would provide a holistic view of the system could have saved them some pain. This could then be expanded to other environments: shared development, integration, UAT, QA, and Production. A single page that would provide an overview of the health of the specified environment would be very helpful.</p>
 <p><strong>Application Monitoring</strong></p>
 <p>There are several things to consider when monitoring an application. This is not meant as an exhaustive list but here are few items:</p>
 <ul>
@@ -170,36 +170,36 @@ li.linkcat {
 <li>module/component status</li>
 <li>external dependency status (databases, services, etc.)</li>
 </ul>
-<p>The monitor should be proactive and not reactive. It should provide early enough warning before something goes wrong. This includes monitoring dependencies and the application itself.&Acirc;&nbsp;There are tools that monitor logs and report when it detects various errors in the log file. Although this is better than nothing, it&rsquo;s too reactive. If you&rsquo;re lucky enough to have nagios in-house, this is better. However, in most cases, they are configured only for Production and, if lucky, QA. However, for other environments, it may be an overkill to use nagios.</p>
+<p>The monitor should be proactive and not reactive. It should provide early enough warning before something goes wrong. This includes monitoring dependencies and the application itself.Â There are tools that monitor logs and report when it detects various errors in the log file. Although this is better than nothing, it’s too reactive. If you’re lucky enough to have nagios in-house, this is better. However, in most cases, they are configured only for Production and, if lucky, QA. However, for other environments, it may be an overkill to use nagios.</p>
 <p><strong>Health Monitoring</strong></p>
 <p>The purpose of my <a href="https://github.com/johnra74/health-monitor">health monitor tool</a> is to provide a simple framework to quickly setup and actively check the overall health of any application.</p>
 <p><a href="/wp-content/uploads/2013/09/healthmonitor.png"><img fetchpriority="high" decoding="async" class="aligncenter size-full wp-image-345" src="/wp-content/uploads/2013/09/healthmonitor.png" alt="healthmonitor" width="749" height="349"></a></p>
 <p>Health monitoring tool is built on the following open source frameworks:</p>
 <ul>
-<li><a href="http://quartz-scheduler.org/">quartz-scheduler</a> &ndash; used to schedule recurring checks to verify your site, components/modules, and dependencies</li>
-<li><a href="http://hc.apache.org/">apache httpcomponents</a> &ndash; used to retrieve resources (JSON/HTML) from HTTP/HTTPS servers</li>
-<li><a href="http://grizzly.java.net/">grizzly NIO framework</a> &ndash; used as embedded web container to host status page (see above screenshot)</li>
-<li><a href="https://github.com/FasterXML/jackson">jackson</a> &ndash; used to parse JSON resources and configuration</li>
-<li><a href="http://freemarker.org/">freemarker</a> &ndash; used for web/email template</li>
-<li><a href="http://www.oracle.com/technetwork/java/javamail/index.html">javamail</a> &ndash; used to send failure notification</li>
+<li><a href="http://quartz-scheduler.org/">quartz-scheduler</a> – used to schedule recurring checks to verify your site, components/modules, and dependencies</li>
+<li><a href="http://hc.apache.org/">apache httpcomponents</a> – used to retrieve resources (JSON/HTML) from HTTP/HTTPS servers</li>
+<li><a href="http://grizzly.java.net/">grizzly NIO framework</a> – used as embedded web container to host status page (see above screenshot)</li>
+<li><a href="https://github.com/FasterXML/jackson">jackson</a> – used to parse JSON resources and configuration</li>
+<li><a href="http://freemarker.org/">freemarker</a> – used for web/email template</li>
+<li><a href="http://www.oracle.com/technetwork/java/javamail/index.html">javamail</a> – used to send failure notification</li>
 </ul>
 <p>It can proactively check your application and its dependencies with predefined service checks:</p>
 <ul>
-<li><a href="https://github.com/johnra74/health-monitor/blob/master/health-monitor/src/main/java/com/jstrgames/monitor/svc/impl/HttpService.java">com.jstrgames.monitor.svc.impl.HttpService</a> &ndash; make non-SSL web call</li>
-<li><a href="https://github.com/johnra74/health-monitor/blob/master/health-monitor/src/main/java/com/jstrgames/monitor/svc/impl/HttpsService.java">com.jstrgames.monitor.svc.impl.HttpsService</a> &ndash; make SSL web call</li>
-<li><a href="https://github.com/johnra74/health-monitor/blob/master/health-monitor/src/main/java/com/jstrgames/monitor/svc/impl/SimpleJmxService.java">com.jstrgames.monitor.svc.impl.SimpleJmxService</a> &ndash; make simple remote JMX calls</li>
-<li><a href="https://github.com/johnra74/health-monitor/blob/master/health-monitor/src/main/java/com/jstrgames/monitor/svc/impl/SocketService.java">com.jstrgames.monitor.svc.impl.SocketService</a> &ndash; make a client socket call</li>
+<li><a href="https://github.com/johnra74/health-monitor/blob/master/health-monitor/src/main/java/com/jstrgames/monitor/svc/impl/HttpService.java">com.jstrgames.monitor.svc.impl.HttpService</a> – make non-SSL web call</li>
+<li><a href="https://github.com/johnra74/health-monitor/blob/master/health-monitor/src/main/java/com/jstrgames/monitor/svc/impl/HttpsService.java">com.jstrgames.monitor.svc.impl.HttpsService</a> – make SSL web call</li>
+<li><a href="https://github.com/johnra74/health-monitor/blob/master/health-monitor/src/main/java/com/jstrgames/monitor/svc/impl/SimpleJmxService.java">com.jstrgames.monitor.svc.impl.SimpleJmxService</a> – make simple remote JMX calls</li>
+<li><a href="https://github.com/johnra74/health-monitor/blob/master/health-monitor/src/main/java/com/jstrgames/monitor/svc/impl/SocketService.java">com.jstrgames.monitor.svc.impl.SocketService</a> – make a client socket call</li>
 </ul>
 <p>It can then verify these services with predefined rules:</p>
 <ul>
-<li><a href="https://github.com/johnra74/health-monitor/blob/master/health-monitor/src/main/java/com/jstrgames/monitor/rule/HttpResponseCode.java">com.jstrgames.monitor.rule.HttpResponseCode</a> &ndash; check if expected status code returned</li>
-<li><a href="https://github.com/johnra74/health-monitor/blob/master/health-monitor/src/main/java/com/jstrgames/monitor/rule/HttpResponseBody.java">com.jstrgames.monitor.rule.HttpResponseBody</a> &ndash; check if body contains expected values</li>
-<li><a href="https://github.com/johnra74/health-monitor/blob/master/health-monitor/src/main/java/com/jstrgames/monitor/rule/JsonResponse.java">com.jstrgames.monitor.rule.JsonResponse</a> &ndash; check if specified JSON key has expected value</li>
-<li><a href="https://github.com/johnra74/health-monitor/blob/master/health-monitor/src/main/java/com/jstrgames/monitor/rule/SimpleJmxResult.java">com.jstrgames.monitor.rule.SimpleJmxResult</a> &ndash; check if specified JMX attribute has expected value</li>
+<li><a href="https://github.com/johnra74/health-monitor/blob/master/health-monitor/src/main/java/com/jstrgames/monitor/rule/HttpResponseCode.java">com.jstrgames.monitor.rule.HttpResponseCode</a> – check if expected status code returned</li>
+<li><a href="https://github.com/johnra74/health-monitor/blob/master/health-monitor/src/main/java/com/jstrgames/monitor/rule/HttpResponseBody.java">com.jstrgames.monitor.rule.HttpResponseBody</a> – check if body contains expected values</li>
+<li><a href="https://github.com/johnra74/health-monitor/blob/master/health-monitor/src/main/java/com/jstrgames/monitor/rule/JsonResponse.java">com.jstrgames.monitor.rule.JsonResponse</a> – check if specified JSON key has expected value</li>
+<li><a href="https://github.com/johnra74/health-monitor/blob/master/health-monitor/src/main/java/com/jstrgames/monitor/rule/SimpleJmxResult.java">com.jstrgames.monitor.rule.SimpleJmxResult</a> – check if specified JMX attribute has expected value</li>
 </ul>
 <p>All can be configured on a simple <a href="https://github.com/johnra74/health-monitor/blob/master/health-monitor/src/test/resources/demo.services.json">JSON format configuration file</a>.</p>
 <p><strong>Example: Checking HTTPS site</strong></p>
-<p>The use case is to verify that the text &ldquo;Google Search&rdquo; and &ldquo;I&rsquo;m Feeling Lucky&rdquo; appears on the google.com page every 5 minutes:</p>
+<p>The use case is to verify that the text “Google Search” and “I’m Feeling Lucky” appears on the google.com page every 5 minutes:</p>
 
 
 <pre class="wp-block-code"><code>[{"servicename": "HTTPS Example (SSL)",
@@ -229,11 +229,11 @@ li.linkcat {
 
 
 
-<ul class="wp-block-list"><li>verify http response code is 200</li><li>verify http response body contains the phrase &ldquo;Google Search&rdquo;</li><li>verify http response body contains the phrase &ldquo;I&rsquo;m Feeling Lucky&rdquo;</li></ul>
+<ul class="wp-block-list"><li>verify http response code is 200</li><li>verify http response body contains the phrase “Google Search”</li><li>verify http response body contains the phrase “I’m Feeling Lucky”</li></ul>
 
 
 
-<p>If any of the above checks fails, service is considered to be in &ldquo;FAIL&rdquo; status. If it fails to connect to said service, it is in &ldquo;ERROR&rdquo; status. It will also send out a notification and user will see a similar content in their inbox, granted, not as pretty.</p>
+<p>If any of the above checks fails, service is considered to be in “FAIL” status. If it fails to connect to said service, it is in “ERROR” status. It will also send out a notification and user will see a similar content in their inbox, granted, not as pretty.</p>
 
 
 
@@ -252,7 +252,7 @@ li.linkcat {
 			<nav class="further-reading">
 	<p class="prev">
 		<span>Previous Post</span>
-		<a href="/2013/07/25/thats-groovy/">That&rsquo;s Groovy!</a>
+		<a href="/2013/07/25/thats-groovy/">That’s Groovy!</a>
 	</p>
 	<p class="next">
 		<span>Next Post</span>
@@ -279,13 +279,70 @@ li.linkcat {
 
 <ul class="wp-block-latest-posts__list wp-block-latest-posts"><li><a class="wp-block-latest-posts__post-title" href="/2024/05/16/synology-ups-as-nut-primary/">Synology + UPS as NUT Primary</a></li>
 <li><a class="wp-block-latest-posts__post-title" href="/2024/04/10/context-matters/">Context Matters</a></li>
-<li><a class="wp-block-latest-posts__post-title" href="/2022/03/29/its-a-trap/">It&rsquo;s a trap!</a></li>
+<li><a class="wp-block-latest-posts__post-title" href="/2022/03/29/its-a-trap/">It’s a trap!</a></li>
 <li><a class="wp-block-latest-posts__post-title" href="/2022/02/02/7-minute-abs/">7-Minute Abs</a></li>
-<li><a class="wp-block-latest-posts__post-title" href="/2022/01/23/restart/">I&rsquo;m Back?</a></li>
+<li><a class="wp-block-latest-posts__post-title" href="/2022/01/23/restart/">I’m Back?</a></li>
 </ul></div></div>
-</section><section id="block-19" class="widget widget_block">
-<div class="wp-block-group"><div class="wp-block-group__inner-container is-layout-flow wp-block-group-is-layout-flow"><p>[bookmarks categorize=1]</p>
-</div></div>
+</section><section id="block-21" class="widget widget_block">
+<ul class="wp-block-list">
+<li><a href="http://blog.activelylazy.co.uk/">Actively Lazy</a></li>
+
+
+
+<li><a href="http://www.codeofhonor.com/blog" data-type="link" data-id="http://www.codeofhonor.com/blog">Code Of Honor</a></li>
+
+
+
+<li><a href="http://www.codinghorror.com/blog">Coding Horror</a></li>
+
+
+
+<li><a href="http://blog.sanaulla.info/">Experiences Unlimited</a></li>
+
+
+
+<li><a href="http://javadepend.wordpress.com/">JArchitect</a></li>
+
+
+
+<li><a href="http://www.markhneedham.com/blog">Mark Needham</a></li>
+
+
+
+<li><a href="https://martinfowler.com/">Martin Fowler</a></li>
+
+
+
+<li><a href="https://msun.io/">Mike Sun</a></li>
+
+
+
+<li><a href="http://blogs.msdn.com/b/oldnewthing">Old New Thing</a></li>
+
+
+
+<li><a href="http://www.opsbs.com/">Operation Bootstrap</a></li>
+
+
+
+<li><a href="http://blog.schauderhaft.de/">Schauderhaft</a></li>
+
+
+
+<li><a href="http://www.hanselman.com/blog">Scott Hanselman</a></li>
+
+
+
+<li><a href="http://simpleprogrammer.com/">Simple Programmer</a></li>
+
+
+
+<li><a href="https://francisshanahan.substack.com/">Tech Field Notes</a></li>
+
+
+
+<li><a href="http://tidyfirst.substack.com/">Tidy First? (Kent Beck)</a></li>
+</ul>
 </section><section id="block-4" class="widget widget_block">
 <div class="wp-block-group"><div class="wp-block-group__inner-container is-layout-flow wp-block-group-is-layout-flow">
 <h2 class="wp-block-heading">Categories</h2>
@@ -334,7 +391,7 @@ li.linkcat {
 	</h1>
 	<span class="tagline">...yet another musings of a techie</span>	<div class="design-credit">
         <span>
-            &nbsp;&nbsp;        </span>
+                      </span>
 	</div>
 </footer>
 <script type="speculationrules">
