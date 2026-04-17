@@ -1,0 +1,1666 @@
+<!DOCTYPE html>
+<html lang="en-US">
+<head><meta charset="UTF-8">
+	<title>Building Minesweeper with Claude CLI – Part 3: Mobile Touch Refactor – J O H N R A . M E</title>
+<meta name="robots" content="max-image-preview:large">
+
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<meta name="template" content="Ignite 1.84">
+<link rel="dns-prefetch" href="//fonts.googleapis.com">
+<link rel="alternate" type="application/rss+xml" title="J O H N R A . M E » Feed" href="/feed/">
+<link rel="alternate" type="application/rss+xml" title="J O H N R A . M E » Comments Feed" href="/comments/feed/">
+<link rel="alternate" type="application/rss+xml" title="J O H N R A . M E » Building Minesweeper with Claude CLI – Part 3: Mobile Touch Refactor Comments Feed" href="/2026/04/17/building-minesweeper-with-claude-cli-part-3-mobile-touch-refactor/feed/">
+<link rel="alternate" title="oEmbed (JSON)" type="application/json+oembed" href="/wp-json/oembed/1.0/embed?url=%2F2026%2F04%2F17%2Fbuilding-minesweeper-with-claude-cli-part-3-mobile-touch-refactor%2F">
+<link rel="alternate" title="oEmbed (XML)" type="text/xml+oembed" href="/wp-json/oembed/1.0/embed?url=%2F2026%2F04%2F17%2Fbuilding-minesweeper-with-claude-cli-part-3-mobile-touch-refactor%2F&amp;format=xml">
+<style id="wp-img-auto-sizes-contain-inline-css" type="text/css">
+img:is([sizes=auto i],[sizes^="auto," i]){contain-intrinsic-size:3000px 1500px}
+/*# sourceURL=wp-img-auto-sizes-contain-inline-css */
+</style>
+<style id="wp-emoji-styles-inline-css" type="text/css">
+
+	img.wp-smiley, img.emoji {
+		display: inline !important;
+		border: none !important;
+		box-shadow: none !important;
+		height: 1em !important;
+		width: 1em !important;
+		margin: 0 0.07em !important;
+		vertical-align: -0.1em !important;
+		background: none !important;
+		padding: 0 !important;
+	}
+/*# sourceURL=wp-emoji-styles-inline-css */
+</style>
+<style id="wp-block-library-inline-css" type="text/css">
+:root{--wp-block-synced-color:#7a00df;--wp-block-synced-color--rgb:122,0,223;--wp-bound-block-color:var(--wp-block-synced-color);--wp-editor-canvas-background:#ddd;--wp-admin-theme-color:#007cba;--wp-admin-theme-color--rgb:0,124,186;--wp-admin-theme-color-darker-10:#006ba1;--wp-admin-theme-color-darker-10--rgb:0,107,160.5;--wp-admin-theme-color-darker-20:#005a87;--wp-admin-theme-color-darker-20--rgb:0,90,135;--wp-admin-border-width-focus:2px}@media (min-resolution:192dpi){:root{--wp-admin-border-width-focus:1.5px}}.wp-element-button{cursor:pointer}:root .has-very-light-gray-background-color{background-color:#eee}:root .has-very-dark-gray-background-color{background-color:#313131}:root .has-very-light-gray-color{color:#eee}:root .has-very-dark-gray-color{color:#313131}:root .has-vivid-green-cyan-to-vivid-cyan-blue-gradient-background{background:linear-gradient(135deg,#00d084,#0693e3)}:root .has-purple-crush-gradient-background{background:linear-gradient(135deg,#34e2e4,#4721fb 50%,#ab1dfe)}:root .has-hazy-dawn-gradient-background{background:linear-gradient(135deg,#faaca8,#dad0ec)}:root .has-subdued-olive-gradient-background{background:linear-gradient(135deg,#fafae1,#67a671)}:root .has-atomic-cream-gradient-background{background:linear-gradient(135deg,#fdd79a,#004a59)}:root .has-nightshade-gradient-background{background:linear-gradient(135deg,#330968,#31cdcf)}:root .has-midnight-gradient-background{background:linear-gradient(135deg,#020381,#2874fc)}:root{--wp--preset--font-size--normal:16px;--wp--preset--font-size--huge:42px}.has-regular-font-size{font-size:1em}.has-larger-font-size{font-size:2.625em}.has-normal-font-size{font-size:var(--wp--preset--font-size--normal)}.has-huge-font-size{font-size:var(--wp--preset--font-size--huge)}.has-text-align-center{text-align:center}.has-text-align-left{text-align:left}.has-text-align-right{text-align:right}.has-fit-text{white-space:nowrap!important}#end-resizable-editor-section{display:none}.aligncenter{clear:both}.items-justified-left{justify-content:flex-start}.items-justified-center{justify-content:center}.items-justified-right{justify-content:flex-end}.items-justified-space-between{justify-content:space-between}.screen-reader-text{border:0;clip-path:inset(50%);height:1px;margin:-1px;overflow:hidden;padding:0;position:absolute;width:1px;word-wrap:normal!important}.screen-reader-text:focus{background-color:#ddd;clip-path:none;color:#444;display:block;font-size:1em;height:auto;left:5px;line-height:normal;padding:15px 23px 14px;text-decoration:none;top:5px;width:auto;z-index:100000}html :where(.has-border-color){border-style:solid}html :where([style*=border-top-color]){border-top-style:solid}html :where([style*=border-right-color]){border-right-style:solid}html :where([style*=border-bottom-color]){border-bottom-style:solid}html :where([style*=border-left-color]){border-left-style:solid}html :where([style*=border-width]){border-style:solid}html :where([style*=border-top-width]){border-top-style:solid}html :where([style*=border-right-width]){border-right-style:solid}html :where([style*=border-bottom-width]){border-bottom-style:solid}html :where([style*=border-left-width]){border-left-style:solid}html :where(img[class*=wp-image-]){height:auto;max-width:100%}:where(figure){margin:0 0 1em}html :where(.is-position-sticky){--wp-admin--admin-bar--position-offset:var(--wp-admin--admin-bar--height,0px)}@media screen and (max-width:600px){html :where(.is-position-sticky){--wp-admin--admin-bar--position-offset:0px}}
+
+/*# sourceURL=wp-block-library-inline-css */
+</style>
+<style id="wp-block-categories-inline-css" type="text/css">
+.wp-block-categories{box-sizing:border-box}.wp-block-categories.alignleft{margin-right:2em}.wp-block-categories.alignright{margin-left:2em}.wp-block-categories.wp-block-categories-dropdown.aligncenter{text-align:center}.wp-block-categories .wp-block-categories__label{display:block;width:100%}
+/*# sourceURL=/wp-includes/blocks/categories/style.min.css */
+</style>
+<style id="wp-block-heading-inline-css" type="text/css">
+h1:where(.wp-block-heading).has-background,h2:where(.wp-block-heading).has-background,h3:where(.wp-block-heading).has-background,h4:where(.wp-block-heading).has-background,h5:where(.wp-block-heading).has-background,h6:where(.wp-block-heading).has-background{padding:1.25em 2.375em}h1.has-text-align-left[style*=writing-mode]:where([style*=vertical-lr]),h1.has-text-align-right[style*=writing-mode]:where([style*=vertical-rl]),h2.has-text-align-left[style*=writing-mode]:where([style*=vertical-lr]),h2.has-text-align-right[style*=writing-mode]:where([style*=vertical-rl]),h3.has-text-align-left[style*=writing-mode]:where([style*=vertical-lr]),h3.has-text-align-right[style*=writing-mode]:where([style*=vertical-rl]),h4.has-text-align-left[style*=writing-mode]:where([style*=vertical-lr]),h4.has-text-align-right[style*=writing-mode]:where([style*=vertical-rl]),h5.has-text-align-left[style*=writing-mode]:where([style*=vertical-lr]),h5.has-text-align-right[style*=writing-mode]:where([style*=vertical-rl]),h6.has-text-align-left[style*=writing-mode]:where([style*=vertical-lr]),h6.has-text-align-right[style*=writing-mode]:where([style*=vertical-rl]){rotate:180deg}
+/*# sourceURL=/wp-includes/blocks/heading/style.min.css */
+</style>
+<style id="wp-block-latest-posts-inline-css" type="text/css">
+.wp-block-latest-posts{box-sizing:border-box}.wp-block-latest-posts.alignleft{margin-right:2em}.wp-block-latest-posts.alignright{margin-left:2em}.wp-block-latest-posts.wp-block-latest-posts__list{list-style:none}.wp-block-latest-posts.wp-block-latest-posts__list li{clear:both;overflow-wrap:break-word}.wp-block-latest-posts.is-grid{display:flex;flex-wrap:wrap}.wp-block-latest-posts.is-grid li{margin:0 1.25em 1.25em 0;width:100%}@media (min-width:600px){.wp-block-latest-posts.columns-2 li{width:calc(50% - .625em)}.wp-block-latest-posts.columns-2 li:nth-child(2n){margin-right:0}.wp-block-latest-posts.columns-3 li{width:calc(33.33333% - .83333em)}.wp-block-latest-posts.columns-3 li:nth-child(3n){margin-right:0}.wp-block-latest-posts.columns-4 li{width:calc(25% - .9375em)}.wp-block-latest-posts.columns-4 li:nth-child(4n){margin-right:0}.wp-block-latest-posts.columns-5 li{width:calc(20% - 1em)}.wp-block-latest-posts.columns-5 li:nth-child(5n){margin-right:0}.wp-block-latest-posts.columns-6 li{width:calc(16.66667% - 1.04167em)}.wp-block-latest-posts.columns-6 li:nth-child(6n){margin-right:0}}:root :where(.wp-block-latest-posts.is-grid){padding:0}:root :where(.wp-block-latest-posts.wp-block-latest-posts__list){padding-left:0}.wp-block-latest-posts__post-author,.wp-block-latest-posts__post-date{display:block;font-size:.8125em}.wp-block-latest-posts__post-excerpt,.wp-block-latest-posts__post-full-content{margin-bottom:1em;margin-top:.5em}.wp-block-latest-posts__featured-image a{display:inline-block}.wp-block-latest-posts__featured-image img{height:auto;max-width:100%;width:auto}.wp-block-latest-posts__featured-image.alignleft{float:left;margin-right:1em}.wp-block-latest-posts__featured-image.alignright{float:right;margin-left:1em}.wp-block-latest-posts__featured-image.aligncenter{margin-bottom:1em;text-align:center}
+/*# sourceURL=/wp-includes/blocks/latest-posts/style.min.css */
+</style>
+<style id="wp-block-list-inline-css" type="text/css">
+ol,ul{box-sizing:border-box}:root :where(.wp-block-list.has-background){padding:1.25em 2.375em}
+/*# sourceURL=/wp-includes/blocks/list/style.min.css */
+</style>
+<style id="wp-block-code-inline-css" type="text/css">
+.wp-block-code{box-sizing:border-box}.wp-block-code code{
+  /*!rtl:begin:ignore*/direction:ltr;display:block;font-family:inherit;overflow-wrap:break-word;text-align:initial;white-space:pre-wrap
+  /*!rtl:end:ignore*/}
+/*# sourceURL=/wp-includes/blocks/code/style.min.css */
+</style>
+<style id="wp-block-group-inline-css" type="text/css">
+.wp-block-group{box-sizing:border-box}:where(.wp-block-group.wp-block-group-is-layout-constrained){position:relative}
+/*# sourceURL=/wp-includes/blocks/group/style.min.css */
+</style>
+<style id="wp-block-paragraph-inline-css" type="text/css">
+.is-small-text{font-size:.875em}.is-regular-text{font-size:1em}.is-large-text{font-size:2.25em}.is-larger-text{font-size:3em}.has-drop-cap:not(:focus):first-letter{float:left;font-size:8.4em;font-style:normal;font-weight:100;line-height:.68;margin:.05em .1em 0 0;text-transform:uppercase}body.rtl .has-drop-cap:not(:focus):first-letter{float:none;margin-left:.1em}p.has-drop-cap.has-background{overflow:hidden}:root :where(p.has-background){padding:1.25em 2.375em}:where(p.has-text-color:not(.has-link-color)) a{color:inherit}p.has-text-align-left[style*="writing-mode:vertical-lr"],p.has-text-align-right[style*="writing-mode:vertical-rl"]{rotate:180deg}
+/*# sourceURL=/wp-includes/blocks/paragraph/style.min.css */
+</style>
+<style id="wp-block-preformatted-inline-css" type="text/css">
+.wp-block-preformatted{box-sizing:border-box;white-space:pre-wrap}:where(.wp-block-preformatted.has-background){padding:1.25em 2.375em}
+/*# sourceURL=/wp-includes/blocks/preformatted/style.min.css */
+</style>
+<style id="wp-block-quote-inline-css" type="text/css">
+.wp-block-quote{box-sizing:border-box;overflow-wrap:break-word}.wp-block-quote.is-large:where(:not(.is-style-plain)),.wp-block-quote.is-style-large:where(:not(.is-style-plain)){margin-bottom:1em;padding:0 1em}.wp-block-quote.is-large:where(:not(.is-style-plain)) p,.wp-block-quote.is-style-large:where(:not(.is-style-plain)) p{font-size:1.5em;font-style:italic;line-height:1.6}.wp-block-quote.is-large:where(:not(.is-style-plain)) cite,.wp-block-quote.is-large:where(:not(.is-style-plain)) footer,.wp-block-quote.is-style-large:where(:not(.is-style-plain)) cite,.wp-block-quote.is-style-large:where(:not(.is-style-plain)) footer{font-size:1.125em;text-align:right}.wp-block-quote>cite{display:block}
+/*# sourceURL=/wp-includes/blocks/quote/style.min.css */
+</style>
+<style id="wp-block-separator-inline-css" type="text/css">
+@charset "UTF-8";.wp-block-separator{border:none;border-top:2px solid}:root :where(.wp-block-separator.is-style-dots){height:auto;line-height:1;text-align:center}:root :where(.wp-block-separator.is-style-dots):before{color:currentColor;content:"···";font-family:serif;font-size:1.5em;letter-spacing:2em;padding-left:2em}.wp-block-separator.is-style-dots{background:none!important;border:none!important}
+/*# sourceURL=/wp-includes/blocks/separator/style.min.css */
+</style>
+
+<style id="classic-theme-styles-inline-css" type="text/css">
+/*! This file is auto-generated */
+.wp-block-button__link{color:#fff;background-color:#32373c;border-radius:9999px;box-shadow:none;text-decoration:none;padding:calc(.667em + 2px) calc(1.333em + 2px);font-size:1.125em}.wp-block-file__button{background:#32373c;color:#fff;text-decoration:none}
+/*# sourceURL=/wp-includes/css/classic-themes.min.css */
+</style>
+<style id="global-styles-inline-css" type="text/css">
+:root{--wp--preset--aspect-ratio--square: 1;--wp--preset--aspect-ratio--4-3: 4/3;--wp--preset--aspect-ratio--3-4: 3/4;--wp--preset--aspect-ratio--3-2: 3/2;--wp--preset--aspect-ratio--2-3: 2/3;--wp--preset--aspect-ratio--16-9: 16/9;--wp--preset--aspect-ratio--9-16: 9/16;--wp--preset--color--black: #000000;--wp--preset--color--cyan-bluish-gray: #abb8c3;--wp--preset--color--white: #ffffff;--wp--preset--color--pale-pink: #f78da7;--wp--preset--color--vivid-red: #cf2e2e;--wp--preset--color--luminous-vivid-orange: #ff6900;--wp--preset--color--luminous-vivid-amber: #fcb900;--wp--preset--color--light-green-cyan: #7bdcb5;--wp--preset--color--vivid-green-cyan: #00d084;--wp--preset--color--pale-cyan-blue: #8ed1fc;--wp--preset--color--vivid-cyan-blue: #0693e3;--wp--preset--color--vivid-purple: #9b51e0;--wp--preset--gradient--vivid-cyan-blue-to-vivid-purple: linear-gradient(135deg,rgb(6,147,227) 0%,rgb(155,81,224) 100%);--wp--preset--gradient--light-green-cyan-to-vivid-green-cyan: linear-gradient(135deg,rgb(122,220,180) 0%,rgb(0,208,130) 100%);--wp--preset--gradient--luminous-vivid-amber-to-luminous-vivid-orange: linear-gradient(135deg,rgb(252,185,0) 0%,rgb(255,105,0) 100%);--wp--preset--gradient--luminous-vivid-orange-to-vivid-red: linear-gradient(135deg,rgb(255,105,0) 0%,rgb(207,46,46) 100%);--wp--preset--gradient--very-light-gray-to-cyan-bluish-gray: linear-gradient(135deg,rgb(238,238,238) 0%,rgb(169,184,195) 100%);--wp--preset--gradient--cool-to-warm-spectrum: linear-gradient(135deg,rgb(74,234,220) 0%,rgb(151,120,209) 20%,rgb(207,42,186) 40%,rgb(238,44,130) 60%,rgb(251,105,98) 80%,rgb(254,248,76) 100%);--wp--preset--gradient--blush-light-purple: linear-gradient(135deg,rgb(255,206,236) 0%,rgb(152,150,240) 100%);--wp--preset--gradient--blush-bordeaux: linear-gradient(135deg,rgb(254,205,165) 0%,rgb(254,45,45) 50%,rgb(107,0,62) 100%);--wp--preset--gradient--luminous-dusk: linear-gradient(135deg,rgb(255,203,112) 0%,rgb(199,81,192) 50%,rgb(65,88,208) 100%);--wp--preset--gradient--pale-ocean: linear-gradient(135deg,rgb(255,245,203) 0%,rgb(182,227,212) 50%,rgb(51,167,181) 100%);--wp--preset--gradient--electric-grass: linear-gradient(135deg,rgb(202,248,128) 0%,rgb(113,206,126) 100%);--wp--preset--gradient--midnight: linear-gradient(135deg,rgb(2,3,129) 0%,rgb(40,116,252) 100%);--wp--preset--font-size--small: 13px;--wp--preset--font-size--medium: 20px;--wp--preset--font-size--large: 21px;--wp--preset--font-size--x-large: 42px;--wp--preset--font-size--regular: 16px;--wp--preset--font-size--larger: 36px;--wp--preset--spacing--20: 0.44rem;--wp--preset--spacing--30: 0.67rem;--wp--preset--spacing--40: 1rem;--wp--preset--spacing--50: 1.5rem;--wp--preset--spacing--60: 2.25rem;--wp--preset--spacing--70: 3.38rem;--wp--preset--spacing--80: 5.06rem;--wp--preset--shadow--natural: 6px 6px 9px rgba(0, 0, 0, 0.2);--wp--preset--shadow--deep: 12px 12px 50px rgba(0, 0, 0, 0.4);--wp--preset--shadow--sharp: 6px 6px 0px rgba(0, 0, 0, 0.2);--wp--preset--shadow--outlined: 6px 6px 0px -3px rgb(255, 255, 255), 6px 6px rgb(0, 0, 0);--wp--preset--shadow--crisp: 6px 6px 0px rgb(0, 0, 0);}:where(.is-layout-flex){gap: 0.5em;}:where(.is-layout-grid){gap: 0.5em;}body .is-layout-flex{display: flex;}.is-layout-flex{flex-wrap: wrap;align-items: center;}.is-layout-flex > :is(*, div){margin: 0;}body .is-layout-grid{display: grid;}.is-layout-grid > :is(*, div){margin: 0;}:where(.wp-block-columns.is-layout-flex){gap: 2em;}:where(.wp-block-columns.is-layout-grid){gap: 2em;}:where(.wp-block-post-template.is-layout-flex){gap: 1.25em;}:where(.wp-block-post-template.is-layout-grid){gap: 1.25em;}.has-black-color{color: var(--wp--preset--color--black) !important;}.has-cyan-bluish-gray-color{color: var(--wp--preset--color--cyan-bluish-gray) !important;}.has-white-color{color: var(--wp--preset--color--white) !important;}.has-pale-pink-color{color: var(--wp--preset--color--pale-pink) !important;}.has-vivid-red-color{color: var(--wp--preset--color--vivid-red) !important;}.has-luminous-vivid-orange-color{color: var(--wp--preset--color--luminous-vivid-orange) !important;}.has-luminous-vivid-amber-color{color: var(--wp--preset--color--luminous-vivid-amber) !important;}.has-light-green-cyan-color{color: var(--wp--preset--color--light-green-cyan) !important;}.has-vivid-green-cyan-color{color: var(--wp--preset--color--vivid-green-cyan) !important;}.has-pale-cyan-blue-color{color: var(--wp--preset--color--pale-cyan-blue) !important;}.has-vivid-cyan-blue-color{color: var(--wp--preset--color--vivid-cyan-blue) !important;}.has-vivid-purple-color{color: var(--wp--preset--color--vivid-purple) !important;}.has-black-background-color{background-color: var(--wp--preset--color--black) !important;}.has-cyan-bluish-gray-background-color{background-color: var(--wp--preset--color--cyan-bluish-gray) !important;}.has-white-background-color{background-color: var(--wp--preset--color--white) !important;}.has-pale-pink-background-color{background-color: var(--wp--preset--color--pale-pink) !important;}.has-vivid-red-background-color{background-color: var(--wp--preset--color--vivid-red) !important;}.has-luminous-vivid-orange-background-color{background-color: var(--wp--preset--color--luminous-vivid-orange) !important;}.has-luminous-vivid-amber-background-color{background-color: var(--wp--preset--color--luminous-vivid-amber) !important;}.has-light-green-cyan-background-color{background-color: var(--wp--preset--color--light-green-cyan) !important;}.has-vivid-green-cyan-background-color{background-color: var(--wp--preset--color--vivid-green-cyan) !important;}.has-pale-cyan-blue-background-color{background-color: var(--wp--preset--color--pale-cyan-blue) !important;}.has-vivid-cyan-blue-background-color{background-color: var(--wp--preset--color--vivid-cyan-blue) !important;}.has-vivid-purple-background-color{background-color: var(--wp--preset--color--vivid-purple) !important;}.has-black-border-color{border-color: var(--wp--preset--color--black) !important;}.has-cyan-bluish-gray-border-color{border-color: var(--wp--preset--color--cyan-bluish-gray) !important;}.has-white-border-color{border-color: var(--wp--preset--color--white) !important;}.has-pale-pink-border-color{border-color: var(--wp--preset--color--pale-pink) !important;}.has-vivid-red-border-color{border-color: var(--wp--preset--color--vivid-red) !important;}.has-luminous-vivid-orange-border-color{border-color: var(--wp--preset--color--luminous-vivid-orange) !important;}.has-luminous-vivid-amber-border-color{border-color: var(--wp--preset--color--luminous-vivid-amber) !important;}.has-light-green-cyan-border-color{border-color: var(--wp--preset--color--light-green-cyan) !important;}.has-vivid-green-cyan-border-color{border-color: var(--wp--preset--color--vivid-green-cyan) !important;}.has-pale-cyan-blue-border-color{border-color: var(--wp--preset--color--pale-cyan-blue) !important;}.has-vivid-cyan-blue-border-color{border-color: var(--wp--preset--color--vivid-cyan-blue) !important;}.has-vivid-purple-border-color{border-color: var(--wp--preset--color--vivid-purple) !important;}.has-vivid-cyan-blue-to-vivid-purple-gradient-background{background: var(--wp--preset--gradient--vivid-cyan-blue-to-vivid-purple) !important;}.has-light-green-cyan-to-vivid-green-cyan-gradient-background{background: var(--wp--preset--gradient--light-green-cyan-to-vivid-green-cyan) !important;}.has-luminous-vivid-amber-to-luminous-vivid-orange-gradient-background{background: var(--wp--preset--gradient--luminous-vivid-amber-to-luminous-vivid-orange) !important;}.has-luminous-vivid-orange-to-vivid-red-gradient-background{background: var(--wp--preset--gradient--luminous-vivid-orange-to-vivid-red) !important;}.has-very-light-gray-to-cyan-bluish-gray-gradient-background{background: var(--wp--preset--gradient--very-light-gray-to-cyan-bluish-gray) !important;}.has-cool-to-warm-spectrum-gradient-background{background: var(--wp--preset--gradient--cool-to-warm-spectrum) !important;}.has-blush-light-purple-gradient-background{background: var(--wp--preset--gradient--blush-light-purple) !important;}.has-blush-bordeaux-gradient-background{background: var(--wp--preset--gradient--blush-bordeaux) !important;}.has-luminous-dusk-gradient-background{background: var(--wp--preset--gradient--luminous-dusk) !important;}.has-pale-ocean-gradient-background{background: var(--wp--preset--gradient--pale-ocean) !important;}.has-electric-grass-gradient-background{background: var(--wp--preset--gradient--electric-grass) !important;}.has-midnight-gradient-background{background: var(--wp--preset--gradient--midnight) !important;}.has-small-font-size{font-size: var(--wp--preset--font-size--small) !important;}.has-medium-font-size{font-size: var(--wp--preset--font-size--medium) !important;}.has-large-font-size{font-size: var(--wp--preset--font-size--large) !important;}.has-x-large-font-size{font-size: var(--wp--preset--font-size--x-large) !important;}
+/*# sourceURL=global-styles-inline-css */
+</style>
+
+<link rel="stylesheet" id="ct-ignite-google-fonts-css" href="//fonts.googleapis.com/css?family=Roboto+Slab%3AThin%2CLight%2CRegular%2CBold&amp;subset=latin%2Clatin-ext&amp;ver=6.9.4" type="text/css" media="all">
+<link rel="stylesheet" id="ct-ignite-font-awesome-css" href="/wp-content/themes/ignite/assets/font-awesome/css/all.min.css?ver=6.9.4" type="text/css" media="all">
+<link rel="stylesheet" id="ct-ignite-style-css" href="/wp-content/themes/ignite/style.css?ver=6.9.4" type="text/css" media="all">
+<style id="ct-ignite-style-inline-css" type="text/css">
+li.linkcat {
+	list-style-type: none;
+}
+
+            body, h1, h2, h3, h4, h5, h6, input:not([type='checkbox']):not([type='radio']):not([type='submit']):not([type='file']), input[type='submit'], textarea {
+                font-family: Roboto Slab;
+                font-style: normal;
+                font-weight: ;
+            }
+        
+
+            .overflow-container {
+                background: ;
+            }
+            .main, .sidebar-primary-container, .breadcrumb-trail {
+                background: none;
+            }
+        
+/*# sourceURL=ct-ignite-style-inline-css */
+</style>
+<script type="text/javascript" src="/wp-includes/js/jquery/jquery.min.js?ver=3.7.1" id="jquery-core-js"></script>
+<script type="text/javascript" src="/wp-includes/js/jquery/jquery-migrate.min.js?ver=3.4.1" id="jquery-migrate-js"></script>
+<link rel="https://api.w.org/" href="/wp-json/"><link rel="alternate" title="JSON" type="application/json" href="/wp-json/wp/v2/posts/704"><link rel="EditURI" type="application/rsd+xml" title="RSD" href="/xmlrpc.php?rsd">
+<meta name="generator" content="WordPress 6.9.4">
+<link rel="canonical" href="/2026/04/17/building-minesweeper-with-claude-cli-part-3-mobile-touch-refactor/">
+<link rel="shortlink" href="/?p=704">
+		<style type="text/css" id="wp-custom-css">
+			li.linkcat {
+	list-style-type: none;
+}		</style>
+		</head>
+<body id="ignite" class="wp-singular post-template-default single single-post postid-704 single-format-standard wp-theme-ignite singular singular-post singular-post-704">
+		<a class="skip-content" href="#main">Skip to content</a>
+		<header class="site-header" id="site-header" role="banner">
+		<div id="title-info" class="title-info">
+			<div class="site-title"><a href="/">J O H N R A . M E</a></div>		</div>
+		<button id="toggle-navigation" class="toggle-navigation"><i class="fas fa-bars"></i></button>
+<div class="menu-container menu-primary" id="menu-primary" role="navigation">
+	<p id="site-description" class="tagline">...yet another musings of a techie</p><ul id="menu-primary-items" class="menu-primary-items"><li id="menu-item-489" class="menu-item menu-item-type-custom menu-item-object-custom menu-item-489"><a href="/">Blog</a></li>
+<li id="menu-item-490" class="menu-item menu-item-type-post_type menu-item-object-page menu-item-490"><a href="/about-me/">About</a></li>
+<li id="menu-item-522" class="menu-item menu-item-type-post_type menu-item-object-page menu-item-522"><a href="/resume/">Résumé</a></li>
+</ul><ul class="social-media-icons">				<li>
+					<a class="facebook" target="_blank" href="https://www.facebook.com/jra75">
+						<i class="fab fa-facebook-square" title="facebook"></i>
+						<span class="screen-reader-text">facebook</span>
+					</a>
+				</li>
+								<li>
+					<a class="linkedin" target="_blank" href="https://www.linkedin.com/in/johnathan-ra-49b2713">
+						<i class="fab fa-linkedin" title="linkedin"></i>
+						<span class="screen-reader-text">linkedin</span>
+					</a>
+				</li>
+								<li>
+					<a class="youtube" target="_blank" href="https://www.youtube.com/channel/UCYAOIaObT9lzSpnDAy0g0Ng">
+						<i class="fab fa-youtube-square" title="youtube"></i>
+						<span class="screen-reader-text">youtube</span>
+					</a>
+				</li>
+								<li>
+					<a class="github" target="_blank" href="https://github.com/johnra74">
+						<i class="fab fa-github-square" title="github"></i>
+						<span class="screen-reader-text">github</span>
+					</a>
+				</li>
+				</ul></div>	</header>
+		<div id="overflow-container" class="overflow-container">
+		<div id="breadcrumbs" class="breadcrumb-trail breadcrumbs"><span class="item-home"><a class="bread-link bread-home" href="/" title="Home">Home</a></span><span class="separator"> &gt; </span><span class="item-cat"><a href="/category/tutorial/">Tutorial</a></span><span class="separator"> &gt; </span><span class="item-current item-704"><span class="bread-current bread-704" title="Building Minesweeper with Claude CLI – Part 3: Mobile Touch Refactor">Building Minesweeper with Claude CLI – Part 3: Mobile Touch Refactor</span></span></div>		<div id="main" class="main" role="main">	<div id="loop-container" class="loop-container">
+			<div class="post-704 post type-post status-publish format-standard has-post-thumbnail hentry category-ai category-jscript category-reactjs category-tutorial entry">
+		<div class="featured-image"><img width="1572" height="666" src="/wp-content/uploads/2026/04/Screenshot-2026-04-11-135007.png" class="attachment-full size-full wp-post-image" alt="" decoding="async" fetchpriority="high" srcset="/wp-content/uploads/2026/04/Screenshot-2026-04-11-135007.png 1572w, /wp-content/uploads/2026/04/Screenshot-2026-04-11-135007-300x127.png 300w, /wp-content/uploads/2026/04/Screenshot-2026-04-11-135007-1024x434.png 1024w, /wp-content/uploads/2026/04/Screenshot-2026-04-11-135007-768x325.png 768w, /wp-content/uploads/2026/04/Screenshot-2026-04-11-135007-1536x651.png 1536w" sizes="(max-width: 1572px) 100vw, 1572px"></div>			<div class="entry-meta-top">
+		Published April 17, 2026 by <a href="/author/johnra/" title="Posts by John Ra" rel="author">John Ra</a>	</div>
+		<div class="entry-header">
+			<h1 class="entry-title">Building Minesweeper with Claude CLI – Part 3: Mobile Touch Refactor</h1>
+		</div>
+		<div class="entry-content">
+			<article>
+								
+<p>A few days after I published Part 2, a friend forwarded me a message. He’s been reading the blog on his phone during his commute, decided to open the live demo, and found that he couldn’t flag a single cell.</p>
+
+
+
+<p>He’s not wrong. On a touchscreen, right-click doesn’t exist. Context menus require a long-press that the browser intercepts before the game sees it. The entire flag mechanic – one of the two core interactions in Minesweeper – is simply inaccessible to anyone <strong>not </strong>sitting at a desk with a mouse.</p>
+
+
+
+<p>I’d known this. I’d filed it in the back of my mind under “later.” The message from my friend gave me an excuse to create a part three.</p>
+
+
+
+<p>This post is about using the fix as an opportunity to add something the desktop version also doesn’t have: <strong>chording</strong>, and the <strong>suspect mine marker</strong>. If you’ve only played casual Minesweeper, chording might be unfamiliar. Once you’ve flagged all the mines around a revealed numbered cell, you can “chord” it – click it again to automatically reveal all its unflagged neighbors. It’s the technique that separates fast players from slow ones. On desktop it’s typically a middle-click or a double-click. On mobile, we’ll surface it through the same mechanism as flagging.</p>
+
+
+
+<p>The approach: a <strong>touch action menu</strong>. When a player long-presses any cell on a touch device, a small contextual overlay appears with the available actions for that cell. No right-click required. No ambiguity about what a tap means.</p>
+
+
+
+<p>This is a refactoring session, not a greenfield one. The architecture from <a href="/2026/04/11/building-minesweeper-with-claude-cli-part-1-planning/">Parts 1</a> and <a href="/2026/04/14/building-minesweeper-with-claude-cli-part-2-implementation/">Part 2</a> is already in place – good architecture should make adding features like this mechanical rather than heroic. We’re about to find out how well it holds.</p>
+
+
+
+<hr class="wp-block-separator has-alpha-channel-opacity">
+
+
+
+<h2 class="wp-block-heading" id="the-problem-stated-precisely">The Problem statement</h2>
+
+
+
+<pre class="wp-block-code"><code>&gt; I want to add mobile touch support to the Minesweeper game from Parts 1 and 2.
+  The problem: on touch devices, there's no right-click, so players can't flag cells.
+  My proposed solution: a touch action menu.
+  When a player long-presses any cell (held ~500 ms), a small overlay appears with:
+    - Reveal  (if the cell is hidden and not flagged or suspected)
+    - Chord   (if the cell is revealed and has adjacent mines &gt; 0)
+    - Flag    (if the cell is hidden — toggles the flag state)
+    - Suspect (if the cell is hidden — marks it with ? as "maybe a mine")
+    - Close   (always — dismisses the menu)
+  Before we write anything, tell me what needs to change in the existing architecture.
+</code></pre>
+
+
+
+<p><strong>Claude:</strong></p>
+
+
+
+<pre class="wp-block-preformatted">Good framing. Here's the audit of what needs to change across each layer.<br><br>## Data Model<br><br>The <code>Cell</code> object needs one new field:<br><br>{<br>  isMine:        boolean,<br>  isRevealed:    boolean,<br>  isFlagged:     boolean,<br>  isSuspect:     boolean,   <em>// ← new: marks cell as "maybe a mine" (shows ?)</em><br>  adjacentMines: number,<br>}<br><br><code>isSuspect</code> is mutually exclusive with <code>isFlagged</code> — a cell can be flagged, suspected, or neither, but not both. The cycle is: <strong>none → flagged → suspect → none</strong>.<br><br>## Engine layer<br><br>One new pure function in <code>gameEngine.js</code>:<br><br>chordCell(board, row, col) → board<br><br>Logic: if the target cell is revealed and its <code>adjacentMines</code> count exactly equals the number of flagged neighbours, reveal all unflagged, unrevealed, non-mine-flagged neighbours in one operation. If the counts don't match, return the board unchanged (safety guard).<br><br><code>boardFactory.js</code> needs <code>createCell</code> updated to include <code>isSuspect: false</code>.<br><br>## Hook layer<br><br><code>useGameState.js</code> gets two additions:<br><br>- <code>handleChord(row, col)</code> — calls <code>chordCell</code>, applies win/loss detection.<br>- <code>handleTouchAction(action, row, col)</code> — dispatches to the right handler based on the action string (<code>'reveal'</code>, <code>'chord'</code>, <code>'flag'</code>, <code>'suspect'</code>).<br><br>Also needs <code>touchMenuCell</code> state: <code>{ row, col } | null</code> — which cell currently has the menu open. Null means no menu.<br><br>## New hook<br><br><code>useLongPress.js</code> — reusable hook that wraps touch event handling. Returns <code>onTouchStart</code> and <code>onTouchEnd</code> handlers. Fires a callback after a configurable delay (default 500 ms) if the touch hasn't moved or ended.<br><br>## New component<br><br><code>TouchActionMenu.jsx</code> — a positioned overlay component. Receives the target cell, its position on screen, and callbacks for each action. Renders only the contextually valid options (e.g., "Reveal" is hidden for already-revealed cells; "Chord" is hidden for cells with no adjacent mines).<br><br>## Component layer<br><br><code>Cell.jsx</code> gets <code>onLongPress</code> and <code>onTouchAction</code> props. It uses <code>useLongPress</code> internally to detect the hold gesture and opens the menu via a callback to the parent. The left-click behaviour on desktop remains unchanged.<br><br>No changes needed to <code>GameBoard</code>, <code>GameControls</code>, or <code>GameStatus</code>.</pre>
+
+
+
+<hr class="wp-block-separator has-alpha-channel-opacity">
+
+
+
+<blockquote class="wp-block-quote is-layout-flow wp-block-quote-is-layout-flow">
+<p>This is the response I was hoping for. The audit pattern – before you touch anything, enumerate what needs to change and where – is something I’ve tried to instill in engineers throughout my career, with mixed success. The natural instinct when asked to add a feature is to find the most obvious file and start editing. That instinct is usually wrong.</p>
+
+
+
+<p>The answer here correctly identifies that this change has four distinct scopes: the data model, the engine, the hook, and a new UI layer. It correctly identifies that <code>GameBoard</code>, <code>GameControls</code>, and <code>GameStatus</code> are untouched – which is the architectural dividend we bought in <a href="/2026/04/11/building-minesweeper-with-claude-cli-part-1-planning/">Part 1</a>. It correctly flags that <code>isSuspect</code> and <code>isFlagged</code> need mutual exclusivity rules, which is a subtle constraint that a less thorough analysis would have missed and that would have shown up as a confusing bug later.</p>
+
+
+
+<p>The introduction of <code>useLongPress</code> as a separate, reusable hook rather than embedding the touch logic directly in <code>Cell</code> is also the right call. Long-press detection is generic. It doesn’t know anything about Minesweeper. Separating it means it’s independently testable and could be reused elsewhere. This is the Interface Segregation Principle applied to hooks.</p>
+</blockquote>
+
+
+
+<hr class="wp-block-separator has-alpha-channel-opacity">
+
+
+
+<h2 class="wp-block-heading" id="session-transcript">Session transcript</h2>
+
+
+
+<h3 class="wp-block-heading" id="prompt-1--extend-the-data-model">Prompt 1 – Extend the data model</h3>
+
+
+
+<pre class="wp-block-code"><code>&gt; Update boardFactory.js to add isSuspect: false to createCell.
+  Also update toggleFlag to cycle: none → flagged → suspect → none.
+  Show me the updated functions only — don't regenerate the whole file.
+</code></pre>
+
+
+
+<p><strong>Claude</strong> produced the updated functions:</p>
+
+
+
+<pre class="wp-block-code"><code><em>// boardFactory.js — updated createCell</em><br>export const createCell = () =&gt; ({<br>  isMine:        false,<br>  isRevealed:    false,<br>  isFlagged:     false,<br>  isSuspect:     false,   <em>// new</em><br>  adjacentMines: 0,<br>});<br><br>And moved <span style="background-color: initial; font-family: inherit; font-size: inherit; text-align: initial;">toggleFlag</span> from <span style="background-color: initial; font-family: inherit; font-size: inherit; text-align: initial;">gameEngine.js</span> into a richer cycle:<br><br><em>// gameEngine.js — updated toggleFlag</em><br><em>/**<br> * Cycles the mark state of a hidden cell: none → flagged → suspect → none.<br> * Already-revealed cells are not affected.<br> *<br> * @param {Cell[][]} board<br> * @param {number}   row<br> * @param {number}   col<br> * @returns {Cell[][]}<br> */</em><br>export const toggleFlag = (board, row, col) =&gt; {<br>  const cell = board[row][col];<br>  if (cell.isRevealed) return board;<br><br>  let update;<br>  if (!cell.isFlagged &amp;&amp; !cell.isSuspect) {<br>    update = { isFlagged: true,  isSuspect: false }; <em>// none → flagged</em><br>  } else if (cell.isFlagged) {<br>    update = { isFlagged: false, isSuspect: true  }; <em>// flagged → suspect</em><br>  } else {<br>    update = { isFlagged: false, isSuspect: false }; <em>// suspect → none</em><br>  }<br><br>  return board.map((r, ri) =&gt;<br>    r.map((c, ci) =&gt;<br>      ri === row &amp;&amp; ci === col ? { ...c, ...update } : c<br>    )<br>  );<br>};<br></code></pre>
+
+
+
+<hr class="wp-block-separator has-alpha-channel-opacity">
+
+
+
+<blockquote class="wp-block-quote is-layout-flow wp-block-quote-is-layout-flow">
+<p>Cycling the flag state through three values is a pattern most implementations handle incorrectly. The common approach is a boolean toggle – flagged or not – which means suspect is either bolted on as a second independent boolean (creating illegal states like <code>isFlagged &amp;&amp; isSuspect === true</code>) or ignored entirely. The three-way cycle with explicit state transitions is clean and produces no illegal states.</p>
+
+
+
+<p>I notice it correctly left the rest of <code>toggleFlag</code>‘s logic unchanged – the early return for revealed cells, the immutable board transformation. It updated precisely what needed updating and nothing else. That’s a harder discipline than it sounds when you’re editing existing code.</p>
+</blockquote>
+
+
+
+<hr class="wp-block-separator has-alpha-channel-opacity">
+
+
+
+<h3 class="wp-block-heading" id="prompt-2--add-chording-to-the-engine">Prompt 2 – Add chording to the engine</h3>
+
+
+
+<pre class="wp-block-code"><code>&gt; Add chordCell(board, row, col) to gameEngine.js.
+  Rules:
+  - If the cell is not revealed, return board unchanged.
+  - If adjacentMines is 0, return board unchanged (nothing to chord).
+  - Count flagged neighbours. If count !== adjacentMines, return board unchanged.
+  - Otherwise reveal all unflagged, unrevealed, non-mine neighbours using the
+    existing revealCell logic (which handles BFS if any revealed neighbour is empty).
+  Keep it pure. Add JSDoc.
+</code></pre>
+
+
+
+<p><strong>Claude:</strong></p>
+
+
+
+<pre class="wp-block-code"><code><em>/**
+ * Chords the cell at (row, col): if the number of flagged neighbours exactly
+ * matches the cell's adjacentMines count, reveals all remaining hidden,
+ * unflagged neighbours.  Returns board unchanged if the preconditions aren't met.
+ *
+ * This is the "satisfying" move — when you've correctly identified all mines
+ * around a number, chord clears the rest in one action.
+ *
+ * @param {Cell[][]} board
+ * @param {number}   row
+ * @param {number}   col
+ * @returns {Cell[][]}
+ */</em>
+export const chordCell = (board, row, col) =&gt; {
+  const cell = board[row][col];
+  if (!cell.isRevealed || cell.adjacentMines === 0) return board;
+
+  const rows = board.length;
+  const cols = board[0].length;
+
+  const neighbours = [];
+  let flaggedCount = 0;
+
+  for (let dr = -1; dr &lt;= 1; dr++) {
+    for (let dc = -1; dc &lt;= 1; dc++) {
+      if (dr === 0 &amp;&amp; dc === 0) continue;
+      const nr = row + dr;
+      const nc = col + dc;
+      if (nr &lt; 0 || nr &gt;= rows || nc &lt; 0 || nc &gt;= cols) continue;
+      const neighbour = board[nr][nc];
+      if (neighbour.isFlagged) flaggedCount++;
+      neighbours.push([nr, nc]);
+    }
+  }
+
+  <em>// Guard: only chord when the flag count matches exactly.</em>
+  if (flaggedCount !== cell.adjacentMines) return board;
+
+  <em>// Reveal each unflagged, unrevealed neighbour via the existing BFS logic.</em>
+  let updatedBoard = board;
+  for (const [nr, nc] of neighbours) {
+    const neighbour = updatedBoard[nr][nc];
+    if (!neighbour.isFlagged &amp;&amp; !neighbour.isRevealed) {
+      updatedBoard = revealCell(updatedBoard, nr, nc);
+    }
+  }
+
+  return updatedBoard;
+};
+</code></pre>
+
+
+
+<hr class="wp-block-separator has-alpha-channel-opacity">
+
+
+
+<blockquote class="wp-block-quote is-layout-flow wp-block-quote-is-layout-flow">
+<p>There’s a subtlety here worth calling out. Chording that hits a mine is a legitimate game outcome – if the player placed a flag on the wrong cell, the chord will reveal an actual mine and the game is lost. The implementation above correctly hands each reveal back through <code>revealCell</code>, which preserves all of the existing mine-detection logic in the hook. The engine function doesn’t need to know about win or loss – it just reveals cells. The hook checks the outcome.</p>
+
+
+
+<p>This is the Dependency Inversion Principle working quietly: the engine depends on its own abstractions, not on the game-state orchestration layer above it. <code>chordCell</code> doesn’t know what happens when you hit a mine – that knowledge belongs one layer up.</p>
+
+
+
+<p>I also notice that using the existing <code>revealCell</code> (which already handles BFS flood-fill) means that chording into an empty region works correctly for free. If one of the unchained neighbors has zero adjacent mines, the reveal cascades outward just as a direct click would. This is the right behavior and it came at no additional cost because the engine was already pure and composable.</p>
+</blockquote>
+
+
+
+<hr class="wp-block-separator has-alpha-channel-opacity">
+
+
+
+<h3 class="wp-block-heading" id="prompt-3--the-long-press-hook">Prompt 3 – The long-press hook</h3>
+
+
+
+<pre class="wp-block-code"><code>&gt; Create src/hooks/useLongPress.js.
+  It should return { onTouchStart, onTouchEnd, onTouchMove } handlers.
+  The caller passes a callback and an optional delay (default 500ms).
+  The callback fires only if the touch is held for the full delay without moving.
+  onTouchMove cancels the timer (we don't want false positives from scrolling).
+  No React-specific imports beyond useState and useRef. No side effects outside of refs.
+</code></pre>
+
+
+
+<p><strong>Claude:</strong></p>
+
+
+
+<pre class="wp-block-code"><code>import { useRef, useCallback } from 'react';
+
+<em>/**
+ * useLongPress
+ *
+ * Detects a long-press (sustained touch without movement) and fires a callback.
+ * Cancels if the touch moves (prevents false positives during scroll).
+ *
+ * @param {Function} callback  - Called when the long press threshold is reached.
+ * @param {number}   delay     - Milliseconds to hold before firing (default 500).
+ * @returns {{ onTouchStart, onTouchEnd, onTouchMove }}
+ */</em>
+export const useLongPress = (callback, delay = 500) =&gt; {
+  const timerRef   = useRef(null);
+  const activeRef  = useRef(false);
+
+  const start = useCallback((e) =&gt; {
+    <em>// Prevent the browser's built-in long-press context menu.</em>
+    e.preventDefault();
+    activeRef.current = true;
+    timerRef.current = setTimeout(() =&gt; {
+      if (activeRef.current) {
+        callback(e);
+      }
+    }, delay);
+  }, [callback, delay]);
+
+  const cancel = useCallback(() =&gt; {
+    activeRef.current = false;
+    clearTimeout(timerRef.current);
+  }, []);
+
+  return {
+    onTouchStart: start,
+    onTouchEnd:   cancel,
+    onTouchMove:  cancel,
+  };
+};
+</code></pre>
+
+
+
+<hr class="wp-block-separator has-alpha-channel-opacity">
+
+
+
+<blockquote class="wp-block-quote is-layout-flow wp-block-quote-is-layout-flow">
+<p>The <code>e.preventDefault()</code> on touch start is load-bearing. Without it, mobile browsers fire their own long-press context menu after roughly ~500 millisecond of holding, which would overlay our custom menu or interfere with the event chain. Suppressing the default gives us full control.</p>
+
+
+
+<p>The <code>activeRef</code> pattern is worth noting. We can’t close over a boolean in <code>start</code> and expect it to reflect state changes made in <code>cancel</code>, because both functions are created once and the closure captures the value at creation time. A ref survives across renders and mutations are immediately visible to all closures that hold a reference to it. This is one of those ReactJS specific subtleties that bites people when they first reach for refs.</p>
+
+
+
+<p><code>useLongPress</code> knows nothing about Minesweeper. It doesn’t know what action to take. It doesn’t know what a cell is. It receives a callback, detects a gesture, and calls the callback. That’s all it does. At 25 lines it is almost certainly not going to require a rewrite.</p>
+</blockquote>
+
+
+
+<hr class="wp-block-separator has-alpha-channel-opacity">
+
+
+
+<h3 class="wp-block-heading" id="prompt-4--the-touch-action-menu-component">Prompt 4 – The touch action menu component</h3>
+
+
+
+<pre class="wp-block-code"><code>&gt; Create src/components/TouchActionMenu/TouchActionMenu.jsx.
+  Props:
+    - cell: the Cell data object
+    - position: { x, y } in viewport pixels (where to render)
+    - onAction: function(actionName) — called when the user picks an option
+    - onClose: function() — called when the user dismisses the menu
+  Render only the contextually valid actions:
+    - "reveal"  — only if cell is not revealed, not flagged, not suspected
+    - "chord"   — only if cell is revealed and adjacentMines &gt; 0
+    - "flag"    — only if cell is not revealed (label changes based on state:
+                  "Unflag" if flagged, "Flag" otherwise)
+    - "suspect" — only if cell is not revealed (label: "Unsuspect" if suspected,
+                  "Suspect" otherwise)
+    - A dismiss button is always rendered.
+  The menu should be absolutely positioned at the given coordinates.
+  No game logic inside the component — pure display + delegation.
+</code></pre>
+
+
+
+<p><strong>Claude:</strong></p>
+
+
+
+<pre class="wp-block-code"><code>import React, { useEffect, useRef } from 'react';<br>import './TouchActionMenu.css';<br><br><em>/**<br> * TouchActionMenu<br> *<br> * A contextual floating action menu that appears on long-press.<br> * Renders only the actions that are valid for the current cell state.<br> * Delegates all game logic to the caller via onAction / onClose.<br> *<br> * @param {object}   props<br> * @param {Cell}     props.cell      - Cell data.<br> * @param {{x,y}}    props.position  - Viewport coordinates to anchor the menu.<br> * @param {Function} props.onAction  - Called with action string on selection.<br> * @param {Function} props.onClose   - Called when the menu is dismissed.<br> */</em><br>const TouchActionMenu = ({ cell, position, onAction, onClose }) =&gt; {<br>  const menuRef = useRef(null);<br><br>  <em>// Close the menu if the user taps outside it.</em><br>  useEffect(() =&gt; {<br>    const handleOutsideClick = (e) =&gt; {<br>      if (menuRef.current &amp;&amp; !menuRef.current.contains(e.target)) {<br>        onClose();<br>      }<br>    };<br>    document.addEventListener('pointerdown', handleOutsideClick);<br>    return () =&gt; document.removeEventListener('pointerdown', handleOutsideClick);<br>  }, [onClose]);<br><br>  const actions = [];<br><br>  if (!cell.isRevealed &amp;&amp; !cell.isFlagged &amp;&amp; !cell.isSuspect) {<br>    actions.push({ key: 'reveal',  label: 'Reveal' });<br>  }<br><br>  if (cell.isRevealed &amp;&amp; cell.adjacentMines &gt; 0) {<br>    actions.push({ key: 'chord',   label: 'Chord'  });<br>  }<br><br>  if (!cell.isRevealed) {<br>    actions.push({<br>      key:   'flag',<br>      label: cell.isFlagged ? 'Unflag' : 'Flag',<br>    });<br>    actions.push({<br>      key:   'suspect',<br>      label: cell.isSuspect ? 'Unsuspect' : 'Suspect',<br>    });<br>  }<br><br>  return (<br>    &lt;div<br>      ref={menuRef}<br>      className="touch-action-menu"<br>      style={{ top: position.y, left: position.x }}<br>      role="dialog"<br>      aria-label="Cell actions"<br>    &gt;<br>      {actions.map(({ key, label }) =&gt; (<br>        &lt;button<br>          key={key}<br>          className="touch-action-menu__item"<br>          onClick={() =&gt; { onAction(key); onClose(); }}<br>        &gt;<br>          {label}<br>        &lt;/button&gt;<br>      ))}<br>      &lt;button<br>        className="touch-action-menu__item touch-action-menu__item--close"<br>        onClick={onClose}<br>      &gt;<br>        Close<br>      &lt;/button&gt;<br>    &lt;/div&gt;<br>  );<br>};<br><br>export default TouchActionMenu;<br><br>And the stylesheet:<br><br><em>/* TouchActionMenu.css */</em><br><br>.touch-action-menu {<br>  position: fixed;<br>  z-index: 1000;<br>  background: #ffffff;<br>  border: 2px solid #7b7b7b;<br>  border-radius: 6px;<br>  box-shadow: 0 4px 16px rgba(0, 0, 0, 0.25);<br>  display: flex;<br>  flex-direction: column;<br>  min-width: 140px;<br>  overflow: hidden;<br>  <em>/* Nudge left so the menu doesn't clip the right viewport edge */</em><br>  transform: translateX(-50%);<br>}<br><br>.touch-action-menu__item {<br>  padding: 12px 16px;<br>  background: transparent;<br>  border: none;<br>  border-bottom: 1px solid #e0e0e0;<br>  font-family: 'Courier New', Courier, monospace;<br>  font-size: 14px;<br>  font-weight: bold;<br>  cursor: pointer;<br>  text-align: left;<br>  color: #000000;<br>}<br><br>.touch-action-menu__item:last-child {<br>  border-bottom: none;<br>}<br><br>.touch-action-menu__item:hover,<br>.touch-action-menu__item:active {<br>  background: #c0c0c0;<br>}<br><br>.touch-action-menu__item--close {<br>  color: #7b7b7b;<br>  font-weight: normal;<br>}<br></code></pre>
+
+
+
+<hr class="wp-block-separator has-alpha-channel-opacity">
+
+
+
+<blockquote class="wp-block-quote is-layout-flow wp-block-quote-is-layout-flow">
+<p>The <code>useEffect</code> for outside-click detection is a pattern I’ve seen implemented wrong more often than right. The two common mistakes: attaching a <code>click</code> listener (which fires before the user has lifted their finger and causes the menu to immediately self-close on the same touch that opened it), and forgetting the cleanup function (which leaves orphaned listeners after the component unmounts). Both are present-and-correct here.</p>
+
+
+
+<p>Using <code>pointerdown</code> rather than <code>touchstart</code> or <code>click</code> is a deliberate choice – <code>pointerdown</code> fires on mouse, touch, and stylus in a unified event model. The menu can be dismissed by any input method.</p>
+
+
+
+<p>The position calculation uses <code>fixed</code> rather than <code>absolute</code>. This is important: the game board scrolls on small screens. An <code>absolute</code> positioned menu would be anchored to the document and could end up outside the viewport when the board is scrolled. <code>fixed</code> is anchored to the viewport, which is where the touch coordinates live.</p>
+
+
+
+<p>I’ve made the <code>absolute/fixed</code> mistake myself on a mapping application, years ago. The bug manifested only on devices with enough content to scroll — impossible to reproduce on desktop, trivial to reproduce on any phone. Memory has a way of encoding those moments.</p>
+</blockquote>
+
+
+
+<hr class="wp-block-separator has-alpha-channel-opacity">
+
+
+
+<h3 class="wp-block-heading" id="prompt-5--update-cell-to-use-uselongpress">Prompt 5 – Update Cell to use useLongPress</h3>
+
+
+
+<pre class="wp-block-code"><code>&gt; Update Cell.jsx to accept two new optional props:
+    - onLongPress: function(row, col, touchPosition) — fires on long press.
+      touchPosition is { x, y } from the touch event.
+    - onChord: function(row, col) — fires on standard left-click of a revealed
+      numbered cell (chording by click, for desktop users who prefer it).
+  If onLongPress is not provided the component should behave exactly as before.
+  Keep the existing onLeftClick and onRightClick props working.
+</code></pre>
+
+
+
+<p><strong>Claude</strong> produced the updated component:</p>
+
+
+
+<pre class="wp-block-code"><code>import React from 'react';
+import { ADJACENT_MINE_COLORS } from '../../constants/gameConfig';
+import { useLongPress } from '../../hooks/useLongPress';
+import './Cell.css';
+
+const getCellContent = (cell) =&gt; {
+  if (!cell.isRevealed) {
+    if (cell.isFlagged)  return '🚩';
+    if (cell.isSuspect)  return '❓';
+    return '';
+  }
+  if (cell.isMine)             return '💣';
+  if (cell.adjacentMines &gt; 0)  return cell.adjacentMines;
+  return '';
+};
+
+const Cell = ({
+  cell,
+  row,
+  col,
+  onLeftClick,
+  onRightClick,
+  onLongPress,
+  onChord,
+}) =&gt; {
+  const handleContextMenu = (e) =&gt; {
+    e.preventDefault();
+    onRightClick(row, col);
+  };
+
+  const handleClick = () =&gt; {
+    <em>// Revealed numbered cells trigger chord on click when onChord is provided.</em>
+    if (cell.isRevealed &amp;&amp; cell.adjacentMines &gt; 0 &amp;&amp; onChord) {
+      onChord(row, col);
+    } else {
+      onLeftClick(row, col);
+    }
+  };
+
+  const handleLongPress = onLongPress
+    ? (e) =&gt; {
+        const touch = e.changedTouches?.[0] ?? e.touches?.[0];
+        const position = touch
+          ? { x: touch.clientX, y: touch.clientY }
+          : { x: 0, y: 0 };
+        onLongPress(row, col, position);
+      }
+    : null;
+
+  const longPressHandlers = useLongPress(
+    handleLongPress ?? (() =&gt; {}),
+    500
+  );
+
+  const content = getCellContent(cell);
+  const color =
+    cell.isRevealed &amp;&amp; !cell.isMine &amp;&amp; cell.adjacentMines &gt; 0
+      ? ADJACENT_MINE_COLORS[cell.adjacentMines]
+      : undefined;
+
+  const classNames = [
+    'cell',
+    cell.isRevealed ? 'cell--revealed' : 'cell--hidden',
+    cell.isMine &amp;&amp; cell.isRevealed ? 'cell--mine' : '',
+  ]
+    .filter(Boolean)
+    .join(' ');
+
+  return (
+    &lt;button
+      className={classNames}
+      onClick={handleClick}
+      onContextMenu={handleContextMenu}
+      style={{ color }}
+      aria-label={`Cell ${row}-${col}${cell.isFlagged ? ' flagged' : ''}${
+        cell.isSuspect ? ' suspected' : ''
+      }${cell.isRevealed ? ' revealed' : ''}`}
+      aria-pressed={cell.isRevealed}
+      {...(onLongPress ? longPressHandlers : {})}
+    &gt;
+      {content}
+    &lt;/button&gt;
+  );
+};
+
+export default React.memo(Cell);
+</code></pre>
+
+
+
+<hr class="wp-block-separator has-alpha-channel-opacity">
+
+
+
+<blockquote class="wp-block-quote is-layout-flow wp-block-quote-is-layout-flow">
+<p>The spread of <code>longPressHandlers</code> only when <code>onLongPress</code> is provided is the detail that keeps the component backward-compatible. Desktop users who don’t trigger a long-press still work exactly as before – the touch handlers are simply not attached. This is one of the rare cases where conditional prop spreading is cleaner than the alternative.</p>
+
+
+
+<p>The chord-on-click behavior for desktop is a small but considered addition: on desktop, clicking a revealed numbered cell with the correct flags in place will chord. This is consistent with how most modern Minesweeper implementations work. It doesn’t break the existing behavior for unrevealed cells – the <code>onLeftClick</code> path is still taken for all other clicks.</p>
+</blockquote>
+
+
+
+<hr class="wp-block-separator has-alpha-channel-opacity">
+
+
+
+<h3 class="wp-block-heading" id="prompt-6--wire-everything-into-usegamestate">Prompt 6 – Wire everything into useGameState</h3>
+
+
+
+<pre class="wp-block-code"><code>&gt; Update useGameState.js to:
+  1. Add handleChord(row, col) — calls chordCell, checks win/loss, returns nothing.
+  2. Add touchMenuCell state ({ row, col, position } | null).
+  3. Add openTouchMenu(row, col, position) — sets touchMenuCell.
+  4. Add closeTouchMenu() — clears touchMenuCell.
+  5. Add handleTouchAction(action, row, col) — dispatches to the right handler:
+       'reveal'  → handleCellClick
+       'chord'   → handleChord
+       'flag'    → handleCellRightClick  (existing, now cycles to suspect too)
+       'suspect' → handleCellRightClick  (same cycle, different entry point)
+  Expose all new values/functions in the return object.
+</code></pre>
+
+
+
+<p><strong>Claude</strong> produced the updated hook, showing only the additions:</p>
+
+
+
+<pre class="wp-block-code"><code><em>// New import</em>
+import { chordCell } from '../engine/gameEngine';
+
+<em>// New state (inside useGameState)</em>
+const [touchMenuCell, setTouchMenuCell] = useState(null);
+
+<em>/**
+ * Chords the cell at (row, col).
+ * If the chord hits a mine, transitions to LOST.
+ * Checks for win condition after a successful chord.
+ */</em>
+const handleChord = useCallback((row, col) =&gt; {
+  if (gameStatus !== GAME_STATUS.PLAYING) return;
+
+  setBoard((currentBoard) =&gt; {
+    const chorded = chordCell(currentBoard, row, col);
+    if (chorded === currentBoard) return currentBoard; <em>// guard returned unchanged</em>
+
+    <em>// Check whether any mine was revealed (loss condition).</em>
+    const mineTouched = chorded.some((r) =&gt;
+      r.some((c) =&gt; c.isMine &amp;&amp; c.isRevealed)
+    );
+
+    if (mineTouched) {
+      setGameStatus(GAME_STATUS.LOST);
+      return revealAllMines(chorded);
+    }
+
+    if (checkWinCondition(chorded)) {
+      setGameStatus(GAME_STATUS.WON);
+    }
+
+    return chorded;
+  });
+}, [gameStatus]);
+
+<em>/**
+ * Opens the touch action menu for the given cell.
+ */</em>
+const openTouchMenu = useCallback((row, col, position) =&gt; {
+  if (gameStatus === GAME_STATUS.WON || gameStatus === GAME_STATUS.LOST) return;
+  setTouchMenuCell({ row, col, position });
+}, [gameStatus]);
+
+<em>/**
+ * Closes the touch action menu.
+ */</em>
+const closeTouchMenu = useCallback(() =&gt; {
+  setTouchMenuCell(null);
+}, []);
+
+<em>/**
+ * Dispatches a touch menu action to the appropriate handler.
+ * Called after the player selects an option from TouchActionMenu.
+ */</em>
+const handleTouchAction = useCallback((action, row, col) =&gt; {
+  switch (action) {
+    case 'reveal':  handleCellClick(row, col);      break;
+    case 'chord':   handleChord(row, col);           break;
+    case 'flag':    handleCellRightClick(row, col);  break;
+    case 'suspect': handleCellRightClick(row, col);  break;
+    default: break;
+  }
+}, [handleCellClick, handleChord, handleCellRightClick]);
+
+<em>// Updated return object</em>
+return {
+  board,
+  gameStatus,
+  difficulty,
+  minesLeft,
+  time,
+  touchMenuCell,
+  startNewGame,
+  handleCellClick,
+  handleCellRightClick,
+  handleChord,
+  openTouchMenu,
+  closeTouchMenu,
+  handleTouchAction,
+};
+</code></pre>
+
+
+
+<hr class="wp-block-separator has-alpha-channel-opacity">
+
+
+
+<blockquote class="wp-block-quote is-layout-flow wp-block-quote-is-layout-flow">
+<p>The guard <code>if (chorded === currentBoard) return currentBoard</code> deserves attention. <code>chordCell</code> returns the original board reference when the preconditions aren’t satisfied – a standard pattern in functional code where returning a reference instead of a copy signals “nothing changed.” Checking referential equality is a cheap, correct way to short-circuit state updates. ReactJS’s <code>useState</code> setter performs a shallow equality check on the returned value and skips a re-render if the state didn’t change, but that check happens after our setter returns – we want to avoid even the mine-detection loop in this case.</p>
+
+
+
+<p><code>'flag'</code> and <code>'suspect'</code> both route to <code>handleCellRightClick</code>. This is intentional. The three-way cycle defined in <code>toggleFlag</code> means successive calls will cycle the state correctly regardless of which menu option the user chose. The distinction between “Flag” and “Suspect” in the UI is presentational – “which label makes sense to show right now” – not a distinction in the underlying action.</p>
+</blockquote>
+
+
+
+<hr class="wp-block-separator has-alpha-channel-opacity">
+
+
+
+<h3 class="wp-block-heading" id="prompt-7--render-the-menu-in-appjsx">Prompt 7 – Render the menu in App.jsx</h3>
+
+
+
+<pre class="wp-block-code"><code>&gt; Update App.jsx to:
+  1. Destructure touchMenuCell, openTouchMenu, closeTouchMenu, handleTouchAction
+     from useGameState.
+  2. Pass onLongPress={openTouchMenu} and onChord={handleChord} to GameBoard
+     (which forwards them to each Cell).
+  3. Render &lt;TouchActionMenu&gt; when touchMenuCell is not null, positioned at
+     touchMenuCell.position, with the correct cell data.
+  Show only the changed portions.
+</code></pre>
+
+
+
+<p><strong>Claude:</strong></p>
+
+
+
+<pre class="wp-block-code"><code><em>// App.jsx — updated destructuring</em><br>const {<br>  board,<br>  gameStatus,<br>  difficulty,<br>  minesLeft,<br>  time,<br>  touchMenuCell,           <em>// new</em><br>  startNewGame,<br>  handleCellClick,<br>  handleCellRightClick,<br>  handleChord,             <em>// new</em><br>  openTouchMenu,           <em>// new</em><br>  closeTouchMenu,          <em>// new</em><br>  handleTouchAction,       <em>// new</em><br>} = useGameState('BEGINNER');<br><br><em>// In the JSX return:</em><br>return (<br>  &lt;div className="app"&gt;<br>    &lt;GameControls ... /&gt;<br>    &lt;GameStatus ... /&gt;<br>    &lt;GameBoard<br>      board={board}<br>      onCellClick={handleCellClick}<br>      onCellRightClick={handleCellRightClick}<br>      onCellLongPress={openTouchMenu}    // new<br>      onCellChord={handleChord}          // new<br>    /&gt;<br>    {touchMenuCell &amp;&amp; (<br>      &lt;TouchActionMenu<br>        cell={board[touchMenuCell.row][touchMenuCell.col]}<br>        position={touchMenuCell.position}<br>        onAction={(action) =&gt;<br>          handleTouchAction(action, touchMenuCell.row, touchMenuCell.col)<br>        }<br>        onClose={closeTouchMenu}<br>      /&gt;<br>    )}<br>  &lt;/div&gt;<br>);<br><br>And <span style="background-color: initial; font-family: inherit; font-size: inherit; text-align: initial;">GameBoard.jsx</span> updated to forward the new props:<br><br><em>// GameBoard.jsx — updated Cell rendering</em><br>&lt;Cell<br>  key={`${rowIdx}-${colIdx}`}<br>  cell={cell}<br>  row={rowIdx}<br>  col={colIdx}<br>  onLeftClick={onCellClick}<br>  onRightClick={onCellRightClick}<br>  onLongPress={onCellLongPress}   <em>// new</em><br>  onChord={onCellChord}           <em>// new</em><br>/&gt;<br></code></pre>
+
+
+
+<hr class="wp-block-separator has-alpha-channel-opacity">
+
+
+
+<blockquote class="wp-block-quote is-layout-flow wp-block-quote-is-layout-flow">
+<p>The conditional render <code>{touchMenuCell &amp;&amp; &lt;TouchActionMenu ... /&gt;}</code> is the React idiom for “render only when there’s something to render.” The <code>TouchActionMenu</code> is not in the tree at all when no menu is open, which means its <code>useEffect</code> cleanup never needs to fire spuriously. Clean mount/unmount semantics.</p>
+
+
+
+<p>One thing to note: <code>board[touchMenuCell.row][touchMenuCell.col]</code> reads the cell at render time, not at the time the menu was opened. This is correct behavior – if the game state somehow changes between menu open and render, the menu reflects current reality. In practice this won’t happen (the game is paused conceptually while a menu is open) but the code is correct in edge cases without any special handling.</p>
+</blockquote>
+
+
+
+<hr class="wp-block-separator has-alpha-channel-opacity">
+
+
+
+<h3 class="wp-block-heading" id="prompt-8--tests-for-chordcell">Prompt 8 — Tests for chordCell</h3>
+
+
+
+<pre class="wp-block-code"><code>&gt; Write tests for chordCell in gameEngine.test.js.
+  Scenarios:
+  - Returns board unchanged when cell is not revealed.
+  - Returns board unchanged when adjacentMines is 0.
+  - Returns board unchanged when flagged neighbour count &lt; adjacentMines.
+  - Returns board unchanged when flagged neighbour count &gt; adjacentMines.
+  - Reveals all unflagged, unrevealed neighbours when count matches exactly.
+  - Does not reveal flagged neighbours.
+  - Triggers BFS cascade if a chorded neighbour has 0 adjacent mines.
+  - Does not chord when a neighbour is already revealed.
+</code></pre>
+
+
+
+<p><strong>Claude</strong> produced the test suite:</p>
+
+
+
+<pre class="wp-block-code"><code><em>// gameEngine.test.js — chordCell section (added to existing file)</em>
+
+describe('chordCell', () =&gt; {
+  <em>// Helper: build a small 3×3 board with a revealed centre cell.</em>
+  <em>// The centre cell at (1,1) has 1 adjacent mine (at 0,0).</em>
+  <em>// Cell (0,0) is the mine, flagged.</em>
+  <em>// Cells (0,1), (0,2), (1,0), (1,2), (2,0), (2,1), (2,2) are hidden/safe.</em>
+  const buildChordBoard = (overrides = {}) =&gt; {
+    const board = createEmptyBoard(3, 3);
+    <em>// Place a mine at top-left</em>
+    board[0][0] = { ...board[0][0], isMine: true, isFlagged: true };
+    <em>// Reveal the centre and set adjacency</em>
+    board[1][1] = { ...board[1][1], isRevealed: true, adjacentMines: 1 };
+    <em>// Apply any caller overrides</em>
+    Object.entries(overrides).forEach(([key, val]) =&gt; {
+      const [r, c, field] = key.split(',');
+      board[Number(r)][Number(c)] = { ...board[Number(r)][Number(c)], [field]: val };
+    });
+    return board;
+  };
+
+  it('returns board unchanged when target cell is not revealed', () =&gt; {
+    const board = buildChordBoard();
+    board[1][1] = { ...board[1][1], isRevealed: false };
+    expect(chordCell(board, 1, 1)).toBe(board);
+  });
+
+  it('returns board unchanged when adjacentMines is 0', () =&gt; {
+    const board = buildChordBoard();
+    board[1][1] = { ...board[1][1], adjacentMines: 0 };
+    expect(chordCell(board, 1, 1)).toBe(board);
+  });
+
+  it('returns board unchanged when flagged count is less than adjacentMines', () =&gt; {
+    <em>// Remove the flag — now flagged count is 0, adjacentMines is 1</em>
+    const board = buildChordBoard();
+    board[0][0] = { ...board[0][0], isFlagged: false };
+    expect(chordCell(board, 1, 1)).toBe(board);
+  });
+
+  it('returns board unchanged when flagged count exceeds adjacentMines', () =&gt; {
+    <em>// Add a second flag</em>
+    const board = buildChordBoard();
+    board[0][1] = { ...board[0][1], isFlagged: true };
+    expect(chordCell(board, 1, 1)).toBe(board);
+  });
+
+  it('reveals all unflagged hidden neighbours when count matches exactly', () =&gt; {
+    const board = buildChordBoard();
+    const result = chordCell(board, 1, 1);
+    <em>// (0,0) is the mine and flagged — should remain unrevealed</em>
+    expect(result[0][0].isRevealed).toBe(false);
+    <em>// All other safe neighbours should be revealed</em>
+    const safe = [[0,1],[0,2],[1,0],[1,2],[2,0],[2,1],[2,2]];
+    safe.forEach(([r,c]) =&gt; expect(result[r][c].isRevealed).toBe(true));
+  });
+
+  it('does not reveal flagged neighbours', () =&gt; {
+    const board = buildChordBoard();
+    const result = chordCell(board, 1, 1);
+    expect(result[0][0].isRevealed).toBe(false);
+    expect(result[0][0].isFlagged).toBe(true);
+  });
+
+  it('does not re-reveal already-revealed neighbours', () =&gt; {
+    const board = buildChordBoard();
+    board[0][1] = { ...board[0][1], isRevealed: true, adjacentMines: 1 };
+    const result = chordCell(board, 1, 1);
+    <em>// Already revealed — unchanged reference is fine</em>
+    expect(result[0][1].isRevealed).toBe(true);
+  });
+
+  it('cascades BFS when a chorded neighbour has zero adjacent mines', () =&gt; {
+    <em>// 3×3 board: mine at (0,0), flagged. Centre (1,1) revealed, adjacentMines=1.</em>
+    <em>// (2,2) has 0 adjacent mines — chorded reveal should cascade into its neighbours.</em>
+    const board = buildChordBoard();
+    board[2][2] = { ...board[2][2], adjacentMines: 0 };
+    const result = chordCell(board, 1, 1);
+    <em>// BFS should have cascaded from (2,2) — all reachable cells should be revealed.</em>
+    expect(result[2][2].isRevealed).toBe(true);
+  });
+});
+</code></pre>
+
+
+
+<hr class="wp-block-separator has-alpha-channel-opacity">
+
+
+
+<blockquote class="wp-block-quote is-layout-flow wp-block-quote-is-layout-flow">
+<p>Eight scenarios for one function. That sounds like a lot until you consider that chording is one of the moves most likely to destroy your game – miscount your flags, chord, hit a mine. A function with this many guards needs this many tests.</p>
+
+
+
+<p>The <code>buildChordBoard</code> helper is worth examining. It creates a known, deterministic board state in a few lines and accepts an override map for targeted variations. This is the pattern I advocated for in <a href="/2026/04/11/building-minesweeper-with-claude-cli-part-1-planning/">Part 1</a>‘s discussion of test strategy – deterministic boards, precisely configured for the scenario under test. Every test below it is immediately readable: here’s the board, here’s the action, here’s the expected outcome.</p>
+
+
+
+<p>The <code>toBe(board)</code> assertion – reference equality – is the correct check for “function returned unchanged board.” It’s tighter than a deep equality check and carries the additional semantic meaning: the function detected an unsatisfied precondition and made a deliberate choice not to do anything.</p>
+</blockquote>
+
+
+
+<hr class="wp-block-separator has-alpha-channel-opacity">
+
+
+
+<h3 class="wp-block-heading" id="prompt-9--tests-for-toggleflag-three-way-cycle">Prompt 9 – Tests for toggleFlag three-way cycle</h3>
+
+
+
+<pre class="wp-block-code"><code>&gt; Add tests to gameEngine.test.js covering the updated toggleFlag cycle:
+  - none → flagged
+  - flagged → suspect
+  - suspect → none
+  - Revealed cells are not affected at any stage.
+  - isFlagged and isSuspect are never both true simultaneously.
+</code></pre>
+
+
+
+<p><strong>Claude:</strong></p>
+
+
+
+<pre class="wp-block-code"><code>describe('toggleFlag — three-way cycle', () =&gt; {
+  const freshCell = { isMine: false, isRevealed: false, isFlagged: false, isSuspect: false, adjacentMines: 0 };
+
+  const makeBoard = (cellOverride = {}) =&gt; [[{ ...freshCell, ...cellOverride }]];
+
+  it('cycles none → flagged', () =&gt; {
+    const result = toggleFlag(makeBoard(), 0, 0);
+    expect(result[0][0].isFlagged).toBe(true);
+    expect(result[0][0].isSuspect).toBe(false);
+  });
+
+  it('cycles flagged → suspect', () =&gt; {
+    const result = toggleFlag(makeBoard({ isFlagged: true }), 0, 0);
+    expect(result[0][0].isFlagged).toBe(false);
+    expect(result[0][0].isSuspect).toBe(true);
+  });
+
+  it('cycles suspect → none', () =&gt; {
+    const result = toggleFlag(makeBoard({ isSuspect: true }), 0, 0);
+    expect(result[0][0].isFlagged).toBe(false);
+    expect(result[0][0].isSuspect).toBe(false);
+  });
+
+  it('does not affect a revealed cell', () =&gt; {
+    const board = makeBoard({ isRevealed: true });
+    expect(toggleFlag(board, 0, 0)).toBe(board);
+  });
+
+  it('never produces a state where both isFlagged and isSuspect are true', () =&gt; {
+    let board = makeBoard();
+    for (let i = 0; i &lt; 9; i++) {
+      board = toggleFlag(board, 0, 0);
+      expect(board[0][0].isFlagged &amp;&amp; board[0][0].isSuspect).toBe(false);
+    }
+  });
+});
+</code></pre>
+
+
+
+<hr class="wp-block-separator has-alpha-channel-opacity">
+
+
+
+<blockquote class="wp-block-quote is-layout-flow wp-block-quote-is-layout-flow">
+<p>That last test – cycling nine times and asserting the invariant holds at every step – is the kind of test that looks paranoid until it catches a bug. The invariant is “both can never be true simultaneously.” Testing it across multiple cycles guarantees it holds not just at each transition but through entire sequences. A state machine implementation that works for three steps and breaks on the fourth is a realistic failure mode.</p>
+</blockquote>
+
+
+
+<hr class="wp-block-separator has-alpha-channel-opacity">
+
+
+
+<h3 class="wp-block-heading" id="prompt-10--tests-for-touchactionmenu">Prompt 10 — Tests for TouchActionMenu</h3>
+
+
+
+<pre class="wp-block-code"><code>&gt; Write tests for TouchActionMenu.jsx.
+  Scenarios:
+  - Renders Reveal for a plain hidden cell.
+  - Does not render Reveal for a flagged cell.
+  - Does not render Reveal for a revealed cell.
+  - Renders Chord for a revealed cell with adjacentMines &gt; 0.
+  - Does not render Chord for a revealed cell with adjacentMines === 0.
+  - Renders Flag (label "Flag") for a hidden unflagged cell.
+  - Renders Flag (label "Unflag") for a flagged cell.
+  - Renders Suspect for a hidden cell.
+  - Renders Suspect (label "Unsuspect") for a suspected cell.
+  - Clicking an action button calls onAction with the right key and then onClose.
+  - Clicking Close calls onClose without calling onAction.
+  - Close button is always rendered.
+</code></pre>
+
+
+
+<p><strong>Claude:</strong></p>
+
+
+
+<pre class="wp-block-code"><code><em>// TouchActionMenu.test.jsx</em>
+import React from 'react';
+import { render, screen, fireEvent } from '@testing-library/react';
+import TouchActionMenu from './TouchActionMenu';
+
+const baseCell = {
+  isMine: false, isRevealed: false, isFlagged: false,
+  isSuspect: false, adjacentMines: 0,
+};
+const pos = { x: 100, y: 200 };
+
+const renderMenu = (cellOverride = {}, handlers = {}) =&gt; {
+  const onAction = handlers.onAction ?? jest.fn();
+  const onClose  = handlers.onClose  ?? jest.fn();
+  render(
+    &lt;TouchActionMenu
+      cell={{ ...baseCell, ...cellOverride }}
+      position={pos}
+      onAction={onAction}
+      onClose={onClose}
+    /&gt;
+  );
+  return { onAction, onClose };
+};
+
+describe('TouchActionMenu — action visibility', () =&gt; {
+  it('shows Reveal for a plain hidden cell', () =&gt; {
+    renderMenu();
+    expect(screen.getByText('Reveal')).toBeInTheDocument();
+  });
+
+  it('does not show Reveal for a flagged cell', () =&gt; {
+    renderMenu({ isFlagged: true });
+    expect(screen.queryByText('Reveal')).toBeNull();
+  });
+
+  it('does not show Reveal for a revealed cell', () =&gt; {
+    renderMenu({ isRevealed: true });
+    expect(screen.queryByText('Reveal')).toBeNull();
+  });
+
+  it('shows Chord for a revealed cell with adjacentMines &gt; 0', () =&gt; {
+    renderMenu({ isRevealed: true, adjacentMines: 2 });
+    expect(screen.getByText('Chord')).toBeInTheDocument();
+  });
+
+  it('does not show Chord for a revealed cell with adjacentMines === 0', () =&gt; {
+    renderMenu({ isRevealed: true, adjacentMines: 0 });
+    expect(screen.queryByText('Chord')).toBeNull();
+  });
+
+  it('shows Flag label "Flag" for a hidden unflagged cell', () =&gt; {
+    renderMenu();
+    expect(screen.getByText('Flag')).toBeInTheDocument();
+  });
+
+  it('shows Flag label "Unflag" when cell is flagged', () =&gt; {
+    renderMenu({ isFlagged: true });
+    expect(screen.getByText('Unflag')).toBeInTheDocument();
+  });
+
+  it('shows Suspect for a hidden cell', () =&gt; {
+    renderMenu();
+    expect(screen.getByText('Suspect')).toBeInTheDocument();
+  });
+
+  it('shows Suspect label "Unsuspect" when cell is suspected', () =&gt; {
+    renderMenu({ isSuspect: true });
+    expect(screen.getByText('Unsuspect')).toBeInTheDocument();
+  });
+
+  it('always shows the Close button', () =&gt; {
+    renderMenu({ isRevealed: true, adjacentMines: 0 });
+    expect(screen.getByText('Close')).toBeInTheDocument();
+  });
+});
+
+describe('TouchActionMenu — interactions', () =&gt; {
+  it('calls onAction with "reveal" and then onClose when Reveal is clicked', () =&gt; {
+    const { onAction, onClose } = renderMenu();
+    fireEvent.click(screen.getByText('Reveal'));
+    expect(onAction).toHaveBeenCalledWith('reveal');
+    expect(onClose).toHaveBeenCalledTimes(1);
+  });
+
+  it('calls onAction with "chord" when Chord is clicked', () =&gt; {
+    const { onAction } = renderMenu({ isRevealed: true, adjacentMines: 3 });
+    fireEvent.click(screen.getByText('Chord'));
+    expect(onAction).toHaveBeenCalledWith('chord');
+  });
+
+  it('calls onAction with "flag" when Flag is clicked', () =&gt; {
+    const { onAction } = renderMenu();
+    fireEvent.click(screen.getByText('Flag'));
+    expect(onAction).toHaveBeenCalledWith('flag');
+  });
+
+  it('calls onAction with "suspect" when Suspect is clicked', () =&gt; {
+    const { onAction } = renderMenu();
+    fireEvent.click(screen.getByText('Suspect'));
+    expect(onAction).toHaveBeenCalledWith('suspect');
+  });
+
+  it('calls onClose without onAction when Close is clicked', () =&gt; {
+    const { onAction, onClose } = renderMenu();
+    fireEvent.click(screen.getByText('Close'));
+    expect(onClose).toHaveBeenCalledTimes(1);
+    expect(onAction).not.toHaveBeenCalled();
+  });
+});
+</code></pre>
+
+
+
+<hr class="wp-block-separator has-alpha-channel-opacity">
+
+
+
+<blockquote class="wp-block-quote is-layout-flow wp-block-quote-is-layout-flow">
+<p>12 tests for one small component. The test suite reads like a specification, which is exactly what it should be. Someone joining this codebase with no prior context can read these tests and know precisely what the menu is supposed to do in every case.</p>
+
+
+
+<p>The “always shows Close” assertion at the end of the visibility block is a sentinel – it runs in the context of a revealed empty cell, which is the scenario where the menu has the fewest options (only Chord is excluded because adjacentMines is 0, not because it’s empty, and Reveal/Flag/Suspect are excluded because the cell is revealed). Even in the most stripped-down possible menu, Close is there. Tests that verify invariants under adversarial conditions are more valuable than tests that verify happy paths.</p>
+</blockquote>
+
+
+
+<hr class="wp-block-separator has-alpha-channel-opacity">
+
+
+
+<h3 class="wp-block-heading" id="prompt-11--tests-for-uselongpress">Prompt 11 — Tests for useLongPress</h3>
+
+
+
+<pre class="wp-block-code"><code>&gt; Write tests for useLongPress.js using renderHook and jest's fake timers.
+  Scenarios:
+  - Callback fires after the delay when touch is held.
+  - Callback does not fire before the delay elapses.
+  - onTouchEnd before the delay cancels the callback.
+  - onTouchMove before the delay cancels the callback.
+  - Callback fires again on a second press after the first fires.
+  - A new press after cancellation fires correctly.
+</code></pre>
+
+
+
+<p><strong>Claude:</strong></p>
+
+
+
+<pre class="wp-block-code"><code><em>// useLongPress.test.js</em>
+import { renderHook, act } from '@testing-library/react';
+import { useLongPress } from './useLongPress';
+
+describe('useLongPress', () =&gt; {
+  beforeEach(() =&gt; jest.useFakeTimers());
+  afterEach(()  =&gt; jest.useRealTimers());
+
+  const mockEvent = () =&gt; ({
+    preventDefault: jest.fn(),
+    changedTouches: [{ clientX: 50, clientY: 100 }],
+  });
+
+  it('fires the callback after the specified delay', () =&gt; {
+    const cb = jest.fn();
+    const { result } = renderHook(() =&gt; useLongPress(cb, 500));
+
+    act(() =&gt; result.current.onTouchStart(mockEvent()));
+    expect(cb).not.toHaveBeenCalled();
+
+    act(() =&gt; jest.advanceTimersByTime(500));
+    expect(cb).toHaveBeenCalledTimes(1);
+  });
+
+  it('does not fire before the delay elapses', () =&gt; {
+    const cb = jest.fn();
+    const { result } = renderHook(() =&gt; useLongPress(cb, 500));
+
+    act(() =&gt; result.current.onTouchStart(mockEvent()));
+    act(() =&gt; jest.advanceTimersByTime(499));
+    expect(cb).not.toHaveBeenCalled();
+  });
+
+  it('cancels the callback when onTouchEnd fires before the delay', () =&gt; {
+    const cb = jest.fn();
+    const { result } = renderHook(() =&gt; useLongPress(cb, 500));
+
+    act(() =&gt; result.current.onTouchStart(mockEvent()));
+    act(() =&gt; result.current.onTouchEnd());
+    act(() =&gt; jest.advanceTimersByTime(500));
+    expect(cb).not.toHaveBeenCalled();
+  });
+
+  it('cancels the callback when onTouchMove fires before the delay', () =&gt; {
+    const cb = jest.fn();
+    const { result } = renderHook(() =&gt; useLongPress(cb, 500));
+
+    act(() =&gt; result.current.onTouchStart(mockEvent()));
+    act(() =&gt; result.current.onTouchMove());
+    act(() =&gt; jest.advanceTimersByTime(500));
+    expect(cb).not.toHaveBeenCalled();
+  });
+
+  it('fires again on a second press after the first fires', () =&gt; {
+    const cb = jest.fn();
+    const { result } = renderHook(() =&gt; useLongPress(cb, 500));
+
+    act(() =&gt; result.current.onTouchStart(mockEvent()));
+    act(() =&gt; jest.advanceTimersByTime(500));
+    act(() =&gt; result.current.onTouchEnd());
+
+    act(() =&gt; result.current.onTouchStart(mockEvent()));
+    act(() =&gt; jest.advanceTimersByTime(500));
+    expect(cb).toHaveBeenCalledTimes(2);
+  });
+
+  it('fires correctly after a previously-cancelled press', () =&gt; {
+    const cb = jest.fn();
+    const { result } = renderHook(() =&gt; useLongPress(cb, 500));
+
+    act(() =&gt; result.current.onTouchStart(mockEvent()));
+    act(() =&gt; result.current.onTouchMove()); <em>// cancel</em>
+    act(() =&gt; jest.advanceTimersByTime(500));
+
+    act(() =&gt; result.current.onTouchStart(mockEvent()));
+    act(() =&gt; jest.advanceTimersByTime(500));
+    expect(cb).toHaveBeenCalledTimes(1);
+  });
+});
+</code></pre>
+
+
+
+<hr class="wp-block-separator has-alpha-channel-opacity">
+
+
+
+<blockquote class="wp-block-quote is-layout-flow wp-block-quote-is-layout-flow">
+<p>Fake timers are the right tool for any test that involves <code>setTimeout</code> or <code>setInterval</code>. Without them, you’d either have to wait actual milliseconds in your tests (slow, fragile, environment-dependent) or write the code in a way that accepts an injectable clock (more complex, more maintenance). <code>jest.useFakeTimers()</code> replaces the timer globals with synchronous stand-ins that advance on demand – you get the full semantics of time-based code without waiting for it.</p>
+
+
+
+<p>The final two tests – “fires again on second press” and “fires after cancellation” – test the statefulness of the hook across multiple gesture cycles. These are the tests that would have caught a bug I saw in an early draft of this code, where the <code>activeRef</code> wasn’t being properly reset between cycles. The fixed version is what’s shown above. The tests are what found it.</p>
+</blockquote>
+
+
+
+<hr class="wp-block-separator has-alpha-channel-opacity">
+
+
+
+<h2 class="wp-block-heading" id="test-results">Test results</h2>
+
+
+
+<pre class="wp-block-code"><code>PASS src/engine/boardFactory.test.js
+PASS src/engine/gameEngine.test.js
+PASS src/hooks/useGameState.test.js
+PASS src/hooks/useLongPress.test.js
+PASS src/components/Cell/Cell.test.jsx
+PASS src/components/GameBoard/GameBoard.test.jsx
+PASS src/components/GameControls/GameControls.test.jsx
+PASS src/components/GameStatus/GameStatus.test.jsx
+PASS src/components/TouchActionMenu/TouchActionMenu.test.jsx
+PASS src/App.test.jsx
+
+Test Suites: 10 passed, 10 total
+Tests:       174 passed, 174 total
+Coverage:    Statements 100% | Branches 100% | Functions 100% | Lines 100%
+</code></pre>
+
+
+
+<p>The 131 tests from <a href="/2026/04/14/building-minesweeper-with-claude-cli-part-2-implementation/">Part 2</a> are all still green. Forty-three new tests cover the refactored and new code. Coverage stays at 100% across all four metrics.</p>
+
+
+
+<hr class="wp-block-separator has-alpha-channel-opacity">
+
+
+
+<p>I want to dwell on that test count for a moment: 43 new tests for a mobile touch feature. If you’d asked me before this session how long the test suite for a “touch menu” feature should be, I might have said 8 or 10. The complete picture – chording semantics, 3-way flag cycle, long-press timer behavior, menu rendering under all cell states – turns out to require a lot more coverage than that first estimate suggests.</p>
+
+
+
+<p>This is one of the under appreciated functions of test-driven development: it makes the true complexity of a feature legible. “Add a touch menu” sounds small. 43 test cases for the feature’s full behavior surface sounds less small. Both descriptions refer to the same thing.</p>
+
+
+
+<hr class="wp-block-separator has-alpha-channel-opacity">
+
+
+
+<h2 class="wp-block-heading" id="architecture-after-the-refactor">Architecture after the refactor</h2>
+
+
+
+<pre class="wp-block-code"><code>constants/gameConfig.js
+    ↓
+engine/boardFactory.js  ──────────────────┐
+engine/gameEngine.js    ──────────────────┤  (+ chordCell, updated toggleFlag)
+                                          ↓
+                               hooks/useGameState.js
+                               <strong>hooks/useLongPress.js    ← new, standalone</strong>
+                                          ↓
+                                    App.jsx (wiring)
+                                   /       |       \
+           GameControls   GameStatus   GameBoard
+                                          ↓
+                                        Cell × N
+                                     (+ useLongPress)
+                                          ↑
+                               TouchActionMenu (overlay) ← new
+</code></pre>
+
+
+
+<p><code>useLongPress</code> sits alongside <code>useGameState</code> rather than inside it – it knows nothing about game state. <code>TouchActionMenu</code> renders as an overlay sibling to <code>GameBoard</code>, not as a child of any <code>Cell</code>, which keeps its <code>fixed</code> positioning relative to the viewport rather than to a potentially-scrolled parent.</p>
+
+
+
+<p>The data flow remains unidirectional. No arrows point upward. The engine modules still have zero React imports.</p>
+
+
+
+<hr class="wp-block-separator has-alpha-channel-opacity">
+
+
+
+<h2 class="wp-block-heading" id="key-lessons-from-this-refactor">Lessons from this refactor</h2>
+
+
+
+<h3 class="wp-block-heading" id="1-good-architecture-makes-features-cheap">1. Good architecture makes features cheap</h3>
+
+
+
+<p>Every change in this session touched a clearly-bounded module. <code>Cell</code> changed to support a new prop. The engine gained one function. The hook gained four. A new component and a new hook were added. Nothing was rearchitected. The planning investment from Part 1 paid a direct dividend here: adding a major interaction pattern to the game required no structural surgery.</p>
+
+
+
+<h3 class="wp-block-heading" id="2-reusability-comes-from-ignorance">2. Reusability comes from ignorance</h3>
+
+
+
+<p><code>useLongPress</code> knows nothing about Minesweeper. It doesn’t know what a cell is, what a game is, or what action should happen on a long press. It knows about a gesture and a callback. This deliberate ignorance is what makes it reusable — it could be dropped into any touch-enabled UI without modification.*</p>
+
+
+
+<h3 class="wp-block-heading" id="3-the-three-way-state-cycle-needs-protection">3. The three-way state cycle needs protection</h3>
+
+
+
+<p>The <code>isFlagged</code>/<code>isSuspect</code> invariant — never both true — is the kind of constraint that silently corrupts game state if violated. The test that cycles through nine iterations and asserts the invariant at every step is the kind of test that looks like paranoia and reads like documentation. Both of those things are good.</p>
+
+
+
+<h3 class="wp-block-heading" id="4-touch-events-have-quirks">4. Touch events have quirks</h3>
+
+
+
+<p><code>e.preventDefault()</code> on <code>touchstart</code> is not optional. <code>pointerdown</code> instead of <code>click</code> for outside-dismiss detection is not optional. <code>fixed</code> instead of <code>absolute</code> for overlay positioning is not optional. These are the details that separate “works on my desktop” from “works on a phone.” They’re also the details that don’t appear in any tutorial and accumulate only through having shipped something that broke on a device you weren’t testing on.</p>
+
+
+
+<h3 class="wp-block-heading" id="5-test-your-state-machines-completely">5. Test your state machines completely</h3>
+
+
+
+<p>The game logic contains several state machines: the game status (<code>idle → playing → won/lost</code>), the cell mark cycle (<code>none → flagged → suspect → none</code>), the long-press lifecycle (<code>idle → timing → fired/cancelled</code>). Each was tested not just at individual transitions but through complete cycles. State machines that work for one transition and break on the second are a class of bug that only multi-step tests find.</p>
+
+
+
+<hr class="wp-block-separator has-alpha-channel-opacity">
+
+
+
+<h2 class="wp-block-heading" id="closing">Summary</h2>
+
+
+
+<p>The <a href="http://minesweeper.jstrgames.com/">game works on mobile</a>. You can tap a cell to reveal it on desktop (existing behavior). You can right-click to flag on desktop (existing behavior). On any touch device, you can long-press any cell to get a menu of contextually valid actions: reveal, chord, flag, suspect, or close. Chording works on desktop too, by clicking a revealed numbered cell.</p>
+
+
+
+<p>Forty-three new tests. One hundred and seventy-four total. Still at 100% coverage.</p>
+
+
+
+<p>The refactor took roughly forty minutes of conversation. Most of that time was in the test prompts – specifying scenarios precisely enough that the generated tests were testing real behavior rather than implementation details. That time was not overhead. The tests are the proof that the feature works, and they are the safety net for whoever touches this code next.</p>
+
+
+
+<p>I started this series with a question: does a language model hold up under real software engineering discipline? After three sessions – planning, implementation, refactoring – I have an answer, at least for this problem and this model at this moment in time.</p>
+
+
+
+<p>It holds up. It reasons about constraints. It identifies what doesn’t need to change as clearly as it identifies what does. It writes tests that look like specifications. It catches its own errors when pointed at them, and it produces cleaner corrected code than many engineers do on a second attempt.</p>
+
+
+
+<p>What it doesn’t do is replace the 25+ years of hard-won pattern recognition that knows <em>which</em> constraints matter, <em>why</em> a particular architectural choice will be regretted in three years, and <em>how</em> to read a bug report and reconstruct the mental model of the developer who introduced it. That knowledge is still human for now.</p>
+
+
+
+<p>But the gap is smaller than I expected when I opened that terminal on a quiet Tuesday evening and typed <code>$ claude</code>.</p>
+
+
+
+<p>Considerably smaller. What’s clear to me is that the hottest programming language today is English. In hindsight, it’s almost comical how many years we spent promoting everyone need to learn to code. As<a href="https://www.youtube.com/shorts/cw8qJTSqpvc"> Jenson Huang has emphasized</a>, AI is reshaping the landscape – abstracting away much of the complexity so developers can move beyond low-level details, like coding in python, and focus on clearly articulating what we want to build. Others are noticing it as well – <a href="https://francisshanahan.substack.com/p/ambiguity-specificity-and-sunshine">Ambiguity, Specificity, and Sunshine: How AI Exposes Clarity Gaps</a>.</p>
+							</article>
+		</div>
+		<div class="entry-meta-bottom">
+			<nav class="further-reading">
+	<p class="prev">
+		<span>Previous Post</span>
+		<a href="/2026/04/14/building-minesweeper-with-claude-cli-part-2-implementation/">Building Minesweeper with Claude CLI  Part 2: Implementation</a>
+	</p>
+	<p class="next">
+		<span>No Newer Posts</span>
+		<a href="/">Return to Blog</a>
+	</p>
+</nav>			<div class="author-meta">
+	<img alt="John Ra" src="https://secure.gravatar.com/avatar/88cb6789ec0a6354ab77f6c84c19815ae2625e0c5ae3861db81495b92365bdbe?s=72&amp;d=mm&amp;r=g" srcset="https://secure.gravatar.com/avatar/88cb6789ec0a6354ab77f6c84c19815ae2625e0c5ae3861db81495b92365bdbe?s=144&amp;d=mm&amp;r=g 2x" class="avatar avatar-72 photo" height="72" width="72" decoding="async">	<div class="name-container">
+		<h4>
+			John Ra		</h4>
+	</div>
+	<p>
+			</p>
+</div>			<div class="entry-categories"><p><i class="fas fa-folder-open"></i><a href="/category/ai/" title="View all posts in AI">AI</a> <a href="/category/jscript/" title="View all posts in JavaScript">JavaScript</a> <a href="/category/jscript/reactjs/" title="View all posts in ReactJS">ReactJS</a> <a href="/category/tutorial/" title="View all posts in Tutorial">Tutorial</a></p></div>					</div>
+	</div>
+	
+	<section id="comments" class="comments">
+		<div class="comments-number">
+			<h2>
+				Be First to Comment			</h2>
+		</div>
+		<ol class="comment-list">
+					</ol>
+					<div id="respond" class="comment-respond">
+		<h3 id="reply-title" class="comment-reply-title">Leave a Reply <small><a rel="nofollow" id="cancel-comment-reply-link" href="/2026/04/17/building-minesweeper-with-claude-cli-part-3-mobile-touch-refactor/#respond" style="display:none;">Cancel reply</a></small></h3><form action="/wp-comments-post.php" method="post" id="commentform" class="comment-form"><p class="comment-notes"><span id="email-notes">Your email address will not be published.</span> <span class="required-field-message">Required fields are marked <span class="required">*</span></span></p><p class="comment-form-comment">
+                <label for="comment" class="screen-reader-text">Your Comment</label>
+                <textarea required placeholder="Enter Your Comment…" id="comment" name="comment" cols="45" rows="8" aria-required="true"></textarea>
+            </p><p class="comment-form-author">
+                <label for="author" class="screen-reader-text">Your Name</label>
+                <input placeholder="Your Name*" id="author" name="author" type="text" value="" size="30" aria-required="true">
+            </p>
+<p class="comment-form-email">
+                <label for="email" class="screen-reader-text">Your Email</label>
+                <input placeholder="Your Email*" id="email" name="email" type="email" value="" size="30" aria-required="true">
+            </p>
+<p class="comment-form-url">
+                <label for="url" class="screen-reader-text">Your Website URL</label>
+                <input placeholder="Your URL (optional)" id="url" name="url" type="url" value="" size="30">
+                </p>
+<p class="comment-form-cookies-consent"><input id="wp-comment-cookies-consent" name="wp-comment-cookies-consent" type="checkbox" value="yes"> <label for="wp-comment-cookies-consent">Save my name, email, and website in this browser for the next time I comment.</label></p>
+<p class="form-submit"><input name="submit" type="submit" id="submit" class="submit" value="Post Comment"> <input type="hidden" name="comment_post_ID" value="704" id="comment_post_ID">
+<input type="hidden" name="comment_parent" id="comment_parent" value="0">
+</p></form>	</div><!-- #respond -->
+		</section>
+		</div>
+</div><!-- .main -->
+	<aside id="sidebar-primary-container" class="sidebar-primary-container">
+		<h1 class="screen-reader-text">Primary Sidebar</h1>
+		<div class="sidebar sidebar-primary" id="sidebar-primary" role="complementary">
+			<section id="block-3" class="widget widget_block">
+<div class="wp-block-group"><div class="wp-block-group__inner-container is-layout-flow wp-block-group-is-layout-flow">
+<h2 class="wp-block-heading">Recent Posts</h2>
+
+
+<ul class="wp-block-latest-posts__list wp-block-latest-posts"><li><a class="wp-block-latest-posts__post-title" href="/2026/04/17/building-minesweeper-with-claude-cli-part-3-mobile-touch-refactor/">Building Minesweeper with Claude CLI – Part 3: Mobile Touch Refactor</a></li>
+<li><a class="wp-block-latest-posts__post-title" href="/2026/04/14/building-minesweeper-with-claude-cli-part-2-implementation/">Building Minesweeper with Claude CLI  Part 2: Implementation</a></li>
+<li><a class="wp-block-latest-posts__post-title" href="/2026/04/11/building-minesweeper-with-claude-cli-part-1-planning/">Building Minesweeper with Claude CLI  Part 1: Planning</a></li>
+<li><a class="wp-block-latest-posts__post-title" href="/2026/04/08/tdd-with-reactjs/">TDD with ReactJS</a></li>
+<li><a class="wp-block-latest-posts__post-title" href="/2024/05/16/synology-ups-as-nut-primary/">Synology + UPS as NUT Primary</a></li>
+</ul></div></div>
+</section><section id="block-21" class="widget widget_block">
+<ul class="wp-block-list">
+<li><a href="http://blog.activelylazy.co.uk/">Actively Lazy</a></li>
+
+
+
+<li><a href="http://www.codeofhonor.com/blog" data-type="link" data-id="http://www.codeofhonor.com/blog">Code Of Honor</a></li>
+
+
+
+<li><a href="http://www.codinghorror.com/blog">Coding Horror</a></li>
+
+
+
+<li><a href="http://blog.sanaulla.info/">Experiences Unlimited</a></li>
+
+
+
+<li><a href="http://javadepend.wordpress.com/">JArchitect</a></li>
+
+
+
+<li><a href="http://www.markhneedham.com/blog">Mark Needham</a></li>
+
+
+
+<li><a href="https://martinfowler.com/">Martin Fowler</a></li>
+
+
+
+<li><a href="https://msun.io/">Mike Sun</a></li>
+
+
+
+<li><a href="http://blogs.msdn.com/b/oldnewthing">Old New Thing</a></li>
+
+
+
+<li><a href="http://www.opsbs.com/">Operation Bootstrap</a></li>
+
+
+
+<li><a href="http://blog.schauderhaft.de/">Schauderhaft</a></li>
+
+
+
+<li><a href="http://www.hanselman.com/blog">Scott Hanselman</a></li>
+
+
+
+<li><a href="http://simpleprogrammer.com/">Simple Programmer</a></li>
+
+
+
+<li><a href="https://francisshanahan.substack.com/">Tech Field Notes</a></li>
+
+
+
+<li><a href="http://tidyfirst.substack.com/">Tidy First? (Kent Beck)</a></li>
+</ul>
+</section><section id="block-4" class="widget widget_block">
+<div class="wp-block-group"><div class="wp-block-group__inner-container is-layout-flow wp-block-group-is-layout-flow">
+<h2 class="wp-block-heading">Categories</h2>
+
+
+<ul class="wp-block-categories-list wp-block-categories">	<li class="cat-item cat-item-9"><a href="/category/dotnet/">.NET</a>
+</li>
+	<li class="cat-item cat-item-44"><a href="/category/ai/">AI</a>
+</li>
+	<li class="cat-item cat-item-18"><a href="/category/dotnet/aspnet/">ASP.NET</a>
+</li>
+	<li class="cat-item cat-item-4"><a href="/category/dotnet/csharp/">C#</a>
+</li>
+	<li class="cat-item cat-item-34"><a href="/category/java/gradle/">Gradle</a>
+</li>
+	<li class="cat-item cat-item-29"><a href="/category/java/groovy/">Groovy</a>
+</li>
+	<li class="cat-item cat-item-25"><a href="/category/humor/">Humor</a>
+</li>
+	<li class="cat-item cat-item-17"><a href="/category/iis/">IIS</a>
+</li>
+	<li class="cat-item cat-item-26"><a href="/category/ios/">iOS</a>
+</li>
+	<li class="cat-item cat-item-3"><a href="/category/java/">Java</a>
+</li>
+	<li class="cat-item cat-item-22"><a href="/category/jscript/">JavaScript</a>
+</li>
+	<li class="cat-item cat-item-23"><a href="/category/jscript/jquery/">jQuery</a>
+</li>
+	<li class="cat-item cat-item-32"><a href="/category/opensource/">Open Source</a>
+</li>
+	<li class="cat-item cat-item-33"><a href="/category/patterns/">Patterns</a>
+</li>
+	<li class="cat-item cat-item-6"><a href="/category/rant/">Rants</a>
+</li>
+	<li class="cat-item cat-item-43"><a href="/category/jscript/reactjs/">ReactJS</a>
+</li>
+	<li class="cat-item cat-item-5"><a href="/category/tutorial/">Tutorial</a>
+</li>
+	<li class="cat-item cat-item-1"><a href="/category/uncategorized/">Uncategorized</a>
+</li>
+</ul></div></div>
+</section>		</div>
+	</aside>
+</div><!-- .overflow-container -->
+<footer id="site-footer" class="site-footer" role="contentinfo">
+	<h1>
+		<a href="/">
+			J O H N R A . M E		</a>
+	</h1>
+	<span class="tagline">...yet another musings of a techie</span>	<div class="design-credit">
+        <span>
+                      </span>
+	</div>
+</footer>
+<script type="speculationrules">
+{"prefetch":[{"source":"document","where":{"and":[{"href_matches":"/*"},{"not":{"href_matches":["/wp-*.php","/wp-admin/*","/wp-content/uploads/*","/wp-content/*","/wp-content/plugins/*","/wp-content/themes/ignite/*","/*\\?(.+)"]}},{"not":{"selector_matches":"a[rel~=\"nofollow\"]"}},{"not":{"selector_matches":".no-prefetch, .no-prefetch a"}}]},"eagerness":"conservative"}]}
+</script>
+<script type="text/javascript" src="/wp-content/themes/ignite/js/build/production.min.js?ver=6.9.4" id="ct-ignite-production-js"></script>
+<script type="text/javascript" src="/wp-includes/js/comment-reply.min.js?ver=6.9.4" id="comment-reply-js" async="async" data-wp-strategy="async" fetchpriority="low"></script>
+<script id="wp-emoji-settings" type="application/json">
+{"baseUrl":"https://s.w.org/images/core/emoji/17.0.2/72x72/","ext":".png","svgUrl":"https://s.w.org/images/core/emoji/17.0.2/svg/","svgExt":".svg","source":{"concatemoji":"/wp-includes/js/wp-emoji-release.min.js?ver=6.9.4"}}
+</script>
+<script type="module">
+/* <![CDATA[ */
+/*! This file is auto-generated */
+const a=JSON.parse(document.getElementById("wp-emoji-settings").textContent),o=(window._wpemojiSettings=a,"wpEmojiSettingsSupports"),s=["flag","emoji"];function i(e){try{var t={supportTests:e,timestamp:(new Date).valueOf()};sessionStorage.setItem(o,JSON.stringify(t))}catch(e){}}function c(e,t,n){e.clearRect(0,0,e.canvas.width,e.canvas.height),e.fillText(t,0,0);t=new Uint32Array(e.getImageData(0,0,e.canvas.width,e.canvas.height).data);e.clearRect(0,0,e.canvas.width,e.canvas.height),e.fillText(n,0,0);const a=new Uint32Array(e.getImageData(0,0,e.canvas.width,e.canvas.height).data);return t.every((e,t)=>e===a[t])}function p(e,t){e.clearRect(0,0,e.canvas.width,e.canvas.height),e.fillText(t,0,0);var n=e.getImageData(16,16,1,1);for(let e=0;e<n.data.length;e++)if(0!==n.data[e])return!1;return!0}function u(e,t,n,a){switch(t){case"flag":return n(e,"\ud83c\udff3\ufe0f\u200d\u26a7\ufe0f","\ud83c\udff3\ufe0f\u200b\u26a7\ufe0f")?!1:!n(e,"\ud83c\udde8\ud83c\uddf6","\ud83c\udde8\u200b\ud83c\uddf6")&&!n(e,"\ud83c\udff4\udb40\udc67\udb40\udc62\udb40\udc65\udb40\udc6e\udb40\udc67\udb40\udc7f","\ud83c\udff4\u200b\udb40\udc67\u200b\udb40\udc62\u200b\udb40\udc65\u200b\udb40\udc6e\u200b\udb40\udc67\u200b\udb40\udc7f");case"emoji":return!a(e,"\ud83e\u1fac8")}return!1}function f(e,t,n,a){let r;const o=(r="undefined"!=typeof WorkerGlobalScope&&self instanceof WorkerGlobalScope?new OffscreenCanvas(300,150):document.createElement("canvas")).getContext("2d",{willReadFrequently:!0}),s=(o.textBaseline="top",o.font="600 32px Arial",{});return e.forEach(e=>{s[e]=t(o,e,n,a)}),s}function r(e){var t=document.createElement("script");t.src=e,t.defer=!0,document.head.appendChild(t)}a.supports={everything:!0,everythingExceptFlag:!0},new Promise(t=>{let n=function(){try{var e=JSON.parse(sessionStorage.getItem(o));if("object"==typeof e&&"number"==typeof e.timestamp&&(new Date).valueOf()<e.timestamp+604800&&"object"==typeof e.supportTests)return e.supportTests}catch(e){}return null}();if(!n){if("undefined"!=typeof Worker&&"undefined"!=typeof OffscreenCanvas&&"undefined"!=typeof URL&&URL.createObjectURL&&"undefined"!=typeof Blob)try{var e="postMessage("+f.toString()+"("+[JSON.stringify(s),u.toString(),c.toString(),p.toString()].join(",")+"));",a=new Blob([e],{type:"text/javascript"});const r=new Worker(URL.createObjectURL(a),{name:"wpTestEmojiSupports"});return void(r.onmessage=e=>{i(n=e.data),r.terminate(),t(n)})}catch(e){}i(n=f(s,u,c,p))}t(n)}).then(e=>{for(const n in e)a.supports[n]=e[n],a.supports.everything=a.supports.everything&&a.supports[n],"flag"!==n&&(a.supports.everythingExceptFlag=a.supports.everythingExceptFlag&&a.supports[n]);var t;a.supports.everythingExceptFlag=a.supports.everythingExceptFlag&&!a.supports.flag,a.supports.everything||((t=a.source||{}).concatemoji?r(t.concatemoji):t.wpemoji&&t.twemoji&&(r(t.twemoji),r(t.wpemoji)))});
+//# sourceURL=/wp-includes/js/wp-emoji-loader.min.js
+/* ]]> */
+</script>
+<!-- Google tag (gtag.js) -->
+<script async src="https://www.googletagmanager.com/gtag/js?id=G-M1C40BG5Q3"></script>
+<script>
+  window.dataLayer = window.dataLayer || [];
+  function gtag(){dataLayer.push(arguments);}
+  gtag('js', new Date());
+
+  gtag('config', 'G-M1C40BG5Q3');
+</script>
+</body>
+</html>
