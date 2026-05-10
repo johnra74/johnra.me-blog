@@ -54,6 +54,10 @@ ol,ul{box-sizing:border-box}:root :where(.wp-block-list.has-background){padding:
 .wp-block-group{box-sizing:border-box}:where(.wp-block-group.wp-block-group-is-layout-constrained){position:relative}
 /*# sourceURL=/wp-includes/blocks/group/style.min.css */
 </style>
+<style id="wp-block-paragraph-inline-css" type="text/css">
+.is-small-text{font-size:.875em}.is-regular-text{font-size:1em}.is-large-text{font-size:2.25em}.is-larger-text{font-size:3em}.has-drop-cap:not(:focus):first-letter{float:left;font-size:8.4em;font-style:normal;font-weight:100;line-height:.68;margin:.05em .1em 0 0;text-transform:uppercase}body.rtl .has-drop-cap:not(:focus):first-letter{float:none;margin-left:.1em}p.has-drop-cap.has-background{overflow:hidden}:root :where(p.has-background){padding:1.25em 2.375em}:where(p.has-text-color:not(.has-link-color)) a{color:inherit}p.has-text-align-left[style*="writing-mode:vertical-lr"],p.has-text-align-right[style*="writing-mode:vertical-rl"]{rotate:180deg}
+/*# sourceURL=/wp-includes/blocks/paragraph/style.min.css */
+</style>
 
 <style id="classic-theme-styles-inline-css" type="text/css">
 /*! This file is auto-generated */
@@ -136,7 +140,52 @@ li.linkcat {
 				</ul></div>	</header>
 		<div id="overflow-container" class="overflow-container">
 		<div id="breadcrumbs" class="breadcrumb-trail breadcrumbs"><span class="item-home"><a class="bread-link bread-home" href="/" title="Home">Home</a></span><span class="separator"> &gt; </span><span class="item-current item-tag"><span class="bread-current bread-tag">Development</span></span></div>		<div id="main" class="main" role="main"><h1 class="screen-reader-text">Tag: &lt;span&gt;Development&lt;/span&gt;</h1>	<div id="loop-container" class="loop-container">
-			<div class="post-169 post type-post status-publish format-standard hentry category-ios category-tutorial tag-development tag-mobile excerpt">
+			<div class="post-248 post type-post status-publish format-standard hentry category-ios category-tutorial tag-development tag-mobile excerpt">
+					<div class="entry-meta-top">
+		Published May 19, 2013 by <a href="/author/johnra/" title="Posts by John Ra" rel="author">John Ra</a>	</div>
+		<div class="excerpt-header">
+			<h2 class="excerpt-title">
+				<a href="/2013/05/19/ios-appdev-part5/">iOS App Development Tutorial Part V: Persisting RSS content</a>
+			</h2>
+		</div>
+		<div class="excerpt-content">
+			<article>
+				<p>Up to previous entry, we’ve successfully connected to DZone RSS Feed and parsed its XML. Given we’re working with mobile devices that could be disconnected from the internet, we want to persist the parsed RSS XML. This is helpful as it allows our app to display the most recently downloaded content when there’s no internet connectivity. Persisting RSS Content Following prior tutorial, let’s create a group call “Util” and associate it to a specific file system folder “Util”. Then, add a new file called JSTRRSSUtil, a subclass of NSObject, to this group. Let’s expose a convenience method in our header…</p>
+<div class="more-link-wrapper"><a class="more-link" href="/2013/05/19/ios-appdev-part5/">Read More<span class="screen-reader-text">iOS App Development Tutorial Part V: Persisting RSS content</span></a></div>
+			</article>
+		</div>
+		<div class="entry-categories"><p><i class="fas fa-folder-open"></i><a href="/category/ios/" title="View all posts in iOS">iOS</a> <a href="/category/tutorial/" title="View all posts in Tutorial">Tutorial</a></p></div>		<div class="entry-tags"><p><i class="fas fa-tag"></i><a href="/tag/development/" title="View all posts tagged Development">Development</a> <a href="/tag/mobile/" title="View all posts tagged Mobile">Mobile</a></p></div>			</div>
+		<div class="post-220 post type-post status-publish format-standard hentry category-ios category-tutorial tag-development tag-mobile excerpt">
+					<div class="entry-meta-top">
+		Published May 17, 2013 by <a href="/author/johnra/" title="Posts by John Ra" rel="author">John Ra</a>	</div>
+		<div class="excerpt-header">
+			<h2 class="excerpt-title">
+				<a href="/2013/05/17/ios-appdev-part4/">iOS App Development Tutorial Part IV: Parsing RSS XML</a>
+			</h2>
+		</div>
+		<div class="excerpt-content">
+			<article>
+				<p>In previous tutorial, we learn to make a call to a website and download its content. Since we are dealing with RSS, we need to be able to parse the resulting XML data. Here’s an example article from DZone article at the time of writing this blog. With objective-c foundationÂ library, we can easily parse the above XML by simply implementing the optional methods of NSXMLParserDelegate. We will pick out only the relevant data from each item and store them in dictionary. Each item will then be added to an array to be used in our storyboarding tutorial. NSXMLParserDelegate Like in…</p>
+<div class="more-link-wrapper"><a class="more-link" href="/2013/05/17/ios-appdev-part4/">Read More<span class="screen-reader-text">iOS App Development Tutorial Part IV: Parsing RSS XML</span></a></div>
+			</article>
+		</div>
+		<div class="entry-categories"><p><i class="fas fa-folder-open"></i><a href="/category/ios/" title="View all posts in iOS">iOS</a> <a href="/category/tutorial/" title="View all posts in Tutorial">Tutorial</a></p></div>		<div class="entry-tags"><p><i class="fas fa-tag"></i><a href="/tag/development/" title="View all posts tagged Development">Development</a> <a href="/tag/mobile/" title="View all posts tagged Mobile">Mobile</a></p></div>			</div>
+		<div class="post-181 post type-post status-publish format-standard hentry category-ios category-tutorial tag-development tag-mobile excerpt">
+					<div class="entry-meta-top">
+		Published May 15, 2013 by <a href="/author/johnra/" title="Posts by John Ra" rel="author">John Ra</a>	</div>
+		<div class="excerpt-header">
+			<h2 class="excerpt-title">
+				<a href="/2013/05/15/ios-appdev-part3/">iOS App Development Tutorial Part III: Interacting with Web Sites</a>
+			</h2>
+		</div>
+		<div class="excerpt-content">
+			<article>
+				<p>Now that we have our idea and our visual mock ups, let’s start coding. I will be using Xcode 4.6.2, it is the latest at the time of this writing If you have never developed in Objective-C but did some other coding in C++ or C for example it should be pretty simple to catch up. I personally haven’t touched C or C++ since college, some 15 years ago. Even with knowledge of Java and C#, I was ableÂ to pick up Objective-C. I highly recommend reading iOS Programming: The Big Nerd Ranch GuideÂ as well. Create a blank project Open Xcode from your dock. If it’s not on your dock,…</p>
+<div class="more-link-wrapper"><a class="more-link" href="/2013/05/15/ios-appdev-part3/">Read More<span class="screen-reader-text">iOS App Development Tutorial Part III: Interacting with Web Sites</span></a></div>
+			</article>
+		</div>
+		<div class="entry-categories"><p><i class="fas fa-folder-open"></i><a href="/category/ios/" title="View all posts in iOS">iOS</a> <a href="/category/tutorial/" title="View all posts in Tutorial">Tutorial</a></p></div>		<div class="entry-tags"><p><i class="fas fa-tag"></i><a href="/tag/development/" title="View all posts tagged Development">Development</a> <a href="/tag/mobile/" title="View all posts tagged Mobile">Mobile</a></p></div>			</div>
+		<div class="post-169 post type-post status-publish format-standard hentry category-ios category-tutorial tag-development tag-mobile excerpt">
 					<div class="entry-meta-top">
 		Published May 13, 2013 by <a href="/author/johnra/" title="Posts by John Ra" rel="author">John Ra</a>	</div>
 		<div class="excerpt-header">
@@ -183,11 +232,11 @@ li.linkcat {
 <h2 class="wp-block-heading">Recent Posts</h2>
 
 
-<ul class="wp-block-latest-posts__list wp-block-latest-posts"><li><a class="wp-block-latest-posts__post-title" href="/2026/05/06/part-2-workflow-when-you-know-the-steps-before-you-start/">Part 2: Workflow – When You Know the Steps Before You Start</a></li>
+<ul class="wp-block-latest-posts__list wp-block-latest-posts"><li><a class="wp-block-latest-posts__post-title" href="/2026/05/09/part-3-skills-building-the-reusable-capabilities-that-power-everything-else/">Part 3: Skills – Building the Reusable Capabilities That Power Everything Else</a></li>
+<li><a class="wp-block-latest-posts__post-title" href="/2026/05/06/part-2-workflow-when-you-know-the-steps-before-you-start/">Part 2: Workflow – When You Know the Steps Before You Start</a></li>
 <li><a class="wp-block-latest-posts__post-title" href="/2026/05/01/part-1-agents-when-the-problem-doesnt-have-a-roadmap/">Part 1: Agents – When the Problem Doesn’t Have a Roadmap</a></li>
 <li><a class="wp-block-latest-posts__post-title" href="/2026/04/22/the-quiet-disruption-what-ai-agents-do-to-agile/">The Quiet Disruption: What AI Agents Do to Agile</a></li>
 <li><a class="wp-block-latest-posts__post-title" href="/2026/04/17/building-minesweeper-with-claude-cli-part-3-mobile-touch-refactor/">Building Minesweeper with Claude CLI – Part 3: Mobile Touch Refactor</a></li>
-<li><a class="wp-block-latest-posts__post-title" href="/2026/04/14/building-minesweeper-with-claude-cli-part-2-implementation/">Building Minesweeper with Claude CLI  Part 2: Implementation</a></li>
 </ul></div></div>
 </section><section id="block-21" class="widget widget_block">
 <ul class="wp-block-list">
