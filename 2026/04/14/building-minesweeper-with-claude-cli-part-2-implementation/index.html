@@ -11,11 +11,11 @@
 <link rel="alternate" type="application/rss+xml" title="J O H N R A . M E » Comments Feed" href="/comments/feed/">
 <link rel="alternate" title="oEmbed (JSON)" type="application/json+oembed" href="/wp-json/oembed/1.0/embed?url=%2F2026%2F04%2F14%2Fbuilding-minesweeper-with-claude-cli-part-2-implementation%2F">
 <link rel="alternate" title="oEmbed (XML)" type="text/xml+oembed" href="/wp-json/oembed/1.0/embed?url=%2F2026%2F04%2F14%2Fbuilding-minesweeper-with-claude-cli-part-2-implementation%2F&amp;format=xml">
-<style id="wp-img-auto-sizes-contain-inline-css" type="text/css">
+<style id="wp-img-auto-sizes-contain-inline-css">
 img:is([sizes=auto i],[sizes^="auto," i]){contain-intrinsic-size:3000px 1500px}
 /*# sourceURL=wp-img-auto-sizes-contain-inline-css */
 </style>
-<style id="wp-emoji-styles-inline-css" type="text/css">
+<style id="wp-emoji-styles-inline-css">
 
 	img.wp-smiley, img.emoji {
 		display: inline !important;
@@ -30,68 +30,67 @@ img:is([sizes=auto i],[sizes^="auto," i]){contain-intrinsic-size:3000px 1500px}
 	}
 /*# sourceURL=wp-emoji-styles-inline-css */
 </style>
-<style id="wp-block-library-inline-css" type="text/css">
-:root{--wp-block-synced-color:#7a00df;--wp-block-synced-color--rgb:122,0,223;--wp-bound-block-color:var(--wp-block-synced-color);--wp-editor-canvas-background:#ddd;--wp-admin-theme-color:#007cba;--wp-admin-theme-color--rgb:0,124,186;--wp-admin-theme-color-darker-10:#006ba1;--wp-admin-theme-color-darker-10--rgb:0,107,160.5;--wp-admin-theme-color-darker-20:#005a87;--wp-admin-theme-color-darker-20--rgb:0,90,135;--wp-admin-border-width-focus:2px}@media (min-resolution:192dpi){:root{--wp-admin-border-width-focus:1.5px}}.wp-element-button{cursor:pointer}:root .has-very-light-gray-background-color{background-color:#eee}:root .has-very-dark-gray-background-color{background-color:#313131}:root .has-very-light-gray-color{color:#eee}:root .has-very-dark-gray-color{color:#313131}:root .has-vivid-green-cyan-to-vivid-cyan-blue-gradient-background{background:linear-gradient(135deg,#00d084,#0693e3)}:root .has-purple-crush-gradient-background{background:linear-gradient(135deg,#34e2e4,#4721fb 50%,#ab1dfe)}:root .has-hazy-dawn-gradient-background{background:linear-gradient(135deg,#faaca8,#dad0ec)}:root .has-subdued-olive-gradient-background{background:linear-gradient(135deg,#fafae1,#67a671)}:root .has-atomic-cream-gradient-background{background:linear-gradient(135deg,#fdd79a,#004a59)}:root .has-nightshade-gradient-background{background:linear-gradient(135deg,#330968,#31cdcf)}:root .has-midnight-gradient-background{background:linear-gradient(135deg,#020381,#2874fc)}:root{--wp--preset--font-size--normal:16px;--wp--preset--font-size--huge:42px}.has-regular-font-size{font-size:1em}.has-larger-font-size{font-size:2.625em}.has-normal-font-size{font-size:var(--wp--preset--font-size--normal)}.has-huge-font-size{font-size:var(--wp--preset--font-size--huge)}.has-text-align-center{text-align:center}.has-text-align-left{text-align:left}.has-text-align-right{text-align:right}.has-fit-text{white-space:nowrap!important}#end-resizable-editor-section{display:none}.aligncenter{clear:both}.items-justified-left{justify-content:flex-start}.items-justified-center{justify-content:center}.items-justified-right{justify-content:flex-end}.items-justified-space-between{justify-content:space-between}.screen-reader-text{border:0;clip-path:inset(50%);height:1px;margin:-1px;overflow:hidden;padding:0;position:absolute;width:1px;word-wrap:normal!important}.screen-reader-text:focus{background-color:#ddd;clip-path:none;color:#444;display:block;font-size:1em;height:auto;left:5px;line-height:normal;padding:15px 23px 14px;text-decoration:none;top:5px;width:auto;z-index:100000}html :where(.has-border-color){border-style:solid}html :where([style*=border-top-color]){border-top-style:solid}html :where([style*=border-right-color]){border-right-style:solid}html :where([style*=border-bottom-color]){border-bottom-style:solid}html :where([style*=border-left-color]){border-left-style:solid}html :where([style*=border-width]){border-style:solid}html :where([style*=border-top-width]){border-top-style:solid}html :where([style*=border-right-width]){border-right-style:solid}html :where([style*=border-bottom-width]){border-bottom-style:solid}html :where([style*=border-left-width]){border-left-style:solid}html :where(img[class*=wp-image-]){height:auto;max-width:100%}:where(figure){margin:0 0 1em}html :where(.is-position-sticky){--wp-admin--admin-bar--position-offset:var(--wp-admin--admin-bar--height,0px)}@media screen and (max-width:600px){html :where(.is-position-sticky){--wp-admin--admin-bar--position-offset:0px}}
+<style id="wp-block-library-inline-css">
+:root{--wp-block-synced-color:#7a00df;--wp-block-synced-color--rgb:122,0,223;--wp-bound-block-color:var(--wp-block-synced-color);--wp-editor-canvas-background:#ddd;--wp-admin-theme-color:#007cba;--wp-admin-theme-color--rgb:0,124,186;--wp-admin-theme-color-darker-10:#006ba1;--wp-admin-theme-color-darker-10--rgb:0,107,160.5;--wp-admin-theme-color-darker-20:#005a87;--wp-admin-theme-color-darker-20--rgb:0,90,135;--wp-admin-border-width-focus:2px}@media (min-resolution:192dpi){:root{--wp-admin-border-width-focus:1.5px}}.wp-element-button{cursor:pointer}:root .has-very-light-gray-background-color{background-color:#eee}:root .has-very-dark-gray-background-color{background-color:#313131}:root .has-very-light-gray-color{color:#eee}:root .has-very-dark-gray-color{color:#313131}:root .has-vivid-green-cyan-to-vivid-cyan-blue-gradient-background{background:linear-gradient(135deg,#00d084,#0693e3)}:root .has-purple-crush-gradient-background{background:linear-gradient(135deg,#34e2e4,#4721fb 50%,#ab1dfe)}:root .has-hazy-dawn-gradient-background{background:linear-gradient(135deg,#faaca8,#dad0ec)}:root .has-subdued-olive-gradient-background{background:linear-gradient(135deg,#fafae1,#67a671)}:root .has-atomic-cream-gradient-background{background:linear-gradient(135deg,#fdd79a,#004a59)}:root .has-nightshade-gradient-background{background:linear-gradient(135deg,#330968,#31cdcf)}:root .has-midnight-gradient-background{background:linear-gradient(135deg,#020381,#2874fc)}:root{--wp--preset--font-size--normal:16px;--wp--preset--font-size--huge:42px}.has-regular-font-size{font-size:1em}.has-larger-font-size{font-size:2.625em}.has-normal-font-size{font-size:var(--wp--preset--font-size--normal)}.has-huge-font-size{font-size:var(--wp--preset--font-size--huge)}:root .has-text-align-center{text-align:center}:root .has-text-align-left{text-align:left}:root .has-text-align-right{text-align:right}.has-fit-text{white-space:nowrap!important}#end-resizable-editor-section{display:none}.aligncenter{clear:both}.items-justified-left{justify-content:flex-start}.items-justified-center{justify-content:center}.items-justified-right{justify-content:flex-end}.items-justified-space-between{justify-content:space-between}.screen-reader-text{word-wrap:normal!important;border:0;clip-path:inset(50%);height:1px;margin:-1px;overflow:hidden;padding:0;position:absolute;width:1px}.screen-reader-text:focus{background-color:#ddd;clip-path:none;color:#444;display:block;font-size:1em;height:auto;left:5px;line-height:normal;padding:15px 23px 14px;text-decoration:none;top:5px;width:auto;z-index:100000}html :where(.has-border-color){border-style:solid}html :where([style*=border-color]){border-style:solid}html :where([style*=border-top-color]){border-top-style:solid}html :where([style*=border-right-color]){border-right-style:solid}html :where([style*=border-bottom-color]){border-bottom-style:solid}html :where([style*=border-left-color]){border-left-style:solid}html :where([style*=border-width]){border-style:solid}html :where([style*=border-top-width]){border-top-style:solid}html :where([style*=border-right-width]){border-right-style:solid}html :where([style*=border-bottom-width]){border-bottom-style:solid}html :where([style*=border-left-width]){border-left-style:solid}html :where(img[class*=wp-image-]){height:auto;max-width:100%}:where(figure){margin:0 0 1em}html :where(.is-position-sticky){--wp-admin--admin-bar--position-offset:var(--wp-admin--admin-bar--height,0px)}@media screen and (max-width:600px){html :where(.is-position-sticky){--wp-admin--admin-bar--position-offset:0px}}
 
-/*# sourceURL=wp-block-library-inline-css */
+/*# sourceURL=/wp-includes/css/dist/block-library/common.min.css */
 </style>
-<style id="wp-block-categories-inline-css" type="text/css">
-.wp-block-categories{box-sizing:border-box}.wp-block-categories.alignleft{margin-right:2em}.wp-block-categories.alignright{margin-left:2em}.wp-block-categories.wp-block-categories-dropdown.aligncenter{text-align:center}.wp-block-categories .wp-block-categories__label{display:block;width:100%}
+<style id="wp-block-categories-inline-css">
+.wp-block-categories{box-sizing:border-box}.wp-block-categories.alignleft{margin-right:2em}.wp-block-categories.alignright{margin-left:2em}.wp-block-categories.wp-block-categories-dropdown.aligncenter{text-align:center}.wp-block-categories .wp-block-categories__label:not(.screen-reader-text){display:block;width:100%}
 /*# sourceURL=/wp-includes/blocks/categories/style.min.css */
 </style>
-<style id="wp-block-heading-inline-css" type="text/css">
+<style id="wp-block-heading-inline-css">
 h1:where(.wp-block-heading).has-background,h2:where(.wp-block-heading).has-background,h3:where(.wp-block-heading).has-background,h4:where(.wp-block-heading).has-background,h5:where(.wp-block-heading).has-background,h6:where(.wp-block-heading).has-background{padding:1.25em 2.375em}h1.has-text-align-left[style*=writing-mode]:where([style*=vertical-lr]),h1.has-text-align-right[style*=writing-mode]:where([style*=vertical-rl]),h2.has-text-align-left[style*=writing-mode]:where([style*=vertical-lr]),h2.has-text-align-right[style*=writing-mode]:where([style*=vertical-rl]),h3.has-text-align-left[style*=writing-mode]:where([style*=vertical-lr]),h3.has-text-align-right[style*=writing-mode]:where([style*=vertical-rl]),h4.has-text-align-left[style*=writing-mode]:where([style*=vertical-lr]),h4.has-text-align-right[style*=writing-mode]:where([style*=vertical-rl]),h5.has-text-align-left[style*=writing-mode]:where([style*=vertical-lr]),h5.has-text-align-right[style*=writing-mode]:where([style*=vertical-rl]),h6.has-text-align-left[style*=writing-mode]:where([style*=vertical-lr]),h6.has-text-align-right[style*=writing-mode]:where([style*=vertical-rl]){rotate:180deg}
 /*# sourceURL=/wp-includes/blocks/heading/style.min.css */
 </style>
-<style id="wp-block-latest-posts-inline-css" type="text/css">
+<style id="wp-block-latest-posts-inline-css">
 .wp-block-latest-posts{box-sizing:border-box}.wp-block-latest-posts.alignleft{margin-right:2em}.wp-block-latest-posts.alignright{margin-left:2em}.wp-block-latest-posts.wp-block-latest-posts__list{list-style:none}.wp-block-latest-posts.wp-block-latest-posts__list li{clear:both;overflow-wrap:break-word}.wp-block-latest-posts.is-grid{display:flex;flex-wrap:wrap}.wp-block-latest-posts.is-grid li{margin:0 1.25em 1.25em 0;width:100%}@media (min-width:600px){.wp-block-latest-posts.columns-2 li{width:calc(50% - .625em)}.wp-block-latest-posts.columns-2 li:nth-child(2n){margin-right:0}.wp-block-latest-posts.columns-3 li{width:calc(33.33333% - .83333em)}.wp-block-latest-posts.columns-3 li:nth-child(3n){margin-right:0}.wp-block-latest-posts.columns-4 li{width:calc(25% - .9375em)}.wp-block-latest-posts.columns-4 li:nth-child(4n){margin-right:0}.wp-block-latest-posts.columns-5 li{width:calc(20% - 1em)}.wp-block-latest-posts.columns-5 li:nth-child(5n){margin-right:0}.wp-block-latest-posts.columns-6 li{width:calc(16.66667% - 1.04167em)}.wp-block-latest-posts.columns-6 li:nth-child(6n){margin-right:0}}:root :where(.wp-block-latest-posts.is-grid){padding:0}:root :where(.wp-block-latest-posts.wp-block-latest-posts__list){padding-left:0}.wp-block-latest-posts__post-author,.wp-block-latest-posts__post-date{display:block;font-size:.8125em}.wp-block-latest-posts__post-excerpt,.wp-block-latest-posts__post-full-content{margin-bottom:1em;margin-top:.5em}.wp-block-latest-posts__featured-image a{display:inline-block}.wp-block-latest-posts__featured-image img{height:auto;max-width:100%;width:auto}.wp-block-latest-posts__featured-image.alignleft{float:left;margin-right:1em}.wp-block-latest-posts__featured-image.alignright{float:right;margin-left:1em}.wp-block-latest-posts__featured-image.aligncenter{margin-bottom:1em;text-align:center}
 /*# sourceURL=/wp-includes/blocks/latest-posts/style.min.css */
 </style>
-<style id="wp-block-list-inline-css" type="text/css">
+<style id="wp-block-list-inline-css">
 ol,ul{box-sizing:border-box}:root :where(.wp-block-list.has-background){padding:1.25em 2.375em}
 /*# sourceURL=/wp-includes/blocks/list/style.min.css */
 </style>
-<style id="wp-block-code-inline-css" type="text/css">
-.wp-block-code{box-sizing:border-box}.wp-block-code code{
-  /*!rtl:begin:ignore*/direction:ltr;display:block;font-family:inherit;overflow-wrap:break-word;text-align:initial;white-space:pre-wrap
-  /*!rtl:end:ignore*/}
-/*# sourceURL=/wp-includes/blocks/code/style.min.css */
-</style>
-<style id="wp-block-group-inline-css" type="text/css">
-.wp-block-group{box-sizing:border-box}:where(.wp-block-group.wp-block-group-is-layout-constrained){position:relative}
-/*# sourceURL=/wp-includes/blocks/group/style.min.css */
-</style>
-<style id="wp-block-paragraph-inline-css" type="text/css">
+<style id="wp-block-paragraph-inline-css">
 .is-small-text{font-size:.875em}.is-regular-text{font-size:1em}.is-large-text{font-size:2.25em}.is-larger-text{font-size:3em}.has-drop-cap:not(:focus):first-letter{float:left;font-size:8.4em;font-style:normal;font-weight:100;line-height:.68;margin:.05em .1em 0 0;text-transform:uppercase}body.rtl .has-drop-cap:not(:focus):first-letter{float:none;margin-left:.1em}p.has-drop-cap.has-background{overflow:hidden}:root :where(p.has-background){padding:1.25em 2.375em}:where(p.has-text-color:not(.has-link-color)) a{color:inherit}p.has-text-align-left[style*="writing-mode:vertical-lr"],p.has-text-align-right[style*="writing-mode:vertical-rl"]{rotate:180deg}
 /*# sourceURL=/wp-includes/blocks/paragraph/style.min.css */
 </style>
-<style id="wp-block-quote-inline-css" type="text/css">
+<style id="wp-block-code-inline-css">
+.wp-block-code{box-sizing:border-box}.wp-block-code code{direction:ltr;display:block;font-family:inherit;overflow-wrap:break-word;text-align:initial;white-space:pre-wrap}
+/*# sourceURL=/wp-includes/blocks/code/style.min.css */
+</style>
+<style id="wp-block-group-inline-css">
+.wp-block-group{box-sizing:border-box}:where(.wp-block-group.wp-block-group-is-layout-constrained){position:relative}
+/*# sourceURL=/wp-includes/blocks/group/style.min.css */
+</style>
+<style id="wp-block-quote-inline-css">
 .wp-block-quote{box-sizing:border-box;overflow-wrap:break-word}.wp-block-quote.is-large:where(:not(.is-style-plain)),.wp-block-quote.is-style-large:where(:not(.is-style-plain)){margin-bottom:1em;padding:0 1em}.wp-block-quote.is-large:where(:not(.is-style-plain)) p,.wp-block-quote.is-style-large:where(:not(.is-style-plain)) p{font-size:1.5em;font-style:italic;line-height:1.6}.wp-block-quote.is-large:where(:not(.is-style-plain)) cite,.wp-block-quote.is-large:where(:not(.is-style-plain)) footer,.wp-block-quote.is-style-large:where(:not(.is-style-plain)) cite,.wp-block-quote.is-style-large:where(:not(.is-style-plain)) footer{font-size:1.125em;text-align:right}.wp-block-quote>cite{display:block}
 /*# sourceURL=/wp-includes/blocks/quote/style.min.css */
 </style>
-<style id="wp-block-separator-inline-css" type="text/css">
+<style id="wp-block-separator-inline-css">
 @charset "UTF-8";.wp-block-separator{border:none;border-top:2px solid}:root :where(.wp-block-separator.is-style-dots){height:auto;line-height:1;text-align:center}:root :where(.wp-block-separator.is-style-dots):before{color:currentColor;content:"···";font-family:serif;font-size:1.5em;letter-spacing:2em;padding-left:2em}.wp-block-separator.is-style-dots{background:none!important;border:none!important}
 /*# sourceURL=/wp-includes/blocks/separator/style.min.css */
 </style>
-<style id="wp-block-table-inline-css" type="text/css">
+<style id="wp-block-table-inline-css">
 .wp-block-table{overflow-x:auto}.wp-block-table table{border-collapse:collapse;width:100%}.wp-block-table thead{border-bottom:3px solid}.wp-block-table tfoot{border-top:3px solid}.wp-block-table td,.wp-block-table th{border:1px solid;padding:.5em}.wp-block-table .has-fixed-layout{table-layout:fixed;width:100%}.wp-block-table .has-fixed-layout td,.wp-block-table .has-fixed-layout th{word-break:break-word}.wp-block-table.aligncenter,.wp-block-table.alignleft,.wp-block-table.alignright{display:table;width:auto}.wp-block-table.aligncenter td,.wp-block-table.aligncenter th,.wp-block-table.alignleft td,.wp-block-table.alignleft th,.wp-block-table.alignright td,.wp-block-table.alignright th{word-break:break-word}.wp-block-table .has-subtle-light-gray-background-color{background-color:#f3f4f5}.wp-block-table .has-subtle-pale-green-background-color{background-color:#e9fbe5}.wp-block-table .has-subtle-pale-blue-background-color{background-color:#e7f5fe}.wp-block-table .has-subtle-pale-pink-background-color{background-color:#fcf0ef}.wp-block-table.is-style-stripes{background-color:initial;border-collapse:inherit;border-spacing:0}.wp-block-table.is-style-stripes tbody tr:nth-child(odd){background-color:#f0f0f0}.wp-block-table.is-style-stripes.has-subtle-light-gray-background-color tbody tr:nth-child(odd){background-color:#f3f4f5}.wp-block-table.is-style-stripes.has-subtle-pale-green-background-color tbody tr:nth-child(odd){background-color:#e9fbe5}.wp-block-table.is-style-stripes.has-subtle-pale-blue-background-color tbody tr:nth-child(odd){background-color:#e7f5fe}.wp-block-table.is-style-stripes.has-subtle-pale-pink-background-color tbody tr:nth-child(odd){background-color:#fcf0ef}.wp-block-table.is-style-stripes td,.wp-block-table.is-style-stripes th{border-color:#0000}.wp-block-table.is-style-stripes{border-bottom:1px solid #f0f0f0}.wp-block-table .has-border-color td,.wp-block-table .has-border-color th,.wp-block-table .has-border-color tr,.wp-block-table .has-border-color>*{border-color:inherit}.wp-block-table table[style*=border-top-color] tr:first-child,.wp-block-table table[style*=border-top-color] tr:first-child td,.wp-block-table table[style*=border-top-color] tr:first-child th,.wp-block-table table[style*=border-top-color]>*,.wp-block-table table[style*=border-top-color]>* td,.wp-block-table table[style*=border-top-color]>* th{border-top-color:inherit}.wp-block-table table[style*=border-top-color] tr:not(:first-child){border-top-color:initial}.wp-block-table table[style*=border-right-color] td:last-child,.wp-block-table table[style*=border-right-color] th,.wp-block-table table[style*=border-right-color] tr,.wp-block-table table[style*=border-right-color]>*{border-right-color:inherit}.wp-block-table table[style*=border-bottom-color] tr:last-child,.wp-block-table table[style*=border-bottom-color] tr:last-child td,.wp-block-table table[style*=border-bottom-color] tr:last-child th,.wp-block-table table[style*=border-bottom-color]>*,.wp-block-table table[style*=border-bottom-color]>* td,.wp-block-table table[style*=border-bottom-color]>* th{border-bottom-color:inherit}.wp-block-table table[style*=border-bottom-color] tr:not(:last-child){border-bottom-color:initial}.wp-block-table table[style*=border-left-color] td:first-child,.wp-block-table table[style*=border-left-color] th,.wp-block-table table[style*=border-left-color] tr,.wp-block-table table[style*=border-left-color]>*{border-left-color:inherit}.wp-block-table table[style*=border-style] td,.wp-block-table table[style*=border-style] th,.wp-block-table table[style*=border-style] tr,.wp-block-table table[style*=border-style]>*{border-style:inherit}.wp-block-table table[style*=border-width] td,.wp-block-table table[style*=border-width] th,.wp-block-table table[style*=border-width] tr,.wp-block-table table[style*=border-width]>*{border-style:inherit;border-width:inherit}
 /*# sourceURL=/wp-includes/blocks/table/style.min.css */
 </style>
 
-<style id="classic-theme-styles-inline-css" type="text/css">
+<style id="classic-theme-styles-inline-css">
 /*! This file is auto-generated */
 .wp-block-button__link{color:#fff;background-color:#32373c;border-radius:9999px;box-shadow:none;text-decoration:none;padding:calc(.667em + 2px) calc(1.333em + 2px);font-size:1.125em}.wp-block-file__button{background:#32373c;color:#fff;text-decoration:none}
 /*# sourceURL=/wp-includes/css/classic-themes.min.css */
 </style>
-<style id="global-styles-inline-css" type="text/css">
-:root{--wp--preset--aspect-ratio--square: 1;--wp--preset--aspect-ratio--4-3: 4/3;--wp--preset--aspect-ratio--3-4: 3/4;--wp--preset--aspect-ratio--3-2: 3/2;--wp--preset--aspect-ratio--2-3: 2/3;--wp--preset--aspect-ratio--16-9: 16/9;--wp--preset--aspect-ratio--9-16: 9/16;--wp--preset--color--black: #000000;--wp--preset--color--cyan-bluish-gray: #abb8c3;--wp--preset--color--white: #ffffff;--wp--preset--color--pale-pink: #f78da7;--wp--preset--color--vivid-red: #cf2e2e;--wp--preset--color--luminous-vivid-orange: #ff6900;--wp--preset--color--luminous-vivid-amber: #fcb900;--wp--preset--color--light-green-cyan: #7bdcb5;--wp--preset--color--vivid-green-cyan: #00d084;--wp--preset--color--pale-cyan-blue: #8ed1fc;--wp--preset--color--vivid-cyan-blue: #0693e3;--wp--preset--color--vivid-purple: #9b51e0;--wp--preset--gradient--vivid-cyan-blue-to-vivid-purple: linear-gradient(135deg,rgb(6,147,227) 0%,rgb(155,81,224) 100%);--wp--preset--gradient--light-green-cyan-to-vivid-green-cyan: linear-gradient(135deg,rgb(122,220,180) 0%,rgb(0,208,130) 100%);--wp--preset--gradient--luminous-vivid-amber-to-luminous-vivid-orange: linear-gradient(135deg,rgb(252,185,0) 0%,rgb(255,105,0) 100%);--wp--preset--gradient--luminous-vivid-orange-to-vivid-red: linear-gradient(135deg,rgb(255,105,0) 0%,rgb(207,46,46) 100%);--wp--preset--gradient--very-light-gray-to-cyan-bluish-gray: linear-gradient(135deg,rgb(238,238,238) 0%,rgb(169,184,195) 100%);--wp--preset--gradient--cool-to-warm-spectrum: linear-gradient(135deg,rgb(74,234,220) 0%,rgb(151,120,209) 20%,rgb(207,42,186) 40%,rgb(238,44,130) 60%,rgb(251,105,98) 80%,rgb(254,248,76) 100%);--wp--preset--gradient--blush-light-purple: linear-gradient(135deg,rgb(255,206,236) 0%,rgb(152,150,240) 100%);--wp--preset--gradient--blush-bordeaux: linear-gradient(135deg,rgb(254,205,165) 0%,rgb(254,45,45) 50%,rgb(107,0,62) 100%);--wp--preset--gradient--luminous-dusk: linear-gradient(135deg,rgb(255,203,112) 0%,rgb(199,81,192) 50%,rgb(65,88,208) 100%);--wp--preset--gradient--pale-ocean: linear-gradient(135deg,rgb(255,245,203) 0%,rgb(182,227,212) 50%,rgb(51,167,181) 100%);--wp--preset--gradient--electric-grass: linear-gradient(135deg,rgb(202,248,128) 0%,rgb(113,206,126) 100%);--wp--preset--gradient--midnight: linear-gradient(135deg,rgb(2,3,129) 0%,rgb(40,116,252) 100%);--wp--preset--font-size--small: 13px;--wp--preset--font-size--medium: 20px;--wp--preset--font-size--large: 21px;--wp--preset--font-size--x-large: 42px;--wp--preset--font-size--regular: 16px;--wp--preset--font-size--larger: 36px;--wp--preset--spacing--20: 0.44rem;--wp--preset--spacing--30: 0.67rem;--wp--preset--spacing--40: 1rem;--wp--preset--spacing--50: 1.5rem;--wp--preset--spacing--60: 2.25rem;--wp--preset--spacing--70: 3.38rem;--wp--preset--spacing--80: 5.06rem;--wp--preset--shadow--natural: 6px 6px 9px rgba(0, 0, 0, 0.2);--wp--preset--shadow--deep: 12px 12px 50px rgba(0, 0, 0, 0.4);--wp--preset--shadow--sharp: 6px 6px 0px rgba(0, 0, 0, 0.2);--wp--preset--shadow--outlined: 6px 6px 0px -3px rgb(255, 255, 255), 6px 6px rgb(0, 0, 0);--wp--preset--shadow--crisp: 6px 6px 0px rgb(0, 0, 0);}:where(.is-layout-flex){gap: 0.5em;}:where(.is-layout-grid){gap: 0.5em;}body .is-layout-flex{display: flex;}.is-layout-flex{flex-wrap: wrap;align-items: center;}.is-layout-flex > :is(*, div){margin: 0;}body .is-layout-grid{display: grid;}.is-layout-grid > :is(*, div){margin: 0;}:where(.wp-block-columns.is-layout-flex){gap: 2em;}:where(.wp-block-columns.is-layout-grid){gap: 2em;}:where(.wp-block-post-template.is-layout-flex){gap: 1.25em;}:where(.wp-block-post-template.is-layout-grid){gap: 1.25em;}.has-black-color{color: var(--wp--preset--color--black) !important;}.has-cyan-bluish-gray-color{color: var(--wp--preset--color--cyan-bluish-gray) !important;}.has-white-color{color: var(--wp--preset--color--white) !important;}.has-pale-pink-color{color: var(--wp--preset--color--pale-pink) !important;}.has-vivid-red-color{color: var(--wp--preset--color--vivid-red) !important;}.has-luminous-vivid-orange-color{color: var(--wp--preset--color--luminous-vivid-orange) !important;}.has-luminous-vivid-amber-color{color: var(--wp--preset--color--luminous-vivid-amber) !important;}.has-light-green-cyan-color{color: var(--wp--preset--color--light-green-cyan) !important;}.has-vivid-green-cyan-color{color: var(--wp--preset--color--vivid-green-cyan) !important;}.has-pale-cyan-blue-color{color: var(--wp--preset--color--pale-cyan-blue) !important;}.has-vivid-cyan-blue-color{color: var(--wp--preset--color--vivid-cyan-blue) !important;}.has-vivid-purple-color{color: var(--wp--preset--color--vivid-purple) !important;}.has-black-background-color{background-color: var(--wp--preset--color--black) !important;}.has-cyan-bluish-gray-background-color{background-color: var(--wp--preset--color--cyan-bluish-gray) !important;}.has-white-background-color{background-color: var(--wp--preset--color--white) !important;}.has-pale-pink-background-color{background-color: var(--wp--preset--color--pale-pink) !important;}.has-vivid-red-background-color{background-color: var(--wp--preset--color--vivid-red) !important;}.has-luminous-vivid-orange-background-color{background-color: var(--wp--preset--color--luminous-vivid-orange) !important;}.has-luminous-vivid-amber-background-color{background-color: var(--wp--preset--color--luminous-vivid-amber) !important;}.has-light-green-cyan-background-color{background-color: var(--wp--preset--color--light-green-cyan) !important;}.has-vivid-green-cyan-background-color{background-color: var(--wp--preset--color--vivid-green-cyan) !important;}.has-pale-cyan-blue-background-color{background-color: var(--wp--preset--color--pale-cyan-blue) !important;}.has-vivid-cyan-blue-background-color{background-color: var(--wp--preset--color--vivid-cyan-blue) !important;}.has-vivid-purple-background-color{background-color: var(--wp--preset--color--vivid-purple) !important;}.has-black-border-color{border-color: var(--wp--preset--color--black) !important;}.has-cyan-bluish-gray-border-color{border-color: var(--wp--preset--color--cyan-bluish-gray) !important;}.has-white-border-color{border-color: var(--wp--preset--color--white) !important;}.has-pale-pink-border-color{border-color: var(--wp--preset--color--pale-pink) !important;}.has-vivid-red-border-color{border-color: var(--wp--preset--color--vivid-red) !important;}.has-luminous-vivid-orange-border-color{border-color: var(--wp--preset--color--luminous-vivid-orange) !important;}.has-luminous-vivid-amber-border-color{border-color: var(--wp--preset--color--luminous-vivid-amber) !important;}.has-light-green-cyan-border-color{border-color: var(--wp--preset--color--light-green-cyan) !important;}.has-vivid-green-cyan-border-color{border-color: var(--wp--preset--color--vivid-green-cyan) !important;}.has-pale-cyan-blue-border-color{border-color: var(--wp--preset--color--pale-cyan-blue) !important;}.has-vivid-cyan-blue-border-color{border-color: var(--wp--preset--color--vivid-cyan-blue) !important;}.has-vivid-purple-border-color{border-color: var(--wp--preset--color--vivid-purple) !important;}.has-vivid-cyan-blue-to-vivid-purple-gradient-background{background: var(--wp--preset--gradient--vivid-cyan-blue-to-vivid-purple) !important;}.has-light-green-cyan-to-vivid-green-cyan-gradient-background{background: var(--wp--preset--gradient--light-green-cyan-to-vivid-green-cyan) !important;}.has-luminous-vivid-amber-to-luminous-vivid-orange-gradient-background{background: var(--wp--preset--gradient--luminous-vivid-amber-to-luminous-vivid-orange) !important;}.has-luminous-vivid-orange-to-vivid-red-gradient-background{background: var(--wp--preset--gradient--luminous-vivid-orange-to-vivid-red) !important;}.has-very-light-gray-to-cyan-bluish-gray-gradient-background{background: var(--wp--preset--gradient--very-light-gray-to-cyan-bluish-gray) !important;}.has-cool-to-warm-spectrum-gradient-background{background: var(--wp--preset--gradient--cool-to-warm-spectrum) !important;}.has-blush-light-purple-gradient-background{background: var(--wp--preset--gradient--blush-light-purple) !important;}.has-blush-bordeaux-gradient-background{background: var(--wp--preset--gradient--blush-bordeaux) !important;}.has-luminous-dusk-gradient-background{background: var(--wp--preset--gradient--luminous-dusk) !important;}.has-pale-ocean-gradient-background{background: var(--wp--preset--gradient--pale-ocean) !important;}.has-electric-grass-gradient-background{background: var(--wp--preset--gradient--electric-grass) !important;}.has-midnight-gradient-background{background: var(--wp--preset--gradient--midnight) !important;}.has-small-font-size{font-size: var(--wp--preset--font-size--small) !important;}.has-medium-font-size{font-size: var(--wp--preset--font-size--medium) !important;}.has-large-font-size{font-size: var(--wp--preset--font-size--large) !important;}.has-x-large-font-size{font-size: var(--wp--preset--font-size--x-large) !important;}
+
+<style id="global-styles-inline-css">
+:root{--wp--preset--aspect-ratio--square: 1;--wp--preset--aspect-ratio--4-3: 4/3;--wp--preset--aspect-ratio--3-4: 3/4;--wp--preset--aspect-ratio--3-2: 3/2;--wp--preset--aspect-ratio--2-3: 2/3;--wp--preset--aspect-ratio--16-9: 16/9;--wp--preset--aspect-ratio--9-16: 9/16;--wp--preset--color--black: #000000;--wp--preset--color--cyan-bluish-gray: #abb8c3;--wp--preset--color--white: #ffffff;--wp--preset--color--pale-pink: #f78da7;--wp--preset--color--vivid-red: #cf2e2e;--wp--preset--color--luminous-vivid-orange: #ff6900;--wp--preset--color--luminous-vivid-amber: #fcb900;--wp--preset--color--light-green-cyan: #7bdcb5;--wp--preset--color--vivid-green-cyan: #00d084;--wp--preset--color--pale-cyan-blue: #8ed1fc;--wp--preset--color--vivid-cyan-blue: #0693e3;--wp--preset--color--vivid-purple: #9b51e0;--wp--preset--gradient--vivid-cyan-blue-to-vivid-purple: linear-gradient(135deg,rgb(6,147,227) 0%,rgb(155,81,224) 100%);--wp--preset--gradient--light-green-cyan-to-vivid-green-cyan: linear-gradient(135deg,rgb(122,220,180) 0%,rgb(0,208,130) 100%);--wp--preset--gradient--luminous-vivid-amber-to-luminous-vivid-orange: linear-gradient(135deg,rgb(252,185,0) 0%,rgb(255,105,0) 100%);--wp--preset--gradient--luminous-vivid-orange-to-vivid-red: linear-gradient(135deg,rgb(255,105,0) 0%,rgb(207,46,46) 100%);--wp--preset--gradient--very-light-gray-to-cyan-bluish-gray: linear-gradient(135deg,rgb(238,238,238) 0%,rgb(169,184,195) 100%);--wp--preset--gradient--cool-to-warm-spectrum: linear-gradient(135deg,rgb(74,234,220) 0%,rgb(151,120,209) 20%,rgb(207,42,186) 40%,rgb(238,44,130) 60%,rgb(251,105,98) 80%,rgb(254,248,76) 100%);--wp--preset--gradient--blush-light-purple: linear-gradient(135deg,rgb(255,206,236) 0%,rgb(152,150,240) 100%);--wp--preset--gradient--blush-bordeaux: linear-gradient(135deg,rgb(254,205,165) 0%,rgb(254,45,45) 50%,rgb(107,0,62) 100%);--wp--preset--gradient--luminous-dusk: linear-gradient(135deg,rgb(255,203,112) 0%,rgb(199,81,192) 50%,rgb(65,88,208) 100%);--wp--preset--gradient--pale-ocean: linear-gradient(135deg,rgb(255,245,203) 0%,rgb(182,227,212) 50%,rgb(51,167,181) 100%);--wp--preset--gradient--electric-grass: linear-gradient(135deg,rgb(202,248,128) 0%,rgb(113,206,126) 100%);--wp--preset--gradient--midnight: linear-gradient(135deg,rgb(2,3,129) 0%,rgb(40,116,252) 100%);--wp--preset--font-size--small: 13px;--wp--preset--font-size--medium: 20px;--wp--preset--font-size--large: 21px;--wp--preset--font-size--x-large: 42px;--wp--preset--font-size--regular: 16px;--wp--preset--font-size--larger: 36px;--wp--preset--spacing--20: 0.44rem;--wp--preset--spacing--30: 0.67rem;--wp--preset--spacing--40: 1rem;--wp--preset--spacing--50: 1.5rem;--wp--preset--spacing--60: 2.25rem;--wp--preset--spacing--70: 3.38rem;--wp--preset--spacing--80: 5.06rem;--wp--preset--shadow--natural: 6px 6px 9px rgba(0, 0, 0, 0.2);--wp--preset--shadow--deep: 12px 12px 50px rgba(0, 0, 0, 0.4);--wp--preset--shadow--sharp: 6px 6px 0px rgba(0, 0, 0, 0.2);--wp--preset--shadow--outlined: 6px 6px 0px -3px rgb(255, 255, 255), 6px 6px rgb(0, 0, 0);--wp--preset--shadow--crisp: 6px 6px 0px rgb(0, 0, 0);}:where(body) { margin: 0; }:where(.is-layout-flex){gap: 0.5em;}:where(.is-layout-grid){gap: 0.5em;}body .is-layout-flex{display: flex;}.is-layout-flex{flex-wrap: wrap;align-items: center;}.is-layout-flex > :is(*, div){margin: 0;}body .is-layout-grid{display: grid;}.is-layout-grid > :is(*, div){margin: 0;}body{padding-top: 0px;padding-right: 0px;padding-bottom: 0px;padding-left: 0px;}:root :where(.wp-element-button, .wp-block-button__link){background-color: #32373c;border-width: 0;color: #fff;font-family: inherit;font-size: inherit;font-style: inherit;font-weight: inherit;letter-spacing: inherit;line-height: inherit;padding-top: calc(0.667em + 2px);padding-right: calc(1.333em + 2px);padding-bottom: calc(0.667em + 2px);padding-left: calc(1.333em + 2px);text-decoration: none;text-transform: inherit;}.has-black-color{color: var(--wp--preset--color--black) !important;}.has-cyan-bluish-gray-color{color: var(--wp--preset--color--cyan-bluish-gray) !important;}.has-white-color{color: var(--wp--preset--color--white) !important;}.has-pale-pink-color{color: var(--wp--preset--color--pale-pink) !important;}.has-vivid-red-color{color: var(--wp--preset--color--vivid-red) !important;}.has-luminous-vivid-orange-color{color: var(--wp--preset--color--luminous-vivid-orange) !important;}.has-luminous-vivid-amber-color{color: var(--wp--preset--color--luminous-vivid-amber) !important;}.has-light-green-cyan-color{color: var(--wp--preset--color--light-green-cyan) !important;}.has-vivid-green-cyan-color{color: var(--wp--preset--color--vivid-green-cyan) !important;}.has-pale-cyan-blue-color{color: var(--wp--preset--color--pale-cyan-blue) !important;}.has-vivid-cyan-blue-color{color: var(--wp--preset--color--vivid-cyan-blue) !important;}.has-vivid-purple-color{color: var(--wp--preset--color--vivid-purple) !important;}.has-black-background-color{background-color: var(--wp--preset--color--black) !important;}.has-cyan-bluish-gray-background-color{background-color: var(--wp--preset--color--cyan-bluish-gray) !important;}.has-white-background-color{background-color: var(--wp--preset--color--white) !important;}.has-pale-pink-background-color{background-color: var(--wp--preset--color--pale-pink) !important;}.has-vivid-red-background-color{background-color: var(--wp--preset--color--vivid-red) !important;}.has-luminous-vivid-orange-background-color{background-color: var(--wp--preset--color--luminous-vivid-orange) !important;}.has-luminous-vivid-amber-background-color{background-color: var(--wp--preset--color--luminous-vivid-amber) !important;}.has-light-green-cyan-background-color{background-color: var(--wp--preset--color--light-green-cyan) !important;}.has-vivid-green-cyan-background-color{background-color: var(--wp--preset--color--vivid-green-cyan) !important;}.has-pale-cyan-blue-background-color{background-color: var(--wp--preset--color--pale-cyan-blue) !important;}.has-vivid-cyan-blue-background-color{background-color: var(--wp--preset--color--vivid-cyan-blue) !important;}.has-vivid-purple-background-color{background-color: var(--wp--preset--color--vivid-purple) !important;}.has-black-border-color{border-color: var(--wp--preset--color--black) !important;}.has-cyan-bluish-gray-border-color{border-color: var(--wp--preset--color--cyan-bluish-gray) !important;}.has-white-border-color{border-color: var(--wp--preset--color--white) !important;}.has-pale-pink-border-color{border-color: var(--wp--preset--color--pale-pink) !important;}.has-vivid-red-border-color{border-color: var(--wp--preset--color--vivid-red) !important;}.has-luminous-vivid-orange-border-color{border-color: var(--wp--preset--color--luminous-vivid-orange) !important;}.has-luminous-vivid-amber-border-color{border-color: var(--wp--preset--color--luminous-vivid-amber) !important;}.has-light-green-cyan-border-color{border-color: var(--wp--preset--color--light-green-cyan) !important;}.has-vivid-green-cyan-border-color{border-color: var(--wp--preset--color--vivid-green-cyan) !important;}.has-pale-cyan-blue-border-color{border-color: var(--wp--preset--color--pale-cyan-blue) !important;}.has-vivid-cyan-blue-border-color{border-color: var(--wp--preset--color--vivid-cyan-blue) !important;}.has-vivid-purple-border-color{border-color: var(--wp--preset--color--vivid-purple) !important;}.has-vivid-cyan-blue-to-vivid-purple-gradient-background{background: var(--wp--preset--gradient--vivid-cyan-blue-to-vivid-purple) !important;}.has-light-green-cyan-to-vivid-green-cyan-gradient-background{background: var(--wp--preset--gradient--light-green-cyan-to-vivid-green-cyan) !important;}.has-luminous-vivid-amber-to-luminous-vivid-orange-gradient-background{background: var(--wp--preset--gradient--luminous-vivid-amber-to-luminous-vivid-orange) !important;}.has-luminous-vivid-orange-to-vivid-red-gradient-background{background: var(--wp--preset--gradient--luminous-vivid-orange-to-vivid-red) !important;}.has-very-light-gray-to-cyan-bluish-gray-gradient-background{background: var(--wp--preset--gradient--very-light-gray-to-cyan-bluish-gray) !important;}.has-cool-to-warm-spectrum-gradient-background{background: var(--wp--preset--gradient--cool-to-warm-spectrum) !important;}.has-blush-light-purple-gradient-background{background: var(--wp--preset--gradient--blush-light-purple) !important;}.has-blush-bordeaux-gradient-background{background: var(--wp--preset--gradient--blush-bordeaux) !important;}.has-luminous-dusk-gradient-background{background: var(--wp--preset--gradient--luminous-dusk) !important;}.has-pale-ocean-gradient-background{background: var(--wp--preset--gradient--pale-ocean) !important;}.has-electric-grass-gradient-background{background: var(--wp--preset--gradient--electric-grass) !important;}.has-midnight-gradient-background{background: var(--wp--preset--gradient--midnight) !important;}.has-small-font-size{font-size: var(--wp--preset--font-size--small) !important;}.has-medium-font-size{font-size: var(--wp--preset--font-size--medium) !important;}.has-large-font-size{font-size: var(--wp--preset--font-size--large) !important;}.has-x-large-font-size{font-size: var(--wp--preset--font-size--x-large) !important;}.has-regular-font-size{font-size: var(--wp--preset--font-size--regular) !important;}.has-larger-font-size{font-size: var(--wp--preset--font-size--larger) !important;}
 /*# sourceURL=global-styles-inline-css */
 </style>
 
-<link rel="stylesheet" id="ct-ignite-google-fonts-css" href="//fonts.googleapis.com/css?family=Roboto+Slab%3AThin%2CLight%2CRegular%2CBold&amp;subset=latin%2Clatin-ext&amp;ver=6.9.4" type="text/css" media="all">
-<link rel="stylesheet" id="ct-ignite-font-awesome-css" href="/wp-content/themes/ignite/assets/font-awesome/css/all.min.css?ver=6.9.4" type="text/css" media="all">
-<link rel="stylesheet" id="ct-ignite-style-css" href="/wp-content/themes/ignite/style.css?ver=6.9.4" type="text/css" media="all">
-<style id="ct-ignite-style-inline-css" type="text/css">
+<link rel="stylesheet" id="ct-ignite-google-fonts-css" href="//fonts.googleapis.com/css?family=Roboto+Slab:Thin,Light,Regular,Bold&amp;subset=latin%2Clatin-ext&amp;ver=7.0" media="all">
+<link rel="stylesheet" id="ct-ignite-font-awesome-css" href="/wp-content/themes/ignite/assets/font-awesome/css/all.min.css?ver=7.0" media="all">
+<link rel="stylesheet" id="ct-ignite-style-css" href="/wp-content/themes/ignite/style.css?ver=7.0" media="all">
+<style id="ct-ignite-style-inline-css">
 li.linkcat {
 	list-style-type: none;
 }
@@ -112,17 +111,54 @@ li.linkcat {
         
 /*# sourceURL=ct-ignite-style-inline-css */
 </style>
-<script type="text/javascript" src="/wp-includes/js/jquery/jquery.min.js?ver=3.7.1" id="jquery-core-js"></script>
-<script type="text/javascript" src="/wp-includes/js/jquery/jquery-migrate.min.js?ver=3.4.1" id="jquery-migrate-js"></script>
+<script id="jquery-core-js" src="/wp-includes/js/jquery/jquery.min.js?ver=3.7.1"></script>
+<script id="jquery-migrate-js" src="/wp-includes/js/jquery/jquery-migrate.min.js?ver=3.4.1"></script>
 <link rel="https://api.w.org/" href="/wp-json/"><link rel="alternate" title="JSON" type="application/json" href="/wp-json/wp/v2/posts/695"><link rel="EditURI" type="application/rsd+xml" title="RSD" href="/xmlrpc.php?rsd">
-<meta name="generator" content="WordPress 6.9.4">
-<link rel="canonical" href="/2026/04/14/building-minesweeper-with-claude-cli-part-2-implementation/">
+<meta name="generator" content="WordPress 7.0">
+<link rel="canonical" href="https://www.johnra.me/2026/04/14/building-minesweeper-with-claude-cli-part-2-implementation/">
 <link rel="shortlink" href="/?p=695">
-		<style type="text/css" id="wp-custom-css">
-			li.linkcat {
+<style id="wp-custom-css">
+li.linkcat {
 	list-style-type: none;
-}		</style>
-			<script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-9086452030022667" crossorigin="anonymous"></script>
+}
+</style>
+	<script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-9086452030022667" crossorigin="anonymous"></script>
+<!-- SEO-START -->
+<meta name="description" content="The planning session ended. I saved the conversation, and sat for a moment staring at the blank src/ directory on my screen.">
+<meta property="og:type" content="article">
+<meta property="og:title" content="Building Minesweeper with Claude CLI  Part 2: Implementation">
+<meta property="og:description" content="The planning session ended. I saved the conversation, and sat for a moment staring at the blank src/ directory on my screen.">
+<meta property="og:url" content="https://www.johnra.me/2026/04/14/building-minesweeper-with-claude-cli-part-2-implementation/">
+<meta property="og:site_name" content="J O H N R A . M E">
+<meta property="og:image" content="https://www.johnra.me/wp-content/uploads/2026/04/Screenshot-2026-04-11-135007.png">
+<meta property="article:published_time" content="2026-04-14T00:00:00+00:00">
+<meta property="article:author" content="John Ra">
+<meta name="twitter:card" content="summary_large_image">
+<meta name="twitter:title" content="Building Minesweeper with Claude CLI  Part 2: Implementation">
+<meta name="twitter:description" content="The planning session ended. I saved the conversation, and sat for a moment staring at the blank src/ directory on my screen.">
+<meta name="twitter:image" content="https://www.johnra.me/wp-content/uploads/2026/04/Screenshot-2026-04-11-135007.png">
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "BlogPosting",
+  "headline": "Building Minesweeper with Claude CLI  Part 2: Implementation",
+  "description": "The planning session ended. I saved the conversation, and sat for a moment staring at the blank src/ directory on my screen.",
+  "url": "https://www.johnra.me/2026/04/14/building-minesweeper-with-claude-cli-part-2-implementation/",
+  "author": {
+    "@type": "Person",
+    "name": "John Ra",
+    "url": "https://www.johnra.me/author/johnra/"
+  },
+  "publisher": {
+    "@type": "Organization",
+    "name": "J O H N R A . M E",
+    "url": "https://www.johnra.me"
+  },
+  "image": "https://www.johnra.me/wp-content/uploads/2026/04/Screenshot-2026-04-11-135007.png",
+  "datePublished": "2026-04-14T00:00:00+00:00"
+}
+</script>
+<!-- SEO-END -->
 </head>
 <body id="ignite" class="wp-singular post-template-default single single-post postid-695 single-format-standard wp-theme-ignite singular singular-post singular-post-695">
 		<a class="skip-content" href="#main">Skip to content</a>
@@ -163,30 +199,30 @@ li.linkcat {
 		<div id="breadcrumbs" class="breadcrumb-trail breadcrumbs"><span class="item-home"><a class="bread-link bread-home" href="/" title="Home">Home</a></span><span class="separator"> &gt; </span><span class="item-cat"><a href="/category/tutorial/">Tutorial</a></span><span class="separator"> &gt; </span><span class="item-current item-695"><span class="bread-current bread-695" title="Building Minesweeper with Claude CLI  Part 2: Implementation">Building Minesweeper with Claude CLI  Part 2: Implementation</span></span></div>		<div id="main" class="main" role="main">	<div id="loop-container" class="loop-container">
 			<div class="post-695 post type-post status-publish format-standard has-post-thumbnail hentry category-ai category-jscript category-reactjs category-tutorial entry">
 		<div class="featured-image"><img width="1572" height="666" src="/wp-content/uploads/2026/04/Screenshot-2026-04-11-135007.png" class="attachment-full size-full wp-post-image" alt="" decoding="async" fetchpriority="high" srcset="/wp-content/uploads/2026/04/Screenshot-2026-04-11-135007.png 1572w, /wp-content/uploads/2026/04/Screenshot-2026-04-11-135007-300x127.png 300w, /wp-content/uploads/2026/04/Screenshot-2026-04-11-135007-1024x434.png 1024w, /wp-content/uploads/2026/04/Screenshot-2026-04-11-135007-768x325.png 768w, /wp-content/uploads/2026/04/Screenshot-2026-04-11-135007-1536x651.png 1536w" sizes="(max-width: 1572px) 100vw, 1572px"></div>			<div class="entry-meta-top">
-		Published April 14, 2026 by <a href="/author/johnra/" title="Posts by John Ra" rel="author">John Ra</a>	</div>
+		Published April 14, 2026 by <a href="/author/johnra/" rel="author">John Ra</a>	</div>
 		<div class="entry-header">
 			<h1 class="entry-title">Building Minesweeper with Claude CLI  Part 2: Implementation</h1>
 		</div>
 		<div class="entry-content">
 			<article>
 				<p class="last-updated">Last updated on April 22, 2026 </p>				
-<p>The planning session ended. I saved the conversation, and sat for a moment staring at the blank <code>src/</code> directory on my screen.</p>
+<p class="wp-block-paragraph">The planning session ended. I saved the conversation, and sat for a moment staring at the blank <code>src/</code> directory on my screen.</p>
 
 
 
-<p>I’ve been in software long enough to know that the gap between a good architecture diagram and a working, tested application is where most projects succeed or fail. Anyone can draw boxes and arrows. The execution is where the real engineering happens – where the theory meets the edge cases, where the clean design confronts the messy reality of frameworks, tooling, and the particular perverseness of asynchronous state management.</p>
+<p class="wp-block-paragraph">I’ve been in software long enough to know that the gap between a good architecture diagram and a working, tested application is where most projects succeed or fail. Anyone can draw boxes and arrows. The execution is where the real engineering happens – where the theory meets the edge cases, where the clean design confronts the messy reality of frameworks, tooling, and the particular perverseness of asynchronous state management.</p>
 
 
 
-<p>The question I was asking myself, honestly, was: <em>does this hold up?</em></p>
+<p class="wp-block-paragraph">The question I was asking myself, honestly, was: <em>does this hold up?</em></p>
 
 
 
-<p>What follows is the implementation session. The prompts are real. The code is what was generated. I’ve added my own observations at each stage – the moments of intrigue and the moments of skepticism.</p>
+<p class="wp-block-paragraph">What follows is the implementation session. The prompts are real. The code is what was generated. I’ve added my own observations at each stage – the moments of intrigue and the moments of skepticism.</p>
 
 
 
-<p><strong>Spoiler: it held up.</strong></p>
+<p class="wp-block-paragraph"><strong>Spoiler: it held up.</strong></p>
 
 
 
@@ -209,7 +245,7 @@ li.linkcat {
 
 
 
-<p><strong>Claude</strong> generated <code>game/package.json</code>:</p>
+<p class="wp-block-paragraph"><strong>Claude</strong> generated <code>game/package.json</code>:</p>
 
 
 
@@ -249,11 +285,11 @@ li.linkcat {
 
 
 <blockquote class="wp-block-quote is-layout-flow wp-block-quote-is-layout-flow">
-<p>I’ve scaffolded enough projects to know that this step – trivial as it might sound – is actually where a lot of accumulated knowledge lives. Which version of <code>@testing-library/react</code> is compatible with your ReactJS version? Which <code>jest-dom</code> version works without configuration gymnastics? How do you write the <code>collectCoverageFrom</code> pattern so it excludes the right entry files? These are all things you learn from having done it wrong at least once.</p>
+<p class="wp-block-paragraph">I’ve scaffolded enough projects to know that this step – trivial as it might sound – is actually where a lot of accumulated knowledge lives. Which version of <code>@testing-library/react</code> is compatible with your ReactJS version? Which <code>jest-dom</code> version works without configuration gymnastics? How do you write the <code>collectCoverageFrom</code> pattern so it excludes the right entry files? These are all things you learn from having done it wrong at least once.</p>
 
 
 
-<p>The <code>coverageThreshold</code> configuration is particularly important. Without it, you can run <code>--coverage</code> all day and get a beautiful HTML report that means nothing, because there’s no enforcement. The threshold gates on CI mean the build fails if coverage drops. That’s the difference between a metric and a standard.</p>
+<p class="wp-block-paragraph">The <code>coverageThreshold</code> configuration is particularly important. Without it, you can run <code>--coverage</code> all day and get a beautiful HTML report that means nothing, because there’s no enforcement. The threshold gates on CI mean the build fails if coverage drops. That’s the difference between a metric and a standard.</p>
 </blockquote>
 
 
@@ -273,7 +309,7 @@ li.linkcat {
 
 
 
-<p><strong>Claude</strong> generated <code>src/constants/gameConfig.js</code>:</p>
+<p class="wp-block-paragraph"><strong>Claude</strong> generated <code>src/constants/gameConfig.js</code>:</p>
 
 
 
@@ -299,15 +335,15 @@ export const ADJACENT_MINE_COLORS = {
 
 
 <blockquote class="wp-block-quote is-layout-flow wp-block-quote-is-layout-flow">
-<p><strong>Why this matters:</strong> Keeping difficulty configuration in one place means adding an “Ultra” difficulty later is a single object entry – no component or engine code changes.</p>
+<p class="wp-block-paragraph"><strong>Why this matters:</strong> Keeping difficulty configuration in one place means adding an “Ultra” difficulty later is a single object entry – no component or engine code changes.</p>
 
 
 
-<p>This is a file that probably gets written in twenty seconds and saves twenty hours. I have seen production codebases – large, mature, professionally maintained codebases – where <code>9</code>, <code>16</code>, <code>30</code>, and <code>99</code> appear as literal numbers scattered across a dozen files. When someone needs to change the expert board dimensions, they grep for all the places and inevitably miss one, and then Expert mode renders a grid that’s slightly the wrong size and nobody notices for six months.</p>
+<p class="wp-block-paragraph">This is a file that probably gets written in twenty seconds and saves twenty hours. I have seen production codebases – large, mature, professionally maintained codebases – where <code>9</code>, <code>16</code>, <code>30</code>, and <code>99</code> appear as literal numbers scattered across a dozen files. When someone needs to change the expert board dimensions, they grep for all the places and inevitably miss one, and then Expert mode renders a grid that’s slightly the wrong size and nobody notices for six months.</p>
 
 
 
-<p>Config files seem boring. They are, in fact, one of the best investments in long-term maintainability you can make. The fact that this came out as the second thing produced – before any logic, before any UI – reflects a discipline that takes discipline to maintain.</p>
+<p class="wp-block-paragraph">Config files seem boring. They are, in fact, one of the best investments in long-term maintainability you can make. The fact that this came out as the second thing produced – before any logic, before any UI – reflects a discipline that takes discipline to maintain.</p>
 </blockquote>
 
 
@@ -328,7 +364,7 @@ export const ADJACENT_MINE_COLORS = {
 
 
 
-<p><strong>Claude</strong> generated the board factory with detailed JSDoc. The key insight is the <code>buildSafeZone</code> helper:</p>
+<p class="wp-block-paragraph"><strong>Claude</strong> generated the board factory with detailed JSDoc. The key insight is the <code>buildSafeZone</code> helper:</p>
 
 
 
@@ -374,15 +410,15 @@ export const calculateAdjacentMines = (board) =&gt; {
 
 
 <blockquote class="wp-block-quote is-layout-flow wp-block-quote-is-layout-flow">
-<p>Two things here that I want to call out, because they’re not obvious.</p>
+<p class="wp-block-paragraph">Two things here that I want to call out, because they’re not obvious.</p>
 
 
 
-<p>First: the <code>Set&lt;string&gt;</code> for the safe zone. The naive approach is to do two nested loops and check <code>Math.abs(r - safeRow) &lt;= 1 &amp;&amp; Math.abs(c - safeCol) &lt;= 1</code> inside the mine placement loop. That works. But it’s O(safeZone) per candidate position, and it scatters the safe-zone logic inside the placement logic where it’s harder to test in isolation. Using a <code>Set</code> precomputed at the start gives O(1) lookup and a clean separation of concern. It’s a small thing, but it’s the kind of thing that distinguishes someone thinking about the code from someone just making it work.</p>
+<p class="wp-block-paragraph">First: the <code>Set&lt;string&gt;</code> for the safe zone. The naive approach is to do two nested loops and check <code>Math.abs(r - safeRow) &lt;= 1 &amp;&amp; Math.abs(c - safeCol) &lt;= 1</code> inside the mine placement loop. That works. But it’s O(safeZone) per candidate position, and it scatters the safe-zone logic inside the placement logic where it’s harder to test in isolation. Using a <code>Set</code> precomputed at the start gives O(1) lookup and a clean separation of concern. It’s a small thing, but it’s the kind of thing that distinguishes someone thinking about the code from someone just making it work.</p>
 
 
 
-<p>Second: the consistent use of <code>...spread</code> to return new objects rather than mutating. Every cell update, every row map, every board transformation returns fresh objects. This has significant practical value: if you’re debugging a state machine and something goes wrong, immutability means you can inspect any historical state snapshot and trust it hasn’t been modified by a later operation. Mutable state debugging is a special kind of misery. I’ve lived it. I don’t miss it.</p>
+<p class="wp-block-paragraph">Second: the consistent use of <code>...spread</code> to return new objects rather than mutating. Every cell update, every row map, every board transformation returns fresh objects. This has significant practical value: if you’re debugging a state machine and something goes wrong, immutability means you can inspect any historical state snapshot and trust it hasn’t been modified by a later operation. Mutable state debugging is a special kind of misery. I’ve lived it. I don’t miss it.</p>
 </blockquote>
 
 
@@ -402,7 +438,7 @@ export const calculateAdjacentMines = (board) =&gt; {
 
 
 
-<p><strong>Claude</strong> produced 17 test cases. Highlights:</p>
+<p class="wp-block-paragraph"><strong>Claude</strong> produced 17 test cases. Highlights:</p>
 
 
 
@@ -425,15 +461,15 @@ it('counts all 8 neighbours for a centre cell surrounded by mines', () =&gt; {
 
 
 <blockquote class="wp-block-quote is-layout-flow wp-block-quote-is-layout-flow">
-<p>When I review test files, the first thing I look at is test names. Not code, names. A test named <code>it('works correctly')</code> tells me nothing and suggests the author didn’t really know what they were testing. A test named <code>'never places a mine within the 3×3 safe zone'</code> is a specification. If it fails, I know exactly what broke and exactly what to look for</p>
+<p class="wp-block-paragraph">When I review test files, the first thing I look at is test names. Not code, names. A test named <code>it('works correctly')</code> tells me nothing and suggests the author didn’t really know what they were testing. A test named <code>'never places a mine within the 3×3 safe zone'</code> is a specification. If it fails, I know exactly what broke and exactly what to look for</p>
 
 
 
-<p>The second test – surrounding a center cell with eight mines and checking that the count is eight – is the kind of “known answer” test that makes pure function testing so satisfying. There’s no setup, no mocking, no async. You arrange a board in a known state, apply the function, and check the result. It’s the software equivalent of “1 + 1 = 2.” It either works or it doesn’t, and if it doesn’t, the bug is in the function.</p>
+<p class="wp-block-paragraph">The second test – surrounding a center cell with eight mines and checking that the count is eight – is the kind of “known answer” test that makes pure function testing so satisfying. There’s no setup, no mocking, no async. You arrange a board in a known state, apply the function, and check the result. It’s the software equivalent of “1 + 1 = 2.” It either works or it doesn’t, and if it doesn’t, the bug is in the function.</p>
 
 
 
-<p>I also noticed: 17 tests for a module with 4 functions. That’s meaningful coverage density. By the time we were done with the full suite, this module would have 100% branch coverage. Every path tested. Every edge handled.</p>
+<p class="wp-block-paragraph">I also noticed: 17 tests for a module with 4 functions. That’s meaningful coverage density. By the time we were done with the full suite, this module would have 100% branch coverage. Every path tested. Every edge handled.</p>
 </blockquote>
 
 
@@ -453,7 +489,7 @@ it('counts all 8 neighbours for a centre cell surrounded by mines', () =&gt; {
 
 
 
-<p><strong>Claude</strong> explained the BFS reveal:</p>
+<p class="wp-block-paragraph"><strong>Claude</strong> explained the BFS reveal:</p>
 
 
 
@@ -486,19 +522,19 @@ This reads: "every mine is <em>not</em> revealed AND every non-mine <em>is</e
 
 
 <blockquote class="wp-block-quote is-layout-flow wp-block-quote-is-layout-flow">
-<p>I want to dwell on that <code>checkWinCondition</code> function for a moment, because it’s a small piece of code that does something beautiful.</p>
+<p class="wp-block-paragraph">I want to dwell on that <code>checkWinCondition</code> function for a moment, because it’s a small piece of code that does something beautiful.</p>
 
 
 
-<p>The win condition for Minesweeper can be stated in a complicated way: “all non-mine cells are revealed, and no mine cells are revealed.” It can also be stated in a single <code>board.every()</code> with a ternary — if the cell is a mine, it must not be revealed; if it isn’t, it must be. Both conditions in one pass, no separate loops, no tracking of revealed counts. It’s not clever in a show-off way; it’s clear in a right-answer way.</p>
+<p class="wp-block-paragraph">The win condition for Minesweeper can be stated in a complicated way: “all non-mine cells are revealed, and no mine cells are revealed.” It can also be stated in a single <code>board.every()</code> with a ternary — if the cell is a mine, it must not be revealed; if it isn’t, it must be. Both conditions in one pass, no separate loops, no tracking of revealed counts. It’s not clever in a show-off way; it’s clear in a right-answer way.</p>
 
 
 
-<p>I’ve reviewed code where this same logic was implemented with three separate boolean flags, a running counter, and a <code>switch</code> statement. It worked. It also took me three reads to verify it was correct. This version I understood in fifteen seconds, and that fifteen seconds included formulating the precise natural-language description of what it does.</p>
+<p class="wp-block-paragraph">I’ve reviewed code where this same logic was implemented with three separate boolean flags, a running counter, and a <code>switch</code> statement. It worked. It also took me three reads to verify it was correct. This version I understood in fifteen seconds, and that fifteen seconds included formulating the precise natural-language description of what it does.</p>
 
 
 
-<p>Clarity and correctness are the same thing. When code is clear, it’s verifiable. When it’s verifiable, it’s trustworthy. This function is all three.</p>
+<p class="wp-block-paragraph">Clarity and correctness are the same thing. When code is clear, it’s verifiable. When it’s verifiable, it’s trustworthy. This function is all three.</p>
 </blockquote>
 
 
@@ -519,7 +555,7 @@ This reads: "every mine is <em>not</em> revealed AND every non-mine <em>is</e
 
 
 
-<p>Key test cases Claude wrote:</p>
+<p class="wp-block-paragraph">Key test cases Claude wrote:</p>
 
 
 
@@ -544,15 +580,15 @@ it('stops flood-fill at cells with adjacent mine counts &gt; 0', () =&gt; {
 
 
 <blockquote class="wp-block-quote is-layout-flow wp-block-quote-is-layout-flow">
-<p>What I find remarkable here is not that the tests exist – I asked for tests – but the quality of the scenarios chosen. The flood-fill test on a mine-free board is exactly the right degenerate case: zero adjacent mines everywhere means BFS should sweep the entire board in one click. If that test passes, you know the BFS termination condition works. If it fails, you know something is fundamentally wrong with the traversal.</p>
+<p class="wp-block-paragraph">What I find remarkable here is not that the tests exist – I asked for tests – but the quality of the scenarios chosen. The flood-fill test on a mine-free board is exactly the right degenerate case: zero adjacent mines everywhere means BFS should sweep the entire board in one click. If that test passes, you know the BFS termination condition works. If it fails, you know something is fundamentally wrong with the traversal.</p>
 
 
 
-<p>The second test is more nuanced. It’s verifying not just that the BFS reveals cells, but that it stops revealing cells at the numbered border. That’s the critical boundary condition. Flood-fill that never stops is worse than no flood-fill at all – you’d reveal the mine and end the game before the player clicked it.</p>
+<p class="wp-block-paragraph">The second test is more nuanced. It’s verifying not just that the BFS reveals cells, but that it stops revealing cells at the numbered border. That’s the critical boundary condition. Flood-fill that never stops is worse than no flood-fill at all – you’d reveal the mine and end the game before the player clicked it.</p>
 
 
 
-<p>I’ve seen test suites for game logic that tested the happy path and nothing else. They give you false confidence. These tests test the edges, which is where the bugs actually live.</p>
+<p class="wp-block-paragraph">I’ve seen test suites for game logic that tested the happy path and nothing else. They give you false confidence. These tests test the edges, which is where the bugs actually live.</p>
 </blockquote>
 
 
@@ -574,7 +610,7 @@ it('stops flood-fill at cells with adjacent mine counts &gt; 0', () =&gt; {
 
 
 
-<p><strong>Claude</strong> highlighted one subtle ordering challenge:</p>
+<p class="wp-block-paragraph"><strong>Claude</strong> highlighted one subtle ordering challenge:</p>
 
 
 
@@ -583,11 +619,11 @@ it('stops flood-fill at cells with adjacent mine counts &gt; 0', () =&gt; {
 
 
 <blockquote class="wp-block-quote is-layout-flow wp-block-quote-is-layout-flow">
-<p>The first-click atomic update is the kind of ReactJS subtlety that I would genuinely flag in a code review as “this needs a comment explaining why it’s done this way.” The pattern — using a <code>setBoard</code> functional update to get the latest board state, then calling other <code>setState</code> functions inside it — is valid in React 18, but it’s non-obvious. If you don’t know that React 18 batches state updates from the same event handler, this code looks like it might have a race condition. It doesn’t. But you have to know why it doesn’t.</p>
+<p class="wp-block-paragraph">The first-click atomic update is the kind of ReactJS subtlety that I would genuinely flag in a code review as “this needs a comment explaining why it’s done this way.” The pattern — using a <code>setBoard</code> functional update to get the latest board state, then calling other <code>setState</code> functions inside it — is valid in React 18, but it’s non-obvious. If you don’t know that React 18 batches state updates from the same event handler, this code looks like it might have a race condition. It doesn’t. But you have to know why it doesn’t.</p>
 
 
 
-<p>The fact that the explanation came with the code, rather than requiring a follow-up question, is the kind of thing I look for in senior engineers: not just writing code that works, but anticipating the questions a reader will have and answering them proactively.</p>
+<p class="wp-block-paragraph">The fact that the explanation came with the code, rather than requiring a follow-up question, is the kind of thing I look for in senior engineers: not just writing code that works, but anticipating the questions a reader will have and answering them proactively.</p>
 </blockquote>
 
 
@@ -608,7 +644,7 @@ it('stops flood-fill at cells with adjacent mine counts &gt; 0', () =&gt; {
 
 
 
-<p><strong>Claude</strong> explained why mocking is necessary — and why careful board design matters:</p>
+<p class="wp-block-paragraph"><strong>Claude</strong> explained why mocking is necessary — and why careful board design matters:</p>
 
 
 
@@ -658,23 +694,23 @@ Note: <code>afterEach(() =&gt; jest.restoreAllMocks())<span style="background-c
 
 
 <blockquote class="wp-block-quote is-layout-flow wp-block-quote-is-layout-flow">
-<p>Interesting thing happened here.</p>
+<p class="wp-block-paragraph">Interesting thing happened here.</p>
 
 
 
-<p>The first version of the hook tests tried to spy on <code>gameEngine.checkWinCondition</code> directly, using <code>mockReturnValueOnce(false).mockReturnValue(true)</code> to control exactly when the game would transition to WON. Reasonable idea. Clean intent. And it failed — with a cryptic <code>TypeError: Cannot read properties of undefined (reading '4')</code> buried in ReactJS’s internals.</p>
+<p class="wp-block-paragraph">The first version of the hook tests tried to spy on <code>gameEngine.checkWinCondition</code> directly, using <code>mockReturnValueOnce(false).mockReturnValue(true)</code> to control exactly when the game would transition to WON. Reasonable idea. Clean intent. And it failed — with a cryptic <code>TypeError: Cannot read properties of undefined (reading '4')</code> buried in ReactJS’s internals.</p>
 
 
 
-<p><strong>The root cause:</strong> React 18’s Strict Mode intentionally invokes state updater functions twice in development to help detect side effects. The <code>mockReturnValueOnce(false)</code> was consumed by the first invocation, leaving subsequent calls to return <code>true</code>. The second invocation then tried to access a board state that was in an unexpected intermediate condition. The error was real but the path to it was subtle.</p>
+<p class="wp-block-paragraph"><strong>The root cause:</strong> React 18’s Strict Mode intentionally invokes state updater functions twice in development to help detect side effects. The <code>mockReturnValueOnce(false)</code> was consumed by the first invocation, leaving subsequent calls to return <code>true</code>. The second invocation then tried to access a board state that was in an unexpected intermediate condition. The error was real but the path to it was subtle.</p>
 
 
 
-<p><strong>The fix:</strong> mock <code>placeMines</code> instead of <code>checkWinCondition</code>, and design the injected board carefully so that the first click naturally triggers or avoids the win condition – is more elegant than the original approach anyway. It tests the real behaviour, not a mocked shortcut. But finding it required understanding why the failure occurred.</p>
+<p class="wp-block-paragraph"><strong>The fix:</strong> mock <code>placeMines</code> instead of <code>checkWinCondition</code>, and design the injected board carefully so that the first click naturally triggers or avoids the win condition – is more elegant than the original approach anyway. It tests the real behaviour, not a mocked shortcut. But finding it required understanding why the failure occurred.</p>
 
 
 
-<p>Here is what struck me about that debugging exchange. I described the failure, Claude diagnosed the Strict Mode double-invoke behavior, identified the consumed <code>mockReturnValueOnce</code> as the culprit, and proposed the alternative strategy. What is curious is why it didn’t avoid it in the first place. Why go through this bug. It is intriguing that claude didn’t produce the perfect code the first time around</p>
+<p class="wp-block-paragraph">Here is what struck me about that debugging exchange. I described the failure, Claude diagnosed the Strict Mode double-invoke behavior, identified the consumed <code>mockReturnValueOnce</code> as the culprit, and proposed the alternative strategy. What is curious is why it didn’t avoid it in the first place. Why go through this bug. It is intriguing that claude didn’t produce the perfect code the first time around</p>
 </blockquote>
 
 
@@ -695,7 +731,7 @@ Note: <code>afterEach(() =&gt; jest.restoreAllMocks())<span style="background-c
 
 
 
-<p><strong>Claude</strong> noted:</p>
+<p class="wp-block-paragraph"><strong>Claude</strong> noted:</p>
 
 
 
@@ -717,15 +753,15 @@ CSS follows the classic Windows 95 raised/sunken border technique using <code>b
 
 
 <blockquote class="wp-block-quote is-layout-flow wp-block-quote-is-layout-flow">
-<p>The <code>React.memo</code> note was proactive – I hadn’t mentioned performance. But it’s exactly right. On Expert difficulty the board is 16 rows by 30 columns: 480 cells. The timer increments every second. Without memorization, every timer tick triggers a re-render of all 480 Cell components, even though none of their props changed. With <code>React.memo</code>, only the <code>GameStatus</code> component (which displays the timer) re-renders. The cells are blissfully unaware.</p>
+<p class="wp-block-paragraph">The <code>React.memo</code> note was proactive – I hadn’t mentioned performance. But it’s exactly right. On Expert difficulty the board is 16 rows by 30 columns: 480 cells. The timer increments every second. Without memorization, every timer tick triggers a re-render of all 480 Cell components, even though none of their props changed. With <code>React.memo</code>, only the <code>GameStatus</code> component (which displays the timer) re-renders. The cells are blissfully unaware.</p>
 
 
 
-<p>480 wasted renders per second sounds like nothing on modern hardware. And for this app, it is nothing – the game would run fine either way. But the discipline of applying <code>React.memo</code> to components that are rendered many times and change rarely is a habit worth having. The same reasoning that makes it irrelevant here makes it essential in a data-heavy dashboard with hundreds of rows. The habit doesn’t know the difference.</p>
+<p class="wp-block-paragraph">480 wasted renders per second sounds like nothing on modern hardware. And for this app, it is nothing – the game would run fine either way. But the discipline of applying <code>React.memo</code> to components that are rendered many times and change rarely is a habit worth having. The same reasoning that makes it irrelevant here makes it essential in a data-heavy dashboard with hundreds of rows. The habit doesn’t know the difference.</p>
 
 
 
-<p>The Windows 95 border technique for the cell styling also brought a genuine smile. Using <code>border-color</code> asymmetry – white on top-left, grey on bottom-right – to simulate the raised button effect, and inverting it on click for the pressed look, is a 30-year-old CSS pattern that still works perfectly. Some techniques age well.</p>
+<p class="wp-block-paragraph">The Windows 95 border technique for the cell styling also brought a genuine smile. Using <code>border-color</code> asymmetry – white on top-left, grey on bottom-right – to simulate the raised button effect, and inverting it on click for the pressed look, is a 30-year-old CSS pattern that still works perfectly. Some techniques age well.</p>
 </blockquote>
 
 
@@ -745,7 +781,7 @@ CSS follows the classic Windows 95 raised/sunken border technique using <code>b
 
 
 
-<p><strong>Claude:</strong></p>
+<p class="wp-block-paragraph"><strong>Claude:</strong></p>
 
 
 
@@ -780,11 +816,11 @@ Using <span style="background-color: initial; font-family: inherit; font-size: 
 
 
 <blockquote class="wp-block-quote is-layout-flow wp-block-quote-is-layout-flow">
-<p>The <code>board[0]?.length ?? 0</code> is a small piece of defensive programming for the empty-board edge case. It’s the kind of line that matters in a library or a framework, and arguably overkill in an application where you control the board initialization. But it costs nothing and prevents a crash if the board ever arrives empty. I’d rather have unnecessary defensive code than a missing guard on the one day the board initialization fails unexpectedly.</p>
+<p class="wp-block-paragraph">The <code>board[0]?.length ?? 0</code> is a small piece of defensive programming for the empty-board edge case. It’s the kind of line that matters in a library or a framework, and arguably overkill in an application where you control the board initialization. But it costs nothing and prevents a crash if the board ever arrives empty. I’d rather have unnecessary defensive code than a missing guard on the one day the board initialization fails unexpectedly.</p>
 
 
 
-<p>The inline style for <code>gridTemplateColumns</code> is the right call. The alternative — a CSS class per difficulty — would require three hardcoded classes and would break the moment someone added a fourth difficulty from the config. The inline style scales with the config automatically. Small thing, right principle.</p>
+<p class="wp-block-paragraph">The inline style for <code>gridTemplateColumns</code> is the right call. The alternative — a CSS class per difficulty — would require three hardcoded classes and would break the moment someone added a fourth difficulty from the config. The inline style scales with the config automatically. Small thing, right principle.</p>
 </blockquote>
 
 
@@ -805,7 +841,7 @@ Using <span style="background-color: initial; font-family: inherit; font-size: 
 
 
 
-<p><strong>Claude</strong> generated a component that derives its buttons directly from the config:</p>
+<p class="wp-block-paragraph"><strong>Claude</strong> generated a component that derives its buttons directly from the config:</p>
 
 
 
@@ -825,15 +861,15 @@ This means if a new difficulty is added to <span style="background-color: initi
 
 
 <blockquote class="wp-block-quote is-layout-flow wp-block-quote-is-layout-flow">
-<p>This is Open/Closed in practice, not just in theory. The component doesn’t know how many difficulties exist. It doesn’t care. It iterates whatever is in the config and renders a button for each one. Add a “Nightmare” difficulty to the config tomorrow and a fourth button materializes without touching this file.</p>
+<p class="wp-block-paragraph">This is Open/Closed in practice, not just in theory. The component doesn’t know how many difficulties exist. It doesn’t care. It iterates whatever is in the config and renders a button for each one. Add a “Nightmare” difficulty to the config tomorrow and a fourth button materializes without touching this file.</p>
 
 
 
-<p>I’ve seen this pattern violated so many times. The config has three entries, someone hardcodes three buttons, everything’s fine – until the product owner asks for a fourth difficulty and the developer has to find every place in the UI where they hardcoded three. Usually at least one gets missed. Usually it gets found in production.</p>
+<p class="wp-block-paragraph">I’ve seen this pattern violated so many times. The config has three entries, someone hardcodes three buttons, everything’s fine – until the product owner asks for a fourth difficulty and the developer has to find every place in the UI where they hardcoded three. Usually at least one gets missed. Usually it gets found in production.</p>
 
 
 
-<p>Iterating the config is one of those decisions that takes approximately the same time to implement as hardcoding, and saves you an undetermined but nonzero amount of pain in the future.</p>
+<p class="wp-block-paragraph">Iterating the config is one of those decisions that takes approximately the same time to implement as hardcoding, and saves you an undetermined but nonzero amount of pain in the future.</p>
 </blockquote>
 
 
@@ -854,7 +890,7 @@ This means if a new difficulty is added to <span style="background-color: initi
 
 
 
-<p><strong>Claude</strong> added a time formatter and the face/message maps:</p>
+<p class="wp-block-paragraph"><strong>Claude</strong> added a time formatter and the face/message maps:</p>
 
 
 
@@ -876,15 +912,15 @@ const formatTime = (seconds) =&gt; {
 
 
 <blockquote class="wp-block-quote is-layout-flow wp-block-quote-is-layout-flow">
-<p>The emoji face mapping is a small detail that perfectly captures the game’s personality. The original Windows Minesweeper had a smiley face in the toolbar that changed expression – grinning at rest, shocked while you held the mouse button down, sunglasses after a win, dead after a loss. It was beloved. Recreating that with emoji is both faithful and contemporary.</p>
+<p class="wp-block-paragraph">The emoji face mapping is a small detail that perfectly captures the game’s personality. The original Windows Minesweeper had a smiley face in the toolbar that changed expression – grinning at rest, shocked while you held the mouse button down, sunglasses after a win, dead after a loss. It was beloved. Recreating that with emoji is both faithful and contemporary.</p>
 
 
 
-<p>The <code>STATUS_MESSAGE</code> map being tied to <code>STATUS_EMOJI</code> through the same key structure is tidy. One place to update when you add a new game state. One place to audit if the messages are wrong. A single source of truth for what the game “says” to the player at each stage.</p>
+<p class="wp-block-paragraph">The <code>STATUS_MESSAGE</code> map being tied to <code>STATUS_EMOJI</code> through the same key structure is tidy. One place to update when you add a new game state. One place to audit if the messages are wrong. A single source of truth for what the game “says” to the player at each stage.</p>
 
 
 
-<p>The cap at 999 seconds is also correct and easy to miss. The original game’s display was three digits. A game that goes past 999 seconds is either very patient or stuck. Capping prevents display overflow in a way that’s consistent with the source material.</p>
+<p class="wp-block-paragraph">The cap at 999 seconds is also correct and easy to miss. The original game’s display was three digits. A game that goes past 999 seconds is either very patient or stuck. Capping prevents display overflow in a way that’s consistent with the source material.</p>
 </blockquote>
 
 
@@ -904,7 +940,7 @@ const formatTime = (seconds) =&gt; {
 
 
 
-<p><strong>Claude</strong> produced a clean composition root where <code>App</code> is nothing but wiring:</p>
+<p class="wp-block-paragraph"><strong>Claude</strong> produced a clean composition root where <code>App</code> is nothing but wiring:</p>
 
 
 
@@ -931,15 +967,15 @@ const formatTime = (seconds) =&gt; {
 
 
 <blockquote class="wp-block-quote is-layout-flow wp-block-quote-is-layout-flow">
-<p>App.jsx is thirty-odd lines long and contains exactly one function call – <code>useGameState</code> – and one JSX tree. There is no <code>if</code>, no <code>switch</code>, no <code>useState</code>, no <code>useEffect</code>. It is, as specified, a composition root and nothing more.</p>
+<p class="wp-block-paragraph">App.jsx is thirty-odd lines long and contains exactly one function call – <code>useGameState</code> – and one JSX tree. There is no <code>if</code>, no <code>switch</code>, no <code>useState</code>, no <code>useEffect</code>. It is, as specified, a composition root and nothing more.</p>
 
 
 
-<p>This is harder to achieve than it looks. The temptation to “just add one little thing” to the top-level component is nearly universal. A quick guard clause here, a local state variable there, a <code>useEffect</code> to log something to analytics. Each addition is defensible in isolation and corrosive in aggregate. The discipline of keeping the root clean – all logic in the hook, all rendering in the components – is the discipline that makes the codebase navigable six months later.</p>
+<p class="wp-block-paragraph">This is harder to achieve than it looks. The temptation to “just add one little thing” to the top-level component is nearly universal. A quick guard clause here, a local state variable there, a <code>useEffect</code> to log something to analytics. Each addition is defensible in isolation and corrosive in aggregate. The discipline of keeping the root clean – all logic in the hook, all rendering in the components – is the discipline that makes the codebase navigable six months later.</p>
 
 
 
-<p>It’s good to have something that models the discipline clearly.</p>
+<p class="wp-block-paragraph">It’s good to have something that models the discipline clearly.</p>
 </blockquote>
 
 
@@ -958,7 +994,7 @@ const formatTime = (seconds) =&gt; {
 
 
 
-<p><strong>Claude</strong> identified and addressed four gaps:</p>
+<p class="wp-block-paragraph"><strong>Claude</strong> identified and addressed four gaps:</p>
 
 
 
@@ -973,15 +1009,15 @@ const formatTime = (seconds) =&gt; {
 
 
 <blockquote class="wp-block-quote is-layout-flow wp-block-quote-is-layout-flow">
-<p>In my experience, accessibility is the first thing that gets cut when deadlines loom and the last thing that gets added back. It gets treated as a feature rather than a baseline. Entire product organizations ship software that is functionally unusable for a significant portion of the population, and rationalize it as an edge case.</p>
+<p class="wp-block-paragraph">In my experience, accessibility is the first thing that gets cut when deadlines loom and the last thing that gets added back. It gets treated as a feature rather than a baseline. Entire product organizations ship software that is functionally unusable for a significant portion of the population, and rationalize it as an edge case.</p>
 
 
 
-<p>What’s notable here is that accessibility wasn’t an afterthought. The <code>&lt;button&gt;</code> element choice for cells – which gives you keyboard focus and event handling for free – was made in Prompt 9, before the explicit accessibility review. The ARIA attributes were added systematically, not as a patch. The <code>aria-live="polite"</code> on <code>GameStatus</code> means a screen reader will announce game state changes – won, lost – without interrupting whatever the user was doing. That’s a thoughtful choice, not a checkbox.</p>
+<p class="wp-block-paragraph">What’s notable here is that accessibility wasn’t an afterthought. The <code>&lt;button&gt;</code> element choice for cells – which gives you keyboard focus and event handling for free – was made in Prompt 9, before the explicit accessibility review. The ARIA attributes were added systematically, not as a patch. The <code>aria-live="polite"</code> on <code>GameStatus</code> means a screen reader will announce game state changes – won, lost – without interrupting whatever the user was doing. That’s a thoughtful choice, not a checkbox.</p>
 
 
 
-<p>The explicit accessibility review prompt did surface the <code>role="grid"</code> and the mine counter label, which weren’t in the first pass. But they were quick additions to an already-sound foundation. That’s the right way around.</p>
+<p class="wp-block-paragraph">The explicit accessibility review prompt did surface the <code>role="grid"</code> and the mine counter label, which weren’t in the first pass. But they were quick additions to an already-sound foundation. That’s the right way around.</p>
 </blockquote>
 
 
@@ -1001,7 +1037,7 @@ const formatTime = (seconds) =&gt; {
 
 
 
-<p><strong>Claude</strong> wrote 60+ test cases across the four component files. The approach:</p>
+<p class="wp-block-paragraph"><strong>Claude</strong> wrote 60+ test cases across the four component files. The approach:</p>
 
 
 
@@ -1010,15 +1046,15 @@ const formatTime = (seconds) =&gt; {
 
 
 <blockquote class="wp-block-quote is-layout-flow wp-block-quote-is-layout-flow">
-<p>I have strong opinions about Testing Library’s philosophy, and they’re positive. “Test what the user sees and does, not implementation details” sounds obvious, but it’s a meaningful departure from how component tests were often written before Testing Library became standard. The old approach – shallow rendering, checking component state, asserting on implementation internals – produced tests that broke every time you refactored, even when the refactor was correct and the user-facing behavior didn’t change.</p>
+<p class="wp-block-paragraph">I have strong opinions about Testing Library’s philosophy, and they’re positive. “Test what the user sees and does, not implementation details” sounds obvious, but it’s a meaningful departure from how component tests were often written before Testing Library became standard. The old approach – shallow rendering, checking component state, asserting on implementation internals – produced tests that broke every time you refactored, even when the refactor was correct and the user-facing behavior didn’t change.</p>
 
 
 
-<p>Testing by role (<code>getByRole('button')</code>) and by label (<code>getByLabelText</code>) means your tests are also an accessibility audit. If the test can find the element by role, a screen reader can too. If the test can’t find it, you’ve found an accessibility bug. The testing and the accessibility are not separate concerns – they’re the same pass.</p>
+<p class="wp-block-paragraph">Testing by role (<code>getByRole('button')</code>) and by label (<code>getByLabelText</code>) means your tests are also an accessibility audit. If the test can find the element by role, a screen reader can too. If the test can’t find it, you’ve found an accessibility bug. The testing and the accessibility are not separate concerns – they’re the same pass.</p>
 
 
 
-<p>The <code>test.each</code> pattern for the emoji faces is the kind of parameterization I wish was more universally applied. Four tests in a data table, each row a complete specification. Easy to add another case. Easy to read what’s being tested. No copy-paste.</p>
+<p class="wp-block-paragraph">The <code>test.each</code> pattern for the emoji faces is the kind of parameterization I wish was more universally applied. Four tests in a data table, each row a complete specification. Easy to add another case. Easy to read what’s being tested. No copy-paste.</p>
 </blockquote>
 
 
@@ -1038,7 +1074,7 @@ const formatTime = (seconds) =&gt; {
 
 
 
-<p><strong>Claude</strong> noted:</p>
+<p class="wp-block-paragraph"><strong>Claude</strong> noted:</p>
 
 
 
@@ -1064,11 +1100,11 @@ it('places mines and reveals cells on first click', () =&gt; {
 
 
 <blockquote class="wp-block-quote is-layout-flow wp-block-quote-is-layout-flow">
-<p>The <code>within</code> scoping is essential and often forgotten. <code>screen.getAllByRole('button')</code> in this app returns both the toolbar buttons (Beginner, Intermediate, Expert, New Game) and all the grid cell buttons. Without scoping to the grid, the count is wrong and the test is testing the wrong thing. <code>within(grid).getAllByRole('button')</code> scopes correctly.</p>
+<p class="wp-block-paragraph">The <code>within</code> scoping is essential and often forgotten. <code>screen.getAllByRole('button')</code> in this app returns both the toolbar buttons (Beginner, Intermediate, Expert, New Game) and all the grid cell buttons. Without scoping to the grid, the count is wrong and the test is testing the wrong thing. <code>within(grid).getAllByRole('button')</code> scopes correctly.</p>
 
 
 
-<p>The integration test for the first click is also the right level of specificity. It doesn’t assert on the exact number of revealed cells – that depends on random mine placement. It just asserts that some cells were revealed. That’s all you can know without controlling randomness, and it’s enough: if cells are revealed after a click, the end-to-end flow worked.</p>
+<p class="wp-block-paragraph">The integration test for the first click is also the right level of specificity. It doesn’t assert on the exact number of revealed cells – that depends on random mine placement. It just asserts that some cells were revealed. That’s all you can know without controlling randomness, and it’s enough: if cells are revealed after a click, the end-to-end flow worked.</p>
 </blockquote>
 
 
@@ -1089,7 +1125,7 @@ npm run test:coverage <em># single run with coverage report</em>
 
 
 
-<p>Actual coverage output (131 tests):</p>
+<p class="wp-block-paragraph">Actual coverage output (131 tests):</p>
 
 
 
@@ -1111,19 +1147,19 @@ All files                         |     100 |      100 |     100 |    100
 
 
 <blockquote class="wp-block-quote is-layout-flow wp-block-quote-is-layout-flow">
-<p><strong>One hundred percent.</strong> Across all four metrics. Statements, branches, functions, lines.</p>
+<p class="wp-block-paragraph"><strong>One hundred percent.</strong> Across all four metrics. Statements, branches, functions, lines.</p>
 
 
 
-<p>I need to put that in context for people who don’t live and breathe test coverage numbers. In my career I have been in engineering organizations where 60% line coverage was considered a gold standard, where arguing for 80% felt like pushing water uphill, and where “branch coverage” was treated as an exotic concept reserved for safety-critical systems. I have seen major products ship to millions of users with untested error paths, unmapped state transitions, and edge cases that were “known but not prioritized.” Worse, coverage without any assertions – literally, not testing.</p>
+<p class="wp-block-paragraph">I need to put that in context for people who don’t live and breathe test coverage numbers. In my career I have been in engineering organizations where 60% line coverage was considered a gold standard, where arguing for 80% felt like pushing water uphill, and where “branch coverage” was treated as an exotic concept reserved for safety-critical systems. I have seen major products ship to millions of users with untested error paths, unmapped state transitions, and edge cases that were “known but not prioritized.” Worse, coverage without any assertions – literally, not testing.</p>
 
 
 
-<p>One hundred percent branch coverage means every if, every ternary, every short-circuit evaluation has been exercised in a test. It means every path through the code has been walked. It means there is no “probably fine” – there is evidence of fine.</p>
+<p class="wp-block-paragraph">One hundred percent branch coverage means every if, every ternary, every short-circuit evaluation has been exercised in a test. It means every path through the code has been walked. It means there is no “probably fine” – there is evidence of fine.</p>
 
 
 
-<p>I don’t usually advocate for 100% coverage as a universal target. It can incentivize the wrong things: test-writing that chases the metric rather than verifying the behavior. But in this codebase, the coverage is organic. The tests were written to describe the behavior, and the behavior is thoroughly described. The 100% is the result, not the goal.</p>
+<p class="wp-block-paragraph">I don’t usually advocate for 100% coverage as a universal target. It can incentivize the wrong things: test-writing that chases the metric rather than verifying the behavior. But in this codebase, the coverage is organic. The tests were written to describe the behavior, and the behavior is thoroughly described. The 100% is the result, not the goal.</p>
 </blockquote>
 
 
@@ -1142,11 +1178,11 @@ All files                         |     100 |      100 |     100 |    100
 
 
 <blockquote class="wp-block-quote is-layout-flow wp-block-quote-is-layout-flow">
-<p>Open <code>http://localhost:3000</code> in your browser.</p>
+<p class="wp-block-paragraph">Open <code>http://localhost:3000</code> in your browser.</p>
 
 
 
-<p>It works. I’ll admit I sat there clicking cells for longer than strictly necessary for journalistic purposes. There’s something satisfying about a clean flood-fill cascading across an empty region of the board – a small digital exhale. The Windows 95 styling is a deliberate nod to nostalgia, and it lands exactly right.</p>
+<p class="wp-block-paragraph">It works. I’ll admit I sat there clicking cells for longer than strictly necessary for journalistic purposes. There’s something satisfying about a clean flood-fill cascading across an empty region of the board – a small digital exhale. The Windows 95 styling is a deliberate nod to nostalgia, and it lands exactly right.</p>
 </blockquote>
 
 
@@ -1177,11 +1213,11 @@ Each arrow represents a dependency. No arrow points upward — there are no circ
 
 
 <blockquote class="wp-block-quote is-layout-flow wp-block-quote-is-layout-flow">
-<p>That last point – “no imports from React” in the engine modules – is a deliberate architectural choice with practical consequences. It means the game logic can be tested with plain Jest, with no React rendering overhead. It means the engine could be extracted into a shared library and reused by a CLI version, a mobile version, or a completely different frontend framework, with zero changes. It means the logic and the view are genuinely separate, not just nominally separate.</p>
+<p class="wp-block-paragraph">That last point – “no imports from React” in the engine modules – is a deliberate architectural choice with practical consequences. It means the game logic can be tested with plain Jest, with no React rendering overhead. It means the engine could be extracted into a shared library and reused by a CLI version, a mobile version, or a completely different frontend framework, with zero changes. It means the logic and the view are genuinely separate, not just nominally separate.</p>
 
 
 
-<p>In practice, this kind of clean layering is surprisingly rare. ReactJS’s ubiquity makes it tempting to lean on hooks and context even in places where a plain function would do. The discipline of keeping the engine framework-agnostic is the discipline that makes software last.</p>
+<p class="wp-block-paragraph">In practice, this kind of clean layering is surprisingly rare. ReactJS’s ubiquity makes it tempting to lean on hooks and context even in places where a plain function would do. The discipline of keeping the engine framework-agnostic is the discipline that makes software last.</p>
 </blockquote>
 
 
@@ -1198,12 +1234,12 @@ Each arrow represents a dependency. No arrow points upward — there are no circ
 
 
 
-<p>Every implementation prompt in this session referenced a specific decision from Part 1. Claude never had to guess the architecture – it was already agreed. This saved several rounds of revision. </p>
+<p class="wp-block-paragraph">Every implementation prompt in this session referenced a specific decision from Part 1. Claude never had to guess the architecture – it was already agreed. This saved several rounds of revision. </p>
 
 
 
 <blockquote class="wp-block-quote is-layout-flow wp-block-quote-is-layout-flow">
-<p>I cannot overstate how much the thirty minutes of planning saved. Every prompt in Part 2 was narrow and specific because the decisions were already made. “Implement boardFactory.js as discussed” is a much more productive prompt than “Build me the board thing.” The planning session is not overhead – it’s the multiplier.</p>
+<p class="wp-block-paragraph">I cannot overstate how much the thirty minutes of planning saved. Every prompt in Part 2 was narrow and specific because the decisions were already made. “Implement boardFactory.js as discussed” is a much more productive prompt than “Build me the board thing.” The planning session is not overhead – it’s the multiplier.</p>
 </blockquote>
 
 
@@ -1212,12 +1248,12 @@ Each arrow represents a dependency. No arrow points upward — there are no circ
 
 
 
-<p>Because <code>boardFactory</code> and <code>gameEngine</code> are pure, their tests require zero mocking and run in milliseconds. The test-to-code ratio for these modules is nearly 1:1 and they achieve 100% branch coverage.</p>
+<p class="wp-block-paragraph">Because <code>boardFactory</code> and <code>gameEngine</code> are pure, their tests require zero mocking and run in milliseconds. The test-to-code ratio for these modules is nearly 1:1 and they achieve 100% branch coverage.</p>
 
 
 
 <blockquote class="wp-block-quote is-layout-flow wp-block-quote-is-layout-flow">
-<p>I have made this argument in team meetings more times than I can count: push side effects to the edges, keep the core logic pure. The payoff in testability is enormous and the cost is essentially nothing. The functional programming community has been saying this for decades. It’s nice to watch it demonstrated concretely.</p>
+<p class="wp-block-paragraph">I have made this argument in team meetings more times than I can count: push side effects to the edges, keep the core logic pure. The payoff in testability is enormous and the cost is essentially nothing. The functional programming community has been saying this for decades. It’s nice to watch it demonstrated concretely.</p>
 </blockquote>
 
 
@@ -1226,12 +1262,12 @@ Each arrow represents a dependency. No arrow points upward — there are no circ
 
 
 
-<p><code>Math.random()</code> is the enemy of deterministic tests. Rather than seeding the RNG, spying on <code>placeMines</code> lets us inject a board with known mine positions – tests describe exactly what scenario they cover. And as we discovered, the design of the injected board matters: a carelessly designed mock board can accidentally trigger the wrong game state.</p>
+<p class="wp-block-paragraph"><code>Math.random()</code> is the enemy of deterministic tests. Rather than seeding the RNG, spying on <code>placeMines</code> lets us inject a board with known mine positions – tests describe exactly what scenario they cover. And as we discovered, the design of the injected board matters: a carelessly designed mock board can accidentally trigger the wrong game state.</p>
 
 
 
 <blockquote class="wp-block-quote is-layout-flow wp-block-quote-is-layout-flow">
-<p>The Strict Mode debugging session reinforced something I already believed but now believe more viscerally: understand why your test is failing before you fix it. The first “fix” would have been to suppress the mock behavior differently. The real fix was to understand what React Strict Mode was doing and redesign the test strategy accordingly. The right fix taught us something. The quick fix would have left a fragile test and a gap in understanding<em>.</em></p>
+<p class="wp-block-paragraph">The Strict Mode debugging session reinforced something I already believed but now believe more viscerally: understand why your test is failing before you fix it. The first “fix” would have been to suppress the mock behavior differently. The real fix was to understand what React Strict Mode was doing and redesign the test strategy accordingly. The right fix taught us something. The quick fix would have left a fragile test and a gap in understanding<em>.</em></p>
 </blockquote>
 
 
@@ -1240,12 +1276,12 @@ Each arrow represents a dependency. No arrow points upward — there are no circ
 
 
 
-<p>Keeping the timer in <code>useGameState</code> (not in <code>GameStatus</code>) means <code>GameStatus</code> tests never need <code>act(() =&gt; jest.advanceTimersByTime(...))</code> boilerplate. They just receive <code>time</code> as a prop and render it.</p>
+<p class="wp-block-paragraph">Keeping the timer in <code>useGameState</code> (not in <code>GameStatus</code>) means <code>GameStatus</code> tests never need <code>act(() =&gt; jest.advanceTimersByTime(...))</code> boilerplate. They just receive <code>time</code> as a prop and render it.</p>
 
 
 
 <blockquote class="wp-block-quote is-layout-flow wp-block-quote-is-layout-flow">
-<p>Every hour spent arguing for this separation in design sessions has been worth it. Pure display components are gifts to future maintainers. They can be understood, tested, and modified without knowing anything about where the data came from.</p>
+<p class="wp-block-paragraph">Every hour spent arguing for this separation in design sessions has been worth it. Pure display components are gifts to future maintainers. They can be understood, tested, and modified without knowing anything about where the data came from.</p>
 </blockquote>
 
 
@@ -1254,12 +1290,12 @@ Each arrow represents a dependency. No arrow points upward — there are no circ
 
 
 
-<p>On Expert difficulty the board has 480 cells. Without <code>React.memo</code>, the 1-second timer tick would trigger 480 <code>Cell</code> re-renders per second. With <code>memo</code>, only <code>GameStatus</code> re-renders.</p>
+<p class="wp-block-paragraph">On Expert difficulty the board has 480 cells. Without <code>React.memo</code>, the 1-second timer tick would trigger 480 <code>Cell</code> re-renders per second. With <code>memo</code>, only <code>GameStatus</code> re-renders.</p>
 
 
 
 <blockquote class="wp-block-quote is-layout-flow wp-block-quote-is-layout-flow">
-<p>Performance work is usually reactive – something’s slow, let’s figure out why. Applying <code>React.memo</code> proactively to a known-large grid is the rarer, more valuable discipline: reasoning about performance before it becomes a problem.</p>
+<p class="wp-block-paragraph">Performance work is usually reactive – something’s slow, let’s figure out why. Applying <code>React.memo</code> proactively to a known-large grid is the rarer, more valuable discipline: reasoning about performance before it becomes a problem.</p>
 </blockquote>
 
 
@@ -1276,23 +1312,23 @@ Each arrow represents a dependency. No arrow points upward — there are no circ
 
 
 
-<p>That last row wasn’t in my original mental model for this experiment. I expected Claude to be fast at producing code. I expected it to have reasonable design instincts. What I didn’t fully expect was the quality of the debugging collaboration — the ability to describe a failure, have the root cause correctly identified, and receive a well-reasoned alternative strategy.</p>
+<p class="wp-block-paragraph">That last row wasn’t in my original mental model for this experiment. I expected Claude to be fast at producing code. I expected it to have reasonable design instincts. What I didn’t fully expect was the quality of the debugging collaboration — the ability to describe a failure, have the root cause correctly identified, and receive a well-reasoned alternative strategy.</p>
 
 
 
-<p>I’ve been skeptical of the more breathless AI proclamations for reasons I’ve already described — the industry has a long history of overpromising intelligent systems. But skepticism is not the same as closed-mindedness, and the evidence in front of me after this session is not easy to dismiss. The architecture was sound. The code was clean. The tests were thorough. The debugging was sharp.</p>
+<p class="wp-block-paragraph">I’ve been skeptical of the more breathless AI proclamations for reasons I’ve already described — the industry has a long history of overpromising intelligent systems. But skepticism is not the same as closed-mindedness, and the evidence in front of me after this session is not easy to dismiss. The architecture was sound. The code was clean. The tests were thorough. The debugging was sharp.</p>
 
 
 
-<p>This didn’t feel like using a tool. It felt like working with someone.</p>
+<p class="wp-block-paragraph">This didn’t feel like using a tool. It felt like working with someone.</p>
 
 
 
-<p>Checkout the finished <a href="https://minesweeper.jstrgames.com/">web application</a> and the <a href="https://github.com/johnra74/minesweeper">source code</a> created by claude.</p>
+<p class="wp-block-paragraph">Checkout the finished <a href="https://minesweeper.jstrgames.com/">web application</a> and the <a href="https://github.com/johnra74/minesweeper">source code</a> created by claude.</p>
 
 
 
-<p></p>
+<p class="wp-block-paragraph"></p>
 							</article>
 		</div>
 		<div class="entry-meta-bottom">
@@ -1324,11 +1360,11 @@ Each arrow represents a dependency. No arrow points upward — there are no circ
 <h2 class="wp-block-heading">Recent Posts</h2>
 
 
-<ul class="wp-block-latest-posts__list wp-block-latest-posts"><li><a class="wp-block-latest-posts__post-title" href="/2026/05/09/part-3-skills-building-the-reusable-capabilities-that-power-everything-else/">Part 3: Skills – Building the Reusable Capabilities That Power Everything Else</a></li>
+<ul class="wp-block-latest-posts__list wp-block-latest-posts"><li><a class="wp-block-latest-posts__post-title" href="/2026/05/23/skill-term-that-means-two-things/">Skill: Term That Means Two Things</a></li>
+<li><a class="wp-block-latest-posts__post-title" href="/2026/05/09/part-3-skills-building-the-reusable-capabilities-that-power-everything-else/">Part 3: Skills – Building the Reusable Capabilities That Power Everything Else</a></li>
 <li><a class="wp-block-latest-posts__post-title" href="/2026/05/06/part-2-workflow-when-you-know-the-steps-before-you-start/">Part 2: Workflow – When You Know the Steps Before You Start</a></li>
 <li><a class="wp-block-latest-posts__post-title" href="/2026/05/01/part-1-agents-when-the-problem-doesnt-have-a-roadmap/">Part 1: Agents – When the Problem Doesn’t Have a Roadmap</a></li>
 <li><a class="wp-block-latest-posts__post-title" href="/2026/04/22/the-quiet-disruption-what-ai-agents-do-to-agile/">The Quiet Disruption: What AI Agents Do to Agile</a></li>
-<li><a class="wp-block-latest-posts__post-title" href="/2026/04/17/building-minesweeper-with-claude-cli-part-3-mobile-touch-refactor/">Building Minesweeper with Claude CLI – Part 3: Mobile Touch Refactor</a></li>
 </ul></div></div>
 </section><section id="block-21" class="widget widget_block">
 <ul class="wp-block-list">
@@ -1395,7 +1431,7 @@ Each arrow represents a dependency. No arrow points upward — there are no circ
 <h2 class="wp-block-heading">Categories</h2>
 
 
-<ul class="wp-block-categories-list wp-block-categories">	<li class="cat-item cat-item-9"><a href="/category/dotnet/">.NET</a>
+<ul class="wp-block-categories-list wp-block-categories-taxonomy-category wp-block-categories">	<li class="cat-item cat-item-9"><a href="/category/dotnet/">.NET</a>
 </li>
 	<li class="cat-item cat-item-44"><a href="/category/ai/">AI</a>
 </li>
@@ -1450,16 +1486,14 @@ Each arrow represents a dependency. No arrow points upward — there are no circ
 <script type="speculationrules">
 {"prefetch":[{"source":"document","where":{"and":[{"href_matches":"/*"},{"not":{"href_matches":["/wp-*.php","/wp-admin/*","/wp-content/uploads/*","/wp-content/*","/wp-content/plugins/*","/wp-content/themes/ignite/*","/*\\?(.+)"]}},{"not":{"selector_matches":"a[rel~=\"nofollow\"]"}},{"not":{"selector_matches":".no-prefetch, .no-prefetch a"}}]},"eagerness":"conservative"}]}
 </script>
-<script type="text/javascript" src="/wp-content/themes/ignite/js/build/production.min.js?ver=6.9.4" id="ct-ignite-production-js"></script>
+<script id="ct-ignite-production-js" src="/wp-content/themes/ignite/js/build/production.min.js?ver=7.0"></script>
 <script id="wp-emoji-settings" type="application/json">
-{"baseUrl":"https://s.w.org/images/core/emoji/17.0.2/72x72/","ext":".png","svgUrl":"https://s.w.org/images/core/emoji/17.0.2/svg/","svgExt":".svg","source":{"concatemoji":"/wp-includes/js/wp-emoji-release.min.js?ver=6.9.4"}}
+{"baseUrl":"https://s.w.org/images/core/emoji/17.0.2/72x72/","ext":".png","svgUrl":"https://s.w.org/images/core/emoji/17.0.2/svg/","svgExt":".svg","source":{"concatemoji":"/wp-includes/js/wp-emoji-release.min.js?ver=7.0"}}
 </script>
 <script type="module">
-/* <![CDATA[ */
 /*! This file is auto-generated */
 const a=JSON.parse(document.getElementById("wp-emoji-settings").textContent),o=(window._wpemojiSettings=a,"wpEmojiSettingsSupports"),s=["flag","emoji"];function i(e){try{var t={supportTests:e,timestamp:(new Date).valueOf()};sessionStorage.setItem(o,JSON.stringify(t))}catch(e){}}function c(e,t,n){e.clearRect(0,0,e.canvas.width,e.canvas.height),e.fillText(t,0,0);t=new Uint32Array(e.getImageData(0,0,e.canvas.width,e.canvas.height).data);e.clearRect(0,0,e.canvas.width,e.canvas.height),e.fillText(n,0,0);const a=new Uint32Array(e.getImageData(0,0,e.canvas.width,e.canvas.height).data);return t.every((e,t)=>e===a[t])}function p(e,t){e.clearRect(0,0,e.canvas.width,e.canvas.height),e.fillText(t,0,0);var n=e.getImageData(16,16,1,1);for(let e=0;e<n.data.length;e++)if(0!==n.data[e])return!1;return!0}function u(e,t,n,a){switch(t){case"flag":return n(e,"\ud83c\udff3\ufe0f\u200d\u26a7\ufe0f","\ud83c\udff3\ufe0f\u200b\u26a7\ufe0f")?!1:!n(e,"\ud83c\udde8\ud83c\uddf6","\ud83c\udde8\u200b\ud83c\uddf6")&&!n(e,"\ud83c\udff4\udb40\udc67\udb40\udc62\udb40\udc65\udb40\udc6e\udb40\udc67\udb40\udc7f","\ud83c\udff4\u200b\udb40\udc67\u200b\udb40\udc62\u200b\udb40\udc65\u200b\udb40\udc6e\u200b\udb40\udc67\u200b\udb40\udc7f");case"emoji":return!a(e,"\ud83e\u1fac8")}return!1}function f(e,t,n,a){let r;const o=(r="undefined"!=typeof WorkerGlobalScope&&self instanceof WorkerGlobalScope?new OffscreenCanvas(300,150):document.createElement("canvas")).getContext("2d",{willReadFrequently:!0}),s=(o.textBaseline="top",o.font="600 32px Arial",{});return e.forEach(e=>{s[e]=t(o,e,n,a)}),s}function r(e){var t=document.createElement("script");t.src=e,t.defer=!0,document.head.appendChild(t)}a.supports={everything:!0,everythingExceptFlag:!0},new Promise(t=>{let n=function(){try{var e=JSON.parse(sessionStorage.getItem(o));if("object"==typeof e&&"number"==typeof e.timestamp&&(new Date).valueOf()<e.timestamp+604800&&"object"==typeof e.supportTests)return e.supportTests}catch(e){}return null}();if(!n){if("undefined"!=typeof Worker&&"undefined"!=typeof OffscreenCanvas&&"undefined"!=typeof URL&&URL.createObjectURL&&"undefined"!=typeof Blob)try{var e="postMessage("+f.toString()+"("+[JSON.stringify(s),u.toString(),c.toString(),p.toString()].join(",")+"));",a=new Blob([e],{type:"text/javascript"});const r=new Worker(URL.createObjectURL(a),{name:"wpTestEmojiSupports"});return void(r.onmessage=e=>{i(n=e.data),r.terminate(),t(n)})}catch(e){}i(n=f(s,u,c,p))}t(n)}).then(e=>{for(const n in e)a.supports[n]=e[n],a.supports.everything=a.supports.everything&&a.supports[n],"flag"!==n&&(a.supports.everythingExceptFlag=a.supports.everythingExceptFlag&&a.supports[n]);var t;a.supports.everythingExceptFlag=a.supports.everythingExceptFlag&&!a.supports.flag,a.supports.everything||((t=a.source||{}).concatemoji?r(t.concatemoji):t.wpemoji&&t.twemoji&&(r(t.twemoji),r(t.wpemoji)))});
 //# sourceURL=/wp-includes/js/wp-emoji-loader.min.js
-/* ]]> */
 </script>
 <!-- Google tag (gtag.js) -->
 <script async src="https://www.googletagmanager.com/gtag/js?id=G-M1C40BG5Q3"></script>
