@@ -275,15 +275,10 @@ li.linkcat {
   --card: var(--color-background-primary);
   --border: var(--color-border-tertiary);
   --border-em: var(--color-border-secondary);
-  --teal-text: #0F6E56;
-  --teal-fill: #E1F5EE;
-  --teal-border: #1D9E75;
-  --amber-text: #854F0B;
-  --amber-fill: #FAEEDA;
-  --amber-border: #BA7517;
-  --purple-text: #3C3489;
-  --purple-fill: #EEEDFE;
-  --purple-border: #7F77DD;
+  --blue-text: #014C85;
+  --blue-border: #014C85;
+  --green-text: #03481C;
+  --green-border: #03481C;
 }
 
 .two-col {
@@ -300,8 +295,8 @@ li.linkcat {
   padding: 1.25rem;
 }
 
-.concept-card.teal { border-top: 3px solid var(--teal-border); }
-.concept-card.amber { border-top: 3px solid var(--amber-border); }
+.concept-card.blue { border-top: 3px solid var(--blue-border); }
+.concept-card.green { border-top: 3px solid var(--green-border); }
 
 .concept-card .label {
   font-size: 11px;
@@ -311,8 +306,8 @@ li.linkcat {
   margin-bottom: 0.5rem;
 }
 
-.concept-card.teal .label { color: var(--teal-text); }
-.concept-card.amber .label { color: var(--amber-text); }
+.concept-card.blue .label { color: var(--blue-text); }
+.concept-card.green .label { color: var(--green-text); }
 
 .concept-card .title {
   font-family: 'Playfair Display', Georgia, serif;
@@ -332,12 +327,12 @@ li.linkcat {
 </style>
 
 <div class="two-col">
-    <div class="concept-card teal">
+    <div class="concept-card blue">
       <div class="label">In coding agents (Claude Code, Copilot)</div>
       <div class="title">The Markdown Skill File</div>
       <p>A <code>SKILL.md</code> document that encodes environment-specific constraints, available libraries, rendering quirks, and best practices for a particular task domain. The agent reads it before acting.</p>
     </div>
-    <div class="concept-card amber">
+    <div class="concept-card green">
       <div class="label">In agentic AI systems (MCP, tool use)</div>
       <div class="title">The Tool or MCP Skill</div>
       <p>A declared capability, often backed by an MCP server or API, that the agent can invoke by name, passing arguments and receiving results. Google Drive, Asana, web search are all skills in this sense.</p>
