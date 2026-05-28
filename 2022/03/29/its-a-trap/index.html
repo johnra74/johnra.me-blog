@@ -63,6 +63,10 @@ ol,ul{box-sizing:border-box}:root :where(.wp-block-list.has-background){padding:
 .wp-block-group{box-sizing:border-box}:where(.wp-block-group.wp-block-group-is-layout-constrained){position:relative}
 /*# sourceURL=/wp-includes/blocks/group/style.min.css */
 </style>
+<style id="wp-block-quote-inline-css">
+.wp-block-quote{box-sizing:border-box;overflow-wrap:break-word}.wp-block-quote.is-large:where(:not(.is-style-plain)),.wp-block-quote.is-style-large:where(:not(.is-style-plain)){margin-bottom:1em;padding:0 1em}.wp-block-quote.is-large:where(:not(.is-style-plain)) p,.wp-block-quote.is-style-large:where(:not(.is-style-plain)) p{font-size:1.5em;font-style:italic;line-height:1.6}.wp-block-quote.is-large:where(:not(.is-style-plain)) cite,.wp-block-quote.is-large:where(:not(.is-style-plain)) footer,.wp-block-quote.is-style-large:where(:not(.is-style-plain)) cite,.wp-block-quote.is-style-large:where(:not(.is-style-plain)) footer{font-size:1.125em;text-align:right}.wp-block-quote>cite{display:block}
+/*# sourceURL=/wp-includes/blocks/quote/style.min.css */
+</style>
 
 <style id="classic-theme-styles-inline-css">
 /*! This file is auto-generated */
@@ -112,10 +116,10 @@ li.linkcat {
 </style>
 	<script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-9086452030022667" crossorigin="anonymous"></script>
 <!-- SEO-START -->
-<meta name="description" content="Confirmation bias – the tendency to discredit non-confirmative evidence, or to seek out (actively or subconsciously) primarily confirming evidence – is...">
+<meta name="description" content="Confirmation Bias in Tech: Why We Choose Solutions Before We Understand Problems">
 <meta property="og:type" content="article">
 <meta property="og:title" content="It’s a trap!">
-<meta property="og:description" content="Confirmation bias – the tendency to discredit non-confirmative evidence, or to seek out (actively or subconsciously) primarily confirming evidence – is...">
+<meta property="og:description" content="Confirmation Bias in Tech: Why We Choose Solutions Before We Understand Problems">
 <meta property="og:url" content="https://www.johnra.me/2022/03/29/its-a-trap/">
 <meta property="og:site_name" content="J O H N R A . M E">
 <meta property="og:image" content="https://www.johnra.me/wp-content/uploads/2022/03/trap.png">
@@ -123,18 +127,18 @@ li.linkcat {
 <meta property="article:author" content="John Ra">
 <meta name="twitter:card" content="summary_large_image">
 <meta name="twitter:title" content="It’s a trap!">
-<meta name="twitter:description" content="Confirmation bias – the tendency to discredit non-confirmative evidence, or to seek out (actively or subconsciously) primarily confirming evidence – is...">
+<meta name="twitter:description" content="Confirmation Bias in Tech: Why We Choose Solutions Before We Understand Problems">
 <meta name="twitter:image" content="https://www.johnra.me/wp-content/uploads/2022/03/trap.png">
 <script type="application/ld+json">
 {
   "@context": "https://schema.org",
   "@type": "BlogPosting",
   "headline": "It’s a trap!",
-  "description": "Confirmation bias – the tendency to discredit non-confirmative evidence, or to seek out (actively or subconsciously) primarily confirming evidence – is...",
+  "description": "Confirmation Bias in Tech: Why We Choose Solutions Before We Understand Problems",
   "url": "https://www.johnra.me/2022/03/29/its-a-trap/",
   "author": {
     "@type": "Person",
-    "name": "Johnathan Ra",
+    "name": "John Ra",
     "url": "https://www.johnra.me/author/johnra/"
   },
   "publisher": {
@@ -193,30 +197,158 @@ li.linkcat {
 		</div>
 		<div class="entry-content">
 			<article>
-				<p class="last-updated">Last updated on April 11, 2024 </p>				<p>Confirmation bias – the tendency to discredit non-confirmative evidence, or to seek out (actively or subconsciously) primarily confirming evidence – is part of all of us. We all suffer from it, every day. As technologist, we could do better. We should always re-evaluate all the facts and not fall into the traps of our dogma/orthodoxy – what we see or want to see.</p>
-
-
-<div class="wp-block-image"><figure class="aligncenter size-full"><img decoding="async" width="525" height="354" src="/wp-content/uploads/2022/03/bias.png" alt="" class="wp-image-565"></figure></div>
-
-
-
-<p class="wp-block-paragraph">Rather than reviewing all the facts, we too often hold onto our beliefs. Ask a front-end developer which library/framework should be used for a given project, it’s rarely followed by a question on what the requirements are. Rather, if they are a ReactJS developer, they will automatically respond with ReactJS. An Angular developer is no different. We end up choosing a solution first then justify its fit. Just ask why ReactJS is better solution, they will point to facts like, “it’s the most downloaded library”</p>
+								
+<p class="wp-block-paragraph"><em>Confirmation Bias in Tech: Why We Choose Solutions Before We Understand Problems</em></p>
 
 
 
-<div class="wp-block-image"><figure class="aligncenter size-full"><img decoding="async" width="809" height="429" src="/wp-content/uploads/2022/03/reactstat.png" alt="" class="wp-image-566"></figure></div>
+<p class="wp-block-paragraph">Confirmation bias, <em>the tendency to seek out evidence that supports what we already believe and dismiss anything that challenges it</em>, is part of being human. We all carry it. We all act on it, often without realizing it. But as technologists, we like to think of ourselves as rational, evidence-driven people. We deal in logic, in systems, in reproducible outcomes. Surely we’re above the petty cognitive shortcuts that trip up everyone else.</p>
 
 
 
-<p class="wp-block-paragraph">By that logic, I should just go buy <a href="https://www.edmunds.com/most-popular-cars/">a Ford F-Series truck</a>. If I’m an eco-friendly individual that never needs the truck to carry loads, maybe I don’t need a truck. Maybe an electric vehicle is a better fit. Yet, because it is the most sold vehicle in America, do you think it’s the right fit. Failure to take into considerations of the facts of the requirements and/or the make-up of the engineering team, we do a disservice to our clients/customers. </p>
+<p class="wp-block-paragraph"><strong>We are not.</strong> And the consequences of pretending otherwise show up in production codebases every single day.</p>
 
 
 
-<h2 class="wp-block-heading">How to Avoid Confirmation Bias?</h2>
+<h2 class="wp-block-heading">What Is Confirmation Bias, Really?</h2>
 
 
 
-<p class="wp-block-paragraph">Discuss your thoughts with others. Don’t jump to conclusions. Gather as much facts. Surround yourself with a diverse group of people, and don’t be afraid to listen. The simplest way to avoid confirmation bias is to look at your own beliefs. Search out ways in which your default solution may be wrong, rather than the ways in which it is right. Always be learning. Seek out competitive solutions and learn from it.</p>
+<p class="wp-block-paragraph">At its core, confirmation bias is the mind’s way of protecting its existing investments – sounds like a bit of <a href="https://en.wikipedia.org/wiki/Sunk_cost">sunk cost</a> added in. Once you’ve formed a belief, or spent three years mastering a particular framework, your brain becomes a remarkably efficient filtering system. Evidence that supports the belief gets amplified. Evidence that challenges it gets quietly deprioritized, reframed, or discarded entirely. You’re not lying to yourself. You’re just… curating.</p>
+
+
+
+<p class="wp-block-paragraph">The insidious part is that it doesn’t feel like bias. It feels like experience. It feels like pattern recognition. It feels like knowing what you’re talking about. And sometimes it is those things. The problem is that from the inside, wisdom and rationalized preference feel identical; which means you can’t tell the difference without doing the uncomfortable work of actually stress-testing your assumptions. </p>
+
+
+<div class="wp-block-image">
+<figure class="aligncenter size-full"><img decoding="async" width="525" height="354" src="/wp-content/uploads/2022/03/bias.png" alt="" class="wp-image-565"></figure>
+</div>
+
+
+<p class="wp-block-paragraph">Most people skip that work. It’s not fun. It doesn’t feel productive. And it carries the terrifying risk of discovering you might be wrong about something you’ve been confidently recommending for years.</p>
+
+
+
+<h2 class="wp-block-heading">The Framework Trap</h2>
+
+
+
+<p class="wp-block-paragraph">Let’s make this concrete. Ask a front-end developer which library or framework to use for a new project. Before they ask a single question about requirements, team size, expected scale, maintenance burden, or timeline, there’s a good chance you’ll already have your answer. And that answer will, with remarkable consistency, be whatever they happen to know best.</p>
+
+
+
+<p class="wp-block-paragraph">A React developer will say React. An Angular developer will say Angular. A Vue devotee will mention that actually, have you considered Vue? The recommendation materializes instantly, confidently, and entirely independently of any information about the actual problem being solved. It’s almost impressive.</p>
+
+
+
+<p class="wp-block-paragraph">And when you push back, when you have the audacity to ask why this particular tool is the right fit for this particular situation, the justifications come rolling out. “React has the largest community.” “Angular is enterprise-grade.” “It’s the most downloaded library in the ecosystem.” These are facts. Real, verifiable, technically-accurate facts. They are also almost entirely beside the point.</p>
+
+
+<div class="wp-block-image">
+<figure class="aligncenter size-full"><img decoding="async" width="809" height="429" src="/wp-content/uploads/2022/03/reactstat.png" alt="" class="wp-image-566"></figure>
+</div>
+
+
+<p class="wp-block-paragraph">“Most downloaded” does not mean “most appropriate for your use case.” It means a lot of people are using it, many of them for reasons that have nothing to do with your requirements. Popularity is a proxy metric, and a fairly weak one at that. But it sounds authoritative, it’s easy to look up, and it conveniently supports the conclusion that was already reached before the conversation started.</p>
+
+
+
+<p class="wp-block-paragraph">This is confirmation bias doing what it does best: arriving at the destination first and then constructing a plausible-looking route to justify the journey.</p>
+
+
+
+<h3 class="wp-block-heading">The F-150 Problem</h3>
+
+
+
+<p class="wp-block-paragraph">Here’s an analogy that might sting a little. The Ford F-Series pickup truck has been the <a href="https://www.edmunds.com/most-popular-cars/">best-selling vehicle in the United States for over 4 decades</a>. 40+ consecutive years at the top of the sales charts. By the logic we routinely apply to technology choices, “it’s the most popular, therefore it must be the right answer,” the F-150 should be the obvious vehicle recommendation for every single person who needs a car.</p>
+
+
+
+<p class="wp-block-paragraph">Need to commute twenty minutes to an office in a dense urban neighborhood? F-150. Live alone and park on the street in a city where spaces are approximately the width of a yoga mat? F-150. Care deeply about fuel efficiency and your carbon footprint? F-150. Have never once in your life needed to tow anything larger than a bicycle? Congratulations, have you considered the F-150? </p>
+
+
+<div class="wp-block-image">
+<figure class="aligncenter size-full"><img loading="lazy" decoding="async" width="1024" height="747" src="/wp-content/uploads/2022/03/confirmation-bias-f150.png" alt="" class="wp-image-806" srcset="/wp-content/uploads/2022/03/confirmation-bias-f150.png 1024w, /wp-content/uploads/2022/03/confirmation-bias-f150-300x219.png 300w, /wp-content/uploads/2022/03/confirmation-bias-f150-768x560.png 768w" sizes="auto, (max-width: 1024px) 100vw, 1024px"><figcaption class="wp-element-caption">if you drive, you need a truck</figcaption></figure>
+</div>
+
+
+<p class="wp-block-paragraph">Obviously this is absurd. The F-150 is a genuinely excellent truck that is perfectly suited to a specific set of use cases: hauling things, towing things, driving on terrain that would destroy a sedan, and projecting a particular image in certain parts of the country. For many people, it’s exactly the right vehicle. For many others, it’s an expensive, oversized, fuel-consuming mismatch for their actual needs.</p>
+
+
+
+<p class="wp-block-paragraph">The most popular option is not the same as the right option. These are different concepts and it’s somewhat embarrassing that we have to keep re-explaining this. Yet in technology conversations, we collapse them constantly. Because the popular option is the one we already know, the one we already know is the one we’ve already decided to recommend.</p>
+
+
+
+<h3 class="wp-block-heading">Why This Actually Matters</h3>
+
+
+
+<p class="wp-block-paragraph">This might all seem like a minor inefficiency. A developer recommends a familiar tool, the team builds with it, the product ships. So what’s the problem?</p>
+
+
+
+<p class="wp-block-paragraph">The problem is usually quiet and slow. It’s the startup that built a heavyweight enterprise framework for a 3-person team and is now drowning in architectural overhead that serves no one. It’s the client who needed a lightweight, maintainable solution and got a monument to the lead developer’s resume instead. It’s the 6 months of onboarding friction because the technology chosen wasn’t what the team actually knew, it was what the loudest voice in the room knew. It’s the rewrite 2 years later that everyone saw coming except the person who made the original decision.</p>
+
+
+
+<p class="wp-block-paragraph">We like to talk about serving our clients and users. We like to talk about making sound technical decisions. Confirmation bias is quietly, persistently incompatible with both of those things. And the fact that it feels like expertise while it’s happening makes it considerably more dangerous than ignorance would be. At least with ignorance, you know you don’t know. Confirmation bias comes with its own confidence included.</p>
+
+
+
+<h3 class="wp-block-heading">How to Actually Do Better</h3>
+
+
+
+<p class="wp-block-paragraph">The good news is that confirmation bias isn’t a personality flaw. It’s a cognitive pattern, and cognitive patterns can be interrupted – if you’re willing to be deliberate about it. A few habits that genuinely help:</p>
+
+
+
+<h4 class="wp-block-heading"><strong>Ask before answering.</strong> </h4>
+
+
+
+<p class="wp-block-paragraph">This should be obvious and yet it apparently needs to be said: no technology recommendation should precede a clear understanding of the requirements. Not a rough understanding. Not an assumed understanding based on past projects that seemed similar. An actual understanding, arrived at by asking actual questions and listening to the answers. If your recommended solution is the same regardless of what the requirements turn out to be, that’s not experience talking – that’s bias.</p>
+
+
+
+<h4 class="wp-block-heading"><strong>Deliberately look for reasons your default might be wrong.</strong> </h4>
+
+
+
+<p class="wp-block-paragraph">Finding evidence that your preferred solution works is easy and essentially meaningless. Your brain will do that for free without any effort on your part. The useful exercise, the one that takes real discipline, is to actively seek out its failure cases. Where has this approach broken down? What kinds of problems does it handle poorly? What would a smart person who disagrees with you say, and can you actually refute it? That discomfort is not a sign that you’re doing something wrong. It’s a sign that you’re doing something right.</p>
+
+
+
+<h4 class="wp-block-heading"><strong>Broaden your circle and mean it.</strong> </h4>
+
+
+
+<p class="wp-block-paragraph">Surrounding yourself with people who think differently. Different technical backgrounds, different philosophical approaches, different relationships with whatever the current consensus happens to be is one of the most effective ways to interrupt an echo chamber. But only if you actually listen to the disagreement rather than waiting for your turn to explain why they’re mistaken. A diverse team that gets steamrolled by the most senior voice in the room is just a homogeneous team with extra steps.</p>
+
+
+
+<h4 class="wp-block-heading"><strong>Stay genuinely curious about approaches you don’t use.</strong> </h4>
+
+
+
+<p class="wp-block-paragraph">This doesn’t mean you need to become a generalist who refuses to commit to anything. It means understanding the landscape well enough that your recommendations are actually informed. Read the case studies from teams who chose differently. Understand not just what competing solutions do, but why thoughtful people chose them. You don’t have to agree. You do have to understand.</p>
+
+
+
+<h4 class="wp-block-heading"><strong>Question your certainty proportionally to how comfortable it feels.</strong> </h4>
+
+
+
+<p class="wp-block-paragraph">The recommendations that feel most obvious, most natural, most like common sense are precisely the ones most worth interrogating. Certainty that requires no effort is usually borrowed from somewhere – from habit, from familiarity, from the last ten projects that happened to be similar enough that the pattern held. That’s not a reason to abandon the recommendation. It is a reason to verify it.</p>
+
+
+
+<blockquote class="wp-block-quote is-layout-flow wp-block-quote-is-layout-flow">
+<p class="wp-block-paragraph">The best technical decisions start with questions, not answers. The uncomfortable truth about confirmation bias is that the beliefs most worth scrutinizing are the ones that feel the least like beliefs. The ones that feel like obvious facts, like settled knowledge, like things only a fool would question. Those are exactly the ones to question first.</p>
+</blockquote>
 							</article>
 		</div>
 		<div class="entry-meta-bottom">
@@ -248,11 +380,11 @@ li.linkcat {
 <h2 class="wp-block-heading">Recent Posts</h2>
 
 
-<ul class="wp-block-latest-posts__list wp-block-latest-posts"><li><a class="wp-block-latest-posts__post-title" href="/2026/05/25/part-1-dont-repeat-yourself-teach-it-to-remember/">Part 1: Don’t Repeat Yourself – Teach It to Remember</a></li>
+<ul class="wp-block-latest-posts__list wp-block-latest-posts"><li><a class="wp-block-latest-posts__post-title" href="/2026/05/28/part-2-long-term-memory-for-ai-agents/">Part 2: Long-Term Memory for AI Agents</a></li>
+<li><a class="wp-block-latest-posts__post-title" href="/2026/05/25/part-1-dont-repeat-yourself-teach-it-to-remember/">Part 1: Don’t Repeat Yourself – Teach It to Remember</a></li>
 <li><a class="wp-block-latest-posts__post-title" href="/2026/05/23/skill-term-that-means-two-things/">Skill: Term That Means Two Things</a></li>
 <li><a class="wp-block-latest-posts__post-title" href="/2026/05/09/part-3-skills-building-the-reusable-capabilities-that-power-everything-else/">Part 3: Skills – Building the Reusable Capabilities That Power Everything Else</a></li>
 <li><a class="wp-block-latest-posts__post-title" href="/2026/05/06/part-2-workflow-when-you-know-the-steps-before-you-start/">Part 2: Workflow – When You Know the Steps Before You Start</a></li>
-<li><a class="wp-block-latest-posts__post-title" href="/2026/05/01/part-1-agents-when-the-problem-doesnt-have-a-roadmap/">Part 1: Agents – When the Problem Doesn’t Have a Roadmap</a></li>
 </ul></div></div>
 </section><section id="block-21" class="widget widget_block">
 <ul class="wp-block-list">
