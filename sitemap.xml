@@ -6,6 +6,11 @@
     <priority>1.0</priority>
   </url>
   <url>
+    <loc>https://www.johnra.me/</loc>
+    <changefreq>weekly</changefreq>
+    <priority>1.0</priority>
+  </url>
+  <url>
     <loc>https://www.johnra.me/2012/08/13/hello-world-2/</loc>
     <changefreq>monthly</changefreq>
     <priority>0.8</priority>
@@ -202,6 +207,11 @@
   </url>
   <url>
     <loc>https://www.johnra.me/2026/06/15/part-1-ontologies-back-in-fashion/</loc>
+    <changefreq>monthly</changefreq>
+    <priority>0.8</priority>
+  </url>
+  <url>
+    <loc>https://www.johnra.me/2026/06/17/the-shorter-path/</loc>
     <changefreq>monthly</changefreq>
     <priority>0.8</priority>
   </url>
