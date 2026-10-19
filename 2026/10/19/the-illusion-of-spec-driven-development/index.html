@@ -1,0 +1,571 @@
+<!DOCTYPE html>
+<html lang="en-US">
+<head><meta charset="UTF-8">
+	<title>The Illusion of Spec-Driven Development – J O H N R A . M E</title>
+<meta name="robots" content="max-image-preview:large">
+
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<meta name="template" content="Ignite 1.84">
+<link rel="dns-prefetch" href="//fonts.googleapis.com">
+
+
+
+
+<style id="wp-img-auto-sizes-contain-inline-css">
+img:is([sizes=auto i],[sizes^="auto," i]){contain-intrinsic-size:3000px 1500px}
+/*# sourceURL=wp-img-auto-sizes-contain-inline-css */
+</style>
+<style id="wp-emoji-styles-inline-css">
+
+	img.wp-smiley, img.emoji {
+		display: inline !important;
+		border: none !important;
+		box-shadow: none !important;
+		height: 1em !important;
+		width: 1em !important;
+		margin: 0 0.07em !important;
+		vertical-align: -0.1em !important;
+		background: none !important;
+		padding: 0 !important;
+	}
+/*# sourceURL=wp-emoji-styles-inline-css */
+</style>
+<style id="wp-block-library-inline-css">
+:root{--wp-block-synced-color:#7a00df;--wp-block-synced-color--rgb:122,0,223;--wp-bound-block-color:var(--wp-block-synced-color);--wp-editor-canvas-background:#ddd;--wp-admin-theme-color:#007cba;--wp-admin-theme-color--rgb:0,124,186;--wp-admin-theme-color-darker-10:#006ba1;--wp-admin-theme-color-darker-10--rgb:0,107,160.5;--wp-admin-theme-color-darker-20:#005a87;--wp-admin-theme-color-darker-20--rgb:0,90,135;--wp-admin-border-width-focus:2px}@media (min-resolution:192dpi){:root{--wp-admin-border-width-focus:1.5px}}.wp-element-button{cursor:pointer}:root .has-very-light-gray-background-color{background-color:#eee}:root .has-very-dark-gray-background-color{background-color:#313131}:root .has-very-light-gray-color{color:#eee}:root .has-very-dark-gray-color{color:#313131}:root .has-vivid-green-cyan-to-vivid-cyan-blue-gradient-background{background:linear-gradient(135deg,#00d084,#0693e3)}:root .has-purple-crush-gradient-background{background:linear-gradient(135deg,#34e2e4,#4721fb 50%,#ab1dfe)}:root .has-hazy-dawn-gradient-background{background:linear-gradient(135deg,#faaca8,#dad0ec)}:root .has-subdued-olive-gradient-background{background:linear-gradient(135deg,#fafae1,#67a671)}:root .has-atomic-cream-gradient-background{background:linear-gradient(135deg,#fdd79a,#004a59)}:root .has-nightshade-gradient-background{background:linear-gradient(135deg,#330968,#31cdcf)}:root .has-midnight-gradient-background{background:linear-gradient(135deg,#020381,#2874fc)}:root{--wp--preset--font-size--normal:16px;--wp--preset--font-size--huge:42px}.has-regular-font-size{font-size:1em}.has-larger-font-size{font-size:2.625em}.has-normal-font-size{font-size:var(--wp--preset--font-size--normal)}.has-huge-font-size{font-size:var(--wp--preset--font-size--huge)}:root .has-text-align-center{text-align:center}:root .has-text-align-left{text-align:left}:root .has-text-align-right{text-align:right}.has-fit-text{white-space:nowrap!important}#end-resizable-editor-section{display:none}.aligncenter{clear:both}.items-justified-left{justify-content:flex-start}.items-justified-center{justify-content:center}.items-justified-right{justify-content:flex-end}.items-justified-space-between{justify-content:space-between}.screen-reader-text{word-wrap:normal!important;border:0;clip-path:inset(50%);height:1px;margin:-1px;overflow:hidden;padding:0;position:absolute;width:1px;word-break:normal!important}.screen-reader-text:focus{background-color:#ddd;clip-path:none;color:#444;display:block;font-size:1em;height:auto;left:5px;line-height:normal;padding:15px 23px 14px;text-decoration:none;top:5px;width:auto;z-index:100000}html :where(.has-border-color){border-style:solid}html :where([style^=border-color],[style*=";border-color"],[style*="; border-color"]){border-style:solid}html :where([style^=border-top-color],[style*=";border-top-color"],[style*="; border-top-color"]){border-top-style:solid}html :where([style^=border-right-color],[style*=";border-right-color"],[style*="; border-right-color"]){border-right-style:solid}html :where([style^=border-bottom-color],[style*=";border-bottom-color"],[style*="; border-bottom-color"]){border-bottom-style:solid}html :where([style^=border-left-color],[style*=";border-left-color"],[style*="; border-left-color"]){border-left-style:solid}html :where([style^=border-width],[style*=";border-width"],[style*="; border-width"]){border-style:solid}html :where([style^=border-top-width],[style*=";border-top-width"],[style*="; border-top-width"]){border-top-style:solid}html :where([style^=border-right-width],[style*=";border-right-width"],[style*="; border-right-width"]){border-right-style:solid}html :where([style^=border-bottom-width],[style*=";border-bottom-width"],[style*="; border-bottom-width"]){border-bottom-style:solid}html :where([style^=border-left-width],[style*=";border-left-width"],[style*="; border-left-width"]){border-left-style:solid}html :where(img[class*=wp-image-]){height:auto;max-width:100%}:where(figure){margin:0 0 1em}html :where(.is-position-sticky){--wp-admin--admin-bar--position-offset:var(--wp-admin--admin-bar--height,0px)}@media screen and (max-width:600px){html :where(.is-position-sticky){--wp-admin--admin-bar--position-offset:0px}}
+
+/*# sourceURL=/wp-includes/css/dist/block-library/common.min.css */
+</style>
+<style id="wp-block-categories-inline-css">
+.wp-block-categories{box-sizing:border-box}.wp-block-categories.alignleft{margin-right:2em}.wp-block-categories.alignright{margin-left:2em}.wp-block-categories.wp-block-categories-dropdown.aligncenter{text-align:center}.wp-block-categories .wp-block-categories__label:not(.screen-reader-text){display:block;width:100%}
+/*# sourceURL=/wp-includes/blocks/categories/style.min.css */
+</style>
+<style id="wp-block-heading-inline-css">
+h1:where(.wp-block-heading).has-background,h2:where(.wp-block-heading).has-background,h3:where(.wp-block-heading).has-background,h4:where(.wp-block-heading).has-background,h5:where(.wp-block-heading).has-background,h6:where(.wp-block-heading).has-background{padding:1.25em 2.375em}h1.has-text-align-left[style*=writing-mode]:where([style*=vertical-lr]),h1.has-text-align-right[style*=writing-mode]:where([style*=vertical-rl]),h2.has-text-align-left[style*=writing-mode]:where([style*=vertical-lr]),h2.has-text-align-right[style*=writing-mode]:where([style*=vertical-rl]),h3.has-text-align-left[style*=writing-mode]:where([style*=vertical-lr]),h3.has-text-align-right[style*=writing-mode]:where([style*=vertical-rl]),h4.has-text-align-left[style*=writing-mode]:where([style*=vertical-lr]),h4.has-text-align-right[style*=writing-mode]:where([style*=vertical-rl]),h5.has-text-align-left[style*=writing-mode]:where([style*=vertical-lr]),h5.has-text-align-right[style*=writing-mode]:where([style*=vertical-rl]),h6.has-text-align-left[style*=writing-mode]:where([style*=vertical-lr]),h6.has-text-align-right[style*=writing-mode]:where([style*=vertical-rl]){rotate:180deg}
+/*# sourceURL=/wp-includes/blocks/heading/style.min.css */
+</style>
+<style id="wp-block-latest-posts-inline-css">
+.wp-block-latest-posts{box-sizing:border-box}.wp-block-latest-posts.alignleft{margin-right:2em}.wp-block-latest-posts.alignright{margin-left:2em}.wp-block-latest-posts.wp-block-latest-posts__list{list-style:none}.wp-block-latest-posts.wp-block-latest-posts__list li{clear:both;overflow-wrap:break-word}.wp-block-latest-posts.is-grid:not(.is-layout-grid){display:flex;flex-wrap:wrap}.wp-block-latest-posts.is-grid:not(.is-layout-grid) li{margin:0 1.25em 1.25em 0;width:100%}@media (min-width:600px){.wp-block-latest-posts.columns-2:not(.is-layout-grid) li{width:calc(50% - .625em)}.wp-block-latest-posts.columns-2:not(.is-layout-grid) li:nth-child(2n){margin-right:0}.wp-block-latest-posts.columns-3:not(.is-layout-grid) li{width:calc(33.33333% - .83333em)}.wp-block-latest-posts.columns-3:not(.is-layout-grid) li:nth-child(3n){margin-right:0}.wp-block-latest-posts.columns-4:not(.is-layout-grid) li{width:calc(25% - .9375em)}.wp-block-latest-posts.columns-4:not(.is-layout-grid) li:nth-child(4n){margin-right:0}.wp-block-latest-posts.columns-5:not(.is-layout-grid) li{width:calc(20% - 1em)}.wp-block-latest-posts.columns-5:not(.is-layout-grid) li:nth-child(5n){margin-right:0}.wp-block-latest-posts.columns-6:not(.is-layout-grid) li{width:calc(16.66667% - 1.04167em)}.wp-block-latest-posts.columns-6:not(.is-layout-grid) li:nth-child(6n){margin-right:0}}@media (max-width:600px){.wp-block-latest-posts-is-layout-grid[class*=columns-]:not(.has-native-responsive-grid){grid-template-columns:1fr}}:root :where(.wp-block-latest-posts.is-grid){padding:0}:root :where(.wp-block-latest-posts.wp-block-latest-posts__list){padding-left:0}.wp-block-latest-posts__post-author,.wp-block-latest-posts__post-date{display:block;font-size:.8125em}.wp-block-latest-posts__post-excerpt,.wp-block-latest-posts__post-full-content{margin-bottom:1em;margin-top:.5em}.wp-block-latest-posts__featured-image a{display:inline-block}.wp-block-latest-posts__featured-image img{height:auto;max-width:100%;width:auto}.wp-block-latest-posts__featured-image.alignleft{float:left;margin-right:1em}.wp-block-latest-posts__featured-image.alignright{float:right;margin-left:1em}.wp-block-latest-posts__featured-image.aligncenter{margin-bottom:1em;text-align:center}
+/*# sourceURL=/wp-includes/blocks/latest-posts/style.min.css */
+</style>
+<style id="wp-block-list-inline-css">
+ol,ul{box-sizing:border-box}:root :where(.wp-block-list.has-background){padding:1.25em 2.375em}
+/*# sourceURL=/wp-includes/blocks/list/style.min.css */
+</style>
+<style id="wp-block-paragraph-inline-css">
+.is-small-text{font-size:.875em}.is-regular-text{font-size:1em}.is-large-text{font-size:2.25em}.is-larger-text{font-size:3em}.has-drop-cap:not(:focus):first-letter{float:left;font-size:8.4em;font-style:normal;font-weight:100;line-height:.68;margin:.05em .1em 0 0;text-transform:uppercase}body.rtl .has-drop-cap:not(:focus):first-letter{float:none;margin-left:.1em}p.has-drop-cap.has-background{overflow:hidden}:root :where(p.has-background){padding:1.25em 2.375em}:where(p.has-text-color:not(.has-link-color)) a{color:inherit}p.has-text-align-left[style*="writing-mode:vertical-lr"],p.has-text-align-right[style*="writing-mode:vertical-rl"]{rotate:180deg}
+/*# sourceURL=/wp-includes/blocks/paragraph/style.min.css */
+</style>
+<style id="wp-block-group-inline-css">
+.wp-block-group{box-sizing:border-box}:where(.wp-block-group.wp-block-group-is-layout-constrained){position:relative}
+/*# sourceURL=/wp-includes/blocks/group/style.min.css */
+</style>
+<style id="wp-block-quote-inline-css">
+.wp-block-quote{box-sizing:border-box;overflow-wrap:break-word}.wp-block-quote.is-large:where(:not(.is-style-plain)),.wp-block-quote.is-style-large:where(:not(.is-style-plain)){margin-bottom:1em;padding:0 1em}.wp-block-quote.is-large:where(:not(.is-style-plain)) p,.wp-block-quote.is-style-large:where(:not(.is-style-plain)) p{font-size:1.5em;font-style:italic;line-height:1.6}.wp-block-quote.is-large:where(:not(.is-style-plain)) cite,.wp-block-quote.is-large:where(:not(.is-style-plain)) footer,.wp-block-quote.is-style-large:where(:not(.is-style-plain)) cite,.wp-block-quote.is-style-large:where(:not(.is-style-plain)) footer{font-size:1.125em;text-align:right}.wp-block-quote>cite{display:block}
+/*# sourceURL=/wp-includes/blocks/quote/style.min.css */
+</style>
+
+<style id="classic-theme-styles-inline-css">
+/*! This file is auto-generated */
+.wp-block-button__link{color:#fff;background-color:#32373c;border-radius:9999px;box-shadow:none;text-decoration:none;padding:calc(.667em + 2px) calc(1.333em + 2px);font-size:1.125em}.wp-block-file__button{background:#32373c;color:#fff;text-decoration:none}
+/*# sourceURL=/wp-includes/css/classic-themes.min.css */
+</style>
+
+<style id="global-styles-inline-css">
+:root{--wp--preset--aspect-ratio--square: 1;--wp--preset--aspect-ratio--4-3: 4/3;--wp--preset--aspect-ratio--3-4: 3/4;--wp--preset--aspect-ratio--3-2: 3/2;--wp--preset--aspect-ratio--2-3: 2/3;--wp--preset--aspect-ratio--16-9: 16/9;--wp--preset--aspect-ratio--9-16: 9/16;--wp--preset--color--black: #000000;--wp--preset--color--cyan-bluish-gray: #abb8c3;--wp--preset--color--white: #ffffff;--wp--preset--color--pale-pink: #f78da7;--wp--preset--color--vivid-red: #cf2e2e;--wp--preset--color--luminous-vivid-orange: #ff6900;--wp--preset--color--luminous-vivid-amber: #fcb900;--wp--preset--color--light-green-cyan: #7bdcb5;--wp--preset--color--vivid-green-cyan: #00d084;--wp--preset--color--pale-cyan-blue: #8ed1fc;--wp--preset--color--vivid-cyan-blue: #0693e3;--wp--preset--color--vivid-purple: #9b51e0;--wp--preset--gradient--vivid-cyan-blue-to-vivid-purple: linear-gradient(135deg,rgb(6,147,227) 0%,rgb(155,81,224) 100%);--wp--preset--gradient--light-green-cyan-to-vivid-green-cyan: linear-gradient(135deg,rgb(122,220,180) 0%,rgb(0,208,130) 100%);--wp--preset--gradient--luminous-vivid-amber-to-luminous-vivid-orange: linear-gradient(135deg,rgb(252,185,0) 0%,rgb(255,105,0) 100%);--wp--preset--gradient--luminous-vivid-orange-to-vivid-red: linear-gradient(135deg,rgb(255,105,0) 0%,rgb(207,46,46) 100%);--wp--preset--gradient--very-light-gray-to-cyan-bluish-gray: linear-gradient(135deg,rgb(238,238,238) 0%,rgb(169,184,195) 100%);--wp--preset--gradient--cool-to-warm-spectrum: linear-gradient(135deg,rgb(74,234,220) 0%,rgb(151,120,209) 20%,rgb(207,42,186) 40%,rgb(238,44,130) 60%,rgb(251,105,98) 80%,rgb(254,248,76) 100%);--wp--preset--gradient--blush-light-purple: linear-gradient(135deg,rgb(255,206,236) 0%,rgb(152,150,240) 100%);--wp--preset--gradient--blush-bordeaux: linear-gradient(135deg,rgb(254,205,165) 0%,rgb(254,45,45) 50%,rgb(107,0,62) 100%);--wp--preset--gradient--luminous-dusk: linear-gradient(135deg,rgb(255,203,112) 0%,rgb(199,81,192) 50%,rgb(65,88,208) 100%);--wp--preset--gradient--pale-ocean: linear-gradient(135deg,rgb(255,245,203) 0%,rgb(182,227,212) 50%,rgb(51,167,181) 100%);--wp--preset--gradient--electric-grass: linear-gradient(135deg,rgb(202,248,128) 0%,rgb(113,206,126) 100%);--wp--preset--gradient--midnight: linear-gradient(135deg,rgb(2,3,129) 0%,rgb(40,116,252) 100%);--wp--preset--font-size--small: 13px;--wp--preset--font-size--medium: 20px;--wp--preset--font-size--large: 21px;--wp--preset--font-size--x-large: 42px;--wp--preset--font-size--regular: 16px;--wp--preset--font-size--larger: 36px;--wp--preset--spacing--20: 0.44rem;--wp--preset--spacing--30: 0.67rem;--wp--preset--spacing--40: 1rem;--wp--preset--spacing--50: 1.5rem;--wp--preset--spacing--60: 2.25rem;--wp--preset--spacing--70: 3.38rem;--wp--preset--spacing--80: 5.06rem;--wp--preset--shadow--natural: 6px 6px 9px rgba(0, 0, 0, 0.2);--wp--preset--shadow--deep: 12px 12px 50px rgba(0, 0, 0, 0.4);--wp--preset--shadow--sharp: 6px 6px 0px rgba(0, 0, 0, 0.2);--wp--preset--shadow--outlined: 6px 6px 0px -3px rgb(255, 255, 255), 6px 6px rgb(0, 0, 0);--wp--preset--shadow--crisp: 6px 6px 0px rgb(0, 0, 0);}.wp-block-button{--wp--preset--dimension--25: 25%;--wp--preset--dimension--50: 50%;--wp--preset--dimension--75: 75%;--wp--preset--dimension--100: 100%;}:where(body) { margin: 0; }:where(.is-layout-flex){gap: 0.5em;}:where(.is-layout-grid){gap: 0.5em;}body .is-layout-flex{display: flex;}.is-layout-flex{flex-wrap: wrap;align-items: center;}.is-layout-flex > :is(*, div){margin: 0;}body .is-layout-grid{display: grid;}.is-layout-grid > :is(*, div){margin: 0;}body{padding-top: 0px;padding-right: 0px;padding-bottom: 0px;padding-left: 0px;}:root :where(.wp-element-button, .wp-block-button__link){background-color: #32373c;border-width: 0;color: #fff;font-family: inherit;font-size: inherit;font-style: inherit;font-weight: inherit;letter-spacing: inherit;line-height: inherit;padding-top: calc(0.667em + 2px);padding-right: calc(1.333em + 2px);padding-bottom: calc(0.667em + 2px);padding-left: calc(1.333em + 2px);text-decoration: none;text-transform: inherit;}.has-black-color{color: var(--wp--preset--color--black) !important;}.has-cyan-bluish-gray-color{color: var(--wp--preset--color--cyan-bluish-gray) !important;}.has-white-color{color: var(--wp--preset--color--white) !important;}.has-pale-pink-color{color: var(--wp--preset--color--pale-pink) !important;}.has-vivid-red-color{color: var(--wp--preset--color--vivid-red) !important;}.has-luminous-vivid-orange-color{color: var(--wp--preset--color--luminous-vivid-orange) !important;}.has-luminous-vivid-amber-color{color: var(--wp--preset--color--luminous-vivid-amber) !important;}.has-light-green-cyan-color{color: var(--wp--preset--color--light-green-cyan) !important;}.has-vivid-green-cyan-color{color: var(--wp--preset--color--vivid-green-cyan) !important;}.has-pale-cyan-blue-color{color: var(--wp--preset--color--pale-cyan-blue) !important;}.has-vivid-cyan-blue-color{color: var(--wp--preset--color--vivid-cyan-blue) !important;}.has-vivid-purple-color{color: var(--wp--preset--color--vivid-purple) !important;}.has-black-background-color{background-color: var(--wp--preset--color--black) !important;}.has-cyan-bluish-gray-background-color{background-color: var(--wp--preset--color--cyan-bluish-gray) !important;}.has-white-background-color{background-color: var(--wp--preset--color--white) !important;}.has-pale-pink-background-color{background-color: var(--wp--preset--color--pale-pink) !important;}.has-vivid-red-background-color{background-color: var(--wp--preset--color--vivid-red) !important;}.has-luminous-vivid-orange-background-color{background-color: var(--wp--preset--color--luminous-vivid-orange) !important;}.has-luminous-vivid-amber-background-color{background-color: var(--wp--preset--color--luminous-vivid-amber) !important;}.has-light-green-cyan-background-color{background-color: var(--wp--preset--color--light-green-cyan) !important;}.has-vivid-green-cyan-background-color{background-color: var(--wp--preset--color--vivid-green-cyan) !important;}.has-pale-cyan-blue-background-color{background-color: var(--wp--preset--color--pale-cyan-blue) !important;}.has-vivid-cyan-blue-background-color{background-color: var(--wp--preset--color--vivid-cyan-blue) !important;}.has-vivid-purple-background-color{background-color: var(--wp--preset--color--vivid-purple) !important;}.has-black-border-color{border-color: var(--wp--preset--color--black) !important;}.has-cyan-bluish-gray-border-color{border-color: var(--wp--preset--color--cyan-bluish-gray) !important;}.has-white-border-color{border-color: var(--wp--preset--color--white) !important;}.has-pale-pink-border-color{border-color: var(--wp--preset--color--pale-pink) !important;}.has-vivid-red-border-color{border-color: var(--wp--preset--color--vivid-red) !important;}.has-luminous-vivid-orange-border-color{border-color: var(--wp--preset--color--luminous-vivid-orange) !important;}.has-luminous-vivid-amber-border-color{border-color: var(--wp--preset--color--luminous-vivid-amber) !important;}.has-light-green-cyan-border-color{border-color: var(--wp--preset--color--light-green-cyan) !important;}.has-vivid-green-cyan-border-color{border-color: var(--wp--preset--color--vivid-green-cyan) !important;}.has-pale-cyan-blue-border-color{border-color: var(--wp--preset--color--pale-cyan-blue) !important;}.has-vivid-cyan-blue-border-color{border-color: var(--wp--preset--color--vivid-cyan-blue) !important;}.has-vivid-purple-border-color{border-color: var(--wp--preset--color--vivid-purple) !important;}.has-vivid-cyan-blue-to-vivid-purple-gradient-background{background: var(--wp--preset--gradient--vivid-cyan-blue-to-vivid-purple) !important;}.has-light-green-cyan-to-vivid-green-cyan-gradient-background{background: var(--wp--preset--gradient--light-green-cyan-to-vivid-green-cyan) !important;}.has-luminous-vivid-amber-to-luminous-vivid-orange-gradient-background{background: var(--wp--preset--gradient--luminous-vivid-amber-to-luminous-vivid-orange) !important;}.has-luminous-vivid-orange-to-vivid-red-gradient-background{background: var(--wp--preset--gradient--luminous-vivid-orange-to-vivid-red) !important;}.has-very-light-gray-to-cyan-bluish-gray-gradient-background{background: var(--wp--preset--gradient--very-light-gray-to-cyan-bluish-gray) !important;}.has-cool-to-warm-spectrum-gradient-background{background: var(--wp--preset--gradient--cool-to-warm-spectrum) !important;}.has-blush-light-purple-gradient-background{background: var(--wp--preset--gradient--blush-light-purple) !important;}.has-blush-bordeaux-gradient-background{background: var(--wp--preset--gradient--blush-bordeaux) !important;}.has-luminous-dusk-gradient-background{background: var(--wp--preset--gradient--luminous-dusk) !important;}.has-pale-ocean-gradient-background{background: var(--wp--preset--gradient--pale-ocean) !important;}.has-electric-grass-gradient-background{background: var(--wp--preset--gradient--electric-grass) !important;}.has-midnight-gradient-background{background: var(--wp--preset--gradient--midnight) !important;}.has-small-font-size{font-size: var(--wp--preset--font-size--small) !important;}.has-medium-font-size{font-size: var(--wp--preset--font-size--medium) !important;}.has-large-font-size{font-size: var(--wp--preset--font-size--large) !important;}.has-x-large-font-size{font-size: var(--wp--preset--font-size--x-large) !important;}.has-regular-font-size{font-size: var(--wp--preset--font-size--regular) !important;}.has-larger-font-size{font-size: var(--wp--preset--font-size--larger) !important;}
+:where(.wp-block-latest-posts.is-layout-flex){gap: 1.25em;}:where(.wp-block-latest-posts.is-layout-grid){gap: 1.25em;}
+/*# sourceURL=global-styles-inline-css */
+</style>
+
+<link rel="stylesheet" id="ct-ignite-google-fonts-css" href="//fonts.googleapis.com/css?family=Roboto+Slab:Thin,Light,Regular,Bold&amp;subset=latin%2Clatin-ext&amp;ver=7.1.3" media="all">
+<link rel="stylesheet" id="ct-ignite-font-awesome-css" href="/wp-content/themes/ignite/assets/font-awesome/css/all.min.css?ver=7.1.3" media="all">
+<link rel="stylesheet" id="ct-ignite-style-css" href="/wp-content/themes/ignite/style.css?ver=7.1.3" media="all">
+<style id="ct-ignite-style-inline-css">
+li.linkcat {
+	list-style-type: none;
+}
+
+            body, h1, h2, h3, h4, h5, h6, input:not([type='checkbox']):not([type='radio']):not([type='submit']):not([type='file']), input[type='submit'], textarea {
+                font-family: Roboto Slab;
+                font-style: normal;
+                font-weight: ;
+            }
+        
+
+            .overflow-container {
+                background: ;
+            }
+            .main, .sidebar-primary-container, .breadcrumb-trail {
+                background: none;
+            }
+        
+/*# sourceURL=ct-ignite-style-inline-css */
+</style>
+<script id="jquery-core-js" src="/wp-includes/js/jquery/jquery.min.js?ver=3.7.1"></script>
+<script id="jquery-migrate-js" src="/wp-includes/js/jquery/jquery-migrate.min.js?ver=3.4.1"></script>
+<link rel="EditURI" type="application/rsd+xml" title="RSD" href="/xmlrpc.php?rsd">
+<meta name="generator" content="WordPress 7.1.3">
+<link rel="canonical" href="https://www.johnra.me/2026/10/19/the-illusion-of-spec-driven-development/">
+<link rel="shortlink" href="/?p=917">
+<style id="wp-custom-css">
+li.linkcat {
+	list-style-type: none;
+}
+</style>
+	<script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-9086452030022667" crossorigin="anonymous"></script>
+<!-- SEO-START -->
+<meta name="description" content="First came vibe coding; described what you wanted, the model produced something plausible. If it seemed to work, shipped it. In The Shorter Path, I...">
+<meta property="og:type" content="article">
+<meta property="og:title" content="The Illusion of Spec-Driven Development">
+<meta property="og:description" content="First came vibe coding; described what you wanted, the model produced something plausible. If it seemed to work, shipped it. In The Shorter Path, I...">
+<meta property="og:url" content="https://www.johnra.me/2026/10/19/the-illusion-of-spec-driven-development/">
+<meta property="og:site_name" content="J O H N R A . M E">
+<meta property="og:image" content="https://www.johnra.me/wp-content/uploads/2026/10/no-specs.png">
+<meta property="article:published_time" content="2026-10-19T00:00:00+00:00">
+<meta property="article:author" content="John Ra">
+<meta name="twitter:card" content="summary_large_image">
+<meta name="twitter:title" content="The Illusion of Spec-Driven Development">
+<meta name="twitter:description" content="First came vibe coding; described what you wanted, the model produced something plausible. If it seemed to work, shipped it. In The Shorter Path, I...">
+<meta name="twitter:image" content="https://www.johnra.me/wp-content/uploads/2026/10/no-specs.png">
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "BlogPosting",
+  "headline": "The Illusion of Spec-Driven Development",
+  "description": "First came vibe coding; described what you wanted, the model produced something plausible. If it seemed to work, shipped it. In The Shorter Path, I...",
+  "url": "https://www.johnra.me/2026/10/19/the-illusion-of-spec-driven-development/",
+  "author": {
+    "@type": "Person",
+    "name": "Johnathan Ra",
+    "url": "https://www.johnra.me/author/johnra/"
+  },
+  "publisher": {
+    "@type": "Organization",
+    "name": "J O H N R A . M E",
+    "url": "https://www.johnra.me"
+  },
+  "image": "https://www.johnra.me/wp-content/uploads/2026/10/no-specs.png",
+  "datePublished": "2026-10-19T00:00:00+00:00"
+}
+</script>
+<!-- SEO-END -->
+</head>
+<body id="ignite" class="wp-singular post-template-default single single-post postid-917 single-format-standard wp-theme-ignite singular singular-post singular-post-917">
+		<a class="skip-content" href="#main">Skip to content</a>
+		<header class="site-header" id="site-header" role="banner">
+		<div id="title-info" class="title-info">
+			<div class="site-title"><a href="/">J O H N R A . M E</a></div>		</div>
+		<button id="toggle-navigation" class="toggle-navigation"><i class="fas fa-bars"></i></button>
+<div class="menu-container menu-primary" id="menu-primary" role="navigation">
+	<p id="site-description" class="tagline">...yet another musings of a techie</p><ul id="menu-primary-items" class="menu-primary-items"><li id="menu-item-489" class="menu-item menu-item-type-custom menu-item-object-custom menu-item-489"><a href="/">Blog</a></li>
+<li id="menu-item-490" class="menu-item menu-item-type-post_type menu-item-object-page menu-item-490"><a href="/about-me/">About</a></li>
+<li id="menu-item-522" class="menu-item menu-item-type-post_type menu-item-object-page menu-item-522"><a href="/resume/">Résumé</a></li>
+</ul><ul class="social-media-icons">				<li>
+					<a class="facebook" target="_blank" href="https://www.facebook.com/jra75">
+						<i class="fab fa-facebook-square" title="facebook"></i>
+						<span class="screen-reader-text">facebook</span>
+					</a>
+				</li>
+								<li>
+					<a class="linkedin" target="_blank" href="https://www.linkedin.com/in/johnathan-ra-49b2713">
+						<i class="fab fa-linkedin" title="linkedin"></i>
+						<span class="screen-reader-text">linkedin</span>
+					</a>
+				</li>
+								<li>
+					<a class="youtube" target="_blank" href="https://www.youtube.com/channel/UCYAOIaObT9lzSpnDAy0g0Ng">
+						<i class="fab fa-youtube-square" title="youtube"></i>
+						<span class="screen-reader-text">youtube</span>
+					</a>
+				</li>
+								<li>
+					<a class="github" target="_blank" href="https://github.com/johnra74">
+						<i class="fab fa-github-square" title="github"></i>
+						<span class="screen-reader-text">github</span>
+					</a>
+				</li>
+				</ul></div>	</header>
+		<div id="overflow-container" class="overflow-container">
+		<div id="breadcrumbs" class="breadcrumb-trail breadcrumbs"><span class="item-home"><a class="bread-link bread-home" href="/" title="Home">Home</a></span><span class="separator"> &gt; </span><span class="item-cat"><a href="/category/opinion/">Opinion</a></span><span class="separator"> &gt; </span><span class="item-current item-917"><span class="bread-current bread-917" title="The Illusion of Spec-Driven Development">The Illusion of Spec-Driven Development</span></span></div>		<div id="main" class="main" role="main">	<div id="loop-container" class="loop-container">
+			<div class="post-917 post type-post status-publish format-standard has-post-thumbnail hentry category-ai category-engineering category-opinion entry">
+		<div class="featured-image"><img width="1080" height="452" src="/wp-content/uploads/2026/10/no-specs.png" class="attachment-full size-full wp-post-image" alt="" decoding="async" fetchpriority="high" srcset="/wp-content/uploads/2026/10/no-specs.png 1080w, /wp-content/uploads/2026/10/no-specs-300x126.png 300w, /wp-content/uploads/2026/10/no-specs-1024x429.png 1024w, /wp-content/uploads/2026/10/no-specs-768x321.png 768w" sizes="(max-width: 1080px) 100vw, 1080px"></div>			<div class="entry-meta-top">
+		Published October 19, 2026 by <a href="/author/johnra/" rel="author">John Ra</a>	</div>
+		<div class="entry-header">
+			<h1 class="entry-title">The Illusion of Spec-Driven Development</h1>
+		</div>
+		<div class="entry-content">
+			<article>
+								
+<p class="wp-block-paragraph">First came vibe coding; described what you wanted, the model produced something plausible. If it seemed to work, shipped it. In <a href="/2026/06/17/the-shorter-path/">The Shorter Path</a>, I called “vibe code” a phrase that would die soon. It didn’t die. It got a sequel, and like most sequels, it has a bigger budget and the same plot. The cure was <a href="https://en.wikipedia.org/wiki/Specification-driven_development">Spec-Driven Development (SDD)</a>. Before the agent writes a line of code, write down what you want. A specification, then a plan, then small tasks the agent can implement and check itself against. <a href="https://github.com/github/spec-kit">GitHub’s Spec Kit</a> is the most visible version, and it is pitched quite explicitly as the step beyond vibe coding, toward something repeatable and verifiable. I have no concerns with the idea. A spec gives the agent a target. It gives you a record of what you decided. It’s the design document we’ve all been told to write first, finally getting its due. Unfortunately, now everyone is “vibe specing”.</p>
+
+
+
+<p class="wp-block-paragraph">Before you ask: it’s a pattern, not a stat. I don’t have hard numbers but every spec I’ve read sounds AI-like. I bet you’ve seen too. Most sound like someone types a paragraph then they ask the model to write the spec. Out comes a document with headings, user stories, acceptance criteria, and a confident little section called “Non-Functional Requirements.” It looks thorough but an AI agent built it. Then, they tell the same AI agent to build it. We now have specs that nobody checked.</p>
+
+
+
+<blockquote class="wp-block-quote is-layout-flow wp-block-quote-is-layout-flow">
+<p class="wp-block-paragraph">We didn’t stop vibing. We just started vibing in Markdown.</p>
+</blockquote>
+
+
+
+<h2 class="wp-block-heading">The test that never asserts</h2>
+
+
+
+<p class="wp-block-paragraph">Everyone understands the value of <a href="https://en.wikipedia.org/wiki/Test-driven_development">Test-Driven Development (TDD)</a>. Anyone who has spent time in a real codebase has seen a test that never asserts anything. It runs. It goes green. It shows up in the coverage report, padding the number needed to pass the production gate in the <a href="https://en.wikipedia.org/wiki/CI/CD">CI/CD pipeline</a>. But it checks absolutely nothing. I’ve grumbled about this before; in <a href="/2026/04/14/building-minesweeper-with-claude-cli-part-2-implementation/">Part 2 of the Minesweeper</a> build I pointed out that coverage without assertions is, literally, not testing.</p>
+
+
+
+<p class="wp-block-paragraph">The lesson generalizes and it’s not flattering. A practice is only as good as its execution. TDD’s value doesn’t live in the existence of test files. It lives in the assertions. Pull them out and you keep every visible part of the discipline: red, green, refactor, the satisfying wall of checkmarks. You’ve just removed the part that tells you anything. In TDD with ReactJS my very first takeaway was that tests are specifications. This post is the other half of that sentence: specifications need tests. And for a spec, the test is a review. A human reading the spec and accepting it is the assertion. Skip it because what AI agent has generated seem to show thorough-looking requirements then Spec-Driven Development becomes a test suite with no assertions. Green, ceremonial, and silent.</p>
+
+
+
+<p class="wp-block-paragraph">That is exactly the problem with “vibe”. Vibe coding was never really about code. Accepting plausible output you really didn’t understand. So the “vibe spec” is no better than “vibe coding”. They are basically the same; replacing one bad and another. One describes an artifact. The other describes without anyone really checking it. “Vibe spec” is the same failure, one level up.</p>
+
+
+
+<h2 class="wp-block-heading">Specs fail silently</h2>
+
+
+
+<p class="wp-block-paragraph">Code that’s wrong tends to be self -evident eventually. A test fails. An exception surfaces. A user files a ticket; not always, and rarely on anyone’s project plan. A spec that’s wrong is a ticking time bomb. The agent created, the agent reads it and agent builds exactly what it says. The code passes its tests, because the tests were derived from the same spec. Everything agrees with everything else. Every dashboard is green. The spec is suppose to provide an account but the generated spec has no accounts. </p>
+
+
+
+<blockquote class="wp-block-quote is-layout-flow wp-block-quote-is-layout-flow">
+<p class="wp-block-paragraph">The agent didn’t get it wrong. It got it exactly right. That’s the problem.</p>
+</blockquote>
+
+
+
+<p class="wp-block-paragraph">In fairness, the test analogy isn’t perfect. A test with no assertions can be caught by tooling. Linters flag it. Mutation testing exposes it. However, an unreviewed spec has no such tooling. Nothing turns red when a spec decision was never examined. No CI/CD gate fails because nobody read it. Specs aren’t the same case as assertion-free tests. It’s a harder mitigate.</p>
+
+
+
+<h2 class="wp-block-heading">Why the checks gets skipped</h2>
+
+
+
+<p class="wp-block-paragraph">None of this is new in principle. We’ve always known specs should be reviewed, the same way we’ve always known tests should assert. Unfortunately, we don’t live in “should” land. What changed is the price of the ceremony relative to the price of the check. Writing a spec used to take hours, and those hours were miserable and tedious; I could say the same about write all the unit test. But the misery had a side effect nobody appreciated at the time: you couldn’t write a spec without making the decisions in it.</p>
+
+
+
+<style data-wp-block-html="css">
+:root{
+    --paper:#EEEDE8;
+    --surface-alt:#E7E5DD;
+    --ink:#1A1714;
+    --ink-muted:#57514A;   /* FLAG: inferred token, pending confirmation */
+    --ink-faint:#8D857C;
+    --rule:#D9D6CE;        /* FLAG: inferred token, pending confirmation */
+    --accent:#E6A117;
+    --accent-deep:#9C6F15;
+    --accent-warm:#BE5B2E; /* FLAG: inferred token, pending confirmation */
+    --link:#4682D5;
+    --mono-bg:#E7E3D9;
+  }
+
+/* The price change */
+.vs-cost {
+  margin: 2.2rem 0;
+  border-top: 1px solid var(--rule);
+  border-bottom: 1px solid var(--rule);
+  padding: 1.3rem 0 1.1rem;
+}
+.vs-cost-group { margin-bottom: 1.3rem; }
+.vs-cost-group:last-of-type { margin-bottom: 0.6rem; }
+.vs-cost-title { font-weight: 600; font-size: 0.98rem; margin-bottom: 0.45rem; }
+.vs-bar-row {
+  display: grid;
+  grid-template-columns: 7.5rem 1fr;
+  gap: 0.75rem;
+  align-items: center;
+  margin-bottom: 0.4rem;
+}
+.vs-bar-name { font-family: 'DM Mono', ui-monospace, monospace; font-size: 0.75rem; color: var(--ink-muted); }
+.vs-bar { height: 10px; background: var(--accent); border-radius: 1px; }
+.vs-bar.fused {
+  background: repeating-linear-gradient(90deg, var(--accent) 0 9px, var(--accent-warm) 9px 18px);
+}
+.vs-bar.check { background: var(--accent-warm); }
+.vs-cost-note { font-size: 0.85rem; color: var(--ink-faint); font-style: italic; margin: 0.6rem 0 0; }
+</style>
+
+<div class="vs-cost" role="figure" aria-label="Illustrative comparison of the cost of writing versus reviewing a spec, before and after generation">
+  <div class="vs-cost-label">The price change</div>
+  <div class="vs-cost-group">
+    <div class="vs-cost-title">Hand-written spec</div>
+    <div class="vs-bar-row">
+      <span class="vs-bar-name">writing</span>
+      <div class="vs-bar fused" style="width: 100%"></div>
+    </div>
+    <p class="vs-cost-note" style="margin-top:0.2rem">Writing the spec then reviewing/revising is time consuming.</p>
+  </div>
+  <div class="vs-cost-group">
+    <div class="vs-cost-title">Generated spec</div>
+    <div class="vs-bar-row">
+      <span class="vs-bar-name">generating</span>
+      <div class="vs-bar" style="width: 4%"></div>
+    </div>
+    <div class="vs-bar-row">
+      <span class="vs-bar-name">reviewing</span>
+      <div class="vs-bar check" style="width: 100%"></div>
+    </div>
+  </div>
+  <p class="vs-cost-note">AI writing got fast and quick. The check shouldn’t.</p>
+</div>
+
+
+
+<p class="wp-block-paragraph">Now AI writes long, fluent, thorough-looking documents on demand. Reviewing it should cost exactly the same. However, everyone seems to be dropping the reviews; specs are skimmed over because it seems so thorough-looking. Not because they’re lazy. Because it’s the rational response to what appears to be “good enough”.</p>
+
+
+
+<p class="wp-block-paragraph">If that sounds familiar, it should. I wrote about it. It’s <a href="/2026/06/01/goodharts-law/">Goodhart’s Law</a>. Spec’s existence is now a proxy for “we thought this through.” Manually writing the spec forced the thinking, the outcome held. Once a spec can exist without anyone thinking/reviewing, its existence measures nothing at all, and “we have a spec” quietly becomes the target. If teams review generated specs as rigorously as they reviewed hand-written ones, the outcome can hold. And if unreviewed generated specs don’t lead to more decisions being reversed late in the build than reviewed ones do, then “we have a spec” failures. What I’m describing isn’t happening at any scale. </p>
+
+
+
+<h2 class="wp-block-heading">What good review looks like</h2>
+
+
+
+<p class="wp-block-paragraph">“Review the spec” is about as actionable as “write good tests.” True, unhelpful, and the kind of advice that shows up on a poster. So here’s what I actually mean.</p>
+
+
+
+<h4 class="wp-block-heading">1. Identify the decisions that matters</h4>
+
+
+
+<p class="wp-block-paragraph">Some decisions are easy to change later. Others are not. Choosing a button color is easy to fix. Deciding what happens when a customer deletes their account could have lasting consequences for their data, privacy, and business. Give those consequential decisions the most attention. Don’t confuse the amount of documentation with the importance of what’s inside it. A 40-page specification might contain only 5 decisions that truly matter.</p>
+
+
+
+<h4 class="wp-block-heading">2. Make the AI show its work</h4>
+
+
+
+<p class="wp-block-paragraph">Ask the AI to list the decisions it made for you. For each one, show what it chose, what the alternatives were, and why it chose that option. Then review the decisions that would be expensive to get wrong, one at a time. I did something similar when planning the <a href="/2026/04/11/building-minesweeper-with-claude-cli-part-1-planning/">Minesweeper build described in Part 1</a>. The session ended with a table listing every decision and the reasoning behind it. I noted at the time that every decision could have gone another way. Looking back, that table was the real review. The specification was just the paperwork. But there’s a catch worth making: the AI can only list the decisions it recognizes it made. The questions it never thought to ask won’t appear in the table. The list makes those blind spots easier to catch, but it can’t guarantee they’re all gone.</p>
+
+
+
+<h4 class="wp-block-heading">3. Make every important decision testable</h4>
+
+
+
+<p class="wp-block-paragraph">For every important decision, define how you’ll know it was implemented correctly. It’s not enough to say, “Deleting an account shouldn’t leave its personal data behind.” Define a test that would prove whether that’s actually true. For example, “After an account is deleted, no supported query can retrieve the user’s personal data.” The difference matters. The first is an intention. The second is something you can verify. If you can’t describe how to test a decision, you probably haven’t made it concrete enough. You’ve agreed with a sentence, not defined a requirement.</p>
+
+
+
+<h4 class="wp-block-heading">4. Deliberately try to break the specification</h4>
+
+
+
+<p class="wp-block-paragraph">Mutation-test the spec. Try deliberately getting an important decision wrong. This is the backstop for everything the review might have missed. Pick a decision that matters and reverse it. If the specification still passes (no requirement fails, no other section contradicts the change) then nothing was actually checking that decision. That’s a gap in the review. Better to find it now, while you’re still reviewing a document, than after an AI agent has spent hours building the wrong thing.</p>
+
+
+
+<h4 class="wp-block-heading">5. Interview the AI, but challenge its questions</h4>
+
+
+
+<p class="wp-block-paragraph">Let the AI interview you instead of handing it a paragraph and accepting whatever it produces. The back-and-forth brings assumptions to the surface and uncovers decisions you might otherwise overlook. That’s how I developed the spec for the build described in <a href="/2026/09/07/price-of-context-switching/">Price of Context Switching</a>. But there’s a catch, the AI still decides what to ask. An interview changes your role from reviewing the AI’s answers to answering its questions. That’s real progress. But if the AI never asks about something important, you may never consider it. So don’t skip the safeguards. Keep the decision logs, and deliberately reverse important decisions to see whether the spec catches the change.</p>
+
+
+
+<h2 class="wp-block-heading">Green, ceremonial, and silent</h2>
+
+
+
+<p class="wp-block-paragraph">Spec-driven development didn’t fail. The process already includes a review step. The problem is that it’s the one step AI hasn’t improved: deciding whether the spec is actually right. A specification nobody challenged is like a test that never checks its result. It passes every time. The dashboard turns green. The process is followed. Everyone moves on. And the AI faithfully builds something nobody actually decided to build.</p>
+
+
+
+<p class="wp-block-paragraph">I could be wrong but show me teams reviewing AI-generated specs as rigorously as they reviewed hand-written ones, with no increase in costly late-stage changes, and I’ll happily reconsider. Until then, I’ll ask of every spec the same question I’ve asked of every test I’ve reviewed over the years:</p>
+
+
+
+<blockquote class="wp-block-quote is-layout-flow wp-block-quote-is-layout-flow">
+<p class="wp-block-paragraph">What exactly does it assert?</p>
+</blockquote>
+							</article>
+		</div>
+		<div class="entry-meta-bottom">
+			<nav class="further-reading">
+	<p class="prev">
+		<span>Previous Post</span>
+		<a href="/2026/10/05/brakes-not-bars/">Brakes, Not Bars</a>
+	</p>
+	<p class="next">
+		<span>No Newer Posts</span>
+		<a href="/">Return to Blog</a>
+	</p>
+</nav>			<div class="author-meta">
+	<img alt="John Ra" src="https://secure.gravatar.com/avatar/88cb6789ec0a6354ab77f6c84c19815ae2625e0c5ae3861db81495b92365bdbe?s=72&amp;d=mm&amp;r=g" srcset="https://secure.gravatar.com/avatar/88cb6789ec0a6354ab77f6c84c19815ae2625e0c5ae3861db81495b92365bdbe?s=144&amp;d=mm&amp;r=g 2x" class="avatar avatar-72 photo" height="72" width="72" decoding="async">	<div class="name-container">
+		<h4>
+			John Ra		</h4>
+	</div>
+	<p>
+			</p>
+</div>			<div class="entry-categories"><p><i class="fas fa-folder-open"></i><a href="/category/ai/" title="View all posts in AI">AI</a> <a href="/category/engineering/" title="View all posts in Engineering">Engineering</a> <a href="/category/opinion/" title="View all posts in Opinion">Opinion</a></p></div>					</div>
+	</div>
+		</div>
+</div><!-- .main -->
+	<aside id="sidebar-primary-container" class="sidebar-primary-container">
+		<h1 class="screen-reader-text">Primary Sidebar</h1>
+		<div class="sidebar sidebar-primary" id="sidebar-primary" role="complementary">
+			<section id="block-3" class="widget widget_block">
+<div class="wp-block-group"><div class="wp-block-group__inner-container is-layout-flow wp-block-group-is-layout-flow">
+<h2 class="wp-block-heading">Recent Posts</h2>
+
+
+<ul class="wp-block-latest-posts__list wp-block-latest-posts is-layout-flow wp-block-latest-posts-is-layout-flow"><li><a class="wp-block-latest-posts__post-title" href="/2026/10/19/the-illusion-of-spec-driven-development/">The Illusion of Spec-Driven Development</a></li>
+<li><a class="wp-block-latest-posts__post-title" href="/2026/10/05/brakes-not-bars/">Brakes, Not Bars</a></li>
+<li><a class="wp-block-latest-posts__post-title" href="/2026/09/07/price-of-context-switching/">Price of Context Switching</a></li>
+<li><a class="wp-block-latest-posts__post-title" href="/2026/08/30/you-cant-take-credit-for-that/">You Can’t Take Credit for That</a></li>
+<li><a class="wp-block-latest-posts__post-title" href="/2026/07/06/jevons-paradox/">Jevons’ Paradox</a></li>
+</ul></div></div>
+</section><section id="block-21" class="widget widget_block">
+<ul class="wp-block-list">
+<li><a href="http://blog.activelylazy.co.uk/">Actively Lazy</a></li>
+
+
+
+<li><a href="http://www.codeofhonor.com/blog" data-type="link" data-id="http://www.codeofhonor.com/blog">Code Of Honor</a></li>
+
+
+
+<li><a href="http://www.codinghorror.com/blog">Coding Horror</a></li>
+
+
+
+<li><a href="http://blog.sanaulla.info/">Experiences Unlimited</a></li>
+
+
+
+<li><a href="http://javadepend.wordpress.com/">JArchitect</a></li>
+
+
+
+<li><a href="http://www.markhneedham.com/blog">Mark Needham</a></li>
+
+
+
+<li><a href="https://martinfowler.com/">Martin Fowler</a></li>
+
+
+
+<li><a href="https://msun.io/">Mike Sun</a></li>
+
+
+
+<li><a href="http://blogs.msdn.com/b/oldnewthing">Old New Thing</a></li>
+
+
+
+<li><a href="http://www.opsbs.com/">Operation Bootstrap</a></li>
+
+
+
+<li><a href="http://blog.schauderhaft.de/">Schauderhaft</a></li>
+
+
+
+<li><a href="http://www.hanselman.com/blog">Scott Hanselman</a></li>
+
+
+
+<li><a href="http://simpleprogrammer.com/">Simple Programmer</a></li>
+
+
+
+<li><a href="https://francisshanahan.substack.com/">Tech Field Notes</a></li>
+
+
+
+<li><a href="http://tidyfirst.substack.com/">Tidy First? (Kent Beck)</a></li>
+</ul>
+</section><section id="block-4" class="widget widget_block">
+<div class="wp-block-group"><div class="wp-block-group__inner-container is-layout-flow wp-block-group-is-layout-flow">
+<h2 class="wp-block-heading">Categories</h2>
+
+
+<ul class="wp-block-categories-list wp-block-categories-taxonomy-category wp-block-categories">	<li class="cat-item cat-item-9"><a href="/category/dotnet/">.NET</a>
+</li>
+	<li class="cat-item cat-item-44"><a href="/category/ai/">AI</a>
+</li>
+	<li class="cat-item cat-item-18"><a href="/category/dotnet/aspnet/">ASP.NET</a>
+</li>
+	<li class="cat-item cat-item-4"><a href="/category/dotnet/csharp/">C#</a>
+</li>
+	<li class="cat-item cat-item-45"><a href="/category/engineering/">Engineering</a>
+</li>
+	<li class="cat-item cat-item-34"><a href="/category/java/gradle/">Gradle</a>
+</li>
+	<li class="cat-item cat-item-29"><a href="/category/java/groovy/">Groovy</a>
+</li>
+	<li class="cat-item cat-item-25"><a href="/category/humor/">Humor</a>
+</li>
+	<li class="cat-item cat-item-17"><a href="/category/iis/">IIS</a>
+</li>
+	<li class="cat-item cat-item-26"><a href="/category/ios/">iOS</a>
+</li>
+	<li class="cat-item cat-item-3"><a href="/category/java/">Java</a>
+</li>
+	<li class="cat-item cat-item-22"><a href="/category/jscript/">JavaScript</a>
+</li>
+	<li class="cat-item cat-item-23"><a href="/category/jscript/jquery/">jQuery</a>
+</li>
+	<li class="cat-item cat-item-32"><a href="/category/opensource/">Open Source</a>
+</li>
+	<li class="cat-item cat-item-46"><a href="/category/opinion/">Opinion</a>
+</li>
+	<li class="cat-item cat-item-33"><a href="/category/patterns/">Patterns</a>
+</li>
+	<li class="cat-item cat-item-6"><a href="/category/rant/">Rants</a>
+</li>
+	<li class="cat-item cat-item-43"><a href="/category/jscript/reactjs/">ReactJS</a>
+</li>
+	<li class="cat-item cat-item-5"><a href="/category/tutorial/">Tutorial</a>
+</li>
+	<li class="cat-item cat-item-1"><a href="/category/uncategorized/">Uncategorized</a>
+</li>
+</ul></div></div>
+</section>		</div>
+	</aside>
+</div><!-- .overflow-container -->
+<footer id="site-footer" class="site-footer" role="contentinfo">
+	<h1>
+		<a href="/">
+			J O H N R A . M E		</a>
+	</h1>
+	<span class="tagline">...yet another musings of a techie</span>	<div class="design-credit">
+        <span>
+                      </span>
+		<p class="links"><a href="/advertising-policy/">Advertising Policy</a> | <a href="/contact/">Contact</a> | <a href="/privacy-policy/">Privacy Policy</a></p>
+	</div>
+</footer>
+<script type="speculationrules">
+{"prefetch":[{"source":"document","where":{"and":[{"href_matches":"/*"},{"not":{"href_matches":["/wp-*.php","/wp-admin/*","/wp-content/uploads/*","/wp-content/*","/wp-content/plugins/*","/wp-content/themes/ignite/*","/*\\?(.+)"]}},{"not":{"selector_matches":"a[rel~=\"nofollow\"]"}},{"not":{"selector_matches":".no-prefetch, .no-prefetch a"}}]},"eagerness":"conservative"}]}
+</script>
+<script id="ct-ignite-production-js" src="/wp-content/themes/ignite/js/build/production.min.js?ver=7.1.3"></script>
+<script id="wp-emoji-settings" type="application/json">
+{"baseUrl":"https://s.w.org/images/core/emoji/17.0.2/72x72/","ext":".png","svgUrl":"https://s.w.org/images/core/emoji/17.0.2/svg/","svgExt":".svg","source":{"concatemoji":"/wp-includes/js/wp-emoji-release.min.js?ver=7.1.3"}}
+</script>
+<script type="module">
+/*! This file is auto-generated */
+var e="script#wp-emoji-settings",t=document.querySelector(e);if(!(t instanceof HTMLScriptElement))throw new Error("Element missing: "+e);const r=JSON.parse(t.text),s=(window._wpemojiSettings=r,"wpEmojiSettingsSupports"),o=["flag","emoji"];function i(e){try{var t={supportTests:e,timestamp:(new Date).valueOf()};sessionStorage.setItem(s,JSON.stringify(t))}catch(e){}}function c(e,t,n){e.clearRect(0,0,e.canvas.width,e.canvas.height),e.fillText(t,0,0);t=new Uint32Array(e.getImageData(0,0,e.canvas.width,e.canvas.height).data);e.clearRect(0,0,e.canvas.width,e.canvas.height),e.fillText(n,0,0);const r=new Uint32Array(e.getImageData(0,0,e.canvas.width,e.canvas.height).data);return t.every((e,t)=>e===r[t])}function p(e,t){e.clearRect(0,0,e.canvas.width,e.canvas.height),e.fillText(t,0,0);var n=e.getImageData(16,16,1,1);for(let e=0;e<n.data.length;e++)if(0!==n.data[e])return!1;return!0}function u(e,t,n,r){switch(t){case"flag":return n(e,"\ud83c\udff3\ufe0f\u200d\u26a7\ufe0f","\ud83c\udff3\ufe0f\u200b\u26a7\ufe0f")?!1:!n(e,"\ud83c\udde8\ud83c\uddf6","\ud83c\udde8\u200b\ud83c\uddf6")&&!n(e,"\ud83c\udff4\udb40\udc67\udb40\udc62\udb40\udc65\udb40\udc6e\udb40\udc67\udb40\udc7f","\ud83c\udff4\u200b\udb40\udc67\u200b\udb40\udc62\u200b\udb40\udc65\u200b\udb40\udc6e\u200b\udb40\udc67\u200b\udb40\udc7f");case"emoji":return!r(e,"\ud83e\u1fac8")}return!1}function f(e,t,n,r){let a;const s=(a="undefined"!=typeof WorkerGlobalScope&&self instanceof WorkerGlobalScope?new OffscreenCanvas(300,150):document.createElement("canvas")).getContext("2d",{willReadFrequently:!0}),o=(s.textBaseline="top",s.font="600 32px Arial",{});return e.forEach(e=>{o[e]=t(s,e,n,r)}),o}function a(e){var t=document.createElement("script");t.src=e,t.defer=!0,document.head.appendChild(t)}r.supports={everything:!0,everythingExceptFlag:!0},new Promise(t=>{let n=function(){try{var e=JSON.parse(sessionStorage.getItem(s));if("object"==typeof e&&"number"==typeof e.timestamp&&(new Date).valueOf()<e.timestamp+604800&&"object"==typeof e.supportTests)return e.supportTests}catch(e){}return null}();if(!n){if("undefined"!=typeof Worker&&"undefined"!=typeof OffscreenCanvas&&"undefined"!=typeof URL&&URL.createObjectURL&&"undefined"!=typeof Blob)try{var e="postMessage("+f.toString()+"("+[JSON.stringify(o),u.toString(),c.toString(),p.toString()].join(",")+"));",r=new Blob([e],{type:"text/javascript"});const a=new Worker(URL.createObjectURL(r),{name:"wpTestEmojiSupports"});return void(a.onmessage=e=>{i(n=e.data),a.terminate(),t(n)})}catch(e){}i(n=f(o,u,c,p))}t(n)}).then(e=>{for(const n in e)r.supports[n]=e[n],r.supports.everything=r.supports.everything&&r.supports[n],"flag"!==n&&(r.supports.everythingExceptFlag=r.supports.everythingExceptFlag&&r.supports[n]);var t;r.supports.everythingExceptFlag=r.supports.everythingExceptFlag&&!r.supports.flag,r.supports.everything||((t=r.source||{}).concatemoji?a(t.concatemoji):t.wpemoji&&t.twemoji&&(a(t.twemoji),a(t.wpemoji)))});
+//# sourceURL=/wp-includes/js/wp-emoji-loader.min.js
+</script>
+<!-- Google tag (gtag.js) -->
+<script async src="https://www.googletagmanager.com/gtag/js?id=G-M1C40BG5Q3"></script>
+<script>
+  window.dataLayer = window.dataLayer || [];
+  function gtag(){dataLayer.push(arguments);}
+  gtag('js', new Date());
+
+  gtag('config', 'G-M1C40BG5Q3');
+</script>
+</body>
+</html>
